@@ -1,0 +1,182 @@
+[
+  {
+    "slug": "corporate-and-ma",
+    "name": "Corporate & M&A",
+    "iconName": "Briefcase",
+    "overview": "Our Corporate & M&A practice is renowned for advising on high-value, complex cross-border transactions. We guide corporations, financial sponsors, and boards of directors through their most significant strategic decisions, combining commercial acumen with legal precision.",
+    "expertise": [
+      "Public and Private Mergers & Acquisitions",
+      "Cross-Border Joint Ventures",
+      "Corporate Restructurings & Reorganisations",
+      "Takeover Code and Securities Regulation",
+      "Fiduciary Duties and Board Advising"
+    ],
+    "industriesServed": [
+      "Financial Institutions",
+      "Technology, Media & Telecom (TMT)",
+      "Energy & Infrastructure",
+      "Healthcare & Life Sciences",
+      "Consumer & Retail"
+    ],
+    "relatedInsightsSlugs": [
+      "german-insurance-market-opportunities"
+    ]
+  },
+  {
+    "slug": "private-equity",
+    "name": "Private Equity",
+    "iconName": "Layers",
+    "overview": "Advising at every stage of the investment lifecycle, our Private Equity team supports sponsors, investors, and portfolio management teams. We structure creative and robust solutions for buyouts, growth capital investments, and complex exits.",
+    "expertise": [
+      "Leveraged Buyouts (LBOs)",
+      "Growth Equity & Venture Investments",
+      "Sponsor-to-Sponsor Transactions",
+      "Co-investments and Consortium Structures",
+      "Portfolio Company General Representation"
+    ],
+    "industriesServed": [
+      "Private Capital Franchises",
+      "Sovereign Wealth Funds",
+      "Family Offices",
+      "Alternative Asset Managers"
+    ],
+    "relatedInsightsSlugs": [
+      "german-insurance-market-opportunities",
+      "real-opportunities-private-capital-real-estate"
+    ]
+  },
+  {
+    "slug": "banking-and-finance",
+    "name": "Banking & Finance",
+    "iconName": "DollarSign",
+    "overview": "We represent lenders and borrowers across a broad spectrum of financing transactions, helping clients secure liquidity and navigate international credit markets. Our expertise covers leveraged finance, direct lending, asset-backed transactions, and debt restructuring.",
+    "expertise": [
+      "Leveraged and Acquisition Finance",
+      "Direct Lending and Private Credit Platforms",
+      "Asset-Backed and Structured Finance",
+      "Fund Financing (Capital Call & NAV facilities)",
+      "Financial Restructuring & Workouts"
+    ],
+    "industriesServed": [
+      "Commercial and Investment Banks",
+      "Debt Funds & Private Credit Providers",
+      "Corporate Borrowers",
+      "Structured Finance Originators"
+    ],
+    "relatedInsightsSlugs": [
+      "countdown-loan-origination-aifmd-ii",
+      "german-insurance-market-opportunities"
+    ]
+  },
+  {
+    "slug": "dispute-resolution",
+    "name": "Dispute Resolution",
+    "iconName": "Gavel",
+    "overview": "When stakes are high, our litigation and arbitration specialists protect client interests with tenacity and strategic discretion. We handle complex commercial litigation, international arbitrations, and regulatory enforcement investigations globally.",
+    "expertise": [
+      "Complex Commercial Litigation",
+      "International Arbitration (ICC, LCIA, UNCITRAL)",
+      "Regulatory & White-Collar Enforcement",
+      "Shareholder and Joint Venture Disputes",
+      "Cross-Border Asset Recovery"
+    ],
+    "industriesServed": [
+      "Multinational Corporations",
+      "Financial Institutions & Funds",
+      "Board Committees & Independent Directors",
+      "Sovereigns and State Entities"
+    ],
+    "relatedInsightsSlugs": [
+      "countdown-loan-origination-aifmd-ii"
+    ]
+  },
+  {
+    "slug": "regulatory-and-compliance",
+    "name": "Regulatory & Compliance",
+    "iconName": "ShieldCheck",
+    "overview": "Helping clients navigate a shifting global regulatory landscape. We provide strategic counsel on financial services regulation, antitrust and competition compliance, data privacy, sanctions, and corporate governance frameworks.",
+    "expertise": [
+      "Financial Services Regulation (FCA, SEC, ESMA)",
+      "Antitrust and Merger Control Clearanace",
+      "Data Protection & Privacy (GDPR, CCPA)",
+      "Trade Sanctions and AML Compliance",
+      "ESG and Corporate Governance Advisory"
+    ],
+    "industriesServed": [
+      "Asset Managers & Private Fund Sponsors",
+      "FinTech and Payments Companies",
+      "Global Corporate Enterprises",
+      "Healthcare & Highly Regulated Sectors"
+    ],
+    "relatedInsightsSlugs": [
+      "countdown-loan-origination-aifmd-ii",
+      "german-insurance-market-opportunities"
+    ]
+  },
+  {
+    "slug": "real-estate",
+    "name": "Real Estate",
+    "iconName": "Home",
+    "overview": "Our commercial real estate group coordinates high-profile transactions, development projects, and real estate financings. We advise private capital sponsors, institutional funds, and sovereign investors on major properties and developments.",
+    "expertise": [
+      "Commercial Real Estate Acquisitions & Exits",
+      "Real Estate Finance & Structured Debt",
+      "Joint Ventures & Indirect Investment Vehicles",
+      "Large-Scale Development and Planning Projects",
+      "Real Estate Credit and Debt Investment"
+    ],
+    "industriesServed": [
+      "Real Estate Private Equity Funds",
+      "Sovereign Wealth Funds & Institutional Investors",
+      "Commercial Developers",
+      "Direct Lenders & CRE Debt Funds"
+    ],
+    "relatedInsightsSlugs": [
+      "real-opportunities-private-capital-real-estate"
+    ]
+  },
+  {
+    "slug": "tax-advisory",
+    "name": "Tax Advisory",
+    "iconName": "Calculator",
+    "overview": "Providing sophisticated tax structuring for domestic and international transactions. We ensure tax efficiency for corporate mergers, private capital funds, financial instruments, and real estate investments while managing regulatory risks.",
+    "expertise": [
+      "M&A and Transaction Tax Structuring",
+      "Fund Structure and Incentive Tax Planning",
+      "Cross-Border Tax and Transfer Pricing",
+      "Tax Dispute Resolution & Audits",
+      "Structured Finance and Debt Tax Issues"
+    ],
+    "industriesServed": [
+      "Corporate Issuers & Sponsors",
+      "Investment Fund General Partners",
+      "Multinational Operations",
+      "High-Net-Worth Principals"
+    ],
+    "relatedInsightsSlugs": [
+      "german-insurance-market-opportunities"
+    ]
+  },
+  {
+    "slug": "technology-and-innovation",
+    "name": "Technology & Innovation",
+    "iconName": "Cpu",
+    "overview": "At the intersection of law and cutting-edge science, our Tech & Innovation practice advises pioneers and large enterprises on intellectual property, digital transformation, artificial intelligence governance, and high-growth venture matters.",
+    "expertise": [
+      "Intellectual Property Licensing & Disputes",
+      "Artificial Intelligence & Machine Learning Regulation",
+      "Venture Capital and Founders Representation",
+      "Cybersecurity and Digital Assets",
+      "Technology Sourcing & Strategic Outsourcing"
+    ],
+    "industriesServed": [
+      "Enterprise Tech & Software Firms",
+      "Artificial Intelligence Pioneers",
+      "Venture Capital Funds",
+      "Digital Platforms & FinTech Leaders"
+    ],
+    "relatedInsightsSlugs": [
+      "countdown-loan-origination-aifmd-ii"
+    ]
+  }
+]
