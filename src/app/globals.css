@@ -5,16 +5,16 @@
 
 /* ─── Design Tokens ─── */
 :root {
-  --background: #f9f3f1;
-  --foreground: #111111;
-  --muted: #e2ddda;
-  --muted-foreground: #757575;
-  --border: #cdcab2;
-  --primary: #16303d;
-  --secondary: #517380;
-  --accent-teal: #60899b;
-  --accent-foggy: #c4c2aa;
-  --gold: #d4af37;
+  --background: #fcfbf9;
+  --foreground: #0A1128;
+  --muted: #e6e3dd;
+  --muted-foreground: #6b7280;
+  --border: #e6e3dd;
+  --primary: #0A1128;
+  --secondary: #1F2A44;
+  --accent-teal: #1F2A44;
+  --accent-foggy: #C5A059;
+  --gold: #D4AF37;
 
   --font-serif: 'Cormorant Garamond', Georgia, serif;
   --font-sans: 'Inter', system-ui, sans-serif;
@@ -26,13 +26,13 @@
 }
 
 .dark {
-  --background: #111111;
-  --foreground: #f9f3f1;
-  --muted: #1c3e4e;
-  --muted-foreground: #aaaaaa;
-  --border: #517380;
-  --primary: #285c70;
-  --secondary: #cdcab2;
+  --background: #0A1128;
+  --foreground: #fcfbf9;
+  --muted: #1F2A44;
+  --muted-foreground: #a1a1aa;
+  --border: #1F2A44;
+  --primary: #C5A059;
+  --secondary: #D4AF37;
 }
 
 @theme {

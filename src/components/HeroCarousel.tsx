@@ -67,8 +67,8 @@ export default function HeroCarousel({ articles }: HeroCarouselProps) {
   };
 
   const textVariants = {
-    initial: { opacity: 0, y: 30 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8, delay: 0.3 } },
+    initial: { opacity: 0, y: 40 },
+    animate: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.3 } },
     exit: { opacity: 0, y: -20, transition: { duration: 0.3 } },
   };
 
@@ -84,9 +84,12 @@ export default function HeroCarousel({ articles }: HeroCarouselProps) {
           exit="exit"
           className="absolute inset-0 w-full h-full"
         >
-          {/* Background Image */}
-          <div className="absolute inset-0 w-full h-full">
-            <img
+          {/* Background Image with Slow Zoom */}
+          <div className="absolute inset-0 w-full h-full overflow-hidden">
+            <motion.img
+              initial={{ scale: 1 }}
+              animate={{ scale: 1.05 }}
+              transition={{ duration: 6, ease: "linear" }}
               src={currentArticle.featuredImage || "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1920&auto=format&fit=crop"}
               alt={currentArticle.title}
               className="w-full h-full object-cover"

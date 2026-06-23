@@ -66,7 +66,7 @@ export default function HomePage() {
   return (
     <>
       <Header />
-      <main className="flex-grow bg-[#f9f3f1]">
+      <main className="flex-grow bg-[#fcfbf9]">
         {/* ═══════════════════════════════════════════════════
             1. HERO (Macfarlanes style)
         ═══════════════════════════════════════════════════ */}
@@ -75,14 +75,14 @@ export default function HomePage() {
         {/* ═══════════════════════════════════════════════════
             2. WHAT WE DO
         ═══════════════════════════════════════════════════ */}
-        <section className="py-24 sm:py-32 bg-[#111111] text-[#f9f3f1] relative">
+        <section className="py-[100px] lg:py-[140px] bg-[#0A1128] text-[#fcfbf9] relative">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="flex flex-col sm:flex-row justify-between items-baseline mb-16 gap-6">
               <h2 className="font-serif text-4xl sm:text-5xl font-light">What we do</h2>
               <MagneticButton strength={0.2}>
                 <Link
                   href="/practice-areas"
-                  className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#cdcab2] hover:text-white transition-colors border-b border-[#cdcab2]/30 pb-1 hover:border-white"
+                  className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#C5A059] hover:text-white transition-colors border-b border-[#C5A059]/30 pb-1 hover:border-white"
                 >
                   All services
                   <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -98,7 +98,7 @@ export default function HomePage() {
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
             >
               {practiceAreas.map((area, idx) => (
-                <motion.div key={area.slug} variants={fadeInUp} className="group relative border border-white/10 aspect-[3/4] overflow-hidden bg-black">
+                <motion.div key={area.slug} variants={fadeInUp} whileHover={{ y: -8 }} className="group relative border border-white/10 aspect-[3/4] overflow-hidden bg-black">
                   <Link href={`/practice-areas/${area.slug}`} className="block h-full w-full">
                     <img 
                       src={`https://images.unsplash.com/photo-${[
@@ -112,7 +112,7 @@ export default function HomePage() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent pointer-events-none" />
                     <div className="absolute bottom-0 left-0 right-0 p-8">
-                      <h3 className="font-serif text-2xl font-light mb-4 text-white group-hover:text-[#cdcab2] transition-colors relative z-10">
+                      <h3 className="font-serif text-2xl font-light mb-4 text-white group-hover:text-[#C5A059] transition-colors relative z-10">
                         {area.name}
                       </h3>
                       <p className="text-sm text-white/70 leading-relaxed group-hover:text-white transition-colors relative z-10">
@@ -129,14 +129,14 @@ export default function HomePage() {
         {/* ═══════════════════════════════════════════════════
             3. EXAMPLES OF OUR WORK (Case Studies)
         ═══════════════════════════════════════════════════ */}
-        <section className="py-24 sm:py-32 bg-[#f9f3f1]">
+        <section className="py-[100px] lg:py-[140px] bg-[#fcfbf9]">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="flex flex-col sm:flex-row justify-between items-baseline mb-16 gap-6 border-b border-black/10 pb-6">
-              <h2 className="font-serif text-4xl sm:text-5xl font-light text-[#111111]">Examples of our work</h2>
+              <h2 className="font-serif text-4xl sm:text-5xl font-light text-[#0A1128]">Examples of our work</h2>
               <MagneticButton strength={0.2}>
                 <Link
                   href="/practice-areas"
-                  className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#16303d] hover:text-black transition-colors border-b border-[#16303d]/30 pb-1 hover:border-black"
+                  className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#0A1128] hover:text-[#C5A059] transition-colors border-b border-[#0A1128]/30 pb-1 hover:border-[#C5A059]"
                 >
                   Case studies
                   <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -170,18 +170,18 @@ export default function HomePage() {
         {/* ═══════════════════════════════════════════════════
             4. WHO WE ARE
         ═══════════════════════════════════════════════════ */}
-        <section className="py-24 sm:py-32 bg-[#e2ddda]">
+        <section className="py-[100px] lg:py-[140px] bg-[#1F2A44]">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
               <div>
-                <h2 className="font-serif text-4xl sm:text-5xl font-light text-[#111111] mb-8">Who we are</h2>
-                <p className="text-xl md:text-2xl font-serif font-light text-[#111111]/80 leading-relaxed mb-12">
+                <h2 className="font-serif text-4xl sm:text-5xl font-light text-[#fcfbf9] mb-8">Who we are</h2>
+                <p className="text-xl md:text-2xl font-serif font-light text-[#fcfbf9]/80 leading-relaxed mb-12">
                   We are recognized for the quality of our work, not just in dealing with the full range of corporate and commercial matters, but in advising our clients on their private affairs.
                 </p>
                 <MagneticButton strength={0.3}>
                   <Link
                     href="/about"
-                    className="inline-flex items-center gap-3 bg-[#111111] text-[#f9f3f1] px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] hover:bg-[#cdcab2] hover:text-[#111111] transition-colors duration-500"
+                    className="inline-flex items-center gap-3 bg-[#C5A059] text-[#0A1128] px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] hover:bg-[#fcfbf9] hover:text-[#0A1128] transition-colors duration-500"
                   >
                     Get to know us
                     <ArrowRight className="h-4 w-4" />
@@ -208,14 +208,14 @@ export default function HomePage() {
         {/* ═══════════════════════════════════════════════════
             5. FEATURED INSIGHTS
         ═══════════════════════════════════════════════════ */}
-        <section className="py-24 sm:py-32 bg-[#f9f3f1]">
+        <section className="py-[100px] lg:py-[140px] bg-[#fcfbf9]">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="flex flex-col sm:flex-row justify-between items-baseline mb-16 gap-6 border-b border-black/10 pb-6">
-              <h2 className="font-serif text-4xl sm:text-5xl font-light text-[#111111]">Featured insights</h2>
+              <h2 className="font-serif text-4xl sm:text-5xl font-light text-[#0A1128]">Featured insights</h2>
               <MagneticButton strength={0.2}>
                 <Link
                   href="/insights"
-                  className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#16303d] hover:text-black transition-colors border-b border-[#16303d]/30 pb-1 hover:border-black"
+                  className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#0A1128] hover:text-[#C5A059] transition-colors border-b border-[#0A1128]/30 pb-1 hover:border-[#C5A059]"
                 >
                   View all insights
                   <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -231,7 +231,7 @@ export default function HomePage() {
               className="grid grid-cols-1 md:grid-cols-3 gap-8"
             >
               {articles.map((art) => (
-                <motion.article key={art.slug} variants={fadeInUp} className="group">
+                <motion.article key={art.slug} variants={fadeInUp} whileHover={{ y: -8 }} className="group">
                   <Link href={`/insights/${art.slug}`} className="block h-full border-t-2 border-transparent hover:border-[#111111] transition-colors pt-4">
                     <div className="aspect-[4/3] overflow-hidden mb-6 relative">
                       <img
@@ -241,14 +241,14 @@ export default function HomePage() {
                       />
                     </div>
                     <div className="flex items-center gap-3 mb-3">
-                      <span className="text-[10px] uppercase tracking-[0.2em] text-[#517380] font-semibold">
+                      <span className="text-[10px] uppercase tracking-[0.2em] text-[#C5A059] font-semibold">
                         {art.category}
                       </span>
-                      <span className="text-[10px] text-[#111111]/50">
+                      <span className="text-[10px] text-[#0A1128]/50">
                         {new Date(art.datePublished).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
                       </span>
                     </div>
-                    <h3 className="font-serif text-2xl font-light text-[#111111] mb-3 group-hover:text-[#517380] transition-colors">
+                    <h3 className="font-serif text-2xl font-light text-[#0A1128] mb-3 group-hover:text-[#C5A059] transition-colors">
                       {art.title}
                     </h3>
                   </Link>
@@ -261,14 +261,14 @@ export default function HomePage() {
         {/* ═══════════════════════════════════════════════════
             6. LATEST NEWS
         ═══════════════════════════════════════════════════ */}
-        <section className="py-24 sm:py-32 bg-[#111111] text-[#f9f3f1]">
+        <section className="py-[100px] lg:py-[140px] bg-[#0A1128] text-[#fcfbf9]">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="flex flex-col sm:flex-row justify-between items-baseline mb-16 gap-6 border-b border-white/20 pb-6">
               <h2 className="font-serif text-4xl sm:text-5xl font-light">Latest news</h2>
               <MagneticButton strength={0.2}>
                 <Link
                   href="/news"
-                  className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#cdcab2] hover:text-white transition-colors border-b border-[#cdcab2]/30 pb-1 hover:border-white"
+                  className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#C5A059] hover:text-white transition-colors border-b border-[#C5A059]/30 pb-1 hover:border-white"
                 >
                   All news
                   <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
@@ -284,12 +284,12 @@ export default function HomePage() {
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
             >
               {news.map((item) => (
-                <motion.div key={item.slug} variants={fadeInUp} className="group">
+                <motion.div key={item.slug} variants={fadeInUp} whileHover={{ y: -8 }} className="group">
                   <Link href={`/news/${item.slug}`} className="block border-t border-white/20 pt-6">
                     <span className="text-[10px] text-white/50 block mb-3">
                       {new Date(item.datePublished).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
                     </span>
-                    <h3 className="font-serif text-xl font-light text-white group-hover:text-[#cdcab2] transition-colors">
+                    <h3 className="font-serif text-xl font-light text-white group-hover:text-[#C5A059] transition-colors">
                       {item.headline}
                     </h3>
                   </Link>
@@ -302,7 +302,7 @@ export default function HomePage() {
         {/* ═══════════════════════════════════════════════════
             7. OUR OFFICES
         ═══════════════════════════════════════════════════ */}
-        <section className="bg-[#111111] text-white">
+        <section className="bg-[#0A1128] text-white">
           <div className="grid grid-cols-1 md:grid-cols-2 min-h-[500px]">
             {/* Dubai */}
             <motion.div
@@ -317,7 +317,7 @@ export default function HomePage() {
                 alt="Dubai Office"
                 className="w-full h-full object-cover min-h-[400px] md:min-h-[500px] group-hover:scale-105 transition-transform duration-[1.5s]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f12]/90 via-[#0a0f12]/40 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A1128]/90 via-[#0A1128]/40 to-transparent pointer-events-none" />
               <div className="absolute bottom-0 left-0 p-8 sm:p-12 z-10 w-full">
                 <h3 className="font-serif text-3xl font-light mb-4 text-white">Dubai</h3>
                 <p className="text-white/70 font-light leading-relaxed mb-6 max-w-sm">
@@ -326,7 +326,7 @@ export default function HomePage() {
                 <MagneticButton strength={0.2}>
                   <Link
                     href="/offices/dubai"
-                    className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white hover:text-[#cdcab2] transition-colors group/link"
+                    className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white hover:text-[#C5A059] transition-colors group/link"
                   >
                     Go to office
                     <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:translate-x-1" />
@@ -348,7 +348,7 @@ export default function HomePage() {
                 alt="Ireland Office"
                 className="w-full h-full object-cover min-h-[400px] md:min-h-[500px] group-hover:scale-105 transition-transform duration-[1.5s]"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f12]/90 via-[#0a0f12]/40 to-transparent pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A1128]/90 via-[#0A1128]/40 to-transparent pointer-events-none" />
               <div className="absolute bottom-0 left-0 p-8 sm:p-12 z-10 w-full">
                 <h3 className="font-serif text-3xl font-light mb-4 text-white">Ireland</h3>
                 <p className="text-white/70 font-light leading-relaxed mb-6 max-w-sm">
@@ -357,7 +357,7 @@ export default function HomePage() {
                 <MagneticButton strength={0.2}>
                   <Link
                     href="/offices/ireland"
-                    className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white hover:text-[#cdcab2] transition-colors group/link"
+                    className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white hover:text-[#C5A059] transition-colors group/link"
                   >
                     Go to office
                     <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:translate-x-1" />
@@ -371,7 +371,7 @@ export default function HomePage() {
         {/* ═══════════════════════════════════════════════════
             8. CAREERS
         ═══════════════════════════════════════════════════ */}
-        <section className="py-24 sm:py-32 bg-[#16303d] text-white text-center relative overflow-hidden">
+        <section className="py-[100px] lg:py-[140px] bg-[#1F2A44] text-white text-center relative overflow-hidden">
           <div className="absolute inset-0 noise-bg opacity-30 mix-blend-overlay pointer-events-none" />
           <div className="mx-auto max-w-[1000px] px-6 lg:px-10 relative z-10">
             <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl font-light mb-8">Careers at Silverlake</h2>
@@ -381,7 +381,7 @@ export default function HomePage() {
             <MagneticButton strength={0.3}>
               <Link
                 href="/careers"
-                className="inline-flex items-center gap-3 bg-[#cdcab2] text-[#0a0f12] px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] hover:bg-white transition-colors duration-500"
+                className="inline-flex items-center gap-3 bg-[#C5A059] text-[#0A1128] px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] hover:bg-white transition-colors duration-500"
               >
                 Join us
                 <ArrowRight className="h-4 w-4" />

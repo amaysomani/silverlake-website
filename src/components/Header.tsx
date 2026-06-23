@@ -53,9 +53,13 @@ export default function Header() {
 
   return (
     <>
-      {/* ─── Solid Header ─── */}
+      {/* ─── Transparent → Solid Header ─── */}
       <motion.header
-        className={`fixed top-0 z-40 w-full bg-[#111111]/95 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/10`}
+        className={`fixed top-0 z-40 w-full transition-all duration-700 ${
+          scrolled
+            ? "bg-[#0A1128]/95 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/10"
+            : "bg-transparent border-b border-transparent"
+        }`}
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="flex h-20 items-center justify-between">
