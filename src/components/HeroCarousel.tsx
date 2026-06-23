@@ -87,7 +87,7 @@ export default function HeroCarousel({ articles }: HeroCarouselProps) {
           {/* Background Image */}
           <div className="absolute inset-0 w-full h-full">
             <img
-              src={currentArticle.imageUrl || "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1920&auto=format&fit=crop"}
+              src={currentArticle.featuredImage || "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1920&auto=format&fit=crop"}
               alt={currentArticle.title}
               className="w-full h-full object-cover"
             />
