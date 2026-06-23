@@ -330,7 +330,76 @@ export default function HomePage() {
         </section>
 
         {/* ═══════════════════════════════════════════════════
-            7. CAREERS
+            7. OUR OFFICES
+        ═══════════════════════════════════════════════════ */}
+        <section className="bg-[#111111] text-white">
+          <div className="grid grid-cols-1 md:grid-cols-2 min-h-[500px]">
+            {/* Dubai */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              className="relative group overflow-hidden"
+            >
+              <img
+                src="/images/dubai-office.png"
+                alt="Dubai Office"
+                className="w-full h-full object-cover min-h-[400px] md:min-h-[500px] group-hover:scale-105 transition-transform duration-[1.5s]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f12]/90 via-[#0a0f12]/40 to-transparent pointer-events-none" />
+              <div className="absolute bottom-0 left-0 p-8 sm:p-12 z-10 w-full">
+                <h3 className="font-serif text-3xl font-light mb-4 text-white">Dubai</h3>
+                <p className="text-white/70 font-light leading-relaxed mb-6 max-w-sm">
+                  Our Dubai office serves as a hub for our Middle East practice, advising clients on cross-border transactions and private capital investments.
+                </p>
+                <MagneticButton strength={0.2}>
+                  <Link
+                    href="/offices/dubai"
+                    className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white hover:text-[#cdcab2] transition-colors group/link"
+                  >
+                    Go to office
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:translate-x-1" />
+                  </Link>
+                </MagneticButton>
+              </div>
+            </motion.div>
+
+            {/* Ireland */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              className="relative group overflow-hidden"
+            >
+              <img
+                src="/images/ireland-office.png"
+                alt="Ireland Office"
+                className="w-full h-full object-cover min-h-[400px] md:min-h-[500px] group-hover:scale-105 transition-transform duration-[1.5s]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f12]/90 via-[#0a0f12]/40 to-transparent pointer-events-none" />
+              <div className="absolute bottom-0 left-0 p-8 sm:p-12 z-10 w-full">
+                <h3 className="font-serif text-3xl font-light mb-4 text-white">Ireland</h3>
+                <p className="text-white/70 font-light leading-relaxed mb-6 max-w-sm">
+                  Our Ireland representative office helps European private capital clients understand the market and informs investors on European opportunities.
+                </p>
+                <MagneticButton strength={0.2}>
+                  <Link
+                    href="/offices/ireland"
+                    className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white hover:text-[#cdcab2] transition-colors group/link"
+                  >
+                    Go to office
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:translate-x-1" />
+                  </Link>
+                </MagneticButton>
+              </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* ═══════════════════════════════════════════════════
+            8. CAREERS
         ═══════════════════════════════════════════════════ */}
         <section className="py-24 sm:py-32 bg-[#16303d] text-white text-center relative overflow-hidden">
           <div className="absolute inset-0 noise-bg opacity-30 mix-blend-overlay pointer-events-none" />
