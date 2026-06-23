@@ -125,17 +125,30 @@ export default function HomePage() {
               whileInView="visible"
               viewport={{ once: true, margin: "-50px" }}
               variants={staggerContainer}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
             >
-              {practiceAreas.map((area) => (
-                <motion.div key={area.slug} variants={fadeInUp} className="group border-t border-white/20 pt-6">
-                  <Link href={`/practice-areas/${area.slug}`} className="block">
-                    <h3 className="font-serif text-2xl font-light mb-4 group-hover:text-[#cdcab2] transition-colors">
-                      {area.name}
-                    </h3>
-                    <p className="text-sm text-white/50 leading-relaxed group-hover:text-white/80 transition-colors">
-                      {area.overview.substring(0, 100)}...
-                    </p>
+              {practiceAreas.map((area, idx) => (
+                <motion.div key={area.slug} variants={fadeInUp} className="group relative border border-white/10 aspect-[3/4] overflow-hidden bg-black">
+                  <Link href={`/practice-areas/${area.slug}`} className="block h-full w-full">
+                    <img 
+                      src={`https://images.unsplash.com/photo-${[
+                        "1507679622114-f1eb0e00be33", // Boardroom
+                        "1454165804606-c3d57bc86b40", // Finance
+                        "1556761175-5973dc0f32b7", // Corporate
+                        "1600880292203-757bb62b4baf"  // Legal
+                      ][idx % 4]}?q=80&w=800&auto=format&fit=crop`}
+                      alt={area.name}
+                      className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-110 group-hover:opacity-50 transition-all duration-1000"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 right-0 p-8">
+                      <h3 className="font-serif text-2xl font-light mb-4 text-white group-hover:text-[#cdcab2] transition-colors relative z-10">
+                        {area.name}
+                      </h3>
+                      <p className="text-sm text-white/70 leading-relaxed group-hover:text-white transition-colors relative z-10">
+                        {area.overview.substring(0, 80)}...
+                      </p>
+                    </div>
                   </Link>
                 </motion.div>
               ))}
@@ -169,7 +182,7 @@ export default function HomePage() {
               className="relative aspect-[21/9] md:aspect-[24/9] overflow-hidden bg-black group"
             >
               <img
-                src="https://images.unsplash.com/photo-1577415124228-29d1f27160c2?q=80&w=1600&auto=format&fit=crop"
+                src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1600&auto=format&fit=crop"
                 alt="Case Study"
                 className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-1000"
               />
@@ -187,21 +200,38 @@ export default function HomePage() {
         {/* ═══════════════════════════════════════════════════
             4. WHO WE ARE
         ═══════════════════════════════════════════════════ */}
-        <section className="py-24 sm:py-32 bg-[#e2ddda] text-center">
-          <div className="mx-auto max-w-[1000px] px-6 lg:px-10">
-            <h2 className="font-serif text-4xl sm:text-5xl font-light text-[#111111] mb-8">Who we are</h2>
-            <p className="text-xl md:text-2xl font-serif font-light text-[#111111]/80 leading-relaxed mb-12">
-              We are recognized for the quality of our work, not just in dealing with the full range of corporate and commercial matters, but in advising our clients on their private affairs.
-            </p>
-            <MagneticButton strength={0.3}>
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-3 bg-[#111111] text-[#f9f3f1] px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] hover:bg-[#cdcab2] hover:text-[#111111] transition-colors duration-500"
+        <section className="py-24 sm:py-32 bg-[#e2ddda]">
+          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              <div>
+                <h2 className="font-serif text-4xl sm:text-5xl font-light text-[#111111] mb-8">Who we are</h2>
+                <p className="text-xl md:text-2xl font-serif font-light text-[#111111]/80 leading-relaxed mb-12">
+                  We are recognized for the quality of our work, not just in dealing with the full range of corporate and commercial matters, but in advising our clients on their private affairs.
+                </p>
+                <MagneticButton strength={0.3}>
+                  <Link
+                    href="/about"
+                    className="inline-flex items-center gap-3 bg-[#111111] text-[#f9f3f1] px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] hover:bg-[#cdcab2] hover:text-[#111111] transition-colors duration-500"
+                  >
+                    Get to know us
+                    <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </MagneticButton>
+              </div>
+              <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeInUp}
+                className="relative aspect-[4/3] overflow-hidden"
               >
-                Get to know us
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </MagneticButton>
+                <img
+                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop"
+                  alt="Silverlake Office"
+                  className="w-full h-full object-cover"
+                />
+              </motion.div>
+            </div>
           </div>
         </section>
 
