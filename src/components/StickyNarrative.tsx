@@ -39,7 +39,8 @@ export default function StickyNarrative() {
   const [active, setActive] = React.useState(0);
 
   React.useEffect(() => {
-    return activeIndex.onChange((v) => setActive(v));
+    const unsubscribe = activeIndex.on("change", (v) => setActive(v));
+    return () => unsubscribe();
   }, [activeIndex]);
 
   return (
