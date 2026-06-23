@@ -182,7 +182,7 @@ export default function HomePage() {
               className="relative aspect-[21/9] md:aspect-[24/9] overflow-hidden bg-black group"
             >
               <img
-                src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?q=80&w=1600&auto=format&fit=crop"
+                src="/images/case-study.png"
                 alt="Case Study"
                 className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-1000"
               />
@@ -226,7 +226,7 @@ export default function HomePage() {
                 className="relative aspect-[4/3] overflow-hidden"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200&auto=format&fit=crop"
+                  src="/images/office-interior.png"
                   alt="Silverlake Office"
                   className="w-full h-full object-cover"
                 />
