@@ -90,14 +90,14 @@ export default function Footer() {
           {/* Services */}
           <div>
             <h3 className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#cdcab2]/60 mb-5">
-              Services
+              What we do
             </h3>
             <ul className="space-y-3">
               {[
-                { name: "Corporate & M&A", href: "/practice-areas/corporate-and-ma" },
-                { name: "Private Equity", href: "/practice-areas/private-equity" },
-                { name: "Banking & Finance", href: "/practice-areas/banking-and-finance" },
-                { name: "Dispute Resolution", href: "/practice-areas/dispute-resolution" },
+                { name: "Private Capital", href: "/practice-areas/private-capital" },
+                { name: "Private Wealth", href: "/practice-areas/private-wealth" },
+                { name: "M&A", href: "/practice-areas/corporate-and-ma" },
+                { name: "Disputes", href: "/practice-areas/dispute-resolution" },
                 { name: "View All →", href: "/practice-areas" },
               ].map((link) => (
                 <li key={link.name}>
@@ -116,10 +116,11 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3">
               {[
-                { name: "About the Firm", href: "/about" },
-                { name: "Insights Hub", href: "/insights" },
-                { name: "News & Media", href: "/news" },
-                { name: "Careers & Hiring", href: "/careers" },
+                { name: "Who we are", href: "/about" },
+                { name: "Insights", href: "/insights" },
+                { name: "News", href: "/news" },
+                { name: "Join us", href: "/careers" },
+                { name: "Alumni", href: "#alumni" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="text-xs text-[#f9f3f1]/35 hover:text-[#f9f3f1] transition-colors duration-300 font-light">

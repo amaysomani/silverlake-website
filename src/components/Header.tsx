@@ -10,19 +10,20 @@ import MagneticButton from "./MagneticButton";
 
 const allNavLinks = [
   { name: "Home", href: "/" },
-  { name: "About Us", href: "/about" },
-  { name: "Practice Areas", href: "/practice-areas" },
+  { name: "What we do", href: "/practice-areas" },
+  { name: "Who we are", href: "/about" },
   { name: "Insights", href: "/insights" },
+  { name: "Join us", href: "/careers" },
   { name: "News", href: "/news" },
-  { name: "Careers", href: "/careers" },
-  { name: "Contact Us", href: "/careers#apply" },
+  { name: "Alumni", href: "#alumni" },
+  { name: "Get in touch", href: "/careers#apply" },
 ];
 
 const desktopLinks = [
-  { name: "HOME", href: "/" },
-  { name: "PRACTICE", href: "/practice-areas" },
+  { name: "WHAT WE DO", href: "/practice-areas" },
+  { name: "WHO WE ARE", href: "/about" },
   { name: "INSIGHTS", href: "/insights" },
-  { name: "CONTACT", href: "/careers#apply" },
+  { name: "JOIN US", href: "/careers" },
 ];
 
 export default function Header() {
