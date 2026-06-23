@@ -270,9 +270,14 @@ export default function HomePage() {
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.2s]"
                       />
                     </div>
-                    <span className="text-[10px] uppercase tracking-[0.2em] text-[#517380] font-semibold block mb-3">
-                      {art.category}
-                    </span>
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="text-[10px] uppercase tracking-[0.2em] text-[#517380] font-semibold">
+                        {art.category}
+                      </span>
+                      <span className="text-[10px] text-[#111111]/50">
+                        {new Date(art.datePublished).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
+                      </span>
+                    </div>
                     <h3 className="font-serif text-2xl font-light text-[#111111] mb-3 group-hover:text-[#517380] transition-colors">
                       {art.title}
                     </h3>
