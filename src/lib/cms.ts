@@ -2,19 +2,21 @@ import { Article, NewsItem, PracticeArea } from "./types";
 import practiceAreasData from "@/content/practice-areas.json";
 import articlesData from "@/content/articles.json";
 import newsData from "@/content/news.json";
+import { client } from "@/sanity/client";
+import { urlForImage } from "@/sanity/image";
 
 // Cast JSON data to typed arrays
 const practiceAreas: PracticeArea[] = practiceAreasData as PracticeArea[];
-const articles: Article[] = (articlesData as Article[]).sort(
+const fallbackArticles: Article[] = (articlesData as Article[]).sort(
   (a, b) => new Date(b.datePublished).getTime() - new Date(a.datePublished).getTime()
 );
-const newsItems: NewsItem[] = (newsData as NewsItem[]).sort(
+const fallbackNewsItems: NewsItem[] = (newsData as NewsItem[]).sort(
   (a, b) => new Date(b.datePublished).getTime() - new Date(a.datePublished).getTime()
 );
 
 // Practice Areas
 export async function getPracticeAreas(): Promise<PracticeArea[]> {
-  return practiceAreas;
+  return practiceAreas; // Currently no Sanity schema for Practice Areas
 }
 
 export async function getPracticeAreaBySlug(slug: string): Promise<PracticeArea | null> {
@@ -44,9 +46,32 @@ interface PaginatedArticles {
 export async function getArticles(options: GetArticlesOptions = {}): Promise<PaginatedArticles> {
   const { search, category, tag, page = 1, limit = 10 } = options;
 
-  let filtered = [...articles];
+  let allArticles = [...fallbackArticles];
 
-  // Search filter (title, summary, tags, content)
+  try {
+    const sanityArticles = await client.fetch(`*[_type == "article"] | order(datePublished desc)`);
+    if (sanityArticles && sanityArticles.length > 0) {
+      allArticles = sanityArticles.map((s: any) => ({
+        title: s.title || "Untitled",
+        slug: s.slug?.current || "untitled",
+        category: s.category || "Uncategorized",
+        datePublished: s.datePublished || new Date().toISOString(),
+        summary: s.content || "",
+        content: s.content || "",
+        imageUrl: s.featuredImage ? urlForImage(s.featuredImage)?.url() : "",
+        readTime: "5 min read",
+        tags: [],
+        author: { name: "Silverlake Editorial", role: "Partner", imageUrl: "" },
+        isFeatured: false
+      }));
+    }
+  } catch (error) {
+    console.error("Sanity Article Fetch Error:", error);
+  }
+
+  let filtered = [...allArticles];
+
+  // Search filter
   if (search) {
     const s = search.toLowerCase();
     filtered = filtered.filter(
@@ -89,18 +114,39 @@ export async function getArticles(options: GetArticlesOptions = {}): Promise<Pag
 }
 
 export async function getArticleBySlug(slug: string): Promise<{ article: Article; relatedArticles: Article[] } | null> {
-  const article = articles.find((a) => a.slug === slug);
+  let allArticles = [...fallbackArticles];
+  
+  try {
+    const sanityArticles = await client.fetch(`*[_type == "article"] | order(datePublished desc)`);
+    if (sanityArticles && sanityArticles.length > 0) {
+      allArticles = sanityArticles.map((s: any) => ({
+        title: s.title || "Untitled",
+        slug: s.slug?.current || "untitled",
+        category: s.category || "Uncategorized",
+        datePublished: s.datePublished || new Date().toISOString(),
+        summary: s.content || "",
+        content: s.content || "",
+        imageUrl: s.featuredImage ? urlForImage(s.featuredImage)?.url() : "",
+        readTime: "5 min read",
+        tags: [],
+        author: { name: "Silverlake Editorial", role: "Partner", imageUrl: "" },
+        isFeatured: false
+      }));
+    }
+  } catch (error) {
+    console.error("Sanity Article Fetch Error:", error);
+  }
+
+  const article = allArticles.find((a) => a.slug === slug);
   if (!article) return null;
 
-  // Find related articles (matching category or tags, excluding current)
-  const related = articles
+  const related = allArticles
     .filter((a) => a.slug !== slug)
     .filter((a) => a.category === article.category || a.tags.some((t) => article.tags.includes(t)))
     .slice(0, 3);
 
-  // Fallback to latest if not enough related
   if (related.length < 3) {
-    const fallback = articles
+    const fallback = allArticles
       .filter((a) => a.slug !== slug && !related.some((r) => r.slug === a.slug))
       .slice(0, 3 - related.length);
     related.push(...fallback);
@@ -113,8 +159,10 @@ export async function getArticleBySlug(slug: string): Promise<{ article: Article
 }
 
 export async function getFeaturedArticle(): Promise<Article | null> {
-  const featured = articles.find((a) => a.isFeatured);
-  return featured || articles[0] || null;
+  const result = await getArticles();
+  const allArticles = result.articles;
+  const featured = allArticles.find((a) => a.isFeatured);
+  return featured || allArticles[0] || null;
 }
 
 // News
@@ -137,7 +185,24 @@ interface PaginatedNews {
 export async function getNews(options: GetNewsOptions = {}): Promise<PaginatedNews> {
   const { page = 1, limit = 10, category } = options;
 
-  let filtered = [...newsItems];
+  let allNews = [...fallbackNewsItems];
+
+  try {
+    const sanityNews = await client.fetch(`*[_type == "news"] | order(datePublished desc)`);
+    if (sanityNews && sanityNews.length > 0) {
+      allNews = sanityNews.map((s: any) => ({
+        headline: s.headline || "Untitled",
+        slug: s.slug?.current || "untitled",
+        datePublished: s.datePublished || new Date().toISOString(),
+        category: "Firm News", // Fallback, no category in our schema yet
+        summary: ""
+      }));
+    }
+  } catch (error) {
+    console.error("Sanity News Fetch Error:", error);
+  }
+
+  let filtered = [...allNews];
 
   if (category && category !== "All") {
     filtered = filtered.filter((item) => item.category.toLowerCase() === category.toLowerCase());
@@ -160,6 +225,7 @@ export async function getNews(options: GetNewsOptions = {}): Promise<PaginatedNe
 }
 
 export async function getNewsBySlug(slug: string): Promise<NewsItem | null> {
-  const item = newsItems.find((n) => n.slug === slug);
+  const result = await getNews();
+  const item = result.news.find((n) => n.slug === slug);
   return item || null;
 }
