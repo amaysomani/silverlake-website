@@ -73,7 +73,7 @@ export default function HeroCarousel({ articles }: HeroCarouselProps) {
   };
 
   return (
-    <section className="relative w-full h-[90vh] bg-[#0a0f12] overflow-hidden flex items-center">
+    <section className="relative w-full h-[90vh] bg-[#0a0f12] overflow-hidden flex items-center pt-20">
       <AnimatePresence initial={false} custom={direction}>
         <motion.div
           key={currentIndex}
