@@ -12,6 +12,7 @@ import { ArrowRight } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MagneticButton from "@/components/MagneticButton";
+import HeroCarousel from "@/components/HeroCarousel";
 import { getPracticeAreas, getArticles, getNews } from "@/lib/cms";
 import { PracticeArea, Article, NewsItem } from "@/lib/types";
 
@@ -69,38 +70,7 @@ export default function HomePage() {
         {/* ═══════════════════════════════════════════════════
             1. HERO (Macfarlanes style)
         ═══════════════════════════════════════════════════ */}
-        <section
-          ref={heroRef}
-          className="relative min-h-[90vh] w-full bg-[#0a0f12] overflow-hidden flex items-center"
-        >
-          <motion.div className="absolute inset-0" style={{ y: yBg, scale: scaleBg }}>
-            <img
-              src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1920&auto=format&fit=crop"
-              alt="Background"
-              className="w-full h-full object-cover opacity-20"
-            />
-          </motion.div>
-          <div className="absolute inset-0 bg-[#0a0f12]/40 z-10" />
-          <div className="absolute inset-0 grain-overlay z-10 pointer-events-none" />
-
-          <motion.div
-            style={{ opacity: opacityHero }}
-            className="mx-auto max-w-[1400px] px-6 lg:px-10 w-full relative z-20 pt-20"
-          >
-            <div className="max-w-5xl">
-              <h1 className="font-serif font-light text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-white leading-[1.1]">
-                <motion.span
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-                  className="block"
-                >
-                  Silverlake is a pre-eminent law firm that serves a global client base in Private Capital, Private Wealth, M&A and Disputes.
-                </motion.span>
-              </h1>
-            </div>
-          </motion.div>
-        </section>
+        <HeroCarousel articles={articles.slice(0, 4)} />
 
         {/* ═══════════════════════════════════════════════════
             2. WHAT WE DO
