@@ -1,7 +1,7 @@
 "use client";
 
 import * as React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import Link from "next/link";
 import { Article } from "@/lib/types";
@@ -38,7 +38,7 @@ export default function HeroCarousel({ articles }: HeroCarouselProps) {
 
   const currentArticle = articles[currentIndex];
 
-  const slideVariants = {
+  const slideVariants: Variants = {
     enter: (dir: number) => ({
       x: dir > 0 ? "10%" : "-10%",
       opacity: 0,
