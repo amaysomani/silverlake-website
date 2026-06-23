@@ -58,7 +58,7 @@ export default function Header() {
         className={`fixed top-0 z-40 w-full transition-all duration-700 ${
           scrolled
             ? "bg-[#0A1128]/95 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/10"
-            : "bg-transparent border-b border-transparent"
+            : "bg-gradient-to-b from-black/70 via-black/30 to-transparent border-b border-transparent"
         }`}
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
@@ -69,7 +69,7 @@ export default function Header() {
                 <motion.span
                   animate={{ letterSpacing: scrolled ? "0.25em" : "0.35em" }}
                   transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                  className="font-serif text-lg sm:text-xl font-medium text-[#f9f3f1] group-hover:text-[#cdcab2] transition-colors duration-500"
+                  className="font-serif text-lg sm:text-xl font-medium text-[#fcfbf9] group-hover:text-[#C5A059] transition-colors duration-500"
                 >
                   SILVERLAKE
                 </motion.span>
@@ -87,12 +87,12 @@ export default function Header() {
                       href={link.href}
                       className={`text-[11px] font-medium tracking-[0.2em] uppercase transition-colors duration-300 py-2 relative group/nav ${
                         isActive
-                          ? "text-[#cdcab2]"
-                          : "text-[#f9f3f1]/60 hover:text-[#f9f3f1]"
+                          ? "text-[#C5A059]"
+                          : "text-[#fcfbf9]/70 hover:text-[#fcfbf9]"
                       }`}
                     >
                       {link.name}
-                      <span className={`absolute bottom-0 left-0 w-full h-[1px] bg-[#cdcab2] transition-transform duration-500 origin-left ${
+                      <span className={`absolute bottom-0 left-0 w-full h-[1px] bg-[#C5A059] transition-transform duration-500 origin-left ${
                         isActive ? "scale-x-100" : "scale-x-0 group-hover/nav:scale-x-100"
                       }`} />
                     </Link>
@@ -107,7 +107,7 @@ export default function Header() {
                 <MagneticButton strength={0.3}>
                   <button
                     onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                    className="rounded-full p-2 text-[#f9f3f1]/50 hover:text-[#f9f3f1] transition-all duration-300 cursor-pointer"
+                    className="rounded-full p-2 text-[#fcfbf9]/60 hover:text-[#fcfbf9] transition-all duration-300 cursor-pointer"
                     aria-label="Toggle theme"
                   >
                     {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
@@ -119,7 +119,7 @@ export default function Header() {
               <MagneticButton strength={0.4}>
                 <button
                   onClick={() => setDrawerOpen(true)}
-                  className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-[#f9f3f1]/60 hover:text-[#f9f3f1] hover:border-[#cdcab2] transition-all duration-500 cursor-pointer"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-white/15 text-[#fcfbf9]/70 hover:text-[#fcfbf9] hover:border-[#C5A059] transition-all duration-500 cursor-pointer"
                   aria-label="Open navigation"
                 >
                   <div className="w-[18px] h-[12px] flex flex-col justify-between">
@@ -135,7 +135,7 @@ export default function Header() {
               {mounted && (
                 <button
                   onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                  className="rounded-full p-2 text-[#f9f3f1]/50 hover:text-[#f9f3f1] transition-all duration-300 cursor-pointer"
+                  className="rounded-full p-2 text-[#fcfbf9]/50 hover:text-[#fcfbf9] transition-all duration-300 cursor-pointer"
                   aria-label="Toggle theme"
                 >
                   {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
@@ -143,7 +143,7 @@ export default function Header() {
               )}
               <button
                 onClick={() => setDrawerOpen(true)}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-[#f9f3f1]/60 hover:text-[#f9f3f1] transition-all duration-300 cursor-pointer"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-[#fcfbf9]/60 hover:text-[#fcfbf9] transition-all duration-300 cursor-pointer"
                 aria-label="Open menu"
               >
                 <div className="w-4 h-3 flex flex-col justify-between">
@@ -167,7 +167,7 @@ export default function Header() {
               exit={{ scaleY: 0 }}
               transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
               style={{ transformOrigin: "top" }}
-              className="fixed inset-0 z-50 bg-[#0a0f12]"
+              className="fixed inset-0 z-50 bg-[#0A1128]"
             />
 
             {/* Navigation Content */}
