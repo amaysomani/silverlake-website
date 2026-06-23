@@ -132,10 +132,10 @@ export default function HomePage() {
                   <Link href={`/practice-areas/${area.slug}`} className="block h-full w-full">
                     <img 
                       src={`https://images.unsplash.com/photo-${[
-                        "1507679622114-f1eb0e00be33", // Boardroom
+                        "1589829085413-56de8ae18c73", // Legal Scales
                         "1454165804606-c3d57bc86b40", // Finance
-                        "1556761175-5973dc0f32b7", // Corporate
-                        "1600880292203-757bb62b4baf"  // Legal
+                        "1497366216548-37526070297c", // Corporate Office
+                        "1600880292203-757bb62b4baf"  // Legal Handshake
                       ][idx % 4]}?q=80&w=800&auto=format&fit=crop`}
                       alt={area.name}
                       className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-110 group-hover:opacity-50 transition-all duration-1000"
