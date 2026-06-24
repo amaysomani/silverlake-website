@@ -6,8 +6,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Silverlake LLP | Excellence in Legal Advisory",
-    template: "%s | Silverlake LLP",
+    default: "Silverlake Legal Advisors LLP | Excellence in Legal Advisory",
+    template: "%s | Silverlake Legal Advisors LLP",
   },
   description: "A premium international law firm delivering sophisticated counsel across Corporate, Private Equity, Private Wealth, and Dispute Resolution.",
   keywords: ["Silverlake", "Law Firm", "Corporate Law", "M&A", "Private Equity", "Banking & Finance", "Dispute Resolution", "Regulatory", "Real Estate", "Tax Advisory", "Technology Law"],
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: "Silverlake | Corporate Law Firm",
     description: "Silverlake is a leading international law firm advising businesses, investors, entrepreneurs, and institutions on complex legal matters across jurisdictions.",
     url: "https://silverlakelaw.in",
-    siteName: "Silverlake LLP",
+    siteName: "Silverlake Legal Advisors LLP",
     locale: "en_GB",
     type: "website",
   },

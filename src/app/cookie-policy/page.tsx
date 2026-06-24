@@ -19,7 +19,7 @@ export default function CookiePolicyPage() {
 
           <div className="space-y-8 text-[#444] text-[16px] font-light leading-relaxed">
             <p>
-              Silverlake LLP ("we", "us", or "our") utilises cookies and similar tracking technologies on our website, www.silverlakelaw.in (the "Website"). This Cookie Policy outlines how we collect, use, and manage information pertaining to your browsing activities to enhance user experience, optimise functionality, and secure our Website.
+              Silverlake Legal Advisors LLP ("we", "us", or "our") utilises cookies and similar tracking technologies on our website, www.silverlakelaw.in (the "Website"). This Cookie Policy outlines how we collect, use, and manage information pertaining to your browsing activities to enhance user experience, optimise functionality, and secure our Website.
             </p>
 
             <p>
@@ -37,7 +37,7 @@ export default function CookiePolicyPage() {
             </p>
             <ul className="list-disc pl-6 space-y-4">
               <li>
-                First-Party and Third-Party Cookies: "First-party" cookies are set directly by the Silverlake LLP domain. "Third-party" cookies are placed by external entities or service providers operating through our Website.
+                First-Party and Third-Party Cookies: "First-party" cookies are set directly by the Silverlake Legal Advisors LLP domain. "Third-party" cookies are placed by external entities or service providers operating through our Website.
               </li>
               <li>
                 Session Cookies: These are temporary cookies utilised to link a user's actions during a single browser session. They are automatically deleted from your device the moment you close your browser window.

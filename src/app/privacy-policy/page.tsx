@@ -19,7 +19,7 @@ export default function PrivacyPolicyPage() {
           <div className="space-y-8 text-[#444] text-[16px] font-light leading-relaxed">
             <h2 className="font-serif text-[24px] font-normal text-[#111] mt-12 mb-4">Purpose of this Policy</h2>
             <p>
-              Silverlake LLP (hereinafter referred to as the "we," "us," or "our") is committed to protecting and respecting your privacy. This Privacy Policy sets forth the basis on which any personal data we collect from you, or that you provide to us, will be processed. We act as a "Data Controller" in accordance with the General Data Protection Regulation (GDPR) and other applicable data protection legislation. Any updates or amendments to this policy will be published directly on our website.
+              Silverlake Legal Advisors LLP (hereinafter referred to as the "we," "us," or "our") is committed to protecting and respecting your privacy. This Privacy Policy sets forth the basis on which any personal data we collect from you, or that you provide to us, will be processed. We act as a "Data Controller" in accordance with the General Data Protection Regulation (GDPR) and other applicable data protection legislation. Any updates or amendments to this policy will be published directly on our website.
             </p>
 
             <h2 className="font-serif text-[24px] font-normal text-[#111] mt-12 mb-4">Categories of Personal Data Collected</h2>
@@ -70,7 +70,7 @@ export default function PrivacyPolicyPage() {
               <li>Lodge a formal complaint with the relevant supervisory authority.</li>
             </ul>
             <p>
-              If you wish to exercise these rights, you may, at any time, contact Silverlake LLP using the contact details below.
+              If you wish to exercise these rights, you may, at any time, contact Silverlake Legal Advisors LLP using the contact details below.
             </p>
 
             <h2 className="font-serif text-[24px] font-normal text-[#111] mt-12 mb-4">Disclosure and Third-Party Sharing</h2>
@@ -90,7 +90,7 @@ export default function PrivacyPolicyPage() {
 
             <h2 className="font-serif text-[24px] font-normal text-[#111] mt-12 mb-4">Non-existence of automated decision making</h2>
             <p>
-              Silverlake LLP does not subject your Personal Data to automated decision-making processes, nor do we engage in profiling activities to evaluate personal aspects relating to a natural person.
+              Silverlake Legal Advisors LLP does not subject your Personal Data to automated decision-making processes, nor do we engage in profiling activities to evaluate personal aspects relating to a natural person.
             </p>
 
             <h2 className="font-serif text-[24px] font-normal text-[#111] mt-12 mb-4">Contact us</h2>

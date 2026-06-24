@@ -242,7 +242,7 @@ export default function Header() {
                       </div>
                       <div className="pt-4 border-t border-white/5">
                         <p className="text-[10px] text-[#f9f3f1]/30 tracking-wider">
-                          &copy; {new Date().getFullYear()} Silverlake LLP
+                          &copy; {new Date().getFullYear()} Silverlake Legal Advisors LLP
                         </p>
                       </div>
                     </motion.div>

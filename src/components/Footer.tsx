@@ -193,7 +193,7 @@ export default function Footer() {
       <div className="border-t border-white/5">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[10px] text-[#f9f3f1]/20 tracking-wider">
-            &copy; {new Date().getFullYear()} Silverlake LLP. All rights reserved.
+            &copy; {new Date().getFullYear()} Silverlake Legal Advisors LLP. All rights reserved.
           </p>
 
           <div className="flex items-center gap-6">

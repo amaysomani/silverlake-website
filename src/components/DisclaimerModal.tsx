@@ -45,24 +45,24 @@ export default function DisclaimerModal() {
             
             <div className="space-y-6 text-[#444] text-[15px] font-light leading-relaxed">
               <p>
-                The rules of the Bar Council of India strictly prohibit law firms and legal practitioners from soliciting work or advertising in any manner. By accessing the Silverlake LLP website (hereinafter referred to as the "Website"), the user expressly acknowledges and agrees to the following:
+                The rules of the Bar Council of India strictly prohibit law firms and legal practitioners from soliciting work or advertising in any manner. By accessing the Silverlake Legal Advisors LLP website (hereinafter referred to as the "Website"), the user expressly acknowledges and agrees to the following:
               </p>
               
               <ul className="list-disc pl-6 space-y-4">
                 <li>
-                  The user is accessing the Website entirely of their own volition to seek further information regarding Silverlake LLP. There has been no advertisement, personal communication, solicitation, invitation, or inducement of any sort whatsoever from Silverlake LLP or any of its members to solicit work through this Website.
+                  The user is accessing the Website entirely of their own volition to seek further information regarding Silverlake Legal Advisors LLP. There has been no advertisement, personal communication, solicitation, invitation, or inducement of any sort whatsoever from Silverlake Legal Advisors LLP or any of its members to solicit work through this Website.
                 </li>
                 <li>
                   The information, materials, and publications contained on this Website are provided solely for informational purposes and shall not be construed as legal advice, a legal opinion, or legal consultation.
                 </li>
                 <li>
-                  Any information obtained or materials downloaded from the Website are strictly at the user's discretion. Accessing, receiving, or utilising this Website does not establish, nor is it intended to create, an attorney-client relationship between Silverlake LLP and the user.
+                  Any information obtained or materials downloaded from the Website are strictly at the user's discretion. Accessing, receiving, or utilising this Website does not establish, nor is it intended to create, an attorney-client relationship between Silverlake Legal Advisors LLP and the user.
                 </li>
                 <li>
                   The Website utilises cookies to optimise user experience. By continuing to use this Website, the user provides express consent to the use of cookies and acknowledges the terms set forth in our <Link href="/cookie-policy" className="font-semibold text-[#111] hover:text-[#C5A059] transition-colors underline decoration-1 underline-offset-4">Cookie Policy</Link> and <Link href="/privacy-policy" className="font-semibold text-[#111] hover:text-[#C5A059] transition-colors underline decoration-1 underline-offset-4">Privacy Policy</Link>.
                 </li>
                 <li>
-                  All information, content, design, and materials provided on this Website are the exclusive intellectual property of Silverlake LLP. Any unauthorised use, reproduction, or distribution is strictly prohibited.
+                  All information, content, design, and materials provided on this Website are the exclusive intellectual property of Silverlake Legal Advisors LLP. Any unauthorised use, reproduction, or distribution is strictly prohibited.
                 </li>
               </ul>
 

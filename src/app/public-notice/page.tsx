@@ -22,7 +22,7 @@ export default function PublicNoticePage() {
             </h2>
             
             <p>
-              It has been brought to the attention of Silverlake LLP that unidentified individuals or entities have created fictitious email addresses and are utilising our name, logo, and credentials to disseminate fraudulent legal notices. These unauthorised communications, which primarily consist of fabricated copyright infringement notices, are being circulated to various companies and individuals.
+              It has been brought to the attention of Silverlake Legal Advisors LLP that unidentified individuals or entities have created fictitious email addresses and are utilising our name, logo, and credentials to disseminate fraudulent legal notices. These unauthorised communications, which primarily consist of fabricated copyright infringement notices, are being circulated to various companies and individuals.
             </p>
             
             <p>
@@ -30,7 +30,7 @@ export default function PublicNoticePage() {
             </p>
             
             <p>
-              Accordingly, Silverlake LLP hereby issues this Public Notice to declare and clarify the following:
+              Accordingly, Silverlake Legal Advisors LLP hereby issues this Public Notice to declare and clarify the following:
             </p>
             
             <ul className="list-disc pl-6 space-y-4">
@@ -38,7 +38,7 @@ export default function PublicNoticePage() {
                 We have no relationship, association, or affiliation, whether direct or indirect, with these unidentified individuals. We have not authorised, commissioned, or endorsed the transmission of such emails or legal notices to any person or entity.
               </li>
               <li>
-                Any emails, notices, or demands of this nature originating from unofficial email domains are wholly fraudulent, unauthorised, and have not been issued by or on behalf of Silverlake LLP.
+                Any emails, notices, or demands of this nature originating from unofficial email domains are wholly fraudulent, unauthorised, and have not been issued by or on behalf of Silverlake Legal Advisors LLP.
               </li>
               <li>
                 We treat the unauthorised use of our name and intellectual property as a severe breach of the law. We are currently initiating all appropriate legal proceedings, including criminal and civil actions, against the responsible parties.
@@ -49,11 +49,11 @@ export default function PublicNoticePage() {
             </ul>
 
             <p>
-              Silverlake LLP, its partners, and its employees categorically disclaim any and all liability for any direct, indirect, consequential, or incidental losses or damages incurred by any party arising out of or in connection with their engagement, reliance, or compliance with such fraudulent communications or individuals.
+              Silverlake Legal Advisors LLP, its partners, and its employees categorically disclaim any and all liability for any direct, indirect, consequential, or incidental losses or damages incurred by any party arising out of or in connection with their engagement, reliance, or compliance with such fraudulent communications or individuals.
             </p>
 
             <p>
-              If you receive a suspicious communication claiming to be from Silverlake LLP, please do not respond or click on any links, and kindly report the incident directly to our official contact channels.
+              If you receive a suspicious communication claiming to be from Silverlake Legal Advisors LLP, please do not respond or click on any links, and kindly report the incident directly to our official contact channels.
             </p>
           </div>
         </div>

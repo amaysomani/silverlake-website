@@ -57,7 +57,7 @@ export default async function ArticleDetailPage({ params }: Props) {
     "description": article.summary,
     "publisher": {
       "@type": "Organization",
-      "name": "Silverlake LLP",
+      "name": "Silverlake Legal Advisors LLP",
       "logo": {
         "@type": "ImageObject",
         "url": "https://silverlakelaw.in/logo.png",
