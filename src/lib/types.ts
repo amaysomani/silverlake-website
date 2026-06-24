@@ -36,3 +36,13 @@ export interface PracticeArea {
   industriesServed: string[];
   relatedInsightsSlugs: string[];
 }
+
+export interface Office {
+  slug: string;
+  name: string;
+  heroImage: string;
+  description: string;
+  address: string[];
+  email: string;
+  phone: string;
+}

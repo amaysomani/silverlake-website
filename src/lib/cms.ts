@@ -1,7 +1,8 @@
-import { Article, NewsItem, PracticeArea } from "./types";
+import { Article, NewsItem, PracticeArea, Office } from "./types";
 import practiceAreasData from "@/content/practice-areas.json";
 import articlesData from "@/content/articles.json";
 import newsData from "@/content/news.json";
+import officesData from "@/content/offices.json";
 import { client } from "@/sanity/client";
 import { urlForImage } from "@/sanity/image";
 
@@ -22,6 +23,18 @@ export async function getPracticeAreas(): Promise<PracticeArea[]> {
 export async function getPracticeAreaBySlug(slug: string): Promise<PracticeArea | null> {
   const area = practiceAreas.find((a) => a.slug === slug);
   return area || null;
+}
+
+// Offices
+const offices: Office[] = officesData as Office[];
+
+export async function getOffices(): Promise<Office[]> {
+  return offices;
+}
+
+export async function getOfficeBySlug(slug: string): Promise<Office | null> {
+  const office = offices.find((o) => o.slug === slug);
+  return office || null;
 }
 
 // Articles (Insights)
