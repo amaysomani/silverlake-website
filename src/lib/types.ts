@@ -42,7 +42,6 @@ export interface Office {
   name: string;
   heroImage: string;
   description: string;
-  address: string[];
   email: string;
   phone: string;
 }

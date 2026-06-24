@@ -4,55 +4,31 @@
     "name": "Udaipur",
     "heroImage": "/images/office-udaipur.png",
     "description": "Our Udaipur hub combines modern legal advisory with a rich heritage, offering strategic guidance for domestic and international clients venturing into the region.",
-    "address": [
-      "Silverlake LLP",
-      "City Palace Complex Area",
-      "Udaipur, Rajasthan 313001",
-      "India"
-    ],
-    "email": "udaipur@silverlakellp.com",
-    "phone": "+91 294 241 9021"
+    "email": "contact@silverlakelaw.in",
+    "phone": "(+91) 8989 599 225, (+91) 8435 375 402"
   },
   {
     "slug": "bangalore",
     "name": "Bangalore",
     "heroImage": "/images/office-bangalore.png",
     "description": "Located in the Silicon Valley of India, our Bangalore office is perfectly positioned to serve the high-growth technology, venture capital, and private equity sectors.",
-    "address": [
-      "Silverlake LLP",
-      "Phase 1, Electronic City",
-      "Bengaluru, Karnataka 560100",
-      "India"
-    ],
-    "email": "bangalore@silverlakellp.com",
-    "phone": "+91 80 2852 2341"
+    "email": "contact@silverlakelaw.in",
+    "phone": "(+91) 8989 599 225, (+91) 8435 375 402"
   },
   {
     "slug": "dubai",
     "name": "Dubai",
     "heroImage": "/images/dubai-office.png",
     "description": "Our Dubai office serves as a hub for our Middle East practice, advising clients on cross-border transactions and private capital investments.",
-    "address": [
-      "Silverlake LLP",
-      "Al Fattan Currency House, Tower 2",
-      "Dubai International Financial Centre (DIFC)",
-      "Dubai, United Arab Emirates"
-    ],
-    "email": "dubai@silverlakellp.com",
-    "phone": "+971 4 362 2500"
+    "email": "contact@silverlakelaw.in",
+    "phone": "(+91) 8989 599 225, (+91) 8435 375 402"
   },
   {
     "slug": "ireland",
     "name": "Ireland",
     "heroImage": "/images/ireland-office.png",
     "description": "Our Ireland representative office helps European private capital clients understand the market and informs investors on European opportunities.",
-    "address": [
-      "Silverlake LLP",
-      "2 Harbourmaster Place",
-      "International Financial Services Centre",
-      "Dublin 1, Ireland"
-    ],
-    "email": "dublin@silverlakellp.com",
-    "phone": "+353 1 614 5000"
+    "email": "contact@silverlakelaw.in",
+    "phone": "(+91) 8989 599 225, (+91) 8435 375 402"
   }
 ]

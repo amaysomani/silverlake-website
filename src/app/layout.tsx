@@ -5,19 +5,19 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Silverlake | Corporate Law Firm",
-    template: "%s | Silverlake",
+    default: "Silverlake LLP | Excellence in Legal Advisory",
+    template: "%s | Silverlake LLP",
   },
-  description: "Silverlake is a leading international law firm advising businesses, investors, entrepreneurs, and institutions on complex legal matters across jurisdictions.",
+  description: "A premium international law firm delivering sophisticated counsel across Corporate, Private Equity, Private Wealth, and Dispute Resolution.",
   keywords: ["Silverlake", "Law Firm", "Corporate Law", "M&A", "Private Equity", "Banking & Finance", "Dispute Resolution", "Regulatory", "Real Estate", "Tax Advisory", "Technology Law"],
   authors: [{ name: "Silverlake" }],
-  metadataBase: new URL("https://silverlake.com"),
+  metadataBase: new URL("https://silverlakelaw.in"),
   openGraph: {
     title: "Silverlake | Corporate Law Firm",
     description: "Silverlake is a leading international law firm advising businesses, investors, entrepreneurs, and institutions on complex legal matters across jurisdictions.",
-    url: "https://silverlake.com",
-    siteName: "Silverlake",
-    locale: "en_US",
+    url: "https://silverlakelaw.in",
+    siteName: "Silverlake LLP",
+    locale: "en_GB",
     type: "website",
   },
   twitter: {

@@ -226,17 +226,19 @@ export default function Header() {
                       <div>
                         <p className="text-[10px] uppercase tracking-[0.3em] text-[#cdcab2]/60 font-medium mb-3">Representative Hubs</p>
                         <p className="text-sm text-[#f9f3f1]/70 font-light leading-relaxed">
-                          Dubai, DIFC<br />
-                          Dublin, Ireland<br />
-                          Udaipur, India<br />
-                          Bangalore, India
+                          Dubai<br />
+                          Ireland<br />
+                          Udaipur<br />
+                          Bangalore
                         </p>
                       </div>
                       <div>
                         <p className="text-[10px] uppercase tracking-[0.3em] text-[#cdcab2]/60 font-medium mb-3">Contact</p>
-                        <p className="text-sm text-[#f9f3f1]/70 font-light">
-                          contact@silverlake.com
-                        </p>
+                        <div className="text-sm text-[#f9f3f1]/70 font-light space-y-1">
+                          <a href="mailto:contact@silverlakelaw.in" className="hover:text-white transition-colors block">contact@silverlakelaw.in</a>
+                          <a href="tel:+918989599225" className="hover:text-white transition-colors block">(+91) 8989 599 225</a>
+                          <a href="tel:+918435375402" className="hover:text-white transition-colors block">(+91) 8435 375 402</a>
+                        </div>
                       </div>
                       <div className="pt-4 border-t border-white/5">
                         <p className="text-[10px] text-[#f9f3f1]/30 tracking-wider">

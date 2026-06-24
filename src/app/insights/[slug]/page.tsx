@@ -60,7 +60,7 @@ export default async function ArticleDetailPage({ params }: Props) {
       "name": "Silverlake LLP",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://silverlake.com/logo.png",
+        "url": "https://silverlakelaw.in/logo.png",
       },
     },
   };

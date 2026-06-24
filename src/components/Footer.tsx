@@ -131,29 +131,34 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Offices */}
+          {/* Contact & Offices */}
           <div>
             <h3 className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#cdcab2]/60 mb-5">
-              Offices
+              Contact Us
             </h3>
-            <ul className="space-y-5 text-xs font-light">
+            <div className="space-y-6">
               <div>
-                <span className="text-[#f9f3f1]/60 font-medium block mb-0.5">Dubai</span>
-                <span className="text-[#f9f3f1]/40">Dubai International Financial Centre (DIFC)</span>
+                <a href="mailto:contact@silverlakelaw.in" className="text-xs text-[#f9f3f1] hover:text-[#cdcab2] transition-colors block mb-1">
+                  contact@silverlakelaw.in
+                </a>
+                <a href="tel:+918989599225" className="text-xs text-[#f9f3f1]/60 hover:text-[#f9f3f1] transition-colors block mb-1">
+                  (+91) 8989 599 225
+                </a>
+                <a href="tel:+918435375402" className="text-xs text-[#f9f3f1]/60 hover:text-[#f9f3f1] transition-colors block">
+                  (+91) 8435 375 402
+                </a>
               </div>
+              
               <div>
-                <span className="text-[#f9f3f1]/60 font-medium block mb-0.5">Ireland</span>
-                <span className="text-[#f9f3f1]/40">Dublin</span>
+                <h4 className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#cdcab2]/40 mb-3">Our Offices</h4>
+                <ul className="space-y-2 text-xs font-light text-[#f9f3f1]/40">
+                  <li>Dubai</li>
+                  <li>Ireland</li>
+                  <li>Udaipur</li>
+                  <li>Bangalore</li>
+                </ul>
               </div>
-              <div>
-                <span className="text-[#f9f3f1]/60 font-medium block mb-0.5">Udaipur</span>
-                <span className="text-[#f9f3f1]/40">City Palace Complex Area</span>
-              </div>
-              <div>
-                <span className="text-[#f9f3f1]/60 font-medium block mb-0.5">Bangalore</span>
-                <span className="text-[#f9f3f1]/40">Electronic City</span>
-              </div>
-            </ul>
+            </div>
           </div>
         </div>
       </div>

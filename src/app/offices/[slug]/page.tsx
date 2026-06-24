@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { getOfficeBySlug, getOffices } from "@/lib/cms";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Mail, Phone } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
@@ -68,27 +68,14 @@ export default async function OfficePage({ params }: { params: Promise<{ slug: s
               
               <div className="space-y-8">
                 <div>
-                  <div className="flex items-start gap-3 mb-2">
-                    <MapPin className="w-4 h-4 text-[#C5A059] mt-1 shrink-0" />
-                    <div className="text-[14px] text-[#444] leading-relaxed">
-                      {office.address.map((line, i) => (
-                        <React.Fragment key={i}>
-                          {line}<br />
-                        </React.Fragment>
-                      ))}
+                  {office.phone.split(', ').map((p, idx) => (
+                    <div key={idx} className="flex items-center gap-3 mb-2">
+                      <Phone className="w-4 h-4 text-[#C5A059] shrink-0" />
+                      <a href={`tel:${p.replace(/\s/g, '').replace(/[()]/g, '')}`} className="text-[14px] text-[#444] hover:text-[#C5A059] transition-colors">
+                        {p}
+                      </a>
                     </div>
-                  </div>
-                </div>
-
-                <div className="h-px w-full bg-gray-100"></div>
-
-                <div>
-                  <div className="flex items-center gap-3 mb-2">
-                    <Phone className="w-4 h-4 text-[#C5A059] shrink-0" />
-                    <a href={`tel:${office.phone.replace(/\s/g, '')}`} className="text-[14px] text-[#444] hover:text-[#C5A059] transition-colors">
-                      {office.phone}
-                    </a>
-                  </div>
+                  ))}
                 </div>
 
                 <div>
