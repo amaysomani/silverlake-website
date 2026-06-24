@@ -86,74 +86,72 @@ export default function PracticeAreasPage() {
           </div>
         </section>
 
-        {/* Practice Grid - Warm Star Dust (#f9f3f1) Background */}
-        <section className="py-24 bg-[#f9f3f1] transition-colors duration-300">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={staggerContainer}
-              className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16"
-            >
-              {practiceAreas.map((area) => {
-                const IconComponent = iconMap[area.iconName] || Briefcase;
-                return (
-                  <motion.div
-                    key={area.slug}
-                    variants={fadeInUp}
-                    className="border border-[#cdcab2] p-10 bg-[#fffaf8] hover:bg-[#232323] hover:shadow-2xl transition-all duration-500 flex flex-col justify-between group"
-                  >
-                    <div className="space-y-6">
-                      <div className="flex items-center gap-x-4">
-                        <div className="p-3 bg-[#f9f3f1] border border-[#cdcab2] text-[#1c3e4e] group-hover:scale-105 transition-transform duration-300">
-                          <IconComponent className="h-6 w-6 stroke-[1.5]" />
-                        </div>
-                        <h2 className="font-serif text-xl font-medium text-[#111111] group-hover:text-[#cdcab2] transition-colors">
-                          {area.name}
-                        </h2>
+        {/* Practice Areas Index - Macfarlanes Style */}
+        <section className="py-24 bg-[#eae8e1] min-h-screen text-[#222]">
+          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+            <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
+              
+              {/* Left Column - Main Categories */}
+              <div className="w-full lg:w-[45%] flex flex-col gap-0">
+                {practiceAreas.map((area, idx) => (
+                  <div key={area.slug} className="border-b border-[#222]/20 last:border-b-0 group cursor-pointer">
+                    <Link 
+                      href={`/practice-areas/${area.slug}`}
+                      className="py-6 flex items-center justify-between hover:text-black transition-colors"
+                    >
+                      <h2 className="font-serif text-2xl lg:text-[28px] font-normal text-[#333] group-hover:text-black transition-colors">
+                        {area.name}
+                      </h2>
+                      <div className="w-8 h-8 rounded-full bg-[#333] flex items-center justify-center group-hover:bg-[#111] transition-colors">
+                        <ArrowRight className="w-4 h-4 text-[#eae8e1] transform rotate-90" />
                       </div>
-                      <p className="text-xs sm:text-sm text-[#757575] group-hover:text-[#e2ddda] leading-relaxed transition-colors duration-300">
-                        {area.overview}
-                      </p>
-                      
-                      {/* Expertise tags */}
-                      <div className="pt-4 space-y-2">
-                        <h4 className="text-[10px] font-semibold uppercase tracking-wider text-[#111111] group-hover:text-[#cdcab2]">Core Expertise:</h4>
-                        <div className="flex flex-wrap gap-2">
-                          {area.expertise.slice(0, 3).map((exp) => (
-                            <span
-                              key={exp}
-                              className="text-[11px] bg-[#f9f3f1] border border-[#cdcab2] px-3 py-1 text-[#757575]"
-                            >
-                              {exp}
-                            </span>
-                          ))}
-                          {area.expertise.length > 3 && (
-                            <span className="text-[11px] px-2 py-1 text-[#1c3e4e] group-hover:text-[#cdcab2] font-semibold">
-                              +{area.expertise.length - 3} more
-                            </span>
-                          )}
-                        </div>
-                      </div>
-                    </div>
+                    </Link>
+                  </div>
+                ))}
+              </div>
 
-                    <div className="mt-8 pt-6 border-t border-[#cdcab2]/40 flex items-center justify-between">
-                      <span className="text-[10px] text-[#757575] group-hover:text-[#aaaaaa] uppercase tracking-widest font-medium">
-                        Silverlake Practice
-                      </span>
-                      <Link
-                        href={`/practice-areas/${area.slug}`}
-                        className="inline-flex items-center text-xs font-semibold uppercase tracking-widest text-[#111111] group-hover:text-[#cdcab2] transition-colors"
-                      >
-                        Explore Practice
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </motion.div>
+              {/* Right Column - Highlighted Area / Sub-categories (Static example for M&A based on screenshot) */}
+              <div className="w-full lg:w-[45%] lg:sticky lg:top-32 flex flex-col pt-6">
+                <div className="flex items-center justify-between mb-8">
+                  <h3 className="font-serif text-2xl lg:text-[28px] font-normal text-[#333]">
+                    M&A
+                  </h3>
+                  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center border border-[#ccc]">
+                    <ArrowRight className="w-4 h-4 text-[#333] transform -rotate-90" />
+                  </div>
+                </div>
+
+                <div className="flex flex-col gap-4">
+                  {[
+                    "Overview of M&A",
+                    "Private M&A",
+                    "Public Takeovers and Mergers",
+                    "Capital Markets",
+                    "Private Equity Transactions",
+                    "Private Capital Real Estate",
+                    "Sponsor Solutions",
+                    "Management Advisory"
+                  ].map((subItem) => (
+                    <Link 
+                      key={subItem} 
+                      href="/practice-areas/corporate-and-ma"
+                      className="group inline-flex items-center gap-2 text-base text-[#444] border-b border-[#222]/30 pb-2 hover:border-[#222] transition-colors w-fit"
+                    >
+                      {subItem}
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </Link>
+                  ))}
+                </div>
+                
+                {/* Visual Separator */}
+                <div className="h-px bg-[#222]/20 w-full mt-12 mb-8"></div>
+                
+                <p className="text-sm text-[#666] font-light max-w-sm">
+                  Click on any practice area on the left to explore our capabilities, sub-practices, and key contacts.
+                </p>
+              </div>
+
+            </div>
           </div>
         </section>
       </main>
