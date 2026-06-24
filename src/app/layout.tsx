@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import SmoothScroll from "@/components/SmoothScroll";
+import DisclaimerModal from "@/components/DisclaimerModal";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -45,6 +46,7 @@ export default function RootLayout({
           forcedTheme="light"
           disableTransitionOnChange
         >
+          <DisclaimerModal />
           <SmoothScroll>
             {children}
           </SmoothScroll>

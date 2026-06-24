@@ -198,11 +198,15 @@ export default function Footer() {
 
           <div className="flex items-center gap-6">
             <div className="flex gap-x-5">
-              {["Privacy Policy", "Terms of Use", "Cookie Settings"].map((item) => (
-                <Link key={item} href="/about" className="text-[10px] text-[#f9f3f1]/20 hover:text-[#f9f3f1]/50 transition-colors tracking-wider">
-                  {item}
-                </Link>
-              ))}
+              <Link href="/privacy-policy" className="text-[10px] text-[#f9f3f1]/20 hover:text-[#f9f3f1]/50 transition-colors tracking-wider">
+                Privacy Policy
+              </Link>
+              <Link href="/cookie-policy" className="text-[10px] text-[#f9f3f1]/20 hover:text-[#f9f3f1]/50 transition-colors tracking-wider">
+                Cookie Policy
+              </Link>
+              <Link href="/public-notice" className="text-[10px] text-[#f9f3f1]/20 hover:text-[#f9f3f1]/50 transition-colors tracking-wider">
+                Public Notice
+              </Link>
             </div>
 
             <span className="h-3 w-[1px] bg-white/10" />
