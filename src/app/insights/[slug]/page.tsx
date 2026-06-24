@@ -147,7 +147,7 @@ export default async function ArticleDetailPage({ params }: Props) {
 
               {/* Body Content */}
               <div
-                className="prose prose-lg sm:prose-xl max-w-none prose-headings:font-serif prose-headings:font-normal prose-headings:text-[#222] prose-p:text-[#333] prose-p:leading-relaxed prose-a:text-[#222] prose-a:underline prose-a:underline-offset-4 hover:prose-a:text-[#C5A059] prose-strong:text-[#222] space-y-8"
+                className="prose prose-lg sm:prose-xl max-w-none prose-headings:font-serif prose-headings:font-normal prose-headings:text-[#222] prose-p:text-[#333] prose-p:leading-relaxed prose-a:text-[#222] prose-a:underline prose-a:underline-offset-4 hover:prose-a:text-[#C5A059] prose-strong:text-[#222] prose-li:text-[#333] dark:prose-headings:text-[#222] dark:prose-p:text-[#333] dark:prose-strong:text-[#222] dark:prose-a:text-[#222] dark:prose-li:text-[#333] space-y-8"
                 dangerouslySetInnerHTML={{ __html: article.content }}
               />
 
