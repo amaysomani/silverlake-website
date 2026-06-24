@@ -53,7 +53,7 @@ export default function HomePage() {
     async function loadData() {
       const [areas, arts, nws] = await Promise.all([
         getPracticeAreas(),
-        getArticles({ limit: 3 }),
+        getArticles({ limit: 6 }),
         getNews({ limit: 4 }),
       ]);
       
@@ -81,7 +81,7 @@ export default function HomePage() {
         {/* ═══════════════════════════════════════════════════
             1. HERO (Macfarlanes style)
         ═══════════════════════════════════════════════════ */}
-        <HeroCarousel articles={articles.slice(0, 4)} />
+        <HeroCarousel articles={articles.slice(0, 3)} />
 
         {/* ═══════════════════════════════════════════════════
             2. WHAT WE DO
@@ -221,50 +221,50 @@ export default function HomePage() {
 
             <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
               {/* Article 0: Spans 2 columns, Light Background */}
-              {articles[0] && (
-                <Link href={`/insights/${articles[0].slug}`} className="md:col-span-2 flex flex-col bg-[#f4f4f4] group">
+              {articles[3] && (
+                <Link href={`/insights/${articles[3].slug}`} className="md:col-span-2 flex flex-col bg-[#f4f4f4] group">
                   <div className="aspect-[2/1] relative overflow-hidden">
-                    <img src={articles[0].featuredImage} alt={articles[0].title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <img src={articles[3].featuredImage} alt={articles[3].title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   </div>
                   <div className="p-8 lg:p-10 flex flex-col flex-grow">
-                    <h3 className="font-serif text-[24px] lg:text-[28px] font-normal text-[#111] mb-12 group-hover:text-black transition-colors leading-snug pr-8">{articles[0].title}</h3>
+                    <h3 className="font-serif text-[24px] lg:text-[28px] font-normal text-[#111] mb-12 group-hover:text-black transition-colors leading-snug pr-8">{articles[3].title}</h3>
                     <div className="text-[11px] uppercase tracking-wider text-[#666] font-semibold mt-auto">
-                      {articles[0].category}<br/>
-                      <span className="text-[#333] mt-1 block">{new Date(articles[0].datePublished).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</span>
+                      {articles[3].category}<br/>
+                      <span className="text-[#333] mt-1 block">{new Date(articles[3].datePublished).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</span>
                     </div>
                   </div>
                 </Link>
               )}
 
               {/* Article 1: Spans 1 column, Dark Background */}
-              {articles[1] && (
-                <Link href={`/insights/${articles[1].slug}`} className="md:col-span-1 flex flex-col bg-[#3a353c] text-white group">
+              {articles[4] && (
+                <Link href={`/insights/${articles[4].slug}`} className="md:col-span-1 flex flex-col bg-[#3a353c] text-white group">
                   <div className="aspect-[4/3] relative overflow-hidden">
-                    <img src={articles[1].featuredImage} alt={articles[1].title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <img src={articles[4].featuredImage} alt={articles[4].title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   </div>
                   <div className="p-6 lg:p-8 flex flex-col flex-grow">
-                    <h3 className="font-serif text-[20px] lg:text-[22px] font-normal text-white mb-4 leading-snug">{articles[1].title}</h3>
-                    <p className="text-[14px] text-white/80 leading-relaxed mb-8">{articles[1].summary}</p>
+                    <h3 className="font-serif text-[20px] lg:text-[22px] font-normal text-white mb-4 leading-snug">{articles[4].title}</h3>
+                    <p className="text-[14px] text-white/80 leading-relaxed mb-8">{articles[4].summary}</p>
                     <div className="text-[11px] uppercase tracking-wider text-white/80 font-semibold mt-auto">
-                      {articles[1].category}<br/>
-                      <span className="text-white mt-1 block">{new Date(articles[1].datePublished).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</span>
+                      {articles[4].category}<br/>
+                      <span className="text-white mt-1 block">{new Date(articles[4].datePublished).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</span>
                     </div>
                   </div>
                 </Link>
               )}
 
               {/* Article 2: Spans 1 column, Light Background */}
-              {articles[2] && (
-                <Link href={`/insights/${articles[2].slug}`} className="md:col-span-1 flex flex-col bg-[#f4f4f4] group">
+              {articles[5] && (
+                <Link href={`/insights/${articles[5].slug}`} className="md:col-span-1 flex flex-col bg-[#f4f4f4] group">
                   <div className="aspect-[4/3] relative overflow-hidden">
-                    <img src={articles[2].featuredImage} alt={articles[2].title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                    <img src={articles[5].featuredImage} alt={articles[5].title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                   </div>
                   <div className="p-6 lg:p-8 flex flex-col flex-grow">
-                    <h3 className="font-serif text-[20px] lg:text-[22px] font-normal text-[#111] mb-4 leading-snug">{articles[2].title}</h3>
-                    <p className="text-[14px] text-[#444] leading-relaxed mb-8">{articles[2].summary}</p>
+                    <h3 className="font-serif text-[20px] lg:text-[22px] font-normal text-[#111] mb-4 leading-snug">{articles[5].title}</h3>
+                    <p className="text-[14px] text-[#444] leading-relaxed mb-8">{articles[5].summary}</p>
                     <div className="text-[11px] uppercase tracking-wider text-[#666] font-semibold mt-auto">
-                      {articles[2].category}<br/>
-                      <span className="text-[#333] mt-1 block">{new Date(articles[2].datePublished).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</span>
+                      {articles[5].category}<br/>
+                      <span className="text-[#333] mt-1 block">{new Date(articles[5].datePublished).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</span>
                     </div>
                   </div>
                 </Link>
