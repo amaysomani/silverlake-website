@@ -40,7 +40,7 @@ export default function DisclaimerModal() {
             className="bg-[#fcfbf9] text-[#111111] max-w-4xl w-full p-10 lg:p-14 shadow-2xl overflow-y-auto max-h-[90vh]"
           >
             <h2 className="font-serif text-[28px] sm:text-[36px] font-normal mb-8">
-              1. DISCLAIMER
+              DISCLAIMER
             </h2>
             
             <div className="space-y-6 text-[#444] text-[15px] font-light leading-relaxed">

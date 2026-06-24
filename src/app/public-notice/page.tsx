@@ -13,7 +13,7 @@ export default function PublicNoticePage() {
       <main className="flex-grow bg-[#fcfbf9] pt-40 pb-32">
         <div className="mx-auto max-w-[800px] px-6 lg:px-10 text-[#111111]">
           <h1 className="font-serif text-[36px] sm:text-[48px] font-normal mb-12">
-            4. PUBLIC NOTICE
+            PUBLIC NOTICE
           </h1>
 
           <div className="space-y-8 text-[#444] text-[16px] font-light leading-relaxed">
