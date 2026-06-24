@@ -274,47 +274,6 @@ export default function HomePage() {
         </section>
 
         {/* ═══════════════════════════════════════════════════
-            6. LATEST NEWS
-        ═══════════════════════════════════════════════════ */}
-        <section className="py-[100px] lg:py-[140px] bg-[#0A1128] text-[#fcfbf9]">
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <div className="flex flex-col sm:flex-row justify-between items-baseline mb-16 gap-6 border-b border-white/20 pb-6">
-              <h2 className="font-serif text-4xl sm:text-5xl font-light">Latest news</h2>
-              <MagneticButton strength={0.2}>
-                <Link
-                  href="/news"
-                  className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#C5A059] hover:text-white transition-colors border-b border-[#C5A059]/30 pb-1 hover:border-white"
-                >
-                  All news
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
-              </MagneticButton>
-            </div>
-
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={staggerContainer}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-            >
-              {news.map((item) => (
-                <motion.div key={item.slug} variants={fadeInUp} whileHover={{ y: -8 }} className="group">
-                  <Link href={`/news/${item.slug}`} className="block border-t border-white/20 pt-6">
-                    <span className="text-[10px] text-white/50 block mb-3">
-                      {new Date(item.datePublished).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
-                    </span>
-                    <h3 className="font-serif text-xl font-light text-white group-hover:text-[#C5A059] transition-colors">
-                      {item.headline}
-                    </h3>
-                  </Link>
-                </motion.div>
-              ))}
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ═══════════════════════════════════════════════════
             7. OUR OFFICES
         ═══════════════════════════════════════════════════ */}
         <section className="bg-[#0A1128] text-white">
