@@ -75,50 +75,83 @@ export default function HomePage() {
         {/* ═══════════════════════════════════════════════════
             2. WHAT WE DO
         ═══════════════════════════════════════════════════ */}
-        <section className="py-[100px] lg:py-[140px] bg-[#0A1128] text-[#fcfbf9] relative">
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <div className="flex flex-col sm:flex-row justify-between items-baseline mb-16 gap-6">
-              <h2 className="font-serif text-4xl sm:text-5xl font-light">What we do</h2>
-              <MagneticButton strength={0.2}>
-                <Link
-                  href="/practice-areas"
-                  className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#C5A059] hover:text-white transition-colors border-b border-[#C5A059]/30 pb-1 hover:border-white"
-                >
-                  All services
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
-              </MagneticButton>
+        <section className="py-[100px] lg:py-[140px] bg-[#eae8e1] text-[#333333] relative overflow-hidden">
+          <div className="mx-auto max-w-[1400px] px-6 lg:px-10 relative">
+            <div className="flex flex-col sm:flex-row justify-between items-baseline mb-24 gap-6">
+              <h2 className="font-serif text-4xl sm:text-5xl font-light text-[#222]">What we do</h2>
+              <Link
+                href="/practice-areas"
+                className="group inline-flex items-center gap-2 text-sm font-medium text-[#222] border-b border-[#222]/30 pb-1 hover:border-[#222] transition-colors"
+              >
+                All services
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+              </Link>
             </div>
 
-            <motion.div
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
-            >
-              {practiceAreas.map((area, idx) => (
-                <motion.div key={area.slug} whileHover={{ y: -8 }} className="group relative border border-white/10 aspect-[3/4] overflow-hidden bg-black">
-                  <Link href={`/practice-areas/${area.slug}`} className="block h-full w-full">
-                    <img 
-                      src={`https://images.unsplash.com/photo-${[
-                        "1589829085413-56de8ae18c73", // Legal Scales
-                        "1454165804606-c3d57bc86b40", // Finance
-                        "1497366216548-37526070297c", // Corporate Office
-                        "1600880292203-757bb62b4baf"  // Legal Handshake
-                      ][idx % 4]}?q=80&w=800&auto=format&fit=crop`}
-                      alt={area.name}
-                      className="absolute inset-0 w-full h-full object-cover opacity-30 group-hover:scale-110 group-hover:opacity-50 transition-all duration-1000"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent pointer-events-none" />
-                    <div className="absolute bottom-0 left-0 right-0 p-8">
-                      <h3 className="font-serif text-2xl font-light mb-4 text-white group-hover:text-[#C5A059] transition-colors relative z-10">
-                        {area.name}
-                      </h3>
-                      <p className="text-sm text-white/70 leading-relaxed group-hover:text-white transition-colors relative z-10">
-                        {area.overview.substring(0, 80)}...
-                      </p>
-                    </div>
-                  </Link>
-                </motion.div>
-              ))}
-            </motion.div>
+            <div className="relative grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-12 lg:gap-8 items-center">
+              
+              {/* Left Column */}
+              <div className="flex flex-col gap-24">
+                {practiceAreas.slice(0, 2).map((area) => (
+                  <div key={area.slug} className="group flex flex-col items-start max-w-md">
+                    <h3 className="font-sans text-[28px] lg:text-[32px] font-medium text-[#222] mb-6 tracking-tight group-hover:text-black transition-colors">
+                      {area.name}
+                    </h3>
+                    <p className="text-[#444] text-lg leading-[1.6] mb-8 font-light">
+                      {area.overview.substring(0, 160)}...
+                    </p>
+                    <Link 
+                      href={`/practice-areas/${area.slug}`}
+                      className="text-[#222] text-base font-medium inline-flex items-center gap-2 border-b border-[#222]/30 pb-1 hover:border-[#222] transition-all group-hover:pr-2"
+                    >
+                      Learn more <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </div>
+                ))}
+              </div>
+
+              {/* Central Graphic */}
+              <div className="hidden lg:flex justify-center items-center px-8">
+                <svg width="280" height="500" viewBox="0 0 280 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-[0.35]">
+                  <g stroke="#333" strokeWidth="0.6">
+                    <line x1="140" y1="0" x2="140" y2="500" />
+                    {[...Array(14)].map((_, i) => (
+                      <path key={`left-${i}`} d={`M 140 0 Q ${-60 + i * 10} 250 140 500`} />
+                    ))}
+                    {[...Array(14)].map((_, i) => (
+                      <path key={`right-${i}`} d={`M 140 0 Q ${340 - i * 10} 250 140 500`} />
+                    ))}
+                    {[...Array(14)].map((_, i) => (
+                      <path key={`top-${i}`} d={`M 0 250 Q 140 ${-60 + i * 10} 280 250`} />
+                    ))}
+                    {[...Array(14)].map((_, i) => (
+                      <path key={`bottom-${i}`} d={`M 0 250 Q 140 ${560 - i * 10} 280 250`} />
+                    ))}
+                  </g>
+                </svg>
+              </div>
+
+              {/* Right Column */}
+              <div className="flex flex-col gap-24 lg:items-end">
+                {practiceAreas.slice(2, 4).map((area) => (
+                  <div key={area.slug} className="group flex flex-col items-start lg:items-start max-w-md">
+                    <h3 className="font-sans text-[28px] lg:text-[32px] font-medium text-[#222] mb-6 tracking-tight group-hover:text-black transition-colors">
+                      {area.name}
+                    </h3>
+                    <p className="text-[#444] text-lg leading-[1.6] mb-8 font-light">
+                      {area.overview.substring(0, 160)}...
+                    </p>
+                    <Link 
+                      href={`/practice-areas/${area.slug}`}
+                      className="text-[#222] text-base font-medium inline-flex items-center gap-2 border-b border-[#222]/30 pb-1 hover:border-[#222] transition-all group-hover:pr-2"
+                    >
+                      Learn more <ArrowRight className="h-4 w-4" />
+                    </Link>
+                  </div>
+                ))}
+              </div>
+
+            </div>
           </div>
         </section>
 
