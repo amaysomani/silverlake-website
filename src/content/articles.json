@@ -1,12 +1,16 @@
 [
   {
     "slug": "private-capital-uk-professional-services",
-    "title": "Private capital in UK professional services firms",
+    "title": "The German insurance market: opportunities and considerations for fund...",
     "author": "Silverlake Financial Services Group",
-    "category": "Private Capital",
-    "tags": ["Private Capital", "UK", "Professional Services"],
-    "featuredImage": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=1920&auto=format&fit=crop",
-    "datePublished": "2026-06-01T10:00:00Z",
+    "category": "ARTICLE",
+    "tags": [
+      "Private Capital",
+      "UK",
+      "Professional Services"
+    ],
+    "featuredImage": "/images/insight-canyon.png",
+    "datePublished": "2026-04-30T10:00:00Z",
     "readingTime": "5 min read",
     "summary": "Factors shaping attitudes towards investment",
     "content": "<h2>Overview</h2><p>The UK professional services sector is undergoing a period of profound transformation. Historically characterized by traditional partnership models, the sector is increasingly attracting the attention of private capital, from private equity houses seeking platform investments to credit funds providing bespoke debt solutions.</p><h2>The Drivers of Change</h2><p>Several converging factors are driving this shift in attitude towards external investment:</p><ul><li><strong>Technological Investment:</strong> The need to invest heavily in technology, particularly AI and practice management software, requires capital expenditure that often strains traditional partnership profit-distribution models.</li><li><strong>Generational Succession:</strong> Retiring partners are seeking liquidity events, while younger partners may be reluctant to take on significant debt to buy out their predecessors.</li><li><strong>Scale and Consolidation:</strong> The desire for cross-border capabilities and multi-disciplinary offerings is driving a wave of consolidation, requiring significant M&A war chests.</li></ul><h3>Regulatory Considerations</h3><p>While the Legal Services Act 2007 paved the way for alternative business structures (ABS) in the legal sector, regulatory hurdles remain, particularly concerning conflict of interest rules and the independence of professional judgment. Navigating these requires careful structuring of the investment vehicle and governance frameworks.</p>",
@@ -14,28 +18,36 @@
   },
   {
     "slug": "private-credit-valuations",
-    "title": "Private credit valuations",
+    "title": "Countdown to the loan origination regime in AIFMD II",
     "author": "Silverlake Credit Funds Group",
-    "category": "Private Capital Solutions",
-    "tags": ["Private Credit", "Valuations", "Regulatory Risk"],
-    "featuredImage": "https://images.unsplash.com/photo-1518837695005-2083093ee35b?q=80&w=1920&auto=format&fit=crop",
-    "datePublished": "2026-06-02T10:00:00Z",
+    "category": "ARTICLE",
+    "tags": [
+      "Private Credit",
+      "Valuations",
+      "Regulatory Risk"
+    ],
+    "featuredImage": "/images/insight-blue-waves.png",
+    "datePublished": "2026-03-26T10:00:00Z",
     "readingTime": "4 min read",
-    "summary": "Navigating volatility, regulatory risk and an evolving market",
+    "summary": "The loan origination regime under AIFMD II is due to come into force on 16 April 2026 (subject to national implementation). EU AIFMs will...",
     "content": "<h2>Overview</h2><p>The private credit market has seen unprecedented growth over the last decade. As the asset class matures and moves increasingly into the mainstream of institutional allocations, the spotlight on how these inherently illiquid assets are valued has intensified.</p><h2>The Regulatory Focus</h2><p>Global regulators, including the FCA in the UK and the SEC in the US, have highlighted private market valuations as a key area of supervisory focus. The primary concern is ensuring that valuations are fair, robust, and consistently applied, particularly during periods of macroeconomic stress or market volatility where public market comparables may be moving rapidly.</p><h3>Key Challenges in Private Credit Valuation</h3><ul><li><strong>Lack of Observable Inputs:</strong> By definition, private credit instruments lack active secondary markets, necessitating greater reliance on Level 3 (unobservable) inputs.</li><li><strong>Bespoke Documentation:</strong> The highly customized nature of direct lending and structured credit means standard valuation models often require significant adjustment to reflect specific covenant packages and term structures.</li><li><strong>Information Asymmetry:</strong> Valuers are reliant on sponsor or borrower-provided information, which may be subject to a time lag.</li></ul><h2>Best Practices for Managers</h2><p>To navigate this evolving landscape, leading credit managers are increasingly adopting independent third-party valuation agents, either for full valuations or to provide positive assurance on internal marks. Furthermore, documenting the rationale for valuation decisions, particularly when deviating from model outputs or where significant judgment is applied, is critical from a governance perspective.</p>",
     "isFeatured": true
   },
   {
     "slug": "evergreen-fund-models-comparative-analysis",
-    "title": "Evergreen fund models \u2013 comparative analysis",
+    "title": "Real opportunities: how private capital can access real estate",
     "author": "Silverlake Investment Funds Group",
-    "category": "Private Capital",
-    "tags": ["Evergreen Funds", "Comparative Analysis", "Fund Launches"],
-    "featuredImage": "https://images.unsplash.com/photo-1533035353720-f1c6a75cd8ab?q=80&w=1920&auto=format&fit=crop",
-    "datePublished": "2026-04-29T10:00:00Z",
+    "category": "ARTICLE",
+    "tags": [
+      "Evergreen Funds",
+      "Comparative Analysis",
+      "Fund Launches"
+    ],
+    "featuredImage": "/images/insight-teal-particles.png",
+    "datePublished": "2026-03-26T10:00:00Z",
     "readingTime": "1 minute read",
-    "summary": "We have advised on the launch of a significant number of evergreen funds in recent years, particularly in the private credit space.",
-    "content": "<h2>Overview</h2><p>In recent years, we have seen a proliferation of private credit and other private asset managers launching \u201cevergreen\u201d or \u201copen-ended\u201d fund structures. This trend is driven by a desire to provide investors with structures that offer greater liquidity than traditional closed-ended funds while still maintaining access to private asset classes.</p><h2>The Three Key Models</h2><p>Based on our experience advising on numerous evergreen fund launches, we have identified three common structural models:</p><h3>1. Vintage Models</h3><p>These structures closely resemble traditional closed-ended funds. The key distinguishing feature is the ability for investors to \u201croll\u201d directly from one vintage to the next without needing to make a fresh commitment. This provides a quasi-evergreen experience while retaining the familiarity of closed-ended mechanics.</p><h3>2. NAV-based Subscription Models with Run-off</h3><p>In these models, investors subscribe at Net Asset Value (NAV). The distinguishing feature relates to liquidity: these models typically achieve investor exit through a \u201crun-off\u201d mechanism, where exiting investors receive distributions over time as the underlying portfolio amortizes or realizes, rather than through immediate redemption payments.</p><h3>3. Pure NAV-based Open-ended Structures</h3><p>These operate as fully open-ended vehicles. Subscriptions and redemptions occur at NAV (subject to gating, side-pocketing, and other liquidity management tools). These structures require the most sophisticated liquidity management frameworks given the inherent mismatch between illiquid private assets and regular redemption rights.</p><h2>Conclusion</h2><p>The choice of model depends heavily on the underlying asset class, the target investor base, and the manager's operational infrastructure. We continue to see innovation in this space as managers seek the optimal balance between liquidity and long-term capital deployment.</p>",
+    "summary": "Real opportunities: how private capital can access commercial real estate Over recent years the European commercial real estate (CRE)...",
+    "content": "<h2>Overview</h2><p>In recent years, we have seen a proliferation of private credit and other private asset managers launching “evergreen” or “open-ended” fund structures. This trend is driven by a desire to provide investors with structures that offer greater liquidity than traditional closed-ended funds while still maintaining access to private asset classes.</p><h2>The Three Key Models</h2><p>Based on our experience advising on numerous evergreen fund launches, we have identified three common structural models:</p><h3>1. Vintage Models</h3><p>These structures closely resemble traditional closed-ended funds. The key distinguishing feature is the ability for investors to “roll” directly from one vintage to the next without needing to make a fresh commitment. This provides a quasi-evergreen experience while retaining the familiarity of closed-ended mechanics.</p><h3>2. NAV-based Subscription Models with Run-off</h3><p>In these models, investors subscribe at Net Asset Value (NAV). The distinguishing feature relates to liquidity: these models typically achieve investor exit through a “run-off” mechanism, where exiting investors receive distributions over time as the underlying portfolio amortizes or realizes, rather than through immediate redemption payments.</p><h3>3. Pure NAV-based Open-ended Structures</h3><p>These operate as fully open-ended vehicles. Subscriptions and redemptions occur at NAV (subject to gating, side-pocketing, and other liquidity management tools). These structures require the most sophisticated liquidity management frameworks given the inherent mismatch between illiquid private assets and regular redemption rights.</p><h2>Conclusion</h2><p>The choice of model depends heavily on the underlying asset class, the target investor base, and the manager's operational infrastructure. We continue to see innovation in this space as managers seek the optimal balance between liquidity and long-term capital deployment.</p>",
     "isFeatured": true
   }
 ]

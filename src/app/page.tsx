@@ -197,47 +197,68 @@ export default function HomePage() {
         ═══════════════════════════════════════════════════ */}
         <section className="py-[100px] lg:py-[140px] bg-[#fcfbf9]">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <div className="flex flex-col sm:flex-row justify-between items-baseline mb-16 gap-6 border-b border-black/10 pb-6">
-              <h2 className="font-serif text-4xl sm:text-5xl font-light text-[#0A1128]">Featured insights</h2>
-              <MagneticButton strength={0.2}>
-                <Link
-                  href="/insights"
-                  className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#0A1128] hover:text-[#C5A059] transition-colors border-b border-[#0A1128]/30 pb-1 hover:border-[#C5A059]"
-                >
-                  View all insights
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
-              </MagneticButton>
+            <div className="flex flex-col sm:flex-row justify-between items-baseline mb-12 gap-6">
+              <h2 className="font-serif text-[32px] sm:text-[40px] font-normal text-[#111]">Featured insights</h2>
+              <Link
+                href="/insights"
+                className="group inline-flex items-center gap-2 text-[14px] font-normal text-[#111] border-b border-[#111] pb-0.5 hover:opacity-70 transition-opacity"
+              >
+                View more
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={1.5} />
+              </Link>
             </div>
 
-            <motion.div
-              className="grid grid-cols-1 md:grid-cols-3 gap-8"
-            >
-              {articles.map((art) => (
-                <motion.article key={art.slug} whileHover={{ y: -8 }} className="group">
-                  <Link href={`/insights/${art.slug}`} className="block h-full border-t-2 border-transparent hover:border-[#111111] transition-colors pt-4">
-                    <div className="aspect-[4/3] overflow-hidden mb-6 relative">
-                      <img
-                        src={art.featuredImage}
-                        alt={art.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[1.2s]"
-                      />
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+              {/* Article 0: Spans 2 columns, Light Background */}
+              {articles[0] && (
+                <Link href={`/insights/${articles[0].slug}`} className="md:col-span-2 flex flex-col bg-[#f4f4f4] group">
+                  <div className="aspect-[2/1] relative overflow-hidden">
+                    <img src={articles[0].featuredImage} alt={articles[0].title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  </div>
+                  <div className="p-8 lg:p-10 flex flex-col flex-grow">
+                    <h3 className="font-serif text-[24px] lg:text-[28px] font-normal text-[#111] mb-12 group-hover:text-black transition-colors leading-snug pr-8">{articles[0].title}</h3>
+                    <div className="text-[11px] uppercase tracking-wider text-[#666] font-semibold mt-auto">
+                      {articles[0].category}<br/>
+                      <span className="text-[#333] mt-1 block">{new Date(articles[0].datePublished).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</span>
                     </div>
-                    <div className="flex items-center gap-3 mb-3">
-                      <span className="text-[10px] uppercase tracking-[0.2em] text-[#C5A059] font-semibold">
-                        {art.category}
-                      </span>
-                      <span className="text-[10px] text-[#0A1128]/50">
-                        {new Date(art.datePublished).toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}
-                      </span>
+                  </div>
+                </Link>
+              )}
+
+              {/* Article 1: Spans 1 column, Dark Background */}
+              {articles[1] && (
+                <Link href={`/insights/${articles[1].slug}`} className="md:col-span-1 flex flex-col bg-[#3a353c] text-white group">
+                  <div className="aspect-[4/3] relative overflow-hidden">
+                    <img src={articles[1].featuredImage} alt={articles[1].title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  </div>
+                  <div className="p-6 lg:p-8 flex flex-col flex-grow">
+                    <h3 className="font-serif text-[20px] lg:text-[22px] font-normal text-white mb-4 leading-snug">{articles[1].title}</h3>
+                    <p className="text-[14px] text-white/80 leading-relaxed mb-8">{articles[1].summary}</p>
+                    <div className="text-[11px] uppercase tracking-wider text-white/80 font-semibold mt-auto">
+                      {articles[1].category}<br/>
+                      <span className="text-white mt-1 block">{new Date(articles[1].datePublished).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</span>
                     </div>
-                    <h3 className="font-serif text-2xl font-light text-[#0A1128] mb-3 group-hover:text-[#C5A059] transition-colors">
-                      {art.title}
-                    </h3>
-                  </Link>
-                </motion.article>
-              ))}
-            </motion.div>
+                  </div>
+                </Link>
+              )}
+
+              {/* Article 2: Spans 1 column, Light Background */}
+              {articles[2] && (
+                <Link href={`/insights/${articles[2].slug}`} className="md:col-span-1 flex flex-col bg-[#f4f4f4] group">
+                  <div className="aspect-[4/3] relative overflow-hidden">
+                    <img src={articles[2].featuredImage} alt={articles[2].title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+                  </div>
+                  <div className="p-6 lg:p-8 flex flex-col flex-grow">
+                    <h3 className="font-serif text-[20px] lg:text-[22px] font-normal text-[#111] mb-4 leading-snug">{articles[2].title}</h3>
+                    <p className="text-[14px] text-[#444] leading-relaxed mb-8">{articles[2].summary}</p>
+                    <div className="text-[11px] uppercase tracking-wider text-[#666] font-semibold mt-auto">
+                      {articles[2].category}<br/>
+                      <span className="text-[#333] mt-1 block">{new Date(articles[2].datePublished).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</span>
+                    </div>
+                  </div>
+                </Link>
+              )}
+            </div>
           </div>
         </section>
 
