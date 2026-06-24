@@ -227,7 +227,9 @@ export default function Header() {
                         <p className="text-[10px] uppercase tracking-[0.3em] text-[#cdcab2]/60 font-medium mb-3">Representative Hubs</p>
                         <p className="text-sm text-[#f9f3f1]/70 font-light leading-relaxed">
                           Dubai, DIFC<br />
-                          Dublin, IFSC
+                          Dublin, Ireland<br />
+                          Udaipur, India<br />
+                          Bangalore, India
                         </p>
                       </div>
                       <div>

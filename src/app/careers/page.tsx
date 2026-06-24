@@ -46,7 +46,7 @@ export default function CareersPage() {
     },
     {
       title: "Associate – Credit Funds & Private Capital",
-      location: "Dubai / Ireland representative hubs",
+      location: "Dubai / Ireland / Udaipur / Bangalore representative hubs",
       type: "Lateral Hire",
       description: "Seeking a finance associate with 2-4 years PQE to advise credit funds and institutional direct lending platforms on structural leverage and portfolio investments.",
     },

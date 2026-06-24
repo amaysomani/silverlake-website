@@ -137,14 +137,22 @@ export default function Footer() {
               Offices
             </h3>
             <ul className="space-y-5 text-xs font-light">
-              <li>
+              <div>
                 <span className="text-[#f9f3f1]/60 font-medium block mb-0.5">Dubai</span>
-                <span className="text-[#f9f3f1]/30">Al Fattan Currency House, DIFC</span>
-              </li>
-              <li>
+                <span className="text-[#f9f3f1]/40">Dubai International Financial Centre (DIFC)</span>
+              </div>
+              <div>
                 <span className="text-[#f9f3f1]/60 font-medium block mb-0.5">Ireland</span>
-                <span className="text-[#f9f3f1]/30">2 Harbourmaster Place, IFSC, Dublin 1</span>
-              </li>
+                <span className="text-[#f9f3f1]/40">Dublin</span>
+              </div>
+              <div>
+                <span className="text-[#f9f3f1]/60 font-medium block mb-0.5">Udaipur</span>
+                <span className="text-[#f9f3f1]/40">City Palace Complex Area</span>
+              </div>
+              <div>
+                <span className="text-[#f9f3f1]/60 font-medium block mb-0.5">Bangalore</span>
+                <span className="text-[#f9f3f1]/40">Electronic City</span>
+              </div>
             </ul>
           </div>
         </div>

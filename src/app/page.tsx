@@ -314,6 +314,68 @@ export default function HomePage() {
                 </MagneticButton>
               </div>
             </motion.div>
+
+            {/* Udaipur */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              className="relative group overflow-hidden"
+            >
+              <img
+                src="/images/office-udaipur.png"
+                alt="Udaipur Office"
+                className="w-full h-full object-cover min-h-[400px] md:min-h-[500px] group-hover:scale-105 transition-transform duration-[1.5s]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A1128]/90 via-[#0A1128]/40 to-transparent pointer-events-none" />
+              <div className="absolute bottom-0 left-0 p-8 sm:p-12 z-10 w-full">
+                <h3 className="font-serif text-3xl font-light mb-4 text-white">Udaipur</h3>
+                <p className="text-white/70 font-light leading-relaxed mb-6 max-w-sm">
+                  Our Udaipur hub combines modern legal advisory with a rich heritage, offering strategic guidance for domestic and international clients venturing into the region.
+                </p>
+                <MagneticButton strength={0.2}>
+                  <Link
+                    href="/offices/udaipur"
+                    className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white hover:text-[#C5A059] transition-colors group/link"
+                  >
+                    Go to office
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:translate-x-1" />
+                  </Link>
+                </MagneticButton>
+              </div>
+            </motion.div>
+
+            {/* Bangalore */}
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={fadeInUp}
+              className="relative group overflow-hidden"
+            >
+              <img
+                src="/images/office-bangalore.png"
+                alt="Bangalore Office"
+                className="w-full h-full object-cover min-h-[400px] md:min-h-[500px] group-hover:scale-105 transition-transform duration-[1.5s]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0A1128]/90 via-[#0A1128]/40 to-transparent pointer-events-none" />
+              <div className="absolute bottom-0 left-0 p-8 sm:p-12 z-10 w-full">
+                <h3 className="font-serif text-3xl font-light mb-4 text-white">Bangalore</h3>
+                <p className="text-white/70 font-light leading-relaxed mb-6 max-w-sm">
+                  Located in the Silicon Valley of India, our Bangalore office is perfectly positioned to serve the high-growth technology, venture capital, and private equity sectors.
+                </p>
+                <MagneticButton strength={0.2}>
+                  <Link
+                    href="/offices/bangalore"
+                    className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white hover:text-[#C5A059] transition-colors group/link"
+                  >
+                    Go to office
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:translate-x-1" />
+                  </Link>
+                </MagneticButton>
+              </div>
+            </motion.div>
           </div>
         </section>
 

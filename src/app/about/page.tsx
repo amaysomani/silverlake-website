@@ -109,7 +109,7 @@ export default function AboutPage() {
                 <div>
                   <h3 className="text-[14px] font-bold uppercase tracking-[0.2em] text-[#111] mb-6">Integrated Global Network</h3>
                   <p className="text-[19px] text-[#555] font-light leading-[1.7]">
-                    Seamless coordination across our key representative hubs in Dubai and Ireland with zero administrative friction or communication delays. Our advisory philosophy is rooted in a simple principle: legal counsel should accelerate business objectives, not constrain them.
+                    Seamless coordination across our key representative hubs in Dubai, Ireland, Udaipur, and Bangalore with zero administrative friction or communication delays. Our advisory philosophy is rooted in a simple principle: legal counsel should accelerate business objectives, not constrain them.
                   </p>
                 </div>
                 <div className="h-px w-full bg-[#111]/10"></div>
@@ -138,7 +138,7 @@ export default function AboutPage() {
                 href="/careers#apply"
                 className="group inline-flex justify-center items-center gap-3 bg-[#111] text-white px-10 py-5 text-[13px] font-semibold uppercase tracking-[0.2em] hover:bg-[#333] transition-colors"
               >
-                Contact Dubai Hub
+                Contact Our Hubs
                 <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
               </Link>
               <Link
