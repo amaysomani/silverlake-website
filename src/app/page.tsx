@@ -224,56 +224,26 @@ export default function HomePage() {
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              {/* Article 0: Spans 2 columns, Light Background */}
-              {articles[3] && (
-                <Link href={`/insights/${articles[3].slug}`} className="md:col-span-2 flex flex-col bg-[#f4f4f4] group">
-                  <div className="aspect-[2/1] relative overflow-hidden">
-                    <img src={articles[3].featuredImage} alt={articles[3].title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  </div>
-                  <div className="p-8 lg:p-10 flex flex-col flex-grow">
-                    <h3 className="font-serif text-[24px] lg:text-[28px] font-normal text-[#111] mb-12 group-hover:text-black transition-colors leading-snug pr-8">{articles[3].title}</h3>
-                    <div className="text-[11px] uppercase tracking-wider text-[#666] font-semibold mt-auto">
-                      {articles[3].category}<br/>
-                      <span className="text-[#333] mt-1 block">{new Date(articles[3].datePublished).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</span>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[3, 4, 5].map((index) => {
+                const article = articles[index];
+                if (!article) return null;
+                return (
+                  <Link key={article.slug} href={`/insights/${article.slug}`} className="flex flex-col bg-[#f4f4f4] hover:bg-[#111] transition-colors duration-500 group">
+                    <div className="aspect-[4/3] relative overflow-hidden">
+                      <img src={article.featuredImage} alt={article.title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
                     </div>
-                  </div>
-                </Link>
-              )}
-
-              {/* Article 1: Spans 1 column, Dark Background */}
-              {articles[4] && (
-                <Link href={`/insights/${articles[4].slug}`} className="md:col-span-1 flex flex-col bg-[#3a353c] text-white group">
-                  <div className="aspect-[4/3] relative overflow-hidden">
-                    <img src={articles[4].featuredImage} alt={articles[4].title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  </div>
-                  <div className="p-6 lg:p-8 flex flex-col flex-grow">
-                    <h3 className="font-serif text-[20px] lg:text-[22px] font-normal text-white mb-4 leading-snug">{articles[4].title}</h3>
-                    <p className="text-[14px] text-white/80 leading-relaxed mb-8">{articles[4].summary}</p>
-                    <div className="text-[11px] uppercase tracking-wider text-white/80 font-semibold mt-auto">
-                      {articles[4].category}<br/>
-                      <span className="text-white mt-1 block">{new Date(articles[4].datePublished).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</span>
+                    <div className="p-6 lg:p-8 flex flex-col flex-grow">
+                      <h3 className="font-serif text-[20px] lg:text-[22px] font-normal text-[#111] group-hover:text-white transition-colors duration-500 mb-4 leading-snug pr-4">{article.title}</h3>
+                      <p className="text-[14px] text-[#444] group-hover:text-white/80 transition-colors duration-500 leading-relaxed mb-8">{article.summary}</p>
+                      <div className="text-[11px] uppercase tracking-wider text-[#666] group-hover:text-white/60 font-semibold mt-auto transition-colors duration-500">
+                        {article.category}<br/>
+                        <span className="text-[#333] group-hover:text-white mt-1 block transition-colors duration-500">{new Date(article.datePublished).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</span>
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              )}
-
-              {/* Article 2: Spans 1 column, Light Background */}
-              {articles[5] && (
-                <Link href={`/insights/${articles[5].slug}`} className="md:col-span-1 flex flex-col bg-[#f4f4f4] group">
-                  <div className="aspect-[4/3] relative overflow-hidden">
-                    <img src={articles[5].featuredImage} alt={articles[5].title} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
-                  </div>
-                  <div className="p-6 lg:p-8 flex flex-col flex-grow">
-                    <h3 className="font-serif text-[20px] lg:text-[22px] font-normal text-[#111] mb-4 leading-snug">{articles[5].title}</h3>
-                    <p className="text-[14px] text-[#444] leading-relaxed mb-8">{articles[5].summary}</p>
-                    <div className="text-[11px] uppercase tracking-wider text-[#666] font-semibold mt-auto">
-                      {articles[5].category}<br/>
-                      <span className="text-[#333] mt-1 block">{new Date(articles[5].datePublished).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })}</span>
-                    </div>
-                  </div>
-                </Link>
-              )}
+                  </Link>
+                );
+              })}
             </div>
           </div>
         </section>
