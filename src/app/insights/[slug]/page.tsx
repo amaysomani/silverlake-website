@@ -126,7 +126,6 @@ export default async function ArticleDetailPage({ params }: Props) {
               <div className="lg:col-span-1 flex lg:flex-col lg:items-center gap-4 lg:pt-2 border-b lg:border-b-0 lg:border-r border-border pb-6 lg:pb-0 lg:pr-6">
                 <span className="text-[9px] uppercase tracking-widest text-muted-foreground font-semibold lg:mb-2">Share</span>
                 <button 
-                  onClick={() => alert("Copied article link to clipboard.")}
                   className="rounded-full p-2 border border-border hover:bg-muted text-muted-foreground hover:text-primary transition-all duration-300"
                   aria-label="Share article"
                 >

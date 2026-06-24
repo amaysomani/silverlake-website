@@ -57,8 +57,8 @@ export default function Header() {
       <motion.header
         className={`fixed top-0 z-40 w-full transition-all duration-700 ${
           scrolled
-            ? "bg-[#0A1128]/95 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/10"
-            : "bg-gradient-to-b from-black/70 via-black/30 to-transparent border-b border-transparent"
+            ? "bg-[#0A1128]/95 backdrop-blur-xl shadow-lg shadow-black/10"
+            : "bg-gradient-to-b from-black/70 via-black/30 to-transparent"
         }`}
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
