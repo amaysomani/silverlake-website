@@ -56,7 +56,18 @@ export default function HomePage() {
         getArticles({ limit: 3 }),
         getNews({ limit: 4 }),
       ]);
-      setPracticeAreas(areas.slice(0, 4)); // Only top 4 like Macfarlanes
+      
+      const targetSlugs = ['private-capital', 'm-a', 'private-wealth', 'litigation-arbitration-and-investigations'];
+      const topAreas = targetSlugs.map(slug => areas.find(a => a.slug === slug)).filter(Boolean) as PracticeArea[];
+      
+      // Override the name of "Litigation, Arbitration and Investigations" to "Disputes" for the homepage specifically
+      const modifiedAreas = topAreas.map(area => 
+        area.slug === 'litigation-arbitration-and-investigations' 
+          ? { ...area, name: "Disputes" } 
+          : area
+      );
+
+      setPracticeAreas(modifiedAreas);
       setArticles(arts.articles);
       setNews(nws.news);
     }
