@@ -94,15 +94,15 @@ export default function HomePage() {
               <div className="flex flex-col gap-24">
                 {practiceAreas.slice(0, 2).map((area) => (
                   <div key={area.slug} className="group flex flex-col items-start max-w-md">
-                    <h3 className="font-sans text-[28px] lg:text-[32px] font-medium text-[#222] mb-6 tracking-tight group-hover:text-black transition-colors">
+                    <h3 className="font-sans text-[30px] lg:text-[34px] font-bold text-[#222] mb-5 tracking-tight group-hover:text-black transition-colors">
                       {area.name}
                     </h3>
-                    <p className="text-[#444] text-lg leading-[1.6] mb-8 font-light">
+                    <p className="text-[#555] text-[17px] leading-[1.65] mb-8 font-normal">
                       {area.overview.substring(0, 160)}...
                     </p>
                     <Link 
                       href={`/practice-areas/${area.slug}`}
-                      className="text-[#222] text-base font-medium inline-flex items-center gap-2 border-b border-[#222]/30 pb-1 hover:border-[#222] transition-all group-hover:pr-2"
+                      className="text-[#222] text-[15px] font-medium inline-flex items-center gap-2 border-b border-[#222]/30 pb-1 hover:border-[#222] transition-all group-hover:pr-2"
                     >
                       Learn more <ArrowRight className="h-4 w-4" />
                     </Link>
@@ -111,39 +111,40 @@ export default function HomePage() {
               </div>
 
               {/* Central Graphic */}
-              <div className="hidden lg:flex justify-center items-center px-8">
-                <svg width="280" height="500" viewBox="0 0 280 500" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-[0.35]">
-                  <g stroke="#333" strokeWidth="0.6">
-                    <line x1="140" y1="0" x2="140" y2="500" />
-                    {[...Array(14)].map((_, i) => (
-                      <path key={`left-${i}`} d={`M 140 0 Q ${-60 + i * 10} 250 140 500`} />
+              <div className="hidden lg:flex justify-center items-center px-4">
+                <svg width="340" height="480" viewBox="0 0 340 480" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-[0.6]">
+                  <g stroke="#222" strokeWidth="0.5">
+                    <line x1="170" y1="0" x2="170" y2="480" strokeWidth="0.75" opacity="0.5" />
+                    <line x1="0" y1="240" x2="340" y2="240" strokeWidth="0.75" opacity="0.5" />
+                    {[...Array(18)].map((_, i) => (
+                      <path key={`left-${i}`} d={`M 170 0 C ${170 - i * 16} 120, ${170 - i * 16} 360, 170 480`} />
                     ))}
-                    {[...Array(14)].map((_, i) => (
-                      <path key={`right-${i}`} d={`M 140 0 Q ${340 - i * 10} 250 140 500`} />
+                    {[...Array(18)].map((_, i) => (
+                      <path key={`right-${i}`} d={`M 170 0 C ${170 + i * 16} 120, ${170 + i * 16} 360, 170 480`} />
                     ))}
-                    {[...Array(14)].map((_, i) => (
-                      <path key={`top-${i}`} d={`M 0 250 Q 140 ${-60 + i * 10} 280 250`} />
+                    {[...Array(18)].map((_, i) => (
+                      <path key={`top-${i}`} d={`M 0 240 C 85 ${240 - i * 16}, 255 ${240 - i * 16}, 340 240`} />
                     ))}
-                    {[...Array(14)].map((_, i) => (
-                      <path key={`bottom-${i}`} d={`M 0 250 Q 140 ${560 - i * 10} 280 250`} />
+                    {[...Array(18)].map((_, i) => (
+                      <path key={`bottom-${i}`} d={`M 0 240 C 85 ${240 + i * 16}, 255 ${240 + i * 16}, 340 240`} />
                     ))}
                   </g>
                 </svg>
               </div>
 
               {/* Right Column */}
-              <div className="flex flex-col gap-24 lg:items-end">
+              <div className="flex flex-col gap-24 lg:items-start">
                 {practiceAreas.slice(2, 4).map((area) => (
-                  <div key={area.slug} className="group flex flex-col items-start lg:items-start max-w-md">
-                    <h3 className="font-sans text-[28px] lg:text-[32px] font-medium text-[#222] mb-6 tracking-tight group-hover:text-black transition-colors">
+                  <div key={area.slug} className="group flex flex-col items-start max-w-md">
+                    <h3 className="font-sans text-[30px] lg:text-[34px] font-bold text-[#222] mb-5 tracking-tight group-hover:text-black transition-colors">
                       {area.name}
                     </h3>
-                    <p className="text-[#444] text-lg leading-[1.6] mb-8 font-light">
+                    <p className="text-[#555] text-[17px] leading-[1.65] mb-8 font-normal">
                       {area.overview.substring(0, 160)}...
                     </p>
                     <Link 
                       href={`/practice-areas/${area.slug}`}
-                      className="text-[#222] text-base font-medium inline-flex items-center gap-2 border-b border-[#222]/30 pb-1 hover:border-[#222] transition-all group-hover:pr-2"
+                      className="text-[#222] text-[15px] font-medium inline-flex items-center gap-2 border-b border-[#222]/30 pb-1 hover:border-[#222] transition-all group-hover:pr-2"
                     >
                       Learn more <ArrowRight className="h-4 w-4" />
                     </Link>
