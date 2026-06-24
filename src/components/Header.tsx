@@ -102,18 +102,7 @@ export default function Header() {
 
               <span className="h-4 w-[1px] bg-white/15" />
 
-              {/* Theme Toggle */}
-              {mounted && (
-                <MagneticButton strength={0.3}>
-                  <button
-                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                    className="rounded-full p-2 text-[#fcfbf9]/60 hover:text-[#fcfbf9] transition-all duration-300 cursor-pointer"
-                    aria-label="Toggle theme"
-                  >
-                    {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-                  </button>
-                </MagneticButton>
-              )}
+
 
               {/* Menu Trigger */}
               <MagneticButton strength={0.4}>
@@ -132,15 +121,7 @@ export default function Header() {
 
             {/* Mobile Actions */}
             <div className="flex lg:hidden items-center gap-x-3">
-              {mounted && (
-                <button
-                  onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                  className="rounded-full p-2 text-[#fcfbf9]/50 hover:text-[#fcfbf9] transition-all duration-300 cursor-pointer"
-                  aria-label="Toggle theme"
-                >
-                  {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-                </button>
-              )}
+
               <button
                 onClick={() => setDrawerOpen(true)}
                 className="flex h-10 w-10 items-center justify-center rounded-full border border-white/15 text-[#fcfbf9]/60 hover:text-[#fcfbf9] transition-all duration-300 cursor-pointer"
