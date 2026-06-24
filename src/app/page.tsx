@@ -53,7 +53,7 @@ export default function HomePage() {
     async function loadData() {
       const [areas, arts, nws] = await Promise.all([
         getPracticeAreas(),
-        getArticles({ limit: 6 }),
+        getArticles({ limit: 20 }),
         getNews({ limit: 4 }),
       ]);
       
@@ -67,9 +67,14 @@ export default function HomePage() {
           : area
       );
 
+      const targetHeroSlugs = ['private-capital-uk-professional-services', 'private-credit-valuations', 'evergreen-fund-models-comparative-analysis'];
+      const targetInsightSlugs = ['german-insurance-market-opportunities', 'countdown-aifmd-ii-loan-origination', 'real-opportunities-private-capital-real-estate'];
+
+      const heroArticles = targetHeroSlugs.map(slug => arts.articles.find(a => a.slug === slug)).filter(Boolean) as Article[];
+      const insightArticles = targetInsightSlugs.map(slug => arts.articles.find(a => a.slug === slug)).filter(Boolean) as Article[];
+
       setPracticeAreas(modifiedAreas);
-      setArticles(arts.articles);
-      setNews(nws.news);
+      setArticles([...heroArticles, ...insightArticles]);
     }
     loadData();
   }, []);
