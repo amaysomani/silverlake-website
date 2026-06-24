@@ -212,7 +212,7 @@ export default function HomePage() {
         {/* ═══════════════════════════════════════════════════
             4. WHO WE ARE
         ═══════════════════════════════════════════════════ */}
-        <section className="py-[120px] lg:py-[180px] bg-[#fcfbf9]">
+        <section className="py-[120px] lg:py-[180px] bg-[#eae8e1]">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
               <div className="max-w-xl">
