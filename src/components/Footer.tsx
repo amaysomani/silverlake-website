@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowUp, Mail } from "lucide-react";
@@ -20,9 +21,18 @@ const TwitterIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 export default function Footer() {
-  const handleSubscribe = (e: React.FormEvent) => {
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [isSuccess, setIsSuccess] = React.useState(false);
+
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    alert("Thank you for subscribing to Silverlake Insights.");
+    setIsSubmitting(true);
+    
+    // Simulate API call to email service
+    await new Promise(resolve => setTimeout(resolve, 1500));
+    
+    setIsSubmitting(false);
+    setIsSuccess(true);
   };
 
   const scrollToTop = () => {
@@ -65,25 +75,41 @@ export default function Footer() {
               <h4 className="text-[10px] font-semibold uppercase tracking-[0.3em] text-[#cdcab2]/60 mb-3">
                 Subscribe to Insights
               </h4>
-              <form onSubmit={handleSubscribe} className="flex max-w-md gap-x-0">
-                <label htmlFor="footer-email" className="sr-only">Email address</label>
-                <input
-                  id="footer-email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  className="min-w-0 flex-auto border border-white/10 border-r-0 bg-transparent px-4 py-3 text-xs text-[#f9f3f1] placeholder-[#f9f3f1]/20 focus:outline-none focus:border-[#cdcab2]/40 transition-colors"
-                  placeholder="Enter your email"
-                />
-                <button
-                  type="submit"
-                  className="flex items-center justify-center bg-[#cdcab2] text-[#0a0f12] px-5 py-3 text-[10px] font-bold tracking-wider uppercase hover:bg-[#f9f3f1] transition-colors duration-300 cursor-pointer btn-shine"
-                >
-                  <Mail className="h-3.5 w-3.5 mr-2" />
-                  Subscribe
-                </button>
-              </form>
+              {isSuccess ? (
+                <div className="border border-[#cdcab2]/30 bg-[#cdcab2]/5 px-4 py-4 max-w-md">
+                  <p className="text-xs text-[#cdcab2] font-medium tracking-wide">
+                    Thank you. You have been successfully subscribed to Silverlake Insights.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubscribe} className="flex max-w-md gap-x-0 relative">
+                  <label htmlFor="footer-email" className="sr-only">Email address</label>
+                  <input
+                    id="footer-email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    disabled={isSubmitting}
+                    className="min-w-0 flex-auto border border-white/10 border-r-0 bg-transparent px-4 py-3 text-xs text-[#f9f3f1] placeholder-[#f9f3f1]/20 focus:outline-none focus:border-[#cdcab2]/40 transition-colors disabled:opacity-50"
+                    placeholder="Enter your email"
+                  />
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="flex w-[120px] items-center justify-center bg-[#cdcab2] text-[#0a0f12] px-0 py-3 text-[10px] font-bold tracking-wider uppercase hover:bg-[#f9f3f1] transition-colors duration-300 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed btn-shine"
+                  >
+                    {isSubmitting ? (
+                      <span className="w-3.5 h-3.5 border-2 border-[#0a0f12] border-t-transparent rounded-full animate-spin"></span>
+                    ) : (
+                      <>
+                        <Mail className="h-3.5 w-3.5 mr-2" />
+                        Subscribe
+                      </>
+                    )}
+                  </button>
+                </form>
+              )}
             </div>
           </div>
 
