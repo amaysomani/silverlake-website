@@ -80,9 +80,9 @@ export default async function PracticeAreaDetailPage({ params }: Props) {
                   </div>
                   <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {area.expertise.map((exp) => (
-                      <li key={exp} className="flex items-start gap-x-3 text-sm text-muted-foreground">
+                      <li key={exp.slug} className="flex items-start gap-x-3 text-sm text-muted-foreground">
                         <span className="h-1.5 w-1.5 bg-accent-emerald rounded-full mt-2 flex-shrink-0" />
-                        <span>{exp}</span>
+                        <span>{exp.title}</span>
                       </li>
                     ))}
                   </ul>

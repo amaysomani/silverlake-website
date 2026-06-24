@@ -5,11 +5,31 @@
     "iconName": "Briefcase",
     "overview": "Our Corporate & M&A practice is renowned for advising on high-value, complex cross-border transactions. We guide corporations, financial sponsors, and boards of directors through their most significant strategic decisions, combining commercial acumen with legal precision.",
     "expertise": [
-      "Public and Private Mergers & Acquisitions",
-      "Cross-Border Joint Ventures",
-      "Corporate Restructurings & Reorganisations",
-      "Takeover Code and Securities Regulation",
-      "Fiduciary Duties and Board Advising"
+      {
+        "title": "Public and Private Mergers & Acquisitions",
+        "slug": "public-and-private-mergers-acquisitions",
+        "content": "Our Public and Private Mergers & Acquisitions sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every public and private mergers & acquisitions matter."
+      },
+      {
+        "title": "Cross-Border Joint Ventures",
+        "slug": "cross-border-joint-ventures",
+        "content": "Our Cross-Border Joint Ventures sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every cross-border joint ventures matter."
+      },
+      {
+        "title": "Corporate Restructurings & Reorganisations",
+        "slug": "corporate-restructurings-reorganisations",
+        "content": "Our Corporate Restructurings & Reorganisations sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every corporate restructurings & reorganisations matter."
+      },
+      {
+        "title": "Takeover Code and Securities Regulation",
+        "slug": "takeover-code-and-securities-regulation",
+        "content": "Our Takeover Code and Securities Regulation sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every takeover code and securities regulation matter."
+      },
+      {
+        "title": "Fiduciary Duties and Board Advising",
+        "slug": "fiduciary-duties-and-board-advising",
+        "content": "Our Fiduciary Duties and Board Advising sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every fiduciary duties and board advising matter."
+      }
     ],
     "industriesServed": [
       "Financial Institutions",
@@ -28,11 +48,31 @@
     "iconName": "Layers",
     "overview": "Advising at every stage of the investment lifecycle, our Private Equity team supports sponsors, investors, and portfolio management teams. We structure creative and robust solutions for buyouts, growth capital investments, and complex exits.",
     "expertise": [
-      "Leveraged Buyouts (LBOs)",
-      "Growth Equity & Venture Investments",
-      "Sponsor-to-Sponsor Transactions",
-      "Co-investments and Consortium Structures",
-      "Portfolio Company General Representation"
+      {
+        "title": "Leveraged Buyouts (LBOs)",
+        "slug": "leveraged-buyouts-lbos",
+        "content": "Our Leveraged Buyouts (LBOs) sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every leveraged buyouts (lbos) matter."
+      },
+      {
+        "title": "Growth Equity & Venture Investments",
+        "slug": "growth-equity-venture-investments",
+        "content": "Our Growth Equity & Venture Investments sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every growth equity & venture investments matter."
+      },
+      {
+        "title": "Sponsor-to-Sponsor Transactions",
+        "slug": "sponsor-to-sponsor-transactions",
+        "content": "Our Sponsor-to-Sponsor Transactions sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every sponsor-to-sponsor transactions matter."
+      },
+      {
+        "title": "Co-investments and Consortium Structures",
+        "slug": "co-investments-and-consortium-structures",
+        "content": "Our Co-investments and Consortium Structures sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every co-investments and consortium structures matter."
+      },
+      {
+        "title": "Portfolio Company General Representation",
+        "slug": "portfolio-company-general-representation",
+        "content": "Our Portfolio Company General Representation sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every portfolio company general representation matter."
+      }
     ],
     "industriesServed": [
       "Private Capital Franchises",
@@ -51,11 +91,31 @@
     "iconName": "DollarSign",
     "overview": "We represent lenders and borrowers across a broad spectrum of financing transactions, helping clients secure liquidity and navigate international credit markets. Our expertise covers leveraged finance, direct lending, asset-backed transactions, and debt restructuring.",
     "expertise": [
-      "Leveraged and Acquisition Finance",
-      "Direct Lending and Private Credit Platforms",
-      "Asset-Backed and Structured Finance",
-      "Fund Financing (Capital Call & NAV facilities)",
-      "Financial Restructuring & Workouts"
+      {
+        "title": "Leveraged and Acquisition Finance",
+        "slug": "leveraged-and-acquisition-finance",
+        "content": "Our Leveraged and Acquisition Finance sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every leveraged and acquisition finance matter."
+      },
+      {
+        "title": "Direct Lending and Private Credit Platforms",
+        "slug": "direct-lending-and-private-credit-platforms",
+        "content": "Our Direct Lending and Private Credit Platforms sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every direct lending and private credit platforms matter."
+      },
+      {
+        "title": "Asset-Backed and Structured Finance",
+        "slug": "asset-backed-and-structured-finance",
+        "content": "Our Asset-Backed and Structured Finance sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every asset-backed and structured finance matter."
+      },
+      {
+        "title": "Fund Financing (Capital Call & NAV facilities)",
+        "slug": "fund-financing-capital-call-nav-facilities",
+        "content": "Our Fund Financing (Capital Call & NAV facilities) sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every fund financing (capital call & nav facilities) matter."
+      },
+      {
+        "title": "Financial Restructuring & Workouts",
+        "slug": "financial-restructuring-workouts",
+        "content": "Our Financial Restructuring & Workouts sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every financial restructuring & workouts matter."
+      }
     ],
     "industriesServed": [
       "Commercial and Investment Banks",
@@ -74,11 +134,31 @@
     "iconName": "Gavel",
     "overview": "When stakes are high, our litigation and arbitration specialists protect client interests with tenacity and strategic discretion. We handle complex commercial litigation, international arbitrations, and regulatory enforcement investigations globally.",
     "expertise": [
-      "Complex Commercial Litigation",
-      "International Arbitration (ICC, LCIA, UNCITRAL)",
-      "Regulatory & White-Collar Enforcement",
-      "Shareholder and Joint Venture Disputes",
-      "Cross-Border Asset Recovery"
+      {
+        "title": "Complex Commercial Litigation",
+        "slug": "complex-commercial-litigation",
+        "content": "Our Complex Commercial Litigation sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every complex commercial litigation matter."
+      },
+      {
+        "title": "International Arbitration (ICC, LCIA, UNCITRAL)",
+        "slug": "international-arbitration-icc-lcia-uncitral",
+        "content": "Our International Arbitration (ICC, LCIA, UNCITRAL) sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every international arbitration (icc, lcia, uncitral) matter."
+      },
+      {
+        "title": "Regulatory & White-Collar Enforcement",
+        "slug": "regulatory-white-collar-enforcement",
+        "content": "Our Regulatory & White-Collar Enforcement sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every regulatory & white-collar enforcement matter."
+      },
+      {
+        "title": "Shareholder and Joint Venture Disputes",
+        "slug": "shareholder-and-joint-venture-disputes",
+        "content": "Our Shareholder and Joint Venture Disputes sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every shareholder and joint venture disputes matter."
+      },
+      {
+        "title": "Cross-Border Asset Recovery",
+        "slug": "cross-border-asset-recovery",
+        "content": "Our Cross-Border Asset Recovery sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every cross-border asset recovery matter."
+      }
     ],
     "industriesServed": [
       "Multinational Corporations",
@@ -96,11 +176,31 @@
     "iconName": "ShieldCheck",
     "overview": "Helping clients navigate a shifting global regulatory landscape. We provide strategic counsel on financial services regulation, antitrust and competition compliance, data privacy, sanctions, and corporate governance frameworks.",
     "expertise": [
-      "Financial Services Regulation (FCA, SEC, ESMA)",
-      "Antitrust and Merger Control Clearanace",
-      "Data Protection & Privacy (GDPR, CCPA)",
-      "Trade Sanctions and AML Compliance",
-      "ESG and Corporate Governance Advisory"
+      {
+        "title": "Financial Services Regulation (FCA, SEC, ESMA)",
+        "slug": "financial-services-regulation-fca-sec-esma",
+        "content": "Our Financial Services Regulation (FCA, SEC, ESMA) sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every financial services regulation (fca, sec, esma) matter."
+      },
+      {
+        "title": "Antitrust and Merger Control Clearanace",
+        "slug": "antitrust-and-merger-control-clearanace",
+        "content": "Our Antitrust and Merger Control Clearanace sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every antitrust and merger control clearanace matter."
+      },
+      {
+        "title": "Data Protection & Privacy (GDPR, CCPA)",
+        "slug": "data-protection-privacy-gdpr-ccpa",
+        "content": "Our Data Protection & Privacy (GDPR, CCPA) sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every data protection & privacy (gdpr, ccpa) matter."
+      },
+      {
+        "title": "Trade Sanctions and AML Compliance",
+        "slug": "trade-sanctions-and-aml-compliance",
+        "content": "Our Trade Sanctions and AML Compliance sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every trade sanctions and aml compliance matter."
+      },
+      {
+        "title": "ESG and Corporate Governance Advisory",
+        "slug": "esg-and-corporate-governance-advisory",
+        "content": "Our ESG and Corporate Governance Advisory sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every esg and corporate governance advisory matter."
+      }
     ],
     "industriesServed": [
       "Asset Managers & Private Fund Sponsors",
@@ -119,11 +219,31 @@
     "iconName": "Home",
     "overview": "Our commercial real estate group coordinates high-profile transactions, development projects, and real estate financings. We advise private capital sponsors, institutional funds, and sovereign investors on major properties and developments.",
     "expertise": [
-      "Commercial Real Estate Acquisitions & Exits",
-      "Real Estate Finance & Structured Debt",
-      "Joint Ventures & Indirect Investment Vehicles",
-      "Large-Scale Development and Planning Projects",
-      "Real Estate Credit and Debt Investment"
+      {
+        "title": "Commercial Real Estate Acquisitions & Exits",
+        "slug": "commercial-real-estate-acquisitions-exits",
+        "content": "Our Commercial Real Estate Acquisitions & Exits sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every commercial real estate acquisitions & exits matter."
+      },
+      {
+        "title": "Real Estate Finance & Structured Debt",
+        "slug": "real-estate-finance-structured-debt",
+        "content": "Our Real Estate Finance & Structured Debt sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every real estate finance & structured debt matter."
+      },
+      {
+        "title": "Joint Ventures & Indirect Investment Vehicles",
+        "slug": "joint-ventures-indirect-investment-vehicles",
+        "content": "Our Joint Ventures & Indirect Investment Vehicles sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every joint ventures & indirect investment vehicles matter."
+      },
+      {
+        "title": "Large-Scale Development and Planning Projects",
+        "slug": "large-scale-development-and-planning-projects",
+        "content": "Our Large-Scale Development and Planning Projects sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every large-scale development and planning projects matter."
+      },
+      {
+        "title": "Real Estate Credit and Debt Investment",
+        "slug": "real-estate-credit-and-debt-investment",
+        "content": "Our Real Estate Credit and Debt Investment sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every real estate credit and debt investment matter."
+      }
     ],
     "industriesServed": [
       "Real Estate Private Equity Funds",
@@ -141,11 +261,31 @@
     "iconName": "Calculator",
     "overview": "Providing sophisticated tax structuring for domestic and international transactions. We ensure tax efficiency for corporate mergers, private capital funds, financial instruments, and real estate investments while managing regulatory risks.",
     "expertise": [
-      "M&A and Transaction Tax Structuring",
-      "Fund Structure and Incentive Tax Planning",
-      "Cross-Border Tax and Transfer Pricing",
-      "Tax Dispute Resolution & Audits",
-      "Structured Finance and Debt Tax Issues"
+      {
+        "title": "M&A and Transaction Tax Structuring",
+        "slug": "m-a-and-transaction-tax-structuring",
+        "content": "Our M&A and Transaction Tax Structuring sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every m&a and transaction tax structuring matter."
+      },
+      {
+        "title": "Fund Structure and Incentive Tax Planning",
+        "slug": "fund-structure-and-incentive-tax-planning",
+        "content": "Our Fund Structure and Incentive Tax Planning sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every fund structure and incentive tax planning matter."
+      },
+      {
+        "title": "Cross-Border Tax and Transfer Pricing",
+        "slug": "cross-border-tax-and-transfer-pricing",
+        "content": "Our Cross-Border Tax and Transfer Pricing sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every cross-border tax and transfer pricing matter."
+      },
+      {
+        "title": "Tax Dispute Resolution & Audits",
+        "slug": "tax-dispute-resolution-audits",
+        "content": "Our Tax Dispute Resolution & Audits sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every tax dispute resolution & audits matter."
+      },
+      {
+        "title": "Structured Finance and Debt Tax Issues",
+        "slug": "structured-finance-and-debt-tax-issues",
+        "content": "Our Structured Finance and Debt Tax Issues sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every structured finance and debt tax issues matter."
+      }
     ],
     "industriesServed": [
       "Corporate Issuers & Sponsors",
@@ -163,11 +303,31 @@
     "iconName": "Cpu",
     "overview": "At the intersection of law and cutting-edge science, our Tech & Innovation practice advises pioneers and large enterprises on intellectual property, digital transformation, artificial intelligence governance, and high-growth venture matters.",
     "expertise": [
-      "Intellectual Property Licensing & Disputes",
-      "Artificial Intelligence & Machine Learning Regulation",
-      "Venture Capital and Founders Representation",
-      "Cybersecurity and Digital Assets",
-      "Technology Sourcing & Strategic Outsourcing"
+      {
+        "title": "Intellectual Property Licensing & Disputes",
+        "slug": "intellectual-property-licensing-disputes",
+        "content": "Our Intellectual Property Licensing & Disputes sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every intellectual property licensing & disputes matter."
+      },
+      {
+        "title": "Artificial Intelligence & Machine Learning Regulation",
+        "slug": "artificial-intelligence-machine-learning-regulation",
+        "content": "Our Artificial Intelligence & Machine Learning Regulation sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every artificial intelligence & machine learning regulation matter."
+      },
+      {
+        "title": "Venture Capital and Founders Representation",
+        "slug": "venture-capital-and-founders-representation",
+        "content": "Our Venture Capital and Founders Representation sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every venture capital and founders representation matter."
+      },
+      {
+        "title": "Cybersecurity and Digital Assets",
+        "slug": "cybersecurity-and-digital-assets",
+        "content": "Our Cybersecurity and Digital Assets sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every cybersecurity and digital assets matter."
+      },
+      {
+        "title": "Technology Sourcing & Strategic Outsourcing",
+        "slug": "technology-sourcing-strategic-outsourcing",
+        "content": "Our Technology Sourcing & Strategic Outsourcing sub-practice delivers sophisticated counsel tailored to the unique complexities of this domain. We guide clients through rigorous regulatory landscapes, strategic transaction structuring, and risk mitigation. Our team leverages extensive industry knowledge to provide actionable, business-oriented legal solutions that align with the commercial objectives of leading enterprises, financial institutions, and global investors. At Silverlake, we prioritize precision, strategic foresight, and relentless advocacy in every technology sourcing & strategic outsourcing matter."
+      }
     ],
     "industriesServed": [
       "Enterprise Tech & Software Firms",

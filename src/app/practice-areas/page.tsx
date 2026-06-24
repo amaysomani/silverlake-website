@@ -3,24 +3,11 @@
 import * as React from "react";
 import Link from "next/link";
 import { motion, Variants } from "framer-motion";
-import { ArrowRight, Briefcase, Layers, DollarSign, Gavel, ShieldCheck, Home, Calculator, Cpu } from "lucide-react";
+import { ArrowRight, ArrowDown, ArrowUp } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import MagneticButton from "@/components/MagneticButton";
 import { getPracticeAreas } from "@/lib/cms";
 import { PracticeArea } from "@/lib/types";
-
-// Map string icon names to Lucide components
-const iconMap: Record<string, React.ComponentType<React.SVGProps<SVGSVGElement>>> = {
-  Briefcase: Briefcase,
-  Layers: Layers,
-  DollarSign: DollarSign,
-  Gavel: Gavel,
-  ShieldCheck: ShieldCheck,
-  Home: Home,
-  Calculator: Calculator,
-  Cpu: Cpu,
-};
 
 // Animation Variants for Cascading Stagger Effects
 const fadeInUp: Variants = {
@@ -45,10 +32,12 @@ const staggerContainer: Variants = {
 
 export default function PracticeAreasPage() {
   const [practiceAreas, setPracticeAreas] = React.useState<PracticeArea[]>([]);
+  const [selectedArea, setSelectedArea] = React.useState<PracticeArea | null>(null);
 
   React.useEffect(() => {
     async function loadData() {
       const data = await getPracticeAreas();
+      // Need to split them into 2 columns for the unselected view
       setPracticeAreas(data);
     }
     loadData();
@@ -86,72 +75,103 @@ export default function PracticeAreasPage() {
           </div>
         </section>
 
-        {/* Practice Areas Index - Macfarlanes Style */}
+        {/* Practice Areas Index - Interactive Macfarlanes Style */}
         <section className="py-24 bg-[#eae8e1] min-h-screen text-[#222]">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start">
-              
-              {/* Left Column - Main Categories */}
-              <div className="w-full lg:w-[45%] flex flex-col gap-0">
-                {practiceAreas.map((area, idx) => (
-                  <div key={area.slug} className="border-b border-[#222]/20 last:border-b-0 group cursor-pointer">
-                    <Link 
-                      href={`/practice-areas/${area.slug}`}
-                      className="py-6 flex items-center justify-between hover:text-black transition-colors"
-                    >
-                      <h2 className="font-serif text-2xl lg:text-[28px] font-normal text-[#333] group-hover:text-black transition-colors">
-                        {area.name}
-                      </h2>
-                      <div className="w-8 h-8 rounded-full bg-[#333] flex items-center justify-center group-hover:bg-[#111] transition-colors">
-                        <ArrowRight className="w-4 h-4 text-[#eae8e1] transform rotate-90" />
-                      </div>
-                    </Link>
+            
+            {selectedArea === null ? (
+              /* State 1: 2-Column Grid of All Services */
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-0 max-w-5xl mx-auto">
+                {practiceAreas.map((area) => (
+                  <div 
+                    key={area.slug} 
+                    className="flex justify-between items-center border-b border-[#222]/20 py-5 cursor-pointer group"
+                    onClick={() => setSelectedArea(area)}
+                  >
+                    <h2 className="font-serif text-[22px] lg:text-[24px] font-normal text-[#333] group-hover:text-black transition-colors">
+                      {area.name}
+                    </h2>
+                    <div className="w-7 h-7 rounded-full bg-[#444] flex items-center justify-center group-hover:bg-[#111] transition-colors">
+                      <ArrowDown className="w-4 h-4 text-[#eae8e1]" />
+                    </div>
                   </div>
                 ))}
               </div>
-
-              {/* Right Column - Highlighted Area / Sub-categories (Static example for M&A based on screenshot) */}
-              <div className="w-full lg:w-[45%] lg:sticky lg:top-32 flex flex-col pt-6">
-                <div className="flex items-center justify-between mb-8">
-                  <h3 className="font-serif text-2xl lg:text-[28px] font-normal text-[#333]">
-                    M&A
-                  </h3>
-                  <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center border border-[#ccc]">
-                    <ArrowRight className="w-4 h-4 text-[#333] transform -rotate-90" />
-                  </div>
+            ) : (
+              /* State 2: 50/50 Split View */
+              <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 items-start max-w-6xl mx-auto">
+                
+                {/* Left Column - Main Categories */}
+                <div className="w-full lg:w-[50%] flex flex-col gap-0">
+                  {practiceAreas.map((area) => {
+                    const isSelected = selectedArea.slug === area.slug;
+                    return (
+                      <div 
+                        key={area.slug} 
+                        className="flex justify-between items-center border-b border-[#222]/20 py-5 cursor-pointer group"
+                        onClick={() => setSelectedArea(isSelected ? null : area)}
+                      >
+                        <h2 className={`font-serif text-[22px] lg:text-[24px] font-normal transition-colors ${isSelected ? "text-black" : "text-[#444] group-hover:text-black"}`}>
+                          {area.name}
+                        </h2>
+                        <div className={`w-7 h-7 rounded-full flex items-center justify-center transition-colors ${isSelected ? "bg-[#111]" : "bg-[#444] group-hover:bg-[#111]"}`}>
+                          {isSelected ? (
+                            <ArrowUp className="w-4 h-4 text-[#eae8e1]" />
+                          ) : (
+                            <ArrowDown className="w-4 h-4 text-[#eae8e1]" />
+                          )}
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
 
-                <div className="flex flex-col gap-4">
-                  {[
-                    "Overview of M&A",
-                    "Private M&A",
-                    "Public Takeovers and Mergers",
-                    "Capital Markets",
-                    "Private Equity Transactions",
-                    "Private Capital Real Estate",
-                    "Sponsor Solutions",
-                    "Management Advisory"
-                  ].map((subItem) => (
-                    <Link 
-                      key={subItem} 
-                      href="/practice-areas/corporate-and-ma"
-                      className="group inline-flex items-center gap-2 text-base text-[#444] border-b border-[#222]/30 pb-2 hover:border-[#222] transition-colors w-fit"
+                {/* Right Column - Subcategories */}
+                <div className="w-full lg:w-[50%] lg:sticky lg:top-32 flex flex-col pt-5">
+                  <div className="flex items-center justify-between mb-10">
+                    <h3 className="font-serif text-[28px] lg:text-[32px] font-normal text-[#111]">
+                      {selectedArea.name}
+                    </h3>
+                    <div 
+                      className="w-9 h-9 rounded-full bg-[#eae8e1] flex items-center justify-center border border-[#999] hover:bg-white hover:border-[#111] transition-all cursor-pointer shadow-sm"
+                      onClick={() => setSelectedArea(null)}
                     >
-                      {subItem}
-                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </Link>
-                  ))}
-                </div>
-                
-                {/* Visual Separator */}
-                <div className="h-px bg-[#222]/20 w-full mt-12 mb-8"></div>
-                
-                <p className="text-sm text-[#666] font-light max-w-sm">
-                  Click on any practice area on the left to explore our capabilities, sub-practices, and key contacts.
-                </p>
-              </div>
+                      <ArrowUp className="w-4 h-4 text-[#333]" strokeWidth={2} />
+                    </div>
+                  </div>
 
-            </div>
+                  <div className="flex flex-col gap-5">
+                    <Link 
+                      href={`/practice-areas/${selectedArea.slug}`}
+                      className="group inline-flex items-center justify-between text-[15px] text-[#444] border-b border-[#222]/20 pb-3 hover:border-[#222] hover:text-[#111] transition-colors w-full sm:w-[90%]"
+                    >
+                      Overview of {selectedArea.name}
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={1.5} />
+                    </Link>
+                    
+                    {selectedArea.expertise.map((exp) => (
+                      <Link 
+                        key={exp.slug} 
+                        href={`/practice-areas/${selectedArea.slug}/${exp.slug}`}
+                        className="group inline-flex items-center justify-between text-[15px] text-[#444] border-b border-[#222]/20 pb-3 hover:border-[#222] hover:text-[#111] transition-colors w-full sm:w-[90%]"
+                      >
+                        {exp.title}
+                        <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={1.5} />
+                      </Link>
+                    ))}
+                  </div>
+                  
+                  {/* Visual Separator */}
+                  <div className="h-px bg-[#222]/10 w-full mt-16 mb-8"></div>
+                  
+                  <p className="text-[13px] text-[#666] font-light max-w-sm tracking-wide">
+                    Click on any practice area on the left to explore our capabilities.
+                  </p>
+                </div>
+
+              </div>
+            )}
+
           </div>
         </section>
       </main>

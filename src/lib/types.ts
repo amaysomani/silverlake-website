@@ -21,12 +21,18 @@ export interface NewsItem {
   category: string; // "Announcement", "Award", "Press Release", "Event"
 }
 
+export interface SubPractice {
+  title: string;
+  slug: string;
+  content: string;
+}
+
 export interface PracticeArea {
   slug: string;
   name: string;
   iconName: string; // Lucide icon name, e.g., "Briefcase", "TrendingUp"
   overview: string;
-  expertise: string[];
+  expertise: SubPractice[];
   industriesServed: string[];
   relatedInsightsSlugs: string[];
 }
