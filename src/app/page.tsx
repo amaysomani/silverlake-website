@@ -162,31 +162,32 @@ export default function HomePage() {
 
 
         {/* ═══════════════════════════════════════════════════
-            4. WHO WE ARE
+            4. WHO WE ARE (50/50 Split)
         ═══════════════════════════════════════════════════ */}
-        <section className="py-[120px] lg:py-[180px] bg-[#eae8e1]">
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-              <div className="max-w-xl">
-                <h2 className="font-serif text-[44px] sm:text-[56px] lg:text-[72px] font-normal text-[#111] mb-10 leading-[1.05] tracking-tight">Who we are</h2>
-                <p className="text-[22px] md:text-[26px] lg:text-[32px] font-serif font-light text-[#444] leading-[1.4] mb-14">
-                  We are recognized for the quality of our work, not just in dealing with the full range of corporate and commercial matters, but in advising our clients on their private affairs.
-                </p>
-                <Link
-                  href="/about"
-                  className="group inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.2em] text-[#111] border-b border-[#111]/30 pb-2 hover:border-[#111] transition-colors"
-                >
-                  Learn about Silverlake
-                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
-              </div>
-              <div className="relative aspect-[3/4] lg:aspect-[4/5] overflow-hidden group">
-                <img
-                  src="/images/office-interior.png"
-                  alt="Silverlake Office"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2s] ease-out"
-                />
-              </div>
+        <section className="flex flex-col lg:flex-row bg-[#081b33]">
+          {/* Left: Image */}
+          <div className="w-full lg:w-1/2 relative min-h-[500px] lg:min-h-[600px]">
+            <img
+              src="/images/office-interior.png"
+              alt="Silverlake Office"
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          </div>
+          
+          {/* Right: Text Content */}
+          <div className="w-full lg:w-1/2 flex items-center bg-[#081b33]">
+            <div className="max-w-xl px-8 py-24 lg:px-24 lg:py-32 text-white">
+              <h2 className="font-serif text-[36px] lg:text-[44px] font-normal mb-6 leading-tight tracking-tight">Who we are</h2>
+              <p className="text-[15px] lg:text-[17px] font-sans font-normal text-white leading-[1.6] mb-10">
+                We are big enough to undertake the most complex and demanding mandates yet small enough to know each other well and to be agile, adapting to the needs of our clients.
+              </p>
+              <Link
+                href="/about"
+                className="group inline-flex items-center gap-2 text-[15px] font-normal text-white border-b border-white pb-0.5 hover:text-white/70 hover:border-white/70 transition-colors"
+              >
+                Learn about Silverlake
+                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={1.5} />
+              </Link>
             </div>
           </div>
         </section>
