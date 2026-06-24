@@ -197,7 +197,7 @@ export default function Header() {
                               <Link
                                 href={link.href}
                                 onClick={() => setDrawerOpen(false)}
-                                className={`block font-serif text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight transition-all duration-500 py-2 lg:py-3 group ${
+                                className={`block font-serif text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight transition-all duration-500 py-2 lg:py-3 group ${
                                   isActive
                                     ? "text-[#cdcab2]"
                                     : "text-[#f9f3f1]/40 hover:text-[#f9f3f1] hover:pl-4"
