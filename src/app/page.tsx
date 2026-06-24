@@ -155,42 +155,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ═══════════════════════════════════════════════════
-            3. EXAMPLES OF OUR WORK (Case Studies)
-        ═══════════════════════════════════════════════════ */}
-        <section className="py-[100px] lg:py-[140px] bg-[#fcfbf9]">
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <div className="flex flex-col sm:flex-row justify-between items-baseline mb-16 gap-6 border-b border-black/10 pb-6">
-              <h2 className="font-serif text-4xl sm:text-5xl font-light text-[#0A1128]">Examples of our work</h2>
-              <MagneticButton strength={0.2}>
-                <Link
-                  href="/practice-areas"
-                  className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-[#0A1128] hover:text-[#C5A059] transition-colors border-b border-[#0A1128]/30 pb-1 hover:border-[#C5A059]"
-                >
-                  Case studies
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                </Link>
-              </MagneticButton>
-            </div>
 
-            <motion.div
-              className="relative aspect-[21/9] md:aspect-[24/9] overflow-hidden bg-black group"
-            >
-              <img
-                src="/images/case-study.png"
-                alt="Case Study"
-                className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-1000"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-              <div className="absolute bottom-0 left-0 p-8 md:p-12">
-                <span className="text-[10px] uppercase tracking-[0.2em] text-[#cdcab2] font-bold mb-3 block">Case study</span>
-                <h3 className="font-serif text-2xl md:text-4xl text-white font-light max-w-2xl leading-tight">
-                  Defending institutional funds in landmark private credit disciplinary appeals
-                </h3>
-              </div>
-            </motion.div>
-          </div>
-        </section>
 
         {/* ═══════════════════════════════════════════════════
             4. WHO WE ARE
