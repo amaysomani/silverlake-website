@@ -24,7 +24,7 @@ export default function HeroCarousel({ articles }: HeroCarouselProps) {
     return () => clearInterval(timer);
   }, [articles]);
 
-  if (!articles || articles.length === 0) return null;
+  if (!articles || articles.length === 0) return <div className="relative h-screen min-h-[600px] w-full bg-[#0a0f12]" />;
 
   const handleNext = () => {
     setDirection(1);
