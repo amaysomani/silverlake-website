@@ -91,14 +91,10 @@ export default function HomePage() {
             </div>
 
             <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
-              variants={staggerContainer}
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
             >
               {practiceAreas.map((area, idx) => (
-                <motion.div key={area.slug} variants={fadeInUp} whileHover={{ y: -8 }} className="group relative border border-white/10 aspect-[3/4] overflow-hidden bg-black">
+                <motion.div key={area.slug} whileHover={{ y: -8 }} className="group relative border border-white/10 aspect-[3/4] overflow-hidden bg-black">
                   <Link href={`/practice-areas/${area.slug}`} className="block h-full w-full">
                     <img 
                       src={`https://images.unsplash.com/photo-${[
@@ -145,10 +141,6 @@ export default function HomePage() {
             </div>
 
             <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeInUp}
               className="relative aspect-[21/9] md:aspect-[24/9] overflow-hidden bg-black group"
             >
               <img
@@ -189,10 +181,6 @@ export default function HomePage() {
                 </MagneticButton>
               </div>
               <motion.div
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeInUp}
                 className="relative aspect-[4/3] overflow-hidden"
               >
                 <img
@@ -224,14 +212,10 @@ export default function HomePage() {
             </div>
 
             <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={staggerContainer}
               className="grid grid-cols-1 md:grid-cols-3 gap-8"
             >
               {articles.map((art) => (
-                <motion.article key={art.slug} variants={fadeInUp} whileHover={{ y: -8 }} className="group">
+                <motion.article key={art.slug} whileHover={{ y: -8 }} className="group">
                   <Link href={`/insights/${art.slug}`} className="block h-full border-t-2 border-transparent hover:border-[#111111] transition-colors pt-4">
                     <div className="aspect-[4/3] overflow-hidden mb-6 relative">
                       <img
