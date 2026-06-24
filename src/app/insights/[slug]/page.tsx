@@ -172,42 +172,65 @@ export default async function ArticleDetailPage({ params }: Props) {
 
         {/* Related Articles Section */}
         {relatedArticles.length > 0 && (
-          <section className="py-20 border-t border-border bg-muted/10 transition-colors duration-300">
-            <div className="mx-auto max-w-7xl px-6 lg:px-8">
-              <div className="max-w-3xl mb-12">
-                <span className="text-xs font-semibold uppercase tracking-widest text-accent-emerald">Selected Readings</span>
-                <h2 className="font-serif text-2xl font-light text-primary mt-2">Related Analysis</h2>
+          <section className="py-20 bg-white border-t border-gray-100">
+            <div className="mx-auto max-w-[1200px] px-6 lg:px-10">
+              <div className="flex justify-between items-baseline mb-12">
+                <h2 className="font-serif text-4xl text-[#222] font-normal">Related insights</h2>
+                <Link 
+                  href="/insights" 
+                  className="text-base text-[#222] border-b border-gray-300 pb-1 hover:border-black transition-colors flex items-center gap-2"
+                >
+                  View more <ArrowRight className="h-4 w-4" />
+                </Link>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {relatedArticles.map((art) => (
-                  <article
-                    key={art.slug}
-                    className="border border-border bg-background flex flex-col justify-between hover:shadow-md transition-shadow duration-300"
-                  >
-                    <div className="p-6 space-y-4">
-                      <span className="text-[9px] font-semibold uppercase tracking-widest text-accent-emerald">
-                        {art.category}
-                      </span>
-                      <h3 className="font-serif text-base font-semibold text-primary hover:text-accent-emerald transition-colors line-clamp-2">
-                        <Link href={`/insights/${art.slug}`}>{art.title}</Link>
-                      </h3>
-                      <p className="text-[11px] text-muted-foreground leading-relaxed line-clamp-3">
-                        {art.summary}
-                      </p>
-                    </div>
-                    <div className="px-6 py-4 border-t border-border bg-muted/10 flex items-center justify-between text-[10px] text-muted-foreground">
-                      <span>
-                        {new Date(art.datePublished).toLocaleDateString("en-US", {
-                          day: "numeric",
-                          month: "short",
-                          year: "numeric",
-                        })}
-                      </span>
-                      <span>{art.readingTime}</span>
-                    </div>
-                  </article>
-                ))}
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+                {relatedArticles.map((art, idx) => {
+                  if (idx === 0) {
+                    // Large Card (Left)
+                    return (
+                      <Link 
+                        key={art.slug} 
+                        href={`/insights/${art.slug}`}
+                        className="md:col-span-2 group relative overflow-hidden flex flex-col min-h-[450px]"
+                      >
+                        <div 
+                          className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                          style={{ backgroundImage: `url(${art.featuredImage})` }}
+                        />
+                        <div className="absolute bottom-0 left-0 right-0 bg-[#35343d] p-8 transition-colors group-hover:bg-[#2a2931]">
+                          <h3 className="font-serif text-[28px] font-normal text-white underline decoration-white/40 underline-offset-8 group-hover:decoration-white transition-colors leading-snug">
+                            {art.title}
+                          </h3>
+                        </div>
+                      </Link>
+                    );
+                  } else {
+                    // Small Cards (Right)
+                    return (
+                      <Link 
+                        key={art.slug}
+                        href={`/insights/${art.slug}`}
+                        className="md:col-span-1 group flex flex-col bg-[#f8f8f8] hover:bg-[#f0f0f0] transition-colors h-full"
+                      >
+                        <div className="h-[220px] overflow-hidden relative">
+                          <div 
+                            className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-105"
+                            style={{ backgroundImage: `url(${art.featuredImage})` }}
+                          />
+                        </div>
+                        <div className="p-6 flex flex-col flex-grow">
+                          <h3 className="font-serif text-[22px] font-normal text-[#222] mb-4 leading-snug">
+                            {art.title}
+                          </h3>
+                          <p className="text-sm text-[#555] leading-relaxed line-clamp-4">
+                            {art.summary}
+                          </p>
+                        </div>
+                      </Link>
+                    );
+                  }
+                })}
               </div>
             </div>
           </section>
