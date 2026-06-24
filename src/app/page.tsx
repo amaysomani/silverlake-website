@@ -111,76 +111,25 @@ export default function HomePage() {
               </div>
 
               {/* Central Graphic */}
-              <div className="hidden lg:flex justify-center items-center px-4 relative h-[600px] w-full max-w-[500px] mx-auto">
-                {/* Orbital Network Background */}
-                <motion.div 
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 140, repeat: Infinity, ease: "linear" }}
-                  className="absolute inset-0 flex justify-center items-center pointer-events-none"
-                >
-                  <svg width="480" height="480" viewBox="0 0 480 480" className="opacity-[0.25]">
-                    {/* Outer Orbit */}
-                    <circle cx="240" cy="240" r="230" stroke="#111" strokeWidth="1" strokeDasharray="4 8" fill="none" />
-                    {/* Inner Orbit */}
-                    <circle cx="240" cy="240" r="150" stroke="#111" strokeWidth="1" strokeDasharray="4 8" fill="none" />
-                    
-                    {/* Nodes and Connectors */}
-                    <g stroke="#111" strokeWidth="1">
-                      <line x1="240" y1="10" x2="240" y2="90" />
-                      <line x1="240" y1="470" x2="240" y2="390" />
-                      <line x1="10" y1="240" x2="90" y2="240" />
-                      <line x1="470" y1="240" x2="390" y2="240" />
-                      
-                      <line x1="77" y1="77" x2="134" y2="134" />
-                      <line x1="403" y1="403" x2="346" y2="346" />
-                      <line x1="403" y1="77" x2="346" y2="134" />
-                      <line x1="77" y1="403" x2="134" y2="346" />
-                    </g>
-                    
-                    {/* Dots */}
-                    <g fill="#fcfbf9" stroke="#111" strokeWidth="1.5">
-                      <circle cx="240" cy="10" r="5" />
-                      <circle cx="240" cy="90" r="4" />
-                      <circle cx="240" cy="470" r="5" />
-                      <circle cx="240" cy="390" r="4" />
-                      <circle cx="10" cy="240" r="5" />
-                      <circle cx="90" cy="240" r="4" />
-                      <circle cx="470" cy="240" r="5" />
-                      <circle cx="390" cy="240" r="4" />
-                      
-                      <circle cx="77" cy="77" r="5" />
-                      <circle cx="134" cy="134" r="4" />
-                      <circle cx="403" cy="403" r="5" />
-                      <circle cx="346" cy="346" r="4" />
-                      <circle cx="403" cy="77" r="5" />
-                      <circle cx="346" cy="134" r="4" />
-                      <circle cx="77" cy="403" r="5" />
-                      <circle cx="134" cy="346" r="4" />
-                    </g>
-                  </svg>
-                </motion.div>
-
-                {/* Central Guilloché Graphic (The 'earlier design' in the middle) */}
-                <div className="relative z-10 flex justify-center items-center bg-[#eae8e1] rounded-full p-4 shadow-[0_0_60px_40px_rgba(234,232,225,1)]">
-                  <svg width="260" height="380" viewBox="0 0 260 380" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-[0.7]">
-                    <g stroke="#222" strokeWidth="0.5">
-                      <line x1="130" y1="0" x2="130" y2="380" strokeWidth="0.75" opacity="0.5" />
-                      <line x1="0" y1="190" x2="260" y2="190" strokeWidth="0.75" opacity="0.5" />
-                      {[...Array(14)].map((_, i) => (
-                        <path key={`left-${i}`} d={`M 130 0 C ${130 - i * 14} 95, ${130 - i * 14} 285, 130 380`} />
-                      ))}
-                      {[...Array(14)].map((_, i) => (
-                        <path key={`right-${i}`} d={`M 130 0 C ${130 + i * 14} 95, ${130 + i * 14} 285, 130 380`} />
-                      ))}
-                      {[...Array(14)].map((_, i) => (
-                        <path key={`top-${i}`} d={`M 0 190 C 65 ${190 - i * 14}, 195 ${190 - i * 14}, 260 190`} />
-                      ))}
-                      {[...Array(14)].map((_, i) => (
-                        <path key={`bottom-${i}`} d={`M 0 190 C 65 ${190 + i * 14}, 195 ${190 + i * 14}, 260 190`} />
-                      ))}
-                    </g>
-                  </svg>
-                </div>
+              <div className="hidden lg:flex justify-center items-center px-4">
+                <svg width="340" height="480" viewBox="0 0 340 480" fill="none" xmlns="http://www.w3.org/2000/svg" className="opacity-[0.6]">
+                  <g stroke="#222" strokeWidth="0.5">
+                    <line x1="170" y1="0" x2="170" y2="480" strokeWidth="0.75" opacity="0.5" />
+                    <line x1="0" y1="240" x2="340" y2="240" strokeWidth="0.75" opacity="0.5" />
+                    {[...Array(18)].map((_, i) => (
+                      <path key={`left-${i}`} d={`M 170 0 C ${170 - i * 16} 120, ${170 - i * 16} 360, 170 480`} />
+                    ))}
+                    {[...Array(18)].map((_, i) => (
+                      <path key={`right-${i}`} d={`M 170 0 C ${170 + i * 16} 120, ${170 + i * 16} 360, 170 480`} />
+                    ))}
+                    {[...Array(18)].map((_, i) => (
+                      <path key={`top-${i}`} d={`M 0 240 C 85 ${240 - i * 16}, 255 ${240 - i * 16}, 340 240`} />
+                    ))}
+                    {[...Array(18)].map((_, i) => (
+                      <path key={`bottom-${i}`} d={`M 0 240 C 85 ${240 + i * 16}, 255 ${240 + i * 16}, 340 240`} />
+                    ))}
+                  </g>
+                </svg>
               </div>
 
               {/* Right Column */}
