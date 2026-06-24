@@ -11,8 +11,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export default async function OfficePage({ params }: { params: { slug: string } }) {
-  const office = await getOfficeBySlug(params.slug);
+export default async function OfficePage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const office = await getOfficeBySlug(slug);
 
   if (!office) {
     notFound();
