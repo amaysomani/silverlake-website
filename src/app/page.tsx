@@ -161,33 +161,29 @@ export default function HomePage() {
         {/* ═══════════════════════════════════════════════════
             4. WHO WE ARE
         ═══════════════════════════════════════════════════ */}
-        <section className="py-[100px] lg:py-[140px] bg-[#1F2A44]">
+        <section className="py-[120px] lg:py-[180px] bg-[#fcfbf9]">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div>
-                <h2 className="font-serif text-4xl sm:text-5xl font-light text-[#fcfbf9] mb-8">Who we are</h2>
-                <p className="text-xl md:text-2xl font-serif font-light text-[#fcfbf9]/80 leading-relaxed mb-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+              <div className="max-w-xl">
+                <h2 className="font-serif text-[44px] sm:text-[56px] lg:text-[72px] font-normal text-[#111] mb-10 leading-[1.05] tracking-tight">Who we are</h2>
+                <p className="text-[22px] md:text-[26px] lg:text-[32px] font-serif font-light text-[#444] leading-[1.4] mb-14">
                   We are recognized for the quality of our work, not just in dealing with the full range of corporate and commercial matters, but in advising our clients on their private affairs.
                 </p>
-                <MagneticButton strength={0.3}>
-                  <Link
-                    href="/about"
-                    className="inline-flex items-center gap-3 bg-[#C5A059] text-[#0A1128] px-8 py-4 text-xs font-semibold uppercase tracking-[0.2em] hover:bg-[#fcfbf9] hover:text-[#0A1128] transition-colors duration-500"
-                  >
-                    Get to know us
-                    <ArrowRight className="h-4 w-4" />
-                  </Link>
-                </MagneticButton>
+                <Link
+                  href="/about"
+                  className="group inline-flex items-center gap-2 text-[13px] font-semibold uppercase tracking-[0.2em] text-[#111] border-b border-[#111]/30 pb-2 hover:border-[#111] transition-colors"
+                >
+                  Learn about Silverlake
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
               </div>
-              <motion.div
-                className="relative aspect-[4/3] overflow-hidden"
-              >
+              <div className="relative aspect-[3/4] lg:aspect-[4/5] overflow-hidden group">
                 <img
                   src="/images/office-interior.png"
                   alt="Silverlake Office"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[2s] ease-out"
                 />
-              </motion.div>
+              </div>
             </div>
           </div>
         </section>
