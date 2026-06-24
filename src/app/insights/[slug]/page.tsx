@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ArrowRight, Calendar, Clock, User, Share2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, Calendar, Clock, User, Share2, Printer } from "lucide-react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { getArticleBySlug } from "@/lib/cms";
@@ -75,90 +75,94 @@ export default async function ArticleDetailPage({ params }: Props) {
       <Header />
       <main className="flex-grow">
         {/* Navigation & Header */}
-        <section className="relative pt-32 pb-12 lg:pt-40 lg:pb-16 bg-[#0a0f12] overflow-hidden">
-          <div className="absolute inset-0 grain-overlay pointer-events-none" />
-          <div className="mx-auto max-w-4xl px-6 relative z-10">
-            <Link
-              href="/insights"
-              className="inline-flex items-center text-xs font-semibold tracking-[0.15em] uppercase text-[#cdcab2]/60 hover:text-[#cdcab2] transition-colors mb-8"
-            >
-              <ArrowLeft className="mr-2 h-4 w-4" />
-              All Insights
-            </Link>
+        <section className="relative pt-40 pb-20 lg:pt-48 lg:pb-24 overflow-hidden">
+          {/* Background Image */}
+          <div 
+            className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+            style={{ 
+              backgroundImage: `url(${article.featuredImage || 'https://images.unsplash.com/photo-1533035353720-f1c6a75cd8ab?q=80&w=1920&auto=format&fit=crop'})` 
+            }}
+          />
+          {/* Dark overlay for readability */}
+          <div className="absolute inset-0 z-10 bg-black/50" />
+          
+          <div className="mx-auto max-w-[1200px] px-6 lg:px-10 relative z-20 flex flex-col md:flex-row justify-between items-end">
+            <div className="space-y-6 max-w-3xl">
+              {/* Breadcrumbs */}
+              <div className="flex items-center text-sm font-medium tracking-wide text-white/90 hover:text-white transition-colors mb-4">
+                <Link href="/" className="hover:underline underline-offset-4">Home</Link>
+                <span className="mx-3">/</span>
+                <Link href="/insights" className="hover:underline underline-offset-4">Insights</Link>
+              </div>
 
-            <div className="space-y-4">
-              <span className="text-[9px] font-semibold uppercase tracking-[0.3em] text-[#cdcab2] block">
-                {article.category}
+              <span className="text-sm font-bold uppercase tracking-widest text-white block">
+                {article.category ? article.category.toUpperCase() : "ARTICLE"}
               </span>
-              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl font-light tracking-tight text-white leading-tight">
+              <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl font-normal text-white leading-tight">
                 {article.title}
               </h1>
               
-              {/* Metadata row */}
-              <div className="pt-6 flex flex-wrap items-center gap-6 text-xs text-[#e2ddda]/40 border-t border-white/5">
-                <span className="flex items-center gap-x-1.5 font-semibold text-[#f9f3f1]/70">
-                  <User className="h-4 w-4 text-[#cdcab2]/60" />
-                  {article.author}
-                </span>
-                <span className="flex items-center gap-x-1.5">
-                  <Calendar className="h-4 w-4 text-[#cdcab2]/60" />
-                  {new Date(article.datePublished).toLocaleDateString("en-US", {
+              <div className="pt-4 flex items-center gap-2 text-sm font-medium text-white/90">
+                <span>
+                  {new Date(article.datePublished).toLocaleDateString("en-GB", {
                     day: "numeric",
                     month: "long",
                     year: "numeric",
                   })}
                 </span>
-                <span className="flex items-center gap-x-1.5">
-                  <Clock className="h-4 w-4 text-[#cdcab2]/60" />
-                  {article.readingTime}
-                </span>
+                <span className="mx-1">|</span>
+                <span>{article.readingTime}</span>
               </div>
+            </div>
+
+            {/* Share & Print Buttons */}
+            <div className="flex gap-4 mt-8 md:mt-0">
+              <button 
+                className="flex items-center justify-center w-12 h-12 rounded-full bg-white text-black hover:bg-gray-200 transition-colors"
+                aria-label="Share article"
+              >
+                <Share2 className="h-5 w-5" />
+              </button>
+              <button 
+                className="flex items-center justify-center w-12 h-12 rounded-full bg-white text-black hover:bg-gray-200 transition-colors"
+                aria-label="Print article"
+              >
+                <Printer className="h-5 w-5" />
+              </button>
             </div>
           </div>
         </section>
 
-        {/* Content & Sharing Layout */}
-        <section className="py-16 bg-background transition-colors duration-300">
-          <div className="mx-auto max-w-4xl px-6">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        {/* Content Layout */}
+        <section className="py-20 bg-white transition-colors duration-300">
+          <div className="mx-auto max-w-[900px] px-6">
+            <div className="space-y-12">
               
-              {/* Sharing sidebar */}
-              <div className="lg:col-span-1 flex lg:flex-col lg:items-center gap-4 lg:pt-2 border-b lg:border-b-0 lg:border-r border-border pb-6 lg:pb-0 lg:pr-6">
-                <span className="text-[9px] uppercase tracking-widest text-muted-foreground font-semibold lg:mb-2">Share</span>
-                <button 
-                  className="rounded-full p-2 border border-border hover:bg-muted text-muted-foreground hover:text-primary transition-all duration-300"
-                  aria-label="Share article"
-                >
-                  <Share2 className="h-4 w-4" />
-                </button>
-              </div>
-
-              {/* Article Content */}
-              <div className="lg:col-span-11 space-y-8">
-                {/* Summary / Excerpt */}
-                <p className="text-base sm:text-lg font-light text-muted-foreground border-l-4 border-accent-emerald pl-6 italic leading-relaxed">
+              {/* Large Introductory Text */}
+              {article.summary && (
+                <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] font-normal text-[#222] leading-[1.3]">
                   {article.summary}
-                </p>
+                </h2>
+              )}
 
-                {/* Body Content */}
-                <div
-                  className="prose prose-sm sm:prose max-w-none dark:prose-invert prose-headings:font-serif prose-headings:font-light prose-headings:text-primary prose-a:text-accent-emerald hover:prose-a:text-primary leading-relaxed text-muted-foreground space-y-6"
-                  dangerouslySetInnerHTML={{ __html: article.content }}
-                />
+              {/* Body Content */}
+              <div
+                className="prose prose-lg sm:prose-xl max-w-none prose-headings:font-serif prose-headings:font-normal prose-headings:text-[#222] prose-p:text-[#333] prose-p:leading-relaxed prose-a:text-[#222] prose-a:underline prose-a:underline-offset-4 hover:prose-a:text-[#C5A059] prose-strong:text-[#222] space-y-8"
+                dangerouslySetInnerHTML={{ __html: article.content }}
+              />
 
-                {/* Tags */}
-                <div className="pt-8 border-t border-border">
-                  <div className="flex flex-wrap gap-2">
-                    {article.tags.map((tag) => (
-                      <Link
-                        key={tag}
-                        href={`/insights?tag=${encodeURIComponent(tag)}`}
-                        className="text-[10px] uppercase font-semibold tracking-wider bg-muted text-muted-foreground px-3 py-1.5 border border-transparent hover:border-border transition-colors"
-                      >
-                        #{tag}
-                      </Link>
-                    ))}
-                  </div>
+              {/* Tags */}
+              <div className="pt-12 border-t border-gray-200">
+                <div className="flex flex-wrap gap-3">
+                  {article.tags.map((tag) => (
+                    <Link
+                      key={tag}
+                      href={`/insights?tag=${encodeURIComponent(tag)}`}
+                      className="text-sm font-medium text-[#444] bg-gray-100 hover:bg-gray-200 px-4 py-2 transition-colors"
+                    >
+                      {tag}
+                    </Link>
+                  ))}
                 </div>
               </div>
 
