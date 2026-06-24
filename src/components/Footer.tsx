@@ -41,7 +41,7 @@ export default function Footer() {
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
             className="overflow-hidden"
           >
-            <span className="font-serif text-6xl sm:text-8xl md:text-9xl lg:text-[10rem] xl:text-[12rem] font-light tracking-[0.1em] text-white/[0.04] block leading-none select-none">
+            <span className="font-serif text-[11vw] font-light tracking-[0.05em] text-white/[0.04] block leading-none select-none text-center lg:text-left">
               SILVERLAKE
             </span>
           </motion.div>
