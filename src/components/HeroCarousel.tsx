@@ -140,7 +140,7 @@ export default function HeroCarousel({ articles }: HeroCarouselProps) {
       </div>
 
       {/* Navigation Controls */}
-      <div className="absolute right-10 top-1/2 -translate-y-1/2 z-30 flex gap-4">
+      <div className="absolute right-6 bottom-8 lg:right-10 lg:top-1/2 lg:-translate-y-1/2 lg:bottom-auto z-30 flex gap-4">
         <button
           onClick={handlePrev}
           className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center hover:bg-white text-white hover:text-black transition-all"
