@@ -106,28 +106,51 @@ export default function PracticeAreasPage() {
                   {practiceAreas.map((area) => {
                     const isSelected = selectedArea.slug === area.slug;
                     return (
-                      <div 
-                        key={area.slug} 
-                        className="flex justify-between items-center border-b border-[#222]/20 py-5 cursor-pointer group"
-                        onClick={() => setSelectedArea(isSelected ? null : area)}
-                      >
-                        <h2 className={`font-serif text-[22px] lg:text-[24px] font-normal transition-colors ${isSelected ? "text-black" : "text-[#444] group-hover:text-black"}`}>
-                          {area.name}
-                        </h2>
-                        <div className={`w-7 h-7 rounded-full flex items-center justify-center transition-colors ${isSelected ? "bg-[#111]" : "bg-[#444] group-hover:bg-[#111]"}`}>
-                          {isSelected ? (
-                            <ArrowUp className="w-4 h-4 text-[#eae8e1]" />
-                          ) : (
-                            <ArrowDown className="w-4 h-4 text-[#eae8e1]" />
-                          )}
+                      <div key={area.slug} className="flex flex-col border-b border-[#222]/20">
+                        <div 
+                          className="flex justify-between items-center py-5 cursor-pointer group"
+                          onClick={() => setSelectedArea(isSelected ? null : area)}
+                        >
+                          <h2 className={`font-serif text-[22px] lg:text-[24px] font-normal transition-colors ${isSelected ? "text-black" : "text-[#444] group-hover:text-black"}`}>
+                            {area.name}
+                          </h2>
+                          <div className={`w-7 h-7 rounded-full flex items-center justify-center transition-colors ${isSelected ? "bg-[#111]" : "bg-[#444] group-hover:bg-[#111]"}`}>
+                            {isSelected ? (
+                              <ArrowUp className="w-4 h-4 text-[#eae8e1]" />
+                            ) : (
+                              <ArrowDown className="w-4 h-4 text-[#eae8e1]" />
+                            )}
+                          </div>
                         </div>
+                        {/* Mobile accordion dropdown */}
+                        {isSelected && (
+                          <div className="flex flex-col gap-4 pb-6 lg:hidden pr-4">
+                            <Link 
+                              href={`/practice-areas/${selectedArea.slug}`}
+                              className="group inline-flex items-center justify-between text-[15px] text-[#444] border-b border-[#222]/20 pb-3 hover:border-[#222] hover:text-[#111] transition-colors w-full"
+                            >
+                              Overview of {selectedArea.name}
+                              <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={1.5} />
+                            </Link>
+                            {selectedArea.expertise.map((exp) => (
+                              <Link 
+                                key={exp.slug} 
+                                href={`/practice-areas/${selectedArea.slug}/${exp.slug}`}
+                                className="group inline-flex items-center justify-between text-[15px] text-[#444] border-b border-[#222]/20 pb-3 hover:border-[#222] hover:text-[#111] transition-colors w-full"
+                              >
+                                {exp.title}
+                                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" strokeWidth={1.5} />
+                              </Link>
+                            ))}
+                          </div>
+                        )}
                       </div>
                     );
                   })}
                 </div>
 
                 {/* Right Column - Subcategories */}
-                <div className="w-full lg:w-[50%] lg:sticky lg:top-32 flex flex-col pt-5">
+                <div className="hidden lg:flex w-full lg:w-[50%] lg:sticky lg:top-32 flex-col pt-5">
                   <div className="flex items-center justify-between mb-10">
                     <h3 className="font-serif text-[28px] lg:text-[32px] font-normal text-[#111]">
                       {selectedArea.name}
