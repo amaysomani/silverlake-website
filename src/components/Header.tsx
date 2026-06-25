@@ -16,7 +16,7 @@ const allNavLinks = [
   { name: "Join us", href: "/careers" },
   { name: "News", href: "/news" },
   { name: "Alumni", href: "#alumni" },
-  { name: "Get in touch", href: "/careers#apply" },
+  { name: "Get in touch", href: "/contact" },
 ];
 
 const desktopLinks = [
