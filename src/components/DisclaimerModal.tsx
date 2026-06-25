@@ -38,6 +38,7 @@ export default function DisclaimerModal() {
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
             className="bg-[#fcfbf9] text-[#111111] max-w-4xl w-full p-10 lg:p-14 shadow-2xl overflow-y-auto max-h-[90vh]"
+            data-lenis-prevent="true"
           >
             <h2 className="font-serif text-[28px] sm:text-[36px] font-normal mb-8">
               DISCLAIMER
