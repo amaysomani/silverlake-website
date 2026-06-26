@@ -8,6 +8,7 @@ export interface Article {
   datePublished: string; // ISO string, e.g. "2026-04-30T10:00:00Z"
   readingTime: string; // e.g. "5 min read"
   summary: string;
+  introduction?: string;
   content: string; // Markdown or simple HTML
   isFeatured?: boolean;
 }

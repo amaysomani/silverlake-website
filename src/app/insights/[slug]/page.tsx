@@ -149,9 +149,9 @@ export default async function ArticleDetailPage({ params }: Props) {
                 <div className="space-y-10">
                   
                   {/* Large Introductory Text */}
-                  {article.summary && (
+                  {(article.introduction || article.summary) && (
                     <div className="font-serif text-[1.75rem] lg:text-[2.25rem] font-normal text-[#37323C] leading-[1.3] mb-8 pb-6 border-b border-gray-100">
-                      {article.summary}
+                      {article.introduction || article.summary}
                     </div>
                   )}
 
