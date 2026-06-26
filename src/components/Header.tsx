@@ -237,7 +237,7 @@ export default function Header() {
                         <div className="text-sm text-[#f9f3f1]/70 font-light space-y-1">
                           <a href="mailto:contact@silverlakelaw.in" className="hover:text-white transition-colors block">contact@silverlakelaw.in</a>
                           <a href="tel:+918989599225" className="hover:text-white transition-colors block">(+91) 8989 599 225</a>
-                          <a href="tel:+918435375402" className="hover:text-white transition-colors block">(+91) 8435 375 402</a>
+                          <a href="tel:+917024082617" className="hover:text-white transition-colors block">(+91) 70240 82617</a>
                         </div>
                       </div>
                       <div className="pt-4 border-t border-white/5">

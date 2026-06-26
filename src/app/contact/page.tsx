@@ -36,10 +36,10 @@ export default function ContactPage() {
                   (+91) 8989 599 225
                 </a>
                 <a 
-                  href="tel:+918435375402" 
+                  href="tel:+917024082617" 
                   className="text-[24px] sm:text-[28px] text-[#111] hover:text-[#C5A059] transition-colors font-light"
                 >
-                  (+91) 8435 375 402
+                  (+91) 70240 82617
                 </a>
               </div>
             </div>
