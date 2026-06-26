@@ -51,7 +51,7 @@ export default function CareersPage() {
       description: "Seeking a finance associate with 2-4 years PQE to advise credit funds and institutional direct lending platforms on structural leverage and portfolio investments.",
     },
     {
-      title: "Knowledge Lawyer – Financial Services Regulation",
+      title: "Knowledge Management Associate – Financial Services Regulation",
       location: "Ireland representative office",
       type: "Knowledge & Innovation",
       description: "Seeking an experienced regulatory specialist (5+ years PQE) to coordinate thought leadership, track legislative adjustments (including AIFMD II), and advise internal transaction teams.",
