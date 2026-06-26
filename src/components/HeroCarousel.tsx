@@ -168,8 +168,8 @@ export default function HeroCarousel({ articles }: HeroCarouselProps) {
               setDirection(idx > currentIndex ? 1 : -1);
               setCurrentIndex(idx);
             }}
-            className={`h-1 transition-all duration-500 rounded-full ${
-              currentIndex === idx ? "w-10 bg-white" : "w-4 bg-white/30"
+            className={`h-1 transition-all duration-500 rounded-full shadow-[0_1px_3px_rgba(0,0,0,0.8)] ${
+              currentIndex === idx ? "w-10 bg-white" : "w-6 bg-white/60 hover:bg-white/80"
             }`}
           />
         ))}
