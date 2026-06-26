@@ -8,6 +8,7 @@ import { urlForImage } from "@/sanity/image";
 
 // Cast JSON data to typed arrays
 const practiceAreas: PracticeArea[] = practiceAreasData as PracticeArea[];
+// Load and sort fallback articles (automatically reloaded on module compilation)
 const fallbackArticles: Article[] = (articlesData as Article[]).sort(
   (a, b) => new Date(b.datePublished).getTime() - new Date(a.datePublished).getTime()
 );
