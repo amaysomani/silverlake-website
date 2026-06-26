@@ -8,13 +8,13 @@ import { Article } from "@/lib/types";
 
 interface Props {
   params: Promise<{
-    slug: string;
+    category: string;
   }>;
 }
 
 export async function generateMetadata({ params }: Props) {
-  const { slug } = await params;
-  const area = await getPracticeAreaBySlug(slug);
+  const { category } = await params;
+  const area = await getPracticeAreaBySlug(category);
   if (!area) return {};
 
   return {
@@ -24,8 +24,8 @@ export async function generateMetadata({ params }: Props) {
 }
 
 export default async function PracticeAreaDetailPage({ params }: Props) {
-  const { slug } = await params;
-  const area = await getPracticeAreaBySlug(slug);
+  const { category } = await params;
+  const area = await getPracticeAreaBySlug(category);
   if (!area) {
     notFound();
   }

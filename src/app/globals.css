@@ -367,3 +367,155 @@ body {
   pointer-events: none;
   z-index: 1;
 }
+
+/* ─── Macfarlanes Rich Text Editor (.macfarlanes-rte) ─── */
+.macfarlanes-rte {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  font-family: var(--font-sans), sans-serif;
+  color: #37323C; /* Espresso */
+}
+
+.macfarlanes-rte h1,
+.macfarlanes-rte h2,
+.macfarlanes-rte h3,
+.macfarlanes-rte h4,
+.macfarlanes-rte h5,
+.macfarlanes-rte h6 {
+  font-family: var(--font-serif), serif; /* Cormorant Garamond */
+  font-weight: 500;
+  line-height: 1.2;
+  color: #37323C; /* Espresso */
+  margin-bottom: 1.5rem;
+  margin-top: 3rem;
+}
+
+.macfarlanes-rte h1,
+.macfarlanes-rte h2 {
+  font-weight: 400;
+}
+
+.macfarlanes-rte h1:first-child,
+.macfarlanes-rte h2:first-child,
+.macfarlanes-rte h3:first-child,
+.macfarlanes-rte h4:first-child,
+.macfarlanes-rte h5:first-child,
+.macfarlanes-rte h6:first-child {
+  margin-top: 0;
+}
+
+.macfarlanes-rte h1 {
+  font-size: 2rem;
+}
+
+.macfarlanes-rte h2 {
+  font-size: 1.75rem;
+}
+
+.macfarlanes-rte h3 {
+  font-size: 1.5rem;
+}
+
+.macfarlanes-rte h4 {
+  font-size: 1.25rem;
+}
+
+.macfarlanes-rte h5 {
+  font-size: 1.125rem;
+}
+
+.macfarlanes-rte h6 {
+  font-size: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .macfarlanes-rte h1 {
+    font-size: 3.25rem;
+  }
+  .macfarlanes-rte h2 {
+    font-size: 2.875rem;
+  }
+  .macfarlanes-rte h3 {
+    font-size: 2rem;
+  }
+  .macfarlanes-rte h4 {
+    font-size: 1.5rem;
+  }
+  .macfarlanes-rte h5 {
+    font-size: 1.25rem;
+  }
+  .macfarlanes-rte h6 {
+    font-size: 1.125rem;
+  }
+}
+
+.macfarlanes-rte p {
+  margin-bottom: 1.5rem;
+  color: #37323C;
+}
+
+.macfarlanes-rte img {
+  margin-bottom: 1.5rem;
+  border-radius: 4px;
+}
+
+.macfarlanes-rte i, .macfarlanes-rte em {
+  font-style: italic;
+}
+
+.macfarlanes-rte u {
+  text-decoration: underline;
+}
+
+.macfarlanes-rte strong, .macfarlanes-rte b {
+  font-weight: 700;
+  color: #37323C;
+}
+
+.macfarlanes-rte a {
+  text-decoration: underline;
+  color: #002846;
+  transition: color 0.2s ease;
+}
+
+.macfarlanes-rte a:hover {
+  text-decoration: none;
+  color: #C5A059; /* Brand Accent gold */
+}
+
+.macfarlanes-rte ul {
+  list-style-type: disc;
+  padding-left: 1.3rem;
+  margin-bottom: 1.5rem;
+}
+
+.macfarlanes-rte ul li {
+  color: #37323C;
+  padding-left: 0.2rem;
+  margin-bottom: 0.75rem;
+}
+
+.macfarlanes-rte ul ul {
+  margin-top: 0.75rem;
+}
+
+.macfarlanes-rte ol {
+  list-style-type: decimal;
+  margin-bottom: 1.5rem;
+  padding-left: 1.4rem;
+}
+
+.macfarlanes-rte ol li {
+  color: #37323C;
+  padding-left: 6px;
+  margin-bottom: 0.75rem;
+}
+
+.macfarlanes-rte table {
+  width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+  display: block;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
+}
