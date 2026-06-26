@@ -90,7 +90,7 @@ export default function CareersPage() {
                   initial={{ y: "100%" }}
                   animate={{ y: 0 }}
                   transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-                  className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light tracking-tight text-[#cdcab2] italic leading-[0.95]"
+                  className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-light tracking-tight text-white leading-[0.95]"
                 >
                   complex legal matters.
                 </motion.h1>
