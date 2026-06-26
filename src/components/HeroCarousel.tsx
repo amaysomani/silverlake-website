@@ -121,10 +121,14 @@ export default function HeroCarousel({ articles }: HeroCarouselProps) {
             <span className="text-[11px] uppercase tracking-[0.25em] font-semibold block mb-4 text-[#8a9b8e]">
               {currentArticle.category || "Insight"}
             </span>
-            <h1 className="font-serif font-light text-5xl sm:text-6xl md:text-7xl leading-[1.1] mb-6">
+            <h1 className={`font-serif font-light leading-[1.1] mb-6 ${
+              currentArticle.title.length > 60 
+                ? "text-3xl sm:text-4xl md:text-5xl lg:text-5xl" 
+                : "text-5xl sm:text-6xl md:text-7xl"
+            }`}>
               {currentArticle.title}
             </h1>
-            <p className="text-lg md:text-xl font-light text-white/80 mb-8 max-w-lg">
+            <p className="text-base sm:text-lg md:text-xl font-light text-white/80 mb-8 max-w-lg line-clamp-3">
               {currentArticle.summary || currentArticle.content?.substring(0, 100) + "..."}
             </p>
             
