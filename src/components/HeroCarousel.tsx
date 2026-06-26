@@ -20,7 +20,7 @@ export default function HeroCarousel({ articles }: HeroCarouselProps) {
     const timer = setInterval(() => {
       setDirection(1);
       setCurrentIndex((prev) => (prev + 1) % articles.length);
-    }, 6000);
+    }, 3000);
     return () => clearInterval(timer);
   }, [articles]);
 
