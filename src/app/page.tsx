@@ -20,7 +20,7 @@ export default async function HomePage() {
       : area
   );
 
-  const targetHeroSlugs = ['offshore-fund-structures-for-india-focused-capital', 'private-capital-uk-professional-services', 'private-credit-valuations', 'evergreen-fund-models-comparative-analysis'];
+  const targetHeroSlugs = ['offshore-fund-structures-for-india-focused-capital', 'private-capital-uk-professional-services', 'dpdp-act-2023-rules-2025-india-data-protection', 'private-credit-valuations', 'evergreen-fund-models-comparative-analysis'];
   const targetInsightSlugs = ['german-insurance-market-opportunities', 'countdown-aifmd-ii-loan-origination', 'real-opportunities-private-capital-real-estate'];
 
   const heroArticles = targetHeroSlugs.map(slug => arts.articles.find(a => a.slug === slug)).filter(Boolean) as Article[];
