@@ -108,7 +108,7 @@ export default function HeroCarousel({ articles }: HeroCarouselProps) {
       </AnimatePresence>
 
       {/* Text Content */}
-      <div className="relative z-20 mx-auto max-w-[1400px] px-6 lg:px-10 w-full h-full flex flex-col justify-center">
+      <div className="relative z-20 mx-auto max-w-[1400px] px-6 lg:px-10 w-full h-full flex flex-col justify-center pb-24 lg:pb-16">
         <AnimatePresence mode="wait">
           <motion.div
             key={`text-${currentIndex}`}
