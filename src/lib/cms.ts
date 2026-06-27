@@ -65,7 +65,7 @@ export async function getArticles(options: GetArticlesOptions = {}): Promise<Pag
   try {
     const sanityArticles = await client.fetch(`*[_type == "article" && !(_id in path("drafts.**"))] | order(datePublished desc)`);
     if (sanityArticles && sanityArticles.length > 0) {
-      allArticles = sanityArticles.map((s: any) => ({
+      const mappedSanity = sanityArticles.map((s: any) => ({
         title: s.title || "Untitled",
         slug: s.slug?.current || "untitled",
         category: s.category || "Uncategorized",
@@ -78,6 +78,7 @@ export async function getArticles(options: GetArticlesOptions = {}): Promise<Pag
         author: { name: "Silverlake Editorial", role: "Partner", imageUrl: "" },
         isFeatured: false
       }));
+      allArticles = [...mappedSanity, ...fallbackArticles];
     }
   } catch (error) {
     console.error("Sanity Article Fetch Error:", error);
@@ -86,7 +87,7 @@ export async function getArticles(options: GetArticlesOptions = {}): Promise<Pag
   // Deduplicate articles by slug to ensure no repetitive articles are returned
   const uniqueArticlesMap = new Map<string, Article>();
   allArticles.forEach((art) => {
-    if (art.slug) {
+    if (art.slug && !uniqueArticlesMap.has(art.slug)) {
       uniqueArticlesMap.set(art.slug, art);
     }
   });
@@ -142,7 +143,7 @@ export async function getArticleBySlug(slug: string): Promise<{ article: Article
   try {
     const sanityArticles = await client.fetch(`*[_type == "article"] | order(datePublished desc)`);
     if (sanityArticles && sanityArticles.length > 0) {
-      allArticles = sanityArticles.map((s: any) => ({
+      const mappedSanity = sanityArticles.map((s: any) => ({
         title: s.title || "Untitled",
         slug: s.slug?.current || "untitled",
         category: s.category || "Uncategorized",
@@ -155,10 +156,20 @@ export async function getArticleBySlug(slug: string): Promise<{ article: Article
         author: { name: "Silverlake Editorial", role: "Partner", imageUrl: "" },
         isFeatured: false
       }));
+      allArticles = [...mappedSanity, ...fallbackArticles];
     }
   } catch (error) {
     console.error("Sanity Article Fetch Error:", error);
   }
+
+  // Deduplicate articles by slug to ensure no repetitive articles are returned
+  const uniqueArticlesMap = new Map<string, Article>();
+  allArticles.forEach((art) => {
+    if (art.slug && !uniqueArticlesMap.has(art.slug)) {
+      uniqueArticlesMap.set(art.slug, art);
+    }
+  });
+  allArticles = Array.from(uniqueArticlesMap.values());
 
   const article = allArticles.find((a) => a.slug === slug);
   if (!article) return null;
@@ -213,17 +224,28 @@ export async function getNews(options: GetNewsOptions = {}): Promise<PaginatedNe
   try {
     const sanityNews = await client.fetch(`*[_type == "news"] | order(datePublished desc)`);
     if (sanityNews && sanityNews.length > 0) {
-      allNews = sanityNews.map((s: any) => ({
+      const mappedSanity = sanityNews.map((s: any) => ({
         headline: s.headline || "Untitled",
         slug: s.slug?.current || "untitled",
         datePublished: s.datePublished || new Date().toISOString(),
-        category: "Firm News", // Fallback, no category in our schema yet
-        summary: ""
+        category: s.category || "Firm News",
+        summary: s.summary || "",
+        content: s.content || ""
       }));
+      allNews = [...mappedSanity, ...fallbackNewsItems];
     }
   } catch (error) {
     console.error("Sanity News Fetch Error:", error);
   }
+
+  // Deduplicate news items by slug
+  const uniqueNewsMap = new Map<string, NewsItem>();
+  allNews.forEach((item) => {
+    if (item.slug && !uniqueNewsMap.has(item.slug)) {
+      uniqueNewsMap.set(item.slug, item);
+    }
+  });
+  allNews = Array.from(uniqueNewsMap.values());
 
   let filtered = [...allNews];
 
@@ -248,7 +270,32 @@ export async function getNews(options: GetNewsOptions = {}): Promise<PaginatedNe
 }
 
 export async function getNewsBySlug(slug: string): Promise<NewsItem | null> {
-  const result = await getNews();
-  const item = result.news.find((n) => n.slug === slug);
-  return item || null;
+  let allNews = [...fallbackNewsItems];
+
+  try {
+    const sanityNews = await client.fetch(`*[_type == "news"] | order(datePublished desc)`);
+    if (sanityNews && sanityNews.length > 0) {
+      const mappedSanity = sanityNews.map((s: any) => ({
+        headline: s.headline || "Untitled",
+        slug: s.slug?.current || "untitled",
+        datePublished: s.datePublished || new Date().toISOString(),
+        category: s.category || "Firm News",
+        summary: s.summary || "",
+        content: s.content || ""
+      }));
+      allNews = [...mappedSanity, ...fallbackNewsItems];
+    }
+  } catch (error) {
+    console.error("Sanity News Fetch Error:", error);
+  }
+
+  // Deduplicate news items by slug
+  const uniqueNewsMap = new Map<string, NewsItem>();
+  allNews.forEach((item) => {
+    if (item.slug && !uniqueNewsMap.has(item.slug)) {
+      uniqueNewsMap.set(item.slug, item);
+    }
+  });
+
+  return uniqueNewsMap.get(slug) || null;
 }
