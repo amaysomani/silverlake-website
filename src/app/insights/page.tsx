@@ -3,6 +3,8 @@ import Footer from "@/components/Footer";
 import { getArticles } from "@/lib/cms";
 import InsightsClient from "./InsightsClient";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "Insights",
   description: "Silverlake thought leadership articles, legal updates, market reports, and regulatory intelligence.",

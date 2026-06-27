@@ -63,7 +63,7 @@ export async function getArticles(options: GetArticlesOptions = {}): Promise<Pag
   let allArticles = [...fallbackArticles];
 
   try {
-    const sanityArticles = await client.fetch(`*[_type == "article"] | order(datePublished desc)`);
+    const sanityArticles = await client.fetch(`*[_type == "article" && !(_id in path("drafts.**"))] | order(datePublished desc)`);
     if (sanityArticles && sanityArticles.length > 0) {
       allArticles = sanityArticles.map((s: any) => ({
         title: s.title || "Untitled",
@@ -82,6 +82,15 @@ export async function getArticles(options: GetArticlesOptions = {}): Promise<Pag
   } catch (error) {
     console.error("Sanity Article Fetch Error:", error);
   }
+
+  // Deduplicate articles by slug to ensure no repetitive articles are returned
+  const uniqueArticlesMap = new Map<string, Article>();
+  allArticles.forEach((art) => {
+    if (art.slug) {
+      uniqueArticlesMap.set(art.slug, art);
+    }
+  });
+  allArticles = Array.from(uniqueArticlesMap.values());
 
   let filtered = [...allArticles];
 
