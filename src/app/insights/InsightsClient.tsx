@@ -132,6 +132,7 @@ export default function InsightsClient({
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           {initialArticles.length > 0 ? (
             <motion.div 
+              key={`${initialPagination.page}_${category}_${search}_${tag}`}
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, margin: "-100px" }}
