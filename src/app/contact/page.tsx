@@ -39,7 +39,7 @@ export default function ContactPage() {
                   href="tel:+917024082617" 
                   className="text-[24px] sm:text-[28px] text-[#111] hover:text-[#C5A059] transition-colors font-light"
                 >
-                  (+91) 70240 82617
+                  (+91) 7024 082 617
                 </a>
               </div>
             </div>
