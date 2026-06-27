@@ -452,6 +452,7 @@ body {
 .macfarlanes-rte p {
   margin-bottom: 1.5rem;
   color: #37323C;
+  text-align: justify;
 }
 
 .macfarlanes-rte img {
@@ -493,6 +494,7 @@ body {
   color: #37323C;
   padding-left: 0.2rem;
   margin-bottom: 0.75rem;
+  text-align: justify;
 }
 
 .macfarlanes-rte ul ul {
@@ -509,6 +511,7 @@ body {
   color: #37323C;
   padding-left: 6px;
   margin-bottom: 0.75rem;
+  text-align: justify;
 }
 
 .macfarlanes-rte table {

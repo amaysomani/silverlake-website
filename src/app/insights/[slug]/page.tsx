@@ -150,7 +150,7 @@ export default async function ArticleDetailPage({ params }: Props) {
                   
                   {/* Large Introductory Text */}
                   {article.introduction && article.introduction !== "none" && (
-                    <div className="font-serif text-[1.75rem] lg:text-[2.25rem] font-normal text-[#37323C] leading-[1.3] mb-8 pb-6 border-b border-gray-100">
+                    <div className="font-serif text-[1.75rem] lg:text-[2.25rem] font-normal text-[#37323C] leading-[1.3] mb-8 pb-6 border-b border-gray-100 text-justify">
                       {article.introduction}
                     </div>
                   )}

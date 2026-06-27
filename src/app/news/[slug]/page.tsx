@@ -80,7 +80,7 @@ export default async function NewsDetailPage({ params }: Props) {
 
               {/* Body Content */}
               <div
-                className="prose prose-sm sm:prose max-w-none dark:prose-invert prose-headings:font-serif prose-headings:font-light prose-headings:text-primary prose-a:text-accent-emerald hover:prose-a:text-primary leading-relaxed text-muted-foreground space-y-6"
+                className="prose prose-sm sm:prose max-w-none text-justify dark:prose-invert prose-headings:font-serif prose-headings:font-light prose-headings:text-primary prose-a:text-accent-emerald hover:prose-a:text-primary leading-relaxed text-muted-foreground space-y-6"
                 dangerouslySetInnerHTML={{ __html: item.content }}
               />
             </div>
