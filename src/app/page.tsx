@@ -7,7 +7,7 @@ import { PracticeArea, Article } from "@/lib/types";
 export default async function HomePage() {
   const [areas, arts] = await Promise.all([
     getPracticeAreas(),
-    getArticles({ limit: 20 }),
+    getArticles({ limit: 100 }),
   ]);
   
   const targetSlugs = ['private-capital', 'm-a', 'private-wealth', 'litigation-arbitration-and-investigations'];
