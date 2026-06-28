@@ -21,10 +21,30 @@ export default async function HomePage() {
   );
 
   const targetHeroSlugs = ['offshore-fund-structures-for-india-focused-capital', 'private-credit-valuations', 'dpdp-act-2023-rules-2025-india-data-protection'];
-  const targetInsightSlugs = ['german-insurance-market-opportunities', 'countdown-aifmd-ii-loan-origination', 'real-opportunities-private-capital-real-estate'];
+  const targetInsightSlugs = [
+    'esg-linked-fundraising-india-regulatory-expectations',
+    'reits-india-sebi-2026-reforms-mature-real-estate',
+    'fdi-indian-real-estate-regulatory-framework-structuring'
+  ];
 
   const heroArticles = targetHeroSlugs.map(slug => arts.articles.find(a => a.slug === slug)).filter(Boolean) as Article[];
-  const insightArticles = targetInsightSlugs.map(slug => arts.articles.find(a => a.slug === slug)).filter(Boolean) as Article[];
+  
+  const homepageImages = [
+    '/images/insight-canyon.png',
+    '/images/insight-blue-waves.png',
+    '/images/insight-teal-particles.png'
+  ];
+
+  const insightArticles = targetInsightSlugs.map((slug, index) => {
+    const article = arts.articles.find(a => a.slug === slug);
+    if (article) {
+      return {
+        ...article,
+        featuredImage: homepageImages[index]
+      };
+    }
+    return null;
+  }).filter(Boolean) as Article[];
 
   return (
     <>
