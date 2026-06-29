@@ -522,3 +522,133 @@ body {
   margin-top: 2rem;
   margin-bottom: 1.5rem;
 }
+
+/* ─── Arno Premium Styles & Utilities ─── */
+
+.arno-gradient-text {
+  background: linear-gradient(135deg, #7f56d9 0%, #3b82f6 50%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.arno-glass {
+  background: rgba(10, 10, 20, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.arno-card-glow {
+  position: relative;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.arno-card-glow::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  background: linear-gradient(135deg, rgba(127, 86, 217, 0.4), rgba(59, 130, 246, 0.4));
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.arno-card-glow:hover::before {
+  opacity: 1;
+}
+
+.arno-card-glow:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 30px rgba(127, 86, 217, 0.15);
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Cyber mesh grid background */
+.arno-grid-bg {
+  background-image: 
+    radial-gradient(circle at 50% 50%, rgba(10, 12, 30, 1) 0%, rgba(2, 2, 8, 1) 100%),
+    linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100% 100%, 60px 60px, 60px 60px;
+}
+
+/* Pulse glow animations */
+@keyframes arno-pulse-glow {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.arno-orb-glow {
+  filter: blur(120px);
+  animation: arno-pulse-glow 10s ease-in-out infinite;
+}
+
+/* Custom premium hover-line for links */
+.arno-nav-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  transform: scaleX(0);
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background: linear-gradient(90deg, #7f56d9, #3b82f6);
+  transform-origin: bottom right;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.arno-nav-link:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+/* Scroll indicator custom track */
+.arno-scrollbar-thumb {
+  background: linear-gradient(to bottom, #7f56d9, #3b82f6);
+  box-shadow: 0 0 10px rgba(127, 86, 217, 0.5);
+}
+
+/* Clip Reveal Text Style */
+.clip-reveal-parent {
+  overflow: hidden;
+  display: block;
+}
+
+.clip-reveal-child {
+  transform: translateY(100%);
+  display: inline-block;
+}
+
+/* ─── Arno Mesh Gradient Blobs Animations ─── */
+@keyframes blob1 {
+  0% { transform: translate(0) scale(1); }
+  33% { transform: translate(25%, -25%) scale(1.15); }
+  66% { transform: translate(-15%, 15%) scale(.85); }
+  to { transform: translate(0) scale(1); }
+}
+@keyframes blob2 {
+  0% { transform: translate(0) scale(1); }
+  33% { transform: translate(-25%, 25%) scale(1.15); }
+  66% { transform: translate(15%, -15%) scale(.85); }
+  to { transform: translate(0) scale(1); }
+}
+@keyframes blob3 {
+  0% { transform: translate(0) scale(1); }
+  33% { transform: translate(25%, 15%) scale(1.15); }
+  66% { transform: translate(-15%, -15%) scale(.85); }
+  to { transform: translate(0) scale(1); }
+}
+@keyframes blob4 {
+  0% { transform: translate(0) scale(1); }
+  33% { transform: translate(-25%, -15%) scale(1.15); }
+  66% { transform: translate(15%, 15%) scale(.85); }
+  to { transform: translate(0) scale(1); }
+}
