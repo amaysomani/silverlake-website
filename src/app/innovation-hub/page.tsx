@@ -1,120 +1,33 @@
 "use client";
 
-import React, { useState } from "react";
-import ArnoHeader from "@/components/ArnoHeader";
-import ArnoHero from "@/components/ArnoHero";
-import ArnoCapabilities from "@/components/ArnoCapabilities";
-import ArnoPhilosophy from "@/components/ArnoPhilosophy";
-import ArnoContact from "@/components/ArnoContact";
-import ArnoScrollProgress from "@/components/ArnoScrollProgress";
-import { playClickSound, playHoverSound } from "@/lib/ArnoAudio";
+import React from "react";
+import Link from "next/link";
 
-export default function ArnoPage() {
-  const [soundEnabled, setSoundEnabled] = useState(false);
-
-  const handleMouseEnter = () => {
-    if (soundEnabled) {
-      playHoverSound();
-    }
-  };
-
-  const handleClick = () => {
-    if (soundEnabled) {
-      playClickSound();
-    }
-  };
-
+export default function InnovationHubComingSoon() {
   return (
-    <div className="bg-[#020208] min-h-screen text-white font-sans selection:bg-[#3b82f6]/30 selection:text-white relative overflow-hidden">
-      {/* Arno Scroll Tracker */}
-      <ArnoScrollProgress soundEnabled={soundEnabled} />
-
-      {/* Floating Kawa-style Header */}
-      <ArnoHeader soundEnabled={soundEnabled} setSoundEnabled={setSoundEnabled} />
-
-      {/* Page Sections */}
-      <main className="relative">
-        {/* //01 Manifesto */}
-        <ArnoHero soundEnabled={soundEnabled} />
-
-        {/* //02 Capabilities */}
-        <ArnoCapabilities soundEnabled={soundEnabled} />
-
-        {/* //03 Philosophy */}
-        <ArnoPhilosophy soundEnabled={soundEnabled} />
-
-        {/* //04 Contact */}
-        <ArnoContact soundEnabled={soundEnabled} />
-      </main>
-
-      {/* Premium Footer (Hashgraph VC style) */}
-      <footer className="py-20 px-6 lg:px-12 bg-[#010105] border-t border-white/5 relative z-10 text-center sm:text-left select-none">
-        <div className="max-w-[1400px] mx-auto flex flex-col md:flex-row justify-between items-center md:items-end gap-12">
-          
-          {/* Footer Left */}
-          <div className="space-y-4">
-            <h3 className="text-xl sm:text-2xl font-bold uppercase tracking-wider text-white font-sans">
-              We prioritize warm introductions<br />and ecosystem referrals
-            </h3>
-            <p className="text-[10px] font-mono text-white/30 tracking-[0.2em] uppercase">
-              © ARNO VENTURES 2026
-            </p>
-          </div>
-
-          {/* Footer Right: Links */}
-          <div className="flex flex-col sm:flex-row gap-12 font-mono text-[10px] tracking-widest uppercase">
-            {/* Social Links */}
-            <div className="flex flex-col gap-2">
-              <span className="text-white/20">// Connection</span>
-              <a 
-                href="mailto:intel@arno.vc" 
-                onMouseEnter={handleMouseEnter}
-                onClick={handleClick}
-                className="text-white/60 hover:text-white transition-colors duration-300"
-              >
-                Email
-              </a>
-              <a 
-                href="https://x.com/ArnoVC" 
-                target="_blank" 
-                rel="noreferrer"
-                onMouseEnter={handleMouseEnter}
-                onClick={handleClick}
-                className="text-white/60 hover:text-white transition-colors duration-300"
-              >
-                X (Twitter)
-              </a>
-              <a 
-                href="https://linkedin.com/company/arno-ventures" 
-                target="_blank" 
-                rel="noreferrer"
-                onMouseEnter={handleMouseEnter}
-                onClick={handleClick}
-                className="text-white/60 hover:text-white transition-colors duration-300"
-              >
-                LinkedIn
-              </a>
-            </div>
-
-            {/* Legal Links */}
-            <div className="flex flex-col gap-2">
-              <span className="text-white/20">// Legal</span>
-              <a 
-                href="/privacy-policy" 
-                onMouseEnter={handleMouseEnter}
-                onClick={handleClick}
-                className="text-white/60 hover:text-white transition-colors duration-300"
-              >
-                Privacy Policy
-              </a>
-              <span className="text-white/40 select-none">
-                Made by Antigravity
-              </span>
-            </div>
-          </div>
-          
+    <div className="bg-[#020208] min-h-screen text-white font-sans selection:bg-[#3b82f6]/30 selection:text-white relative overflow-hidden flex flex-col items-center justify-center">
+      <div className="text-center space-y-6 z-10 px-4">
+        <div className="inline-block px-3 py-1 mb-4 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
+          <span className="text-[10px] font-mono text-white/70 tracking-widest uppercase">Under Construction</span>
         </div>
-      </footer>
+        <h1 className="text-5xl md:text-7xl font-bold tracking-tight text-transparent bg-clip-text bg-gradient-to-b from-white to-white/40 pb-2">
+          Innovation Hub
+        </h1>
+        <p className="text-white/60 text-lg md:text-xl font-mono tracking-widest uppercase">
+          Coming Soon
+        </p>
+        <div className="pt-12">
+          <Link 
+            href="/" 
+            className="text-xs font-mono text-white/50 hover:text-white transition-colors duration-300 uppercase tracking-widest border-b border-white/10 hover:border-white/50 pb-2"
+          >
+            &larr; Return Home
+          </Link>
+        </div>
+      </div>
+
+      {/* Subtle background glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[#3b82f6]/5 rounded-full blur-[120px] pointer-events-none" />
     </div>
   );
 }
