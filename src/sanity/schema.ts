@@ -25,4 +25,24 @@ export const newsType = defineType({
   ]
 });
 
-export const schemaTypes = [articleType, newsType];
+export const subscriberType = defineType({
+  name: 'subscriber',
+  title: 'Subscriber',
+  type: 'document',
+  fields: [
+    defineField({ 
+      name: 'email', 
+      type: 'string', 
+      title: 'Email Address',
+      validation: (Rule) => Rule.required().email()
+    }),
+    defineField({ 
+      name: 'subscribedAt', 
+      type: 'datetime', 
+      title: 'Subscribed At',
+      initialValue: () => new Date().toISOString()
+    }),
+  ]
+});
+
+export const schemaTypes = [articleType, newsType, subscriberType];

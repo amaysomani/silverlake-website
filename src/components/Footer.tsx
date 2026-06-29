@@ -24,15 +24,33 @@ export default function Footer() {
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   const [isSuccess, setIsSuccess] = React.useState(false);
 
-  const handleSubscribe = async (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate API call to email service
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    setIsSubmitting(false);
-    setIsSuccess(true);
+    const formData = new FormData(e.currentTarget);
+    const email = formData.get('email');
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to subscribe');
+      }
+
+      setIsSuccess(true);
+    } catch (error) {
+      console.error(error);
+      alert('There was an error subscribing. Please try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const scrollToTop = () => {
