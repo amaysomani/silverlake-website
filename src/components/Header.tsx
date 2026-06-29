@@ -15,7 +15,7 @@ const allNavLinks = [
   { name: "Insights", href: "/insights" },
   { name: "Join us", href: "/careers" },
   { name: "News", href: "/news" },
-  { name: "Alumni", href: "#alumni" },
+  { name: "Innovation Hub", href: "/innovation-hub" },
   { name: "Get in touch", href: "/contact" },
 ];
 

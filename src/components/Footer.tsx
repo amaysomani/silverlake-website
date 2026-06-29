@@ -146,7 +146,7 @@ export default function Footer() {
                 { name: "Insights", href: "/insights" },
                 { name: "News", href: "/news" },
                 { name: "Join us", href: "/careers" },
-                { name: "Alumni", href: "#alumni" },
+                { name: "Innovation Hub", href: "/innovation-hub" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="text-xs text-[#f9f3f1]/35 hover:text-[#f9f3f1] transition-colors duration-300 font-light">
