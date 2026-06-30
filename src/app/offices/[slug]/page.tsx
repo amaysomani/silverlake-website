@@ -3,6 +3,8 @@ import { getOfficeBySlug, getOffices } from "@/lib/cms";
 import { Mail, Phone } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export async function generateStaticParams() {
   const offices = await getOffices();
@@ -20,7 +22,9 @@ export default async function OfficePage({ params }: { params: Promise<{ slug: s
   }
 
   return (
-    <main className="bg-[#fcfbf9] min-h-screen pt-24 pb-32">
+    <>
+      <Header />
+      <main className="bg-[#fcfbf9] min-h-screen pt-24 pb-32">
       {/* Hero Section */}
       <section className="relative h-[60vh] min-h-[500px] w-full mb-20 overflow-hidden">
         <div className="absolute inset-0">
@@ -103,5 +107,7 @@ export default async function OfficePage({ params }: { params: Promise<{ slug: s
         </div>
       </section>
     </main>
+      <Footer />
+    </>
   );
 }
