@@ -17,12 +17,12 @@ export default function HeroCarousel({ articles }: HeroCarouselProps) {
   // Auto-play
   React.useEffect(() => {
     if (!articles || articles.length === 0) return;
-    const timer = setInterval(() => {
+    const timer = setTimeout(() => {
       setDirection(1);
       setCurrentIndex((prev) => (prev + 1) % articles.length);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, [articles]);
+    }, 6000);
+    return () => clearTimeout(timer);
+  }, [articles, currentIndex]);
 
   if (!articles || articles.length === 0) return <div className="relative h-screen min-h-[600px] w-full bg-[#0a0f12]" />;
 
@@ -95,14 +95,14 @@ export default function HeroCarousel({ articles }: HeroCarouselProps) {
               className="w-full h-full object-cover"
             />
           </div>
-          
+
           {/* Cascade Gradient Overlay */}
           {/* A solid-to-transparent gradient covering the left side to simulate the cascade */}
-          <div 
-            className="absolute inset-0 z-10" 
-            style={{ 
-              background: 'linear-gradient(to right, rgba(14, 25, 23, 0.95) 0%, rgba(14, 25, 23, 0.85) 25%, rgba(14, 25, 23, 0) 55%, rgba(14, 25, 23, 0) 100%)' 
-            }} 
+          <div
+            className="absolute inset-0 z-10"
+            style={{
+              background: 'linear-gradient(to right, rgba(14, 25, 23, 0.95) 0%, rgba(14, 25, 23, 0.85) 25%, rgba(14, 25, 23, 0) 55%, rgba(14, 25, 23, 0) 100%)'
+            }}
           />
         </motion.div>
       </AnimatePresence>
@@ -121,18 +121,17 @@ export default function HeroCarousel({ articles }: HeroCarouselProps) {
             <span className="text-[11px] uppercase tracking-[0.25em] font-semibold block mb-4 text-[#8a9b8e]">
               {currentArticle.category || "Insight"}
             </span>
-            <h1 className={`font-serif font-light leading-[1.1] mb-6 ${
-              currentArticle.title.length > 50 
-                ? "text-4xl sm:text-5xl md:text-6xl" 
+            <h1 className={`font-serif font-light leading-[1.1] mb-6 ${currentArticle.title.length > 50
+                ? "text-4xl sm:text-5xl md:text-6xl"
                 : "text-5xl sm:text-6xl md:text-7xl"
-            }`}>
+              }`}>
               {currentArticle.title}
             </h1>
             <p className="text-base sm:text-lg md:text-xl font-light text-white/80 mb-8 max-w-lg line-clamp-3">
               {currentArticle.summary || currentArticle.content?.substring(0, 100) + "..."}
             </p>
-            
-            <Link 
+
+            <Link
               href={`/insights/${currentArticle.slug}`}
               className="inline-flex items-center gap-2 group hover:text-[#8a9b8e] transition-colors pb-1 border-b border-white/30 hover:border-[#8a9b8e]"
             >
@@ -168,9 +167,8 @@ export default function HeroCarousel({ articles }: HeroCarouselProps) {
               setDirection(idx > currentIndex ? 1 : -1);
               setCurrentIndex(idx);
             }}
-            className={`h-1 transition-all duration-500 rounded-full shadow-[0_1px_3px_rgba(0,0,0,0.8)] ${
-              currentIndex === idx ? "w-10 bg-white" : "w-6 bg-white/60 hover:bg-white/80"
-            }`}
+            className={`h-1 transition-all duration-500 rounded-full shadow-[0_1px_3px_rgba(0,0,0,0.8)] ${currentIndex === idx ? "w-10 bg-white" : "w-6 bg-white/60 hover:bg-white/80"
+              }`}
           />
         ))}
       </div>
