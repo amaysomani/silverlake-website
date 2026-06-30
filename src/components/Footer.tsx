@@ -196,10 +196,12 @@ export default function Footer() {
               <div>
                 <h4 className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#cdcab2]/40 mb-3">Our Offices</h4>
                 <ul className="space-y-2 text-xs font-light text-[#f9f3f1]/40">
-                  <li>Dubai</li>
-                  <li>Ireland</li>
                   <li>Udaipur</li>
                   <li>Bangalore</li>
+                  <li>Gift City</li>
+                  <li>New Delhi</li>
+                  <li>Dubai</li>
+                  <li>Dublin</li>
                 </ul>
               </div>
             </div>

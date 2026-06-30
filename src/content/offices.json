@@ -16,6 +16,22 @@
     "phone": "(+91) 8989 599 225, (+91) 8435 375 402"
   },
   {
+    "slug": "gift-city",
+    "name": "Gift City",
+    "heroImage": "/images/office-gift-city.png",
+    "description": "Strategically located in Gujarat International Finance Tec-City, our Gift City hub delivers specialized regulatory counsel for cross-border financial services, investment funds, and international tax structuring.",
+    "email": "contact@silverlakelaw.in",
+    "phone": "(+91) 8989 599 225, (+91) 8435 375 402"
+  },
+  {
+    "slug": "new-delhi",
+    "name": "New Delhi",
+    "heroImage": "/images/office-new-delhi.png",
+    "description": "Our New Delhi representative hub provides deep advisory capabilities in regulatory compliance, corporate governance, and government relations, advising leading startups and corporate groups in the national capital region.",
+    "email": "contact@silverlakelaw.in",
+    "phone": "(+91) 8989 599 225, (+91) 8435 375 402"
+  },
+  {
     "slug": "dubai",
     "name": "Dubai",
     "heroImage": "/images/dubai-office.png",
@@ -24,10 +40,10 @@
     "phone": "(+91) 8989 599 225, (+91) 8435 375 402"
   },
   {
-    "slug": "ireland",
-    "name": "Ireland",
-    "heroImage": "/images/ireland-office.png",
-    "description": "Our Ireland representative office helps European private capital clients understand the market and informs investors on European opportunities.",
+    "slug": "dublin",
+    "name": "Dublin",
+    "heroImage": "/images/office-dublin.png",
+    "description": "Our Dublin office serves as a hub for our European private capital clients, advising on international investment frameworks and bridging connectivity with Indian growth markets.",
     "email": "contact@silverlakelaw.in",
     "phone": "(+91) 8989 599 225, (+91) 8435 375 402"
   }

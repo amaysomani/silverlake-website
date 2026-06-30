@@ -46,13 +46,13 @@ export default function CareersPage() {
     },
     {
       title: "Associate – Credit Funds & Private Capital",
-      location: "Dubai / Ireland / Udaipur / Bangalore representative hubs",
+      location: "Udaipur / Bangalore / Gift City / New Delhi / Dubai / Dublin representative hubs",
       type: "Lateral Hire",
       description: "Seeking a finance associate with 2-4 years PQE to advise credit funds and institutional direct lending platforms on structural leverage and portfolio investments.",
     },
     {
       title: "Knowledge Management Associate – Financial Services Regulation",
-      location: "Ireland representative office",
+      location: "Dublin representative office",
       type: "Knowledge & Innovation",
       description: "Seeking an experienced regulatory specialist (5+ years PQE) to coordinate thought leadership, track legislative adjustments (including AIFMD II), and advise internal transaction teams.",
     },

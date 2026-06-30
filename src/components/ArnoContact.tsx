@@ -88,7 +88,7 @@ export default function ArnoContact({ soundEnabled }: ArnoContactProps) {
                 <div>
                   <h4 className="text-[10px] font-mono text-white/30 tracking-widest uppercase">// PHYSICAL HUBS</h4>
                   <p className="text-xs text-white/70 font-sans font-light leading-relaxed">
-                    Dubai • Ireland • Udaipur • Bangalore
+                    Udaipur • Bangalore • Gift City • New Delhi • Dubai • Dublin
                   </p>
                 </div>
               </div>

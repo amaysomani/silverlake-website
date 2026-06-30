@@ -226,10 +226,12 @@ export default function Header() {
                       <div>
                         <p className="text-[10px] uppercase tracking-[0.3em] text-[#cdcab2]/60 font-medium mb-3">Representative Hubs</p>
                         <p className="text-sm text-[#f9f3f1]/70 font-light leading-relaxed">
-                          Dubai<br />
-                          Ireland<br />
                           Udaipur<br />
-                          Bangalore
+                          Bangalore<br />
+                          Gift City<br />
+                          New Delhi<br />
+                          Dubai<br />
+                          Dublin
                         </p>
                       </div>
                       <div>
