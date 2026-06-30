@@ -81,7 +81,7 @@ export default function AboutPage() {
               className="w-full aspect-[21/9] bg-[#eae8e1] overflow-hidden"
             >
               <img 
-                src="/images/about-hero.png" 
+                src="/images/about-hero.jpg" 
                 alt="Our global operations" 
                 className="w-full h-full object-cover object-center grayscale-[20%]"
               />
