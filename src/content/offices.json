@@ -8,6 +8,14 @@
     "phone": "(+91) 8989 599 225, (+91) 8435 375 402"
   },
   {
+    "slug": "ahmedabad",
+    "name": "Ahmedabad",
+    "heroImage": "/images/office-ahmedabad.png",
+    "description": "Our Ahmedabad representative hub connects clients to the fast-growing industrial and corporate landscape of Gujarat, advising on commercial transactions and regulatory matters.",
+    "email": "contact@silverlakelaw.in",
+    "phone": "(+91) 8989 599 225, (+91) 8435 375 402"
+  },
+  {
     "slug": "bangalore",
     "name": "Bangalore",
     "heroImage": "/images/office-bangalore.png",
@@ -16,10 +24,10 @@
     "phone": "(+91) 8989 599 225, (+91) 8435 375 402"
   },
   {
-    "slug": "gift-city",
-    "name": "Gift City",
-    "heroImage": "/images/office-gift-city.png",
-    "description": "Strategically located in Gujarat International Finance Tec-City, our Gift City hub delivers specialized regulatory counsel for cross-border financial services, investment funds, and international tax structuring.",
+    "slug": "jaipur",
+    "name": "Jaipur",
+    "heroImage": "/images/office-jaipur.png",
+    "description": "Our Jaipur hub provides tailored legal advice for real estate, heritage hospitality, and regional corporate ventures, matching local insight with institutional standards.",
     "email": "contact@silverlakelaw.in",
     "phone": "(+91) 8989 599 225, (+91) 8435 375 402"
   },
@@ -28,6 +36,22 @@
     "name": "New Delhi",
     "heroImage": "/images/office-new-delhi.png",
     "description": "Our New Delhi representative hub provides deep advisory capabilities in regulatory compliance, corporate governance, and government relations, advising leading startups and corporate groups in the national capital region.",
+    "email": "contact@silverlakelaw.in",
+    "phone": "(+91) 8989 599 225, (+91) 8435 375 402"
+  },
+  {
+    "slug": "mumbai",
+    "name": "Mumbai",
+    "heroImage": "/images/office-mumbai.png",
+    "description": "Located in the financial capital of India, our Mumbai representative office advises leading conglomerates, financial institutions, and funds on complex corporate and finance transactions.",
+    "email": "contact@silverlakelaw.in",
+    "phone": "(+91) 8989 599 225, (+91) 8435 375 402"
+  },
+  {
+    "slug": "gift-city",
+    "name": "Gift City",
+    "heroImage": "/images/office-gift-city.png",
+    "description": "Strategically located in Gujarat International Finance Tec-City, our Gift City hub delivers specialized regulatory counsel for cross-border financial services, investment funds, and international tax structuring.",
     "email": "contact@silverlakelaw.in",
     "phone": "(+91) 8989 599 225, (+91) 8435 375 402"
   },

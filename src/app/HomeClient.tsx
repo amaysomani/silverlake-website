@@ -193,7 +193,7 @@ export default function HomeClient({
           7. OUR OFFICES
       ═══════════════════════════════════════════════════ */}
       <section className="bg-[#0A1128] text-white">
-        <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {/* Udaipur */}
           <motion.div
             initial="hidden"
@@ -216,6 +216,37 @@ export default function HomeClient({
               <MagneticButton strength={0.2}>
                 <Link
                   href="/offices/udaipur"
+                  className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white hover:text-[#C5A059] transition-colors group/link"
+                >
+                  Go to office
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:translate-x-1" />
+                </Link>
+              </MagneticButton>
+            </div>
+          </motion.div>
+
+          {/* Ahmedabad */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="relative group overflow-hidden"
+          >
+            <img
+              src="/images/office-ahmedabad.png"
+              alt="Ahmedabad Office"
+              className="w-full h-full object-cover min-h-[300px] md:min-h-[360px] group-hover:scale-105 transition-transform duration-[1.5s]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A1128]/90 via-[#0A1128]/40 to-transparent pointer-events-none" />
+            <div className="absolute bottom-0 left-0 p-8 sm:p-12 z-10 w-full">
+              <h3 className="font-serif text-3xl font-light mb-4 text-white">Ahmedabad</h3>
+              <p className="text-white/70 font-light leading-relaxed mb-6 max-w-sm">
+                Our Ahmedabad representative hub connects clients to the fast-growing industrial and corporate landscape of Gujarat, advising on commercial transactions and regulatory matters.
+              </p>
+              <MagneticButton strength={0.2}>
+                <Link
+                  href="/offices/ahmedabad"
                   className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white hover:text-[#C5A059] transition-colors group/link"
                 >
                   Go to office
@@ -256,7 +287,7 @@ export default function HomeClient({
             </div>
           </motion.div>
 
-          {/* Gift City */}
+          {/* Jaipur */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -265,19 +296,19 @@ export default function HomeClient({
             className="relative group overflow-hidden"
           >
             <img
-              src="/images/office-gift-city.png"
-              alt="Gift City Office"
+              src="/images/office-jaipur.png"
+              alt="Jaipur Office"
               className="w-full h-full object-cover min-h-[300px] md:min-h-[360px] group-hover:scale-105 transition-transform duration-[1.5s]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0A1128]/90 via-[#0A1128]/40 to-transparent pointer-events-none" />
             <div className="absolute bottom-0 left-0 p-8 sm:p-12 z-10 w-full">
-              <h3 className="font-serif text-3xl font-light mb-4 text-white">Gift City</h3>
+              <h3 className="font-serif text-3xl font-light mb-4 text-white">Jaipur</h3>
               <p className="text-white/70 font-light leading-relaxed mb-6 max-w-sm">
-                Strategically located in Gujarat International Finance Tec-City, our Gift City hub delivers specialized regulatory counsel for cross-border financial services, investment funds, and international tax structuring.
+                Our Jaipur hub provides tailored legal advice for real estate, heritage hospitality, and regional corporate ventures, matching local insight with institutional standards.
               </p>
               <MagneticButton strength={0.2}>
                 <Link
-                  href="/offices/gift-city"
+                  href="/offices/jaipur"
                   className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white hover:text-[#C5A059] transition-colors group/link"
                 >
                   Go to office
@@ -309,6 +340,68 @@ export default function HomeClient({
               <MagneticButton strength={0.2}>
                 <Link
                   href="/offices/new-delhi"
+                  className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white hover:text-[#C5A059] transition-colors group/link"
+                >
+                  Go to office
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:translate-x-1" />
+                </Link>
+              </MagneticButton>
+            </div>
+          </motion.div>
+
+          {/* Mumbai */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="relative group overflow-hidden"
+          >
+            <img
+              src="/images/office-mumbai.png"
+              alt="Mumbai Office"
+              className="w-full h-full object-cover min-h-[300px] md:min-h-[360px] group-hover:scale-105 transition-transform duration-[1.5s]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A1128]/90 via-[#0A1128]/40 to-transparent pointer-events-none" />
+            <div className="absolute bottom-0 left-0 p-8 sm:p-12 z-10 w-full">
+              <h3 className="font-serif text-3xl font-light mb-4 text-white">Mumbai</h3>
+              <p className="text-white/70 font-light leading-relaxed mb-6 max-w-sm">
+                Located in the financial capital of India, our Mumbai representative office advises leading conglomerates, financial institutions, and funds on complex corporate and finance transactions.
+              </p>
+              <MagneticButton strength={0.2}>
+                <Link
+                  href="/offices/mumbai"
+                  className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white hover:text-[#C5A059] transition-colors group/link"
+                >
+                  Go to office
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:translate-x-1" />
+                </Link>
+              </MagneticButton>
+            </div>
+          </motion.div>
+
+          {/* Gift City */}
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeInUp}
+            className="relative group overflow-hidden"
+          >
+            <img
+              src="/images/office-gift-city.png"
+              alt="Gift City Office"
+              className="w-full h-full object-cover min-h-[300px] md:min-h-[360px] group-hover:scale-105 transition-transform duration-[1.5s]"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#0A1128]/90 via-[#0A1128]/40 to-transparent pointer-events-none" />
+            <div className="absolute bottom-0 left-0 p-8 sm:p-12 z-10 w-full">
+              <h3 className="font-serif text-3xl font-light mb-4 text-white">Gift City</h3>
+              <p className="text-white/70 font-light leading-relaxed mb-6 max-w-sm">
+                Strategically located in Gujarat International Finance Tec-City, our Gift City hub delivers specialized regulatory counsel for cross-border financial services, investment funds, and international tax structuring.
+              </p>
+              <MagneticButton strength={0.2}>
+                <Link
+                  href="/offices/gift-city"
                   className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white hover:text-[#C5A059] transition-colors group/link"
                 >
                   Go to office
