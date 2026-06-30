@@ -232,7 +232,7 @@ export default function Header() {
                           Jaipur<br />
                           New Delhi<br />
                           Mumbai<br />
-                          Gift City<br />
+                          GIFT City<br />
                           Dubai<br />
                           Dublin
                         </p>

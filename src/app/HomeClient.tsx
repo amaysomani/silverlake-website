@@ -380,7 +380,7 @@ export default function HomeClient({
             </div>
           </motion.div>
 
-          {/* Gift City */}
+          {/* GIFT City */}
           <motion.div
             initial="hidden"
             whileInView="visible"
@@ -390,14 +390,14 @@ export default function HomeClient({
           >
             <img
               src="/images/office-gift-city.png"
-              alt="Gift City Office"
+              alt="GIFT City Office"
               className="w-full h-full object-cover min-h-[300px] md:min-h-[360px] group-hover:scale-105 transition-transform duration-[1.5s]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0A1128]/90 via-[#0A1128]/40 to-transparent pointer-events-none" />
             <div className="absolute bottom-0 left-0 p-8 sm:p-12 z-10 w-full">
-              <h3 className="font-serif text-3xl font-light mb-4 text-white">Gift City</h3>
+              <h3 className="font-serif text-3xl font-light mb-4 text-white">GIFT City</h3>
               <p className="text-white/70 font-light leading-relaxed mb-6 max-w-sm">
-                Strategically located in Gujarat International Finance Tec-City, our Gift City hub delivers specialized regulatory counsel for cross-border financial services, investment funds, and international tax structuring.
+                Strategically located in Gujarat International Finance Tec-City, our GIFT City hub delivers specialized regulatory counsel for cross-border financial services, investment funds, and international tax structuring.
               </p>
               <MagneticButton strength={0.2}>
                 <Link

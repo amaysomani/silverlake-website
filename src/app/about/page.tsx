@@ -109,7 +109,7 @@ export default function AboutPage() {
                 <div>
                   <h3 className="text-[14px] font-bold uppercase tracking-[0.2em] text-[#111] mb-6">Integrated Global Network</h3>
                   <p className="text-[19px] text-[#555] font-light leading-[1.7]">
-                    Seamless coordination across our key representative hubs in Udaipur, Ahmedabad, Bangalore, Jaipur, New Delhi, Mumbai, Gift City, Dubai, and Dublin with zero administrative friction or communication delays. Our advisory philosophy is rooted in a simple principle: legal counsel should accelerate business objectives, not constrain them.
+                    Seamless coordination across our key representative hubs in Udaipur, Ahmedabad, Bangalore, Jaipur, New Delhi, Mumbai, GIFT City, Dubai, and Dublin with zero administrative friction or communication delays. Our advisory philosophy is rooted in a simple principle: legal counsel should accelerate business objectives, not constrain them.
                   </p>
                 </div>
                 <div className="h-px w-full bg-[#111]/10"></div>
