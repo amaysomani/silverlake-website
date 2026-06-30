@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://silverlakelaw.in"),
   openGraph: {
     title: "Silverlake | Corporate Law Firm",
-    description: "Silverlake is a leading international law firm advising businesses, investors, entrepreneurs, and institutions on complex legal matters across jurisdictions.",
+    description: "Silverlake is an International AI Native Law firm advising businesses, investors, entrepreneurs, and institutions on complex legal matters across jurisdictions.",
     url: "https://silverlakelaw.in",
     siteName: "Silverlake Legal Advisors LLP",
     locale: "en_GB",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Silverlake | Corporate Law Firm",
-    description: "Silverlake is a leading international law firm advising businesses, investors, entrepreneurs, and institutions on complex legal matters across jurisdictions.",
+    description: "Silverlake is an International AI Native Law firm advising businesses, investors, entrepreneurs, and institutions on complex legal matters across jurisdictions.",
   },
 };
 
