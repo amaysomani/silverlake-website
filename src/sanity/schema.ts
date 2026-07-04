@@ -45,4 +45,18 @@ export const subscriberType = defineType({
   ]
 });
 
-export const schemaTypes = [articleType, newsType, subscriberType];
+export const aiInteractionType = defineType({
+  name: 'aiInteraction',
+  title: 'AI Interaction',
+  type: 'document',
+  fields: [
+    defineField({ name: 'moduleId', type: 'string', title: 'Module ID' }),
+    defineField({ name: 'inputs', type: 'text', title: 'User Inputs (JSON)' }),
+    defineField({ name: 'prompt', type: 'text', title: 'System Prompt' }),
+    defineField({ name: 'response', type: 'text', title: 'AI Response' }),
+    defineField({ name: 'feedbackScore', type: 'number', title: 'Feedback Score', description: '1 for Good, -1 for Bad, 0 for Unrated', initialValue: 0 }),
+    defineField({ name: 'createdAt', type: 'datetime', title: 'Created At', initialValue: () => new Date().toISOString() }),
+  ]
+});
+
+export const schemaTypes = [articleType, newsType, subscriberType, aiInteractionType];

@@ -85,7 +85,7 @@ export default function Footer() {
               SILVERLAKE
             </Link>
             <p className="mt-4 text-xs text-[#f9f3f1]/40 max-w-sm leading-relaxed font-light">
-              Silverlake is an International AI Native Law firm advising businesses, investors, entrepreneurs, and institutions on complex legal matters across jurisdictions.
+              Silverlake is an International AI-Native Law firm advising businesses, investors, entrepreneurs, and institutions on complex legal matters across jurisdictions.
             </p>
 
             {/* Newsletter */}
