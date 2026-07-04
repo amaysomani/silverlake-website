@@ -8,39 +8,39 @@ import { playClickSound, playHoverSound } from "@/lib/ArnoAudio";
 const culturalTenets = [
   {
     num: "01",
-    kanji: "初心",
-    title: "Shoshin (Beginner's Mind)",
-    desc: "Maintaining an attitude of openness, eagerness, and lack of preconceptions. In the high-stakes engineering of orbit and intelligence, humility precedes excellence."
+    kanji: "遵守",
+    title: "Uncompromising Compliance",
+    desc: "Treat the law like orbital mechanics, you can't negotiate with gravity."
   },
   {
     num: "02",
-    kanji: "実質",
-    title: "Show Me What You Built",
-    desc: "Our only credential check. We prioritize demonstrated capability and tangible output. Résumés are public relations; code, hardware, and networks are reality."
+    kanji: "透明",
+    title: "Transparency by Default",
+    desc: "No black boxes on this ship, show your math or get out of the engine room."
   },
   {
     num: "03",
-    kanji: "自主",
-    title: "Sovereign Individuals",
-    desc: "We hire self-directed builders who operate without managers. You know what is important, you define the goals, and you execute with total autonomy."
+    kanji: "基礎",
+    title: "Unshakable Foundation",
+    desc: "Build the bunker deep before you ignite the rockets."
   },
   {
     num: "04",
-    kanji: "結束",
-    title: "Don't Feast With Who You Wouldn't Starve With",
-    desc: "True trust is forged in hardship. We value loyalty and shared sacrifice above all, ensuring every team member is committed to the long-range mission."
+    kanji: "信認",
+    title: "Fiercely Fiduciary",
+    desc: "Their skin in the game is our blood on the line."
   },
   {
     num: "05",
-    kanji: "道路",
-    title: "Build Roads, Not Shops",
-    desc: "Space is the next silk route. Arno builds the fundamental infrastructure layers—the roads and bridges—upon which the future global economy runs."
+    kanji: "機密",
+    title: "Completely Confidential",
+    desc: "We are a black hole for secrets; absolutely nothing escapes the event horizon."
   },
   {
     num: "06",
-    kanji: "物理",
-    title: "Make Physics Dangerous Again",
-    desc: "Rejecting soft corporate safety boundaries in favor of high-stakes, real-world engineering. We push limits to achieve what was deemed mathematically impossible."
+    kanji: "誠実",
+    title: "Integrity by Design",
+    desc: "Ethics aren't a late-stage software patch, they are the base hardware architecture."
   }
 ];
 

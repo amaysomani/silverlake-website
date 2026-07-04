@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import Image from "next/image";
 import ParticleCanvas from "@/components/innovation/ParticleCanvas";
 import InnoHeader from "@/components/innovation/InnoHeader";
 import InnoScrollIndicator from "@/components/innovation/InnoScrollIndicator";
@@ -64,9 +65,24 @@ export default function InnovationHubClient() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
               >
+                {/* Soft glow bloom behind text */}
+                <div
+                  className="absolute inset-0 pointer-events-none"
+                  style={{
+                    background: "radial-gradient(ellipse 60% 40% at 50% 50%, rgba(99,102,241,0.18) 0%, transparent 70%)",
+                    filter: "blur(20px)",
+                  }}
+                />
                 <h1
-                  className="font-tech text-6xl sm:text-8xl md:text-9xl font-extrabold tracking-tight text-white inno-glitch-text inno-chromatic"
+                  className="relative font-tech text-6xl sm:text-8xl md:text-9xl font-extrabold tracking-tight inno-glitch-text"
                   data-text="ARNO"
+                  style={{
+                    background: "linear-gradient(135deg, #818cf8 0%, #6366f1 25%, #a78bfa 55%, #c084fc 80%, #e879f9 100%)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    backgroundClip: "text",
+                    filter: "drop-shadow(0 0 40px rgba(99,102,241,0.5)) drop-shadow(0 0 80px rgba(139,92,246,0.3))",
+                  }}
                 >
                   ARNO
                 </h1>
@@ -112,6 +128,7 @@ export default function InnovationHubClient() {
               </motion.div>
             </div>
           </motion.div>
+
         )}
       </AnimatePresence>
 
@@ -230,7 +247,7 @@ export default function InnovationHubClient() {
             >
               <h2 className="font-tech text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white uppercase leading-[1.05] tracking-tight">
                 <span className="block">The next wave</span>
-                <span className="block bg-gradient-to-r from-white/70 to-white/40 bg-clip-text text-transparent">of venture capital</span>
+                <span className="block bg-gradient-to-r from-white/70 to-white/40 bg-clip-text text-transparent">of legal tech</span>
               </h2>
             </motion.div>
 
@@ -273,8 +290,8 @@ export default function InnovationHubClient() {
                   transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                   className="font-tech text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white uppercase leading-[1.05] tracking-tight"
                 >
-                  <span className="block">Capital with</span>
-                  <span className="block ml-8 lg:ml-16 bg-gradient-to-r from-white/60 to-white/30 bg-clip-text text-transparent">conviction</span>
+                  <span className="block">Legal Engineering with</span>
+                  <span className="block bg-gradient-to-r from-white/60 to-white/30 bg-clip-text text-transparent">conviction</span>
                 </motion.h2>
 
                 <motion.p
@@ -304,10 +321,12 @@ export default function InnovationHubClient() {
 
               <div className="space-y-6">
                 {[
-                  { num: "01", title: "Shoshin — Beginner\u2019s Mind", desc: "Maintaining openness, eagerness, and lack of preconceptions. In the high-stakes engineering of legal intelligence, humility precedes excellence." },
-                  { num: "02", title: "Show Me What You Built", desc: "Our only credential check. We prioritize demonstrated capability and tangible output. Code, hardware, and networks are reality." },
-                  { num: "03", title: "Sovereign Individuals", desc: "We hire self-directed builders who operate without managers. You define the goals and execute with total autonomy." },
-                  { num: "04", title: "Build Roads, Not Shops", desc: "ARNO builds the fundamental infrastructure layers \u2014 the roads and bridges \u2014 upon which the future legal-capital economy runs." },
+                  { num: "01", title: "Uncompromising Compliance", desc: "Treat the law like orbital mechanics, you can't negotiate with gravity." },
+                  { num: "02", title: "Transparency by Default", desc: "No black boxes on this ship, show your math or get out of the engine room." },
+                  { num: "03", title: "Unshakable Foundation", desc: "Build the bunker deep before you ignite the rockets." },
+                  { num: "04", title: "Fiercely Fiduciary", desc: "Their skin in the game is our blood on the line." },
+                  { num: "05", title: "Completely Confidential", desc: "We are a black hole for secrets; absolutely nothing escapes the event horizon." },
+                  { num: "06", title: "Integrity by Design", desc: "Ethics aren't a late-stage software patch, they are the base hardware architecture." },
                 ].map((tenet, idx) => (
                   <motion.div
                     key={tenet.num}
@@ -360,6 +379,26 @@ export default function InnovationHubClient() {
             </motion.div>
 
             <InnoProductGrid soundEnabled={soundEnabled} />
+
+            {/* DASHBOARD MOCKUP PREVIEW */}
+            <motion.div
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-24 w-full flex flex-col items-center"
+            >
+              <h3 className="font-tech text-2xl font-bold text-white uppercase mb-8 tracking-widest text-center">Dashboard</h3>
+              <div className="w-full flex justify-center rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/dashboard-mockup-v8.png"
+                  alt="ARNO Dashboard Interface"
+                  width={3840}
+                  height={2160}
+                  className="w-auto h-auto max-w-full max-h-[80vh] object-contain rounded-2xl"
+                />
+              </div>
+            </motion.div>
           </div>
         </section>
 
