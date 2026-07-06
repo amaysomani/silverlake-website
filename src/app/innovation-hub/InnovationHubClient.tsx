@@ -81,22 +81,15 @@ export default function InnovationHubClient() {
                     filter: "blur(30px)",
                   }}
                 />
-                {/* 'arno' in Nunito — matches reference rounded letterforms + gradient */}
-                <h1
-                  className="relative font-arno lowercase"
+                {/* 'arno' Logo SVG */}
+                <img
+                  src="/arnologo.svg"
+                  alt="ARNO Logo"
+                  className="relative w-[50vw] max-w-[500px] h-auto mx-auto"
                   style={{
-                    fontSize: "clamp(5rem, 15vw, 13rem)",
-                    fontWeight: 900,
-                    letterSpacing: "-0.03em",
-                    background: "linear-gradient(100deg, #5588ff 0%, #7866f5 25%, #aa55e8 55%, #cc66d0 75%, #c878be 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
                     filter: "drop-shadow(0 0 40px rgba(130,90,255,0.5)) drop-shadow(0 0 80px rgba(170,70,210,0.3))",
                   }}
-                >
-                  arno
-                </h1>
+                />
               </motion.div>
 
               <motion.p
@@ -244,14 +237,10 @@ export default function InnovationHubClient() {
               transition={{ delay: 1, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col items-start"
             >
-              <h2 className="font-tech text-2xl sm:text-4xl lg:text-5xl font-bold text-white uppercase leading-[1.1] tracking-wide mb-4">
+              <h2 className="font-tech text-2xl sm:text-4xl lg:text-5xl font-bold text-white uppercase leading-[1.1] tracking-wide mb-8">
                 The next wave<br />
                 <span className="text-white/70">of legal tech</span>
               </h2>
-              <p className="text-white/40 text-[11px] sm:text-xs font-light leading-relaxed mb-7">
-                For over 15 years, Silverlake has engineered some of the most innovative capital
-                structures — spanning Venture, Private Equity, and Web3 funds. From term sheet to exit.
-              </p>
               <button
                 className="pointer-events-auto group relative px-6 py-2.5 overflow-hidden rounded-[2px] border border-white/20 backdrop-blur-sm transition-all hover:border-white/40"
                 onClick={() => containerRef.current?.scrollTo({ top: window.innerHeight, behavior: "smooth" })}
@@ -433,7 +422,7 @@ export default function InnovationHubClient() {
               <h3 className="font-tech text-2xl font-bold text-white uppercase mb-8 tracking-widest text-center">Dashboard</h3>
               <div className="w-full flex justify-center rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/dashboard-mockup-v8.png"
+                  src="/images/dashboard-mockup-v9.png"
                   alt="ARNO Dashboard Interface"
                   width={3840}
                   height={2160}
@@ -452,22 +441,23 @@ export default function InnovationHubClient() {
             >
               <button
                 onClick={handleCopyEmail}
-                className="group relative inline-flex items-center justify-center px-12 py-5 font-tech text-base tracking-[0.2em] uppercase text-white font-extrabold bg-gradient-to-r from-[#1e50a0] to-[#123163] rounded-full hover:shadow-[0_0_40px_rgba(30,80,160,0.6)] transition-all duration-300 overflow-hidden transform hover:scale-105"
+                className="pointer-events-auto group relative px-10 py-4 overflow-hidden rounded-[2px] border border-[#5588ff]/30 bg-[#5588ff]/5 backdrop-blur-md transition-all duration-500 hover:border-[#5588ff]/70 hover:bg-[#5588ff]/10 hover:shadow-[0_0_30px_rgba(85,136,255,0.2)]"
               >
-                <span className="relative z-10 flex items-center gap-3">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
+                <span className="relative flex items-center gap-4 text-xs font-tech font-bold tracking-[0.3em] text-white/90 group-hover:text-white uppercase transition-colors">
+                  <div className={`w-[6px] h-[6px] rotate-45 transition-colors duration-300 ${isCopied ? 'bg-green-400' : 'bg-[#5588ff] group-hover:bg-[#cc66d0]'}`} />
                   {isCopied ? "Email Copied!" : "Book A Demo"}
                   {!isCopied && (
-                    <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-4 h-4 text-[#5588ff] group-hover:text-[#cc66d0] group-hover:translate-x-1 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                   )}
                   {isCopied && (
-                    <svg className="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-4 h-4 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                     </svg>
                   )}
                 </span>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#2c4e73]/0 via-white/20 to-[#2c4e73]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </button>
               <p className="text-white/40 text-sm font-light tracking-wide text-center">
                 Click to copy email, then mail us at <button onClick={handleCopyEmail} className="text-white/70 font-medium hover:text-white transition-colors cursor-pointer focus:outline-none">contact@silverlakelaw.in</button>
