@@ -81,21 +81,21 @@ export default function ParticleCanvas({ scrollProgress }: ParticleCanvasProps) 
         ctx.lineTo(width, height);
         ctx.closePath();
 
-        // Fill wave gradient with higher alphas for visibility
-        const alpha = 0.5 - layer * 0.1;
+        // Fill wave gradient with deep navy and cyan highlights
+        const alpha = 0.6 - layer * 0.12;
         const gradient = ctx.createLinearGradient(0, yOffset - 30, 0, height);
-        gradient.addColorStop(0, `rgba(40, 100, 200, ${alpha})`);
-        gradient.addColorStop(0.3, `rgba(20, 60, 140, ${alpha * 0.8})`);
-        gradient.addColorStop(0.6, `rgba(10, 30, 80, ${alpha * 0.5})`);
-        gradient.addColorStop(1, `rgba(0, 5, 20, ${alpha * 0.2})`);
+        gradient.addColorStop(0, `rgba(0, 212, 255, ${alpha * 0.4})`); // Cyan highlight at crest
+        gradient.addColorStop(0.2, `rgba(10, 40, 120, ${alpha * 0.9})`); // Deep blue
+        gradient.addColorStop(0.6, `rgba(2, 10, 30, ${alpha})`); // Very dark navy
+        gradient.addColorStop(1, `rgba(0, 2, 10, ${alpha})`); // Almost black
 
         ctx.fillStyle = gradient;
         ctx.fill();
 
-        // Add a subtle glowing rim light on the top layer
-        if (layer === 0) {
-          ctx.strokeStyle = `rgba(100, 180, 255, ${0.08 + Math.sin(time * 0.001) * 0.04})`;
-          ctx.lineWidth = 1.5;
+        // Add a subtle glowing cyan rim light on the top layers
+        if (layer < 2) {
+          ctx.strokeStyle = `rgba(0, 212, 255, ${0.1 + (1 - layer * 0.5) * 0.15 + Math.sin(time * 0.001) * 0.05})`;
+          ctx.lineWidth = 1.5 - layer * 0.5;
           ctx.stroke();
         }
       }
@@ -260,19 +260,19 @@ export default function ParticleCanvas({ scrollProgress }: ParticleCanvasProps) 
       // Clear
       ctx.clearRect(0, 0, w, h);
 
-      // Background gradient - Lighter, deep-sea azure
+      // Background gradient - Deep cinematic navy/cyan
       const bg = ctx.createLinearGradient(0, 0, 0, h);
-      bg.addColorStop(0, "#020813");
-      bg.addColorStop(0.4, "#0a1a3a");
-      bg.addColorStop(0.7, "#14305c");
-      bg.addColorStop(1, "#0a162b");
+      bg.addColorStop(0, "#01030a"); // Almost black at top
+      bg.addColorStop(0.5, "#04091a"); // Deep navy
+      bg.addColorStop(0.8, "#0a1940"); // Rich purple-blue horizon
+      bg.addColorStop(1, "#030a17"); // Darker at bottom
       ctx.fillStyle = bg;
       ctx.fillRect(0, 0, w, h);
 
       // Draw layers in order
       drawOcean(ctx, w, h, timestamp);
       drawCrystalGlow(ctx, w, h, timestamp);
-      drawParticles(ctx, w, h, timestamp);
+      // Floating particles removed for a cleaner, non-distracting aesthetic
 
       animationRef.current = requestAnimationFrame(animate);
     };

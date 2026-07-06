@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
+
 import { playToggleSound, resumeAudioContext } from "@/lib/ArnoAudio";
 
 interface InnoHeaderProps {
@@ -17,52 +18,38 @@ export default function InnoHeader({ soundEnabled, setSoundEnabled }: InnoHeader
     setSoundEnabled(nextState);
     playToggleSound(nextState);
   };
-
   return (
     <motion.header
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
-      transition={{ delay: 2.5, duration: 1 }}
+      transition={{ delay: 1, duration: 1 }}
       className="fixed top-0 left-0 right-0 z-50 pointer-events-none"
     >
-      <div className="flex items-center justify-between px-6 lg:px-10 py-6 max-w-[1600px] mx-auto w-full">
+      <div className="flex items-center justify-between px-6 lg:px-12 py-8 max-w-[1920px] mx-auto w-full border-b border-white/[0.03]">
         {/* Logo */}
         <Link
           href="/"
           className="pointer-events-auto flex items-center gap-3 group"
         >
-          {/* ARNO Mark */}
-          <div className="flex items-center gap-2">
-            <svg
-              width="28"
-              height="28"
-              viewBox="0 0 32 32"
-              fill="none"
-              className="text-white/80 group-hover:text-white transition-colors"
+          <div className="flex flex-col leading-none">
+            <span
+              className="font-arno lowercase"
+              style={{
+                fontSize: "clamp(16px, 1.8vw, 24px)",
+                fontWeight: 900,
+                letterSpacing: "-0.03em",
+                background: "linear-gradient(100deg, #5588ff 0%, #7866f5 25%, #aa55e8 55%, #cc66d0 75%, #c878be 100%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                filter: "drop-shadow(0 0 10px rgba(130,90,255,0.35))",
+              }}
             >
-              <path
-                d="M16 2L28 8V24L16 30L4 24V8L16 2Z"
-                stroke="currentColor"
-                strokeWidth="1.5"
-                fill="none"
-              />
-              <path
-                d="M16 2L28 8L16 14L4 8L16 2Z"
-                stroke="currentColor"
-                strokeWidth="1"
-                fill="none"
-                opacity="0.4"
-              />
-              <line x1="16" y1="14" x2="16" y2="30" stroke="currentColor" strokeWidth="1" opacity="0.4" />
-            </svg>
-            <div className="flex flex-col leading-none">
-              <span className="text-[11px] font-tech font-bold tracking-[0.3em] text-white/90 uppercase">
-                ARNO
-              </span>
-              <span className="text-[8px] font-tech font-medium tracking-[0.2em] text-white/40 uppercase">
-                Venture Capital
-              </span>
-            </div>
+              arno
+            </span>
+            <span className="text-[7px] font-tech font-medium tracking-[0.3em] text-white/25 uppercase mt-0.5">
+              Venture Capital
+            </span>
           </div>
         </Link>
 

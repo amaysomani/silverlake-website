@@ -1,55 +1,31 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 
 interface InnoScrollIndicatorProps {
-  scrollProgress: number; // 0 to 1
-  currentSection: number; // 0-3
+  scrollProgress: number;
+  currentSection: number;
   totalSections: number;
 }
 
-const sectionLabels = ["HERO", "MANIFESTO", "THE STUDIO", "CONNECT"];
+const sectionLabels = ["HERO", "MANIFESTO", "PLATFORM", "CONTACT"];
 
-export default function InnoScrollIndicator({
-  scrollProgress,
-  currentSection,
-  totalSections,
-}: InnoScrollIndicatorProps) {
+export default function InnoScrollIndicator({ currentSection }: InnoScrollIndicatorProps) {
   return (
-    <>
-      {/* Right-side vertical progress bar */}
-      <div className="fixed right-6 lg:right-10 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center gap-3">
-        <div className="relative w-[1px] h-32 bg-white/10 overflow-hidden rounded-full">
-          <motion.div
-            className="absolute top-0 left-0 w-full bg-gradient-to-b from-[#00d4ff] to-[#0066ff] rounded-full"
-            style={{ height: `${scrollProgress * 100}%` }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-          />
-        </div>
-      </div>
-
-      {/* Bottom-left section number */}
-      <div className="fixed bottom-8 left-6 lg:left-10 z-40 flex flex-col gap-1">
-        <motion.span
-          key={currentSection}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4 }}
-          className="text-[10px] font-tech font-medium tracking-[0.25em] text-[#00d4ff]/60 uppercase"
-        >
-          //{String(currentSection + 1).padStart(2, "0")}
-        </motion.span>
-        <motion.span
-          key={`label-${currentSection}`}
-          initial={{ opacity: 0, y: 10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.4, delay: 0.1 }}
-          className="text-[11px] font-tech font-bold tracking-[0.2em] text-white/80 uppercase"
-        >
-          {sectionLabels[currentSection] || ""}
-        </motion.span>
-      </div>
-    </>
+    <div className="fixed left-4 top-1/2 -translate-y-1/2 z-40 hidden lg:flex flex-col gap-4 pointer-events-none">
+      {sectionLabels.map((label, idx) => {
+        const isActive = currentSection === idx;
+        return (
+          <div key={label} title={label} className="flex items-center justify-center w-3 h-3">
+            <div
+              className={`rounded-full transition-all duration-500 ${
+                isActive ? "w-2 h-2 bg-[#00d4ff]" : "w-1.5 h-1.5 bg-white/25"
+              }`}
+              style={{ boxShadow: isActive ? "0 0 8px rgba(0,212,255,0.7)" : "none" }}
+            />
+          </div>
+        );
+      })}
+    </div>
   );
 }

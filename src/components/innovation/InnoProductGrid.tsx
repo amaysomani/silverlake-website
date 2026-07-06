@@ -113,7 +113,20 @@ const renderMarkdown = (text: string) => {
       </div>
     );
   }
-  return <div className="space-y-1">{htmlElements}</div>;
+  return (
+    <motion.div 
+      variants={{ hidden: {}, show: { transition: { staggerChildren: 0.1 } } }} 
+      initial="hidden" 
+      animate="show" 
+      className="space-y-1"
+    >
+      {htmlElements.map((el, i) => (
+        <motion.div key={i} variants={{ hidden: { opacity: 0, y: 10 }, show: { opacity: 1, y: 0 } }}>
+          {el}
+        </motion.div>
+      ))}
+    </motion.div>
+  );
 };
 
 interface InnoProductGridProps {
@@ -127,6 +140,7 @@ export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) 
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<string | null>(null);
   const [interactionId, setInteractionId] = useState<string | null>(null);
+  const [feedbackSubmitted, setFeedbackSubmitted] = useState<boolean>(false);
 
   const activeProduct = products.find((p) => p.id === selectedProductId);
 
@@ -145,6 +159,7 @@ export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) 
     setError(null);
     setResult(null);
     setInteractionId(null);
+    setFeedbackSubmitted(false);
   };
 
   const handleInputChange = (id: string, value: string) => {
@@ -159,6 +174,7 @@ export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) 
     setError(null);
     setResult(null);
     setInteractionId(null);
+    setFeedbackSubmitted(false);
     try {
       const res = await fetch("/api/chat", {
         method: "POST",
@@ -243,14 +259,15 @@ export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) 
         <AnimatePresence>
           {activeProduct && (
             <motion.div
+              key="modal"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 30 }}
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full bg-[#020a19] border border-white/10 rounded-2xl overflow-hidden flex flex-col min-h-[600px] lg:h-[700px] shadow-[0_50px_100px_rgba(0,0,0,0.9)]"
+              className="w-full bg-[#020a19]/80 backdrop-blur-2xl border border-white/10 rounded-2xl overflow-hidden flex flex-col min-h-[600px] lg:h-[700px] shadow-[0_50px_100px_rgba(0,0,0,0.9)]"
             >
               {/* Modal Header */}
-              <header className="flex justify-between items-center p-6 sm:px-10 border-b border-white/10 bg-[#020a19]">
+              <header className="flex justify-between items-center p-6 sm:px-10 border-b border-white/10 bg-[#020a19]/50">
                 <button onClick={handleCloseModal} className="flex items-center gap-3 text-white/50 hover:text-white transition-colors group cursor-pointer">
                   <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
                   <span className="font-tech text-[10px] uppercase tracking-[0.2em] font-bold">RETURN TO PLATFORM</span>
@@ -271,9 +288,9 @@ export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) 
                         <div key={input.id} className="space-y-2">
                           <label className="block font-tech text-[10px] uppercase tracking-[0.2em] font-bold text-white/40">{input.label}</label>
                           {input.type === "textarea" ? (
-                            <textarea value={inputValues[input.id] || ""} onChange={(e) => handleInputChange(input.id, e.target.value)} placeholder={input.placeholder} rows={5} className="w-full border border-white/10 bg-[#020a19] p-4 text-sm text-white placeholder:text-white/15 focus:outline-none focus:border-white/30 transition-colors resize-none font-light rounded-lg" />
+                            <textarea value={inputValues[input.id] || ""} onChange={(e) => handleInputChange(input.id, e.target.value)} placeholder={input.placeholder} rows={5} className="w-full border border-white/10 bg-black/20 p-4 text-sm text-white placeholder:text-white/15 focus:outline-none focus:border-white/30 transition-colors resize-none font-light rounded-lg" />
                           ) : (
-                            <input type="text" value={inputValues[input.id] || ""} onChange={(e) => handleInputChange(input.id, e.target.value)} placeholder={input.placeholder} className="w-full border border-white/10 bg-[#020a19] p-4 text-sm text-white placeholder:text-white/15 focus:outline-none focus:border-white/30 transition-colors font-light rounded-lg" />
+                            <input type="text" value={inputValues[input.id] || ""} onChange={(e) => handleInputChange(input.id, e.target.value)} placeholder={input.placeholder} className="w-full border border-white/10 bg-black/20 p-4 text-sm text-white placeholder:text-white/15 focus:outline-none focus:border-white/30 transition-colors font-light rounded-lg" />
                           )}
                         </div>
                       ))}
@@ -325,28 +342,28 @@ export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) 
                             <div className="text-[11px] text-white/40">Was this analysis accurate and helpful?</div>
                           </div>
                           <div className="flex gap-2">
-                            <button 
-                              onClick={async (e) => {
-                                const btn = e.currentTarget;
-                                btn.innerText = "Submitted";
-                                btn.disabled = true;
-                                await fetch("/api/feedback", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ interactionId, feedbackScore: 1 }) });
-                              }} 
-                              className="px-4 py-2 bg-white/5 hover:bg-green-500/20 text-white/70 hover:text-green-400 border border-white/10 hover:border-green-500/30 rounded font-tech text-[10px] uppercase tracking-widest transition-colors cursor-pointer"
-                            >
-                              Accurate
-                            </button>
-                            <button 
-                              onClick={async (e) => {
-                                const btn = e.currentTarget;
-                                btn.innerText = "Submitted";
-                                btn.disabled = true;
-                                await fetch("/api/feedback", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ interactionId, feedbackScore: -1 }) });
-                              }} 
-                              className="px-4 py-2 bg-white/5 hover:bg-red-500/20 text-white/70 hover:text-red-400 border border-white/10 hover:border-red-500/30 rounded font-tech text-[10px] uppercase tracking-widest transition-colors cursor-pointer"
-                            >
-                              Inaccurate
-                            </button>
+                              <button 
+                                onClick={async () => {
+                                  if (feedbackSubmitted) return;
+                                  setFeedbackSubmitted(true);
+                                  await fetch("/api/feedback", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ interactionId, feedbackScore: 1 }) });
+                                }} 
+                                disabled={feedbackSubmitted}
+                                className="px-4 py-2 bg-white/5 hover:bg-green-500/20 text-white/70 hover:text-green-400 border border-white/10 hover:border-green-500/30 rounded font-tech text-[10px] uppercase tracking-widest transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                              >
+                                {feedbackSubmitted ? "Submitted" : "Accurate"}
+                              </button>
+                              <button 
+                                onClick={async () => {
+                                  if (feedbackSubmitted) return;
+                                  setFeedbackSubmitted(true);
+                                  await fetch("/api/feedback", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ interactionId, feedbackScore: -1 }) });
+                                }} 
+                                disabled={feedbackSubmitted}
+                                className="px-4 py-2 bg-white/5 hover:bg-red-500/20 text-white/70 hover:text-red-400 border border-white/10 hover:border-red-500/30 rounded font-tech text-[10px] uppercase tracking-widest transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+                              >
+                                {feedbackSubmitted ? "Submitted" : "Inaccurate"}
+                              </button>
                           </div>
                         </div>
                       )}

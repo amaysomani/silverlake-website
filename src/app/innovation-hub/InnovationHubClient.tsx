@@ -16,7 +16,15 @@ export default function InnovationHubClient() {
   const [soundEnabled, setSoundEnabled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [currentSection, setCurrentSection] = useState(0);
+  const [isCopied, setIsCopied] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("contact@silverlakelaw.in");
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 3000);
+    window.location.href = "mailto:contact@silverlakelaw.in";
+  };
 
   const handleScroll = useCallback(() => {
     const container = containerRef.current;
@@ -65,34 +73,37 @@ export default function InnovationHubClient() {
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
               >
-                {/* Soft glow bloom behind text */}
+                {/* Ambient glow — matches gradient colors */}
                 <div
                   className="absolute inset-0 pointer-events-none"
                   style={{
-                    background: "radial-gradient(ellipse 60% 40% at 50% 50%, rgba(99,102,241,0.18) 0%, transparent 70%)",
-                    filter: "blur(20px)",
+                    background: "radial-gradient(ellipse 70% 50% at 50% 50%, rgba(100,120,255,0.22) 0%, rgba(180,80,220,0.1) 60%, transparent 100%)",
+                    filter: "blur(30px)",
                   }}
                 />
+                {/* 'arno' in Nunito — matches reference rounded letterforms + gradient */}
                 <h1
-                  className="relative font-tech text-6xl sm:text-8xl md:text-9xl font-extrabold tracking-tight inno-glitch-text"
-                  data-text="ARNO"
+                  className="relative font-arno lowercase"
                   style={{
-                    background: "linear-gradient(135deg, #818cf8 0%, #6366f1 25%, #a78bfa 55%, #c084fc 80%, #e879f9 100%)",
+                    fontSize: "clamp(5rem, 15vw, 13rem)",
+                    fontWeight: 900,
+                    letterSpacing: "-0.03em",
+                    background: "linear-gradient(100deg, #5588ff 0%, #7866f5 25%, #aa55e8 55%, #cc66d0 75%, #c878be 100%)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
                     backgroundClip: "text",
-                    filter: "drop-shadow(0 0 40px rgba(99,102,241,0.5)) drop-shadow(0 0 80px rgba(139,92,246,0.3))",
+                    filter: "drop-shadow(0 0 40px rgba(130,90,255,0.5)) drop-shadow(0 0 80px rgba(170,70,210,0.3))",
                   }}
                 >
-                  ARNO
+                  arno
                 </h1>
               </motion.div>
 
               <motion.p
                 initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 0.5, y: 0 }}
-                transition={{ delay: 0.5, duration: 1 }}
-                className="mt-4 font-tech text-[10px] tracking-[0.3em] text-white/30 uppercase"
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.7, duration: 1 }}
+                className="mt-6 font-tech text-[10px] tracking-[0.45em] text-white/25 uppercase"
               >
                 AI-Native Legal Strategist Suite
               </motion.p>
@@ -111,9 +122,9 @@ export default function InnovationHubClient() {
                   }}
                   className="relative group cursor-pointer"
                 >
-                  <div className="relative font-tech text-[10px] tracking-[0.25em] text-white/60 uppercase px-8 py-3 border border-white/15 rounded hover:border-white/30 hover:text-white transition-all duration-500">
+                  <div className="relative font-tech text-[10px] tracking-[0.3em] text-white/50 uppercase px-10 py-3.5 border border-white/10 rounded-[2px] hover:border-white/30 hover:text-white/80 transition-all duration-500 backdrop-blur-sm">
                     Enter with audio
-                    <div className="absolute inset-0 rounded bg-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    <div className="absolute inset-0 rounded-[2px] bg-white/3 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                   </div>
                 </button>
                 <button
@@ -121,7 +132,7 @@ export default function InnovationHubClient() {
                     e.stopPropagation();
                     handleEnter();
                   }}
-                  className="font-tech text-[9px] tracking-[0.2em] text-white/20 uppercase hover:text-white/50 transition-colors cursor-pointer"
+                  className="font-tech text-[9px] tracking-[0.25em] text-white/15 uppercase hover:text-white/40 transition-colors cursor-pointer"
                 >
                   Enter without audio
                 </button>
@@ -214,62 +225,95 @@ export default function InnovationHubClient() {
               animate={{ opacity: [0.2, 0.6, 0.2] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             />
-            {/* The Crystal */}
+            {/* The Crystal — smooth entry, no sudden pop */}
             <motion.div
-              initial={{ opacity: 0, y: 40, scale: 0.9 }}
-              animate={introComplete ? { opacity: 1, y: 0, scale: 1 } : {}}
-              transition={{ delay: 0.5, duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+              initial={{ opacity: 0, scale: 0.85 }}
+              animate={introComplete ? { opacity: 1, scale: 1 } : {}}
+              transition={{ delay: 0.3, duration: 2.2, ease: [0.16, 1, 0.3, 1] }}
               className="pointer-events-auto relative"
             >
               <InteractiveCrystal />
             </motion.div>
           </div>
 
-          {/* Section Label (Hashgraph VC style) */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={introComplete ? { opacity: 1 } : {}}
-            transition={{ delay: 2, duration: 1 }}
-            className="absolute bottom-8 left-6 lg:left-10 font-tech text-[9px] tracking-[0.2em] uppercase"
-          >
-            <span className="bg-gradient-to-r from-[#9bb8e1] to-[#2c4e73] bg-clip-text text-transparent font-bold">//00</span>
-            <span className="text-white/30 ml-2">Hero</span>
-          </motion.div>
-
-          {/* Hero bottom text */}
-          <div className="flex-1" />
-          <div className="flex items-end justify-between pb-12 max-w-[1600px] mx-auto w-full">
+          {/* Section 1 Content Overlay — Left side, vertically centered, Hashgraph style */}
+          <div className="absolute left-6 lg:left-20 top-1/2 -translate-y-1/2 flex flex-col items-start pointer-events-none z-20" style={{ maxWidth: "clamp(260px, 35vw, 480px)" }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={introComplete ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 1, duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-              className="max-w-lg"
+              className="flex flex-col items-start"
             >
-              <h2 className="font-tech text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white uppercase leading-[1.05] tracking-tight">
-                <span className="block">The next wave</span>
-                <span className="block bg-gradient-to-r from-white/70 to-white/40 bg-clip-text text-transparent">of legal tech</span>
+              <h2 className="font-tech text-2xl sm:text-4xl lg:text-5xl font-bold text-white uppercase leading-[1.1] tracking-wide mb-4">
+                The next wave<br />
+                <span className="text-white/70">of legal tech</span>
               </h2>
+              <p className="text-white/40 text-[11px] sm:text-xs font-light leading-relaxed mb-7">
+                For over 15 years, Silverlake has engineered some of the most innovative capital
+                structures — spanning Venture, Private Equity, and Web3 funds. From term sheet to exit.
+              </p>
+              <button
+                className="pointer-events-auto group relative px-6 py-2.5 overflow-hidden rounded-[2px] border border-white/20 backdrop-blur-sm transition-all hover:border-white/40"
+                onClick={() => containerRef.current?.scrollTo({ top: window.innerHeight, behavior: "smooth" })}
+              >
+                <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 transition-all duration-300" />
+                <span className="relative flex items-center gap-3 text-[9px] font-tech font-bold tracking-[0.25em] text-white/70 group-hover:text-white uppercase transition-colors">
+                  <div className="w-[4px] h-[4px] bg-[#00d4ff] rotate-45" />
+                  Explore our platform
+                </span>
+              </button>
             </motion.div>
+          </div>
 
+          {/* Bottom Navigation / HUD */}
+          <div className="absolute bottom-10 left-6 lg:left-12 right-6 lg:right-12 flex items-center justify-between z-30 pointer-events-none">
+
+            {/* Sound Toggle */}
+            <div className="pointer-events-auto flex items-center gap-4 cursor-pointer group" onClick={() => {
+              resumeAudioContext();
+              setSoundEnabled(!soundEnabled);
+            }}>
+              <div className="flex items-center gap-1 opacity-50 group-hover:opacity-100 transition-opacity">
+                <div className="w-[2px] h-[6px] bg-white rounded-full" />
+                <div className="w-[2px] h-[10px] bg-white rounded-full" />
+                <div className="w-[2px] h-[4px] bg-white rounded-full" />
+              </div>
+              <span className="text-[9px] font-tech font-bold tracking-[0.25em] text-white/50 uppercase group-hover:text-white transition-colors">
+                {soundEnabled ? "Sound On" : "Sound Off"}
+              </span>
+            </div>
+
+            {/* Scroll Indicator */}
             <motion.div
               initial={{ opacity: 0 }}
               animate={introComplete ? { opacity: 1 } : {}}
               transition={{ delay: 1.8, duration: 1 }}
-              className="hidden sm:flex flex-col items-end gap-4 text-right cursor-pointer"
+              className="pointer-events-auto flex items-center gap-3 cursor-pointer group"
               onClick={() => containerRef.current?.scrollTo({ top: window.innerHeight, behavior: "smooth" })}
             >
-              <span className="font-tech text-[8px] tracking-[0.3em] text-white/30 uppercase">
-                Scroll down to<br />discover more
-              </span>
-              <div className="w-[1px] h-16 bg-white/10 relative overflow-hidden">
+              <div className="w-[10px] h-[10px] border border-white/30 rounded-full flex items-center justify-center relative overflow-hidden group-hover:border-white transition-colors">
                 <motion.div
-                  className="absolute top-0 left-0 right-0 h-1/2"
-                  style={{ background: "linear-gradient(180deg, #9bb8e1, #2c4e73)" }}
-                  animate={{ y: ["-100%", "200%"] }}
-                  transition={{ repeat: Infinity, duration: 2.2, ease: "easeInOut" }}
+                  className="w-[2px] h-[2px] bg-white rounded-full"
+                  animate={{ y: [-2, 4, -2] }}
+                  transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                 />
               </div>
+              <span className="font-tech text-[9px] font-bold tracking-[0.25em] text-white/50 uppercase group-hover:text-white transition-colors">
+                Scroll to explore
+              </span>
             </motion.div>
+
+            {/* Connect / Chat */}
+            <div className="pointer-events-auto flex items-center gap-3 cursor-pointer group">
+              <span className="text-[9px] font-tech font-bold tracking-[0.25em] text-white/50 uppercase group-hover:text-white transition-colors">
+                Connect with us
+              </span>
+              <div className="w-6 h-6 rounded-full border border-white/20 flex items-center justify-center group-hover:border-[#00d4ff] group-hover:text-[#00d4ff] transition-all">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                </svg>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -399,66 +443,160 @@ export default function InnovationHubClient() {
                 />
               </div>
             </motion.div>
+
+            {/* BOOK A DEMO */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-20 w-full flex flex-col items-center gap-5"
+            >
+              <button
+                onClick={handleCopyEmail}
+                className="group relative inline-flex items-center justify-center px-12 py-5 font-tech text-base tracking-[0.2em] uppercase text-white font-extrabold bg-gradient-to-r from-[#1e50a0] to-[#123163] rounded-full hover:shadow-[0_0_40px_rgba(30,80,160,0.6)] transition-all duration-300 overflow-hidden transform hover:scale-105"
+              >
+                <span className="relative z-10 flex items-center gap-3">
+                  {isCopied ? "Email Copied!" : "Book A Demo"}
+                  {!isCopied && (
+                    <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  )}
+                  {isCopied && (
+                    <svg className="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                    </svg>
+                  )}
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#2c4e73]/0 via-white/20 to-[#2c4e73]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </button>
+              <p className="text-white/40 text-sm font-light tracking-wide text-center">
+                Click to copy email, then mail us at <button onClick={handleCopyEmail} className="text-white/70 font-medium hover:text-white transition-colors cursor-pointer focus:outline-none">contact@silverlakelaw.in</button>
+              </p>
+            </motion.div>
           </div>
         </section>
 
         {/* ─── SECTION 4: CONTACT / FOOTER ─── */}
-        <section className="inno-snap-section flex flex-col justify-center items-center px-6 lg:px-10 relative">
-          <div className="absolute bottom-20 left-6 lg:left-10 font-tech text-[9px] tracking-[0.2em] uppercase">
-            <span className="bg-gradient-to-r from-[#9bb8e1] to-[#2c4e73] bg-clip-text text-transparent font-bold">//03</span>
-            <span className="text-white/30 ml-2">Contact</span>
-          </div>
+        <section className="inno-snap-section flex flex-col justify-center items-center px-6 lg:px-10 relative overflow-hidden">
 
-          {/* Ambient glow */}
+          {/* Large glowing orb behind content */}
           <div
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] pointer-events-none"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[900px] pointer-events-none"
             style={{
-              background: "radial-gradient(circle, rgba(30,80,160,0.06) 0%, transparent 60%)",
-              filter: "blur(60px)",
+              background: "radial-gradient(circle, rgba(0,100,200,0.12) 0%, rgba(0,50,120,0.06) 30%, transparent 65%)",
+              filter: "blur(80px)",
             }}
           />
 
-          <div className="max-w-[1000px] mx-auto text-center relative">
+          {/* Animated concentric rings */}
+          {[0, 1, 2].map((i) => (
+            <motion.div
+              key={i}
+              className="absolute rounded-full border border-white/[0.04] pointer-events-none"
+              style={{
+                width: `${400 + i * 200}px`,
+                height: `${400 + i * 200}px`,
+                top: "50%",
+                left: "50%",
+                transform: "translate(-50%, -50%)",
+              }}
+              animate={{ scale: [1, 1.03, 1], opacity: [0.3, 0.7, 0.3] }}
+              transition={{ duration: 4 + i * 1.5, repeat: Infinity, ease: "easeInOut", delay: i * 0.8 }}
+            />
+          ))}
+
+          {/* Horizontal glowing line */}
+          <motion.div
+            className="absolute left-0 right-0 h-[1px] pointer-events-none"
+            style={{
+              top: "20%",
+              background: "linear-gradient(90deg, transparent 0%, rgba(0,180,255,0.12) 30%, rgba(0,212,255,0.2) 50%, rgba(0,180,255,0.12) 70%, transparent 100%)",
+            }}
+            animate={{ opacity: [0.4, 1, 0.4] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+          />
+          <motion.div
+            className="absolute left-0 right-0 h-[1px] pointer-events-none"
+            style={{
+              bottom: "20%",
+              background: "linear-gradient(90deg, transparent 0%, rgba(0,180,255,0.08) 30%, rgba(0,212,255,0.15) 50%, rgba(0,180,255,0.08) 70%, transparent 100%)",
+            }}
+            animate={{ opacity: [0.3, 0.8, 0.3] }}
+            transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+          />
+
+          <div className="absolute bottom-20 left-6 lg:left-12 font-tech text-[9px] tracking-[0.2em] uppercase">
+            <span className="text-[#00d4ff]/50 font-bold">//03</span>
+            <span className="text-white/20 ml-2">Contact</span>
+          </div>
+
+          <div className="max-w-[900px] mx-auto text-center relative z-10">
+            {/* Small label */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8 }}
+              className="mb-8 flex items-center justify-center gap-4"
+            >
+              <div className="h-[1px] w-16 bg-gradient-to-r from-transparent to-[#00d4ff]/40" />
+              <span className="font-tech text-[9px] tracking-[0.35em] text-[#00d4ff]/60 uppercase">Get in touch</span>
+              <div className="h-[1px] w-16 bg-gradient-to-l from-transparent to-[#00d4ff]/40" />
+            </motion.div>
+
             <motion.h2
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-              className="font-tech text-3xl sm:text-5xl lg:text-6xl font-extrabold text-white uppercase leading-tight tracking-tight"
+              className="font-tech text-3xl sm:text-5xl lg:text-6xl font-bold text-white uppercase leading-tight tracking-tight mb-6"
             >
-              We prioritize warm introductions
-              <br />
-              <span className="bg-gradient-to-r from-white/50 to-white/25 bg-clip-text text-transparent">and ecosystem referrals</span>
+              We prioritize warm<br />
+              <span className="text-white/50">introductions</span>
             </motion.h2>
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2, duration: 0.8 }}
+              className="text-white/35 text-sm font-light leading-relaxed max-w-md mx-auto mb-14"
+            >
+              The best collaborations begin with a trusted introduction.
+              Reach out through your network or connect with us directly.
+            </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.8 }}
-              className="mt-12 flex flex-wrap items-center justify-center gap-8"
+              transition={{ delay: 0.4, duration: 0.8 }}
+              className="flex flex-wrap items-center justify-center gap-6"
             >
               {[
-                { label: "Email", href: "mailto:contact@silverlakelaw.in", external: false },
-                { label: "LinkedIn", href: "https://linkedin.com", external: true },
-                { label: "X (Twitter)", href: "https://twitter.com", external: true },
-              ].map((link, i) => (
-                <React.Fragment key={link.label}>
-                  {i > 0 && <span className="w-[1px] h-4 bg-white/10" />}
-                  <a
-                    href={link.href}
-                    target={link.external ? "_blank" : undefined}
-                    rel={link.external ? "noreferrer" : undefined}
-                    className="font-tech text-[11px] tracking-[0.2em] text-white/40 uppercase hover:text-white transition-colors duration-300 font-medium"
-                  >
-                    {link.label}
-                  </a>
-                </React.Fragment>
+                { label: "Email us", href: "mailto:contact@silverlakelaw.in", primary: true },
+                { label: "LinkedIn", href: "https://linkedin.com", primary: false },
+                { label: "X / Twitter", href: "https://twitter.com", primary: false },
+              ].map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target={link.href.startsWith("http") ? "_blank" : undefined}
+                  rel={link.href.startsWith("http") ? "noreferrer" : undefined}
+                  className={`group relative font-tech text-[10px] tracking-[0.25em] uppercase transition-all duration-300 px-8 py-3 border rounded-[2px] ${link.primary
+                      ? "border-[#00d4ff]/40 text-[#00d4ff]/80 hover:border-[#00d4ff] hover:text-[#00d4ff] hover:shadow-[0_0_20px_rgba(0,212,255,0.15)]"
+                      : "border-white/10 text-white/40 hover:border-white/25 hover:text-white/70"
+                    }`}
+                >
+                  {link.label}
+                </a>
               ))}
             </motion.div>
           </div>
 
-          <div className="absolute bottom-0 left-0 right-0 px-6 lg:px-10 py-6">
+          <div className="absolute bottom-0 left-0 right-0 px-6 lg:px-12 py-6 border-t border-white/[0.04]">
             <div className="max-w-[1600px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
               <span className="font-tech text-[9px] tracking-[0.2em] text-white/15 uppercase">
                 &copy; Silverlake Legal Advisors LLP {new Date().getFullYear()}
