@@ -15,7 +15,7 @@ const allNavLinks = [
   { name: "Insights", href: "/insights" },
   { name: "Join us", href: "/careers" },
   { name: "News", href: "/news" },
-  // { name: "Innovation Hub", href: "/innovation-hub" },
+  { name: "Innovation Hub", href: "/innovation-hub" },
   { name: "Get in touch", href: "/contact" },
 ];
 
@@ -24,6 +24,7 @@ const desktopLinks = [
   { name: "WHO WE ARE", href: "/about" },
   { name: "INSIGHTS", href: "/insights" },
   { name: "JOIN US", href: "/careers" },
+  { name: "INNOVATION HUB", href: "/innovation-hub" },
 ];
 
 export default function Header() {
@@ -176,14 +177,14 @@ export default function Header() {
               </div>
 
               {/* Navigation Links — Giant Typography */}
-              <div className="flex-grow flex items-center">
-                <nav className="w-full max-w-[1400px] mx-auto px-6 lg:px-10">
+              <div className="flex-grow flex flex-col overflow-y-auto">
+                <nav className="w-full max-w-[1400px] mx-auto px-6 lg:px-10 my-auto py-10">
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-0">
                     <div className="lg:col-span-8 space-y-1">
                       {allNavLinks.map((link, idx) => {
                         const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
                         return (
-                          <div key={link.name} className="overflow-hidden">
+                          <div key={link.name} className="overflow-hidden pb-3 -mb-3 pt-1 -mt-1">
                             <motion.div
                               initial={{ y: "100%" }}
                               animate={{ y: 0 }}
@@ -197,7 +198,7 @@ export default function Header() {
                               <Link
                                 href={link.href}
                                 onClick={() => setDrawerOpen(false)}
-                                className={`block font-serif text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight transition-all duration-500 py-2 lg:py-3 group ${
+                                className={`block font-serif text-2xl sm:text-3xl lg:text-4xl font-light tracking-tight transition-all duration-500 py-1.5 lg:py-2 group ${
                                   isActive
                                     ? "text-[#cdcab2]"
                                     : "text-[#f9f3f1]/40 hover:text-[#f9f3f1] hover:pl-4"

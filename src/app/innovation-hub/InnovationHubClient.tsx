@@ -198,7 +198,7 @@ export default function InnovationHubClient() {
         {/* ─── SECTION 1: HERO ─── */}
         <section className="inno-snap-section flex flex-col justify-between px-6 lg:px-10 relative">
           {/* Crystal + lens flare overlay */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="absolute left-0 right-0 top-[38%] -translate-y-1/2 flex items-center justify-center pointer-events-none">
             {/* Radial glow behind crystal */}
             <div
               className="absolute w-[500px] h-[500px] pointer-events-none"
@@ -413,13 +413,11 @@ export default function InnovationHubClient() {
                 </div>
                 <h2 className="font-tech text-3xl sm:text-5xl font-extrabold text-white uppercase leading-tight tracking-tight">
                   The Legal Studio.<br />
-                  <span className="bg-gradient-to-r from-white/50 to-white/25 bg-clip-text text-transparent">Autonomous VC Workflows.</span>
+                  <span className="block mt-2 text-base sm:text-xl md:text-2xl font-semibold tracking-normal bg-gradient-to-r from-white/60 to-white/30 bg-clip-text text-transparent normal-case leading-relaxed">
+                    An Intelligent Synthesis of Market Strategy, Predictive Financial Modeling, and Automated Legal Architecture.
+                  </span>
                 </h2>
               </div>
-              <p className="text-white/30 text-xs sm:text-sm font-light leading-relaxed max-w-md">
-                15 strategic modules mapping capital structures, diligence anomalies,
-                and exit waterfalls in real-time.
-              </p>
             </motion.div>
 
             <InnoProductGrid soundEnabled={soundEnabled} />
