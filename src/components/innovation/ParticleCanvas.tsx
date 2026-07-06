@@ -19,7 +19,7 @@ interface ParticleCanvasProps {
 }
 
 const PARTICLE_COUNT = 1200;
-const COLORS = ["#a8d8ff", "#00d4ff", "#ffffff", "#4db8ff", "#80c8ff"];
+const COLORS = ["#5588ff", "#cc66d0", "#ffffff", "#aa55e8", "#ff88a0"];
 
 export default function ParticleCanvas({ scrollProgress }: ParticleCanvasProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -81,20 +81,24 @@ export default function ParticleCanvas({ scrollProgress }: ParticleCanvasProps) 
         ctx.lineTo(width, height);
         ctx.closePath();
 
-        // Fill wave gradient with deep navy and cyan highlights
+        // Mostly cyan waves with one purple layer to keep it subtle
+        const r = layer === 1 ? 160 : 0;
+        const g = layer === 1 ? 80 : 212;
+        const b = layer === 1 ? 240 : 255;
+
         const alpha = 0.6 - layer * 0.12;
         const gradient = ctx.createLinearGradient(0, yOffset - 30, 0, height);
-        gradient.addColorStop(0, `rgba(0, 212, 255, ${alpha * 0.4})`); // Cyan highlight at crest
-        gradient.addColorStop(0.2, `rgba(10, 40, 120, ${alpha * 0.9})`); // Deep blue
-        gradient.addColorStop(0.6, `rgba(2, 10, 30, ${alpha})`); // Very dark navy
+        gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${alpha * 0.5})`); // Mixed highlight at crest
+        gradient.addColorStop(0.2, `rgba(20, 10, 60, ${alpha * 0.9})`); // Deep purple/blue
+        gradient.addColorStop(0.6, `rgba(5, 2, 20, ${alpha})`); // Very dark purple
         gradient.addColorStop(1, `rgba(0, 2, 10, ${alpha})`); // Almost black
 
         ctx.fillStyle = gradient;
         ctx.fill();
 
-        // Add a subtle glowing cyan rim light on the top layers
-        if (layer < 2) {
-          ctx.strokeStyle = `rgba(0, 212, 255, ${0.1 + (1 - layer * 0.5) * 0.15 + Math.sin(time * 0.001) * 0.05})`;
+        // Add a subtle glowing rim light on the top layers
+        if (layer < 3) {
+          ctx.strokeStyle = `rgba(${r}, ${g}, ${b}, ${0.15 + (1 - layer * 0.5) * 0.15 + Math.sin(time * 0.001) * 0.05})`;
           ctx.lineWidth = 1.5 - layer * 0.5;
           ctx.stroke();
         }
@@ -263,9 +267,9 @@ export default function ParticleCanvas({ scrollProgress }: ParticleCanvasProps) 
       // Background gradient - Deep cinematic navy/cyan
       const bg = ctx.createLinearGradient(0, 0, 0, h);
       bg.addColorStop(0, "#01030a"); // Almost black at top
-      bg.addColorStop(0.5, "#04091a"); // Deep navy
-      bg.addColorStop(0.8, "#0a1940"); // Rich purple-blue horizon
-      bg.addColorStop(1, "#030a17"); // Darker at bottom
+      bg.addColorStop(0.5, "#060412"); // Deep dark purple-navy
+      bg.addColorStop(0.8, "#1a0f2e"); // Rich purple horizon
+      bg.addColorStop(1, "#05030a"); // Darker at bottom
       ctx.fillStyle = bg;
       ctx.fillRect(0, 0, w, h);
 

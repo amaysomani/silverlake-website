@@ -19,7 +19,7 @@ export default function InnoScrollIndicator({ currentSection }: InnoScrollIndica
           <div key={label} title={label} className="flex items-center justify-center w-3 h-3">
             <div
               className={`rounded-full transition-all duration-500 ${
-                isActive ? "w-2 h-2 bg-[#00d4ff]" : "w-1.5 h-1.5 bg-white/25"
+                isActive ? "w-2 h-2 bg-[#cc66d0]" : "w-1.5 h-1.5 bg-white/25"
               }`}
               style={{ boxShadow: isActive ? "0 0 8px rgba(0,212,255,0.7)" : "none" }}
             />

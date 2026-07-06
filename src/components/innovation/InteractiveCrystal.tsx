@@ -40,7 +40,7 @@ const fragmentShader = `
   vec3 envReflect(vec3 dir) {
     float y = dir.y * 0.5 + 0.5;
     vec3 sky    = vec3(0.01, 0.04, 0.14);
-    vec3 horizon= vec3(0.0,  0.18, 0.38);
+    vec3 horizon= vec3(0.2,  0.0, 0.3); // deep purple horizon
     vec3 ground = vec3(0.0,  0.01, 0.04);
     vec3 col = mix(ground, horizon, smoothstep(0.0, 0.4, y));
     col = mix(col, sky, smoothstep(0.4, 1.0, y));
@@ -62,7 +62,7 @@ const fragmentShader = `
     // Iridescence
     float iri = pow(1.0 - abs(dot(v, n)), 3.5);
     float iriShift = iri * (0.4 + 0.3 * sin(uTime * 0.15));
-    vec3 iriColor = mix(vec3(0.04, 0.18, 0.55), vec3(0.0, 0.5, 0.8), sin(iriShift * 3.14159));
+    vec3 iriColor = mix(vec3(0.3, 0.1, 0.5), vec3(0.8, 0.2, 0.6), sin(iriShift * 3.14159));
 
     // Base: vivid blue glass with strong inner glow
     vec3 col = vec3(0.03, 0.1, 0.28) + envColor * 0.5;
@@ -74,9 +74,9 @@ const fragmentShader = `
     float coreGlow = pow(1.0 - vFresnel, 2.5);   // brightest at face center
     col += vec3(0.05, 0.25, 0.8) * coreGlow * 0.6;
 
-    // Fresnel rim — vivid bright cyan
+    // Fresnel rim — vivid bright cyan to pink
     float rimStr = 0.7 + uHover * 0.4;
-    col += mix(vec3(0.05, 0.55, 1.0), vec3(0.3, 0.85, 1.0), vFresnel) * vFresnel * rimStr;
+    col += mix(vec3(0.4, 0.2, 0.8), vec3(0.8, 0.4, 1.0), vFresnel) * vFresnel * rimStr;
 
     // Diffuse fill so all faces are visible
     float diffuse = max(dot(n, normalize(vec3(0.5, 1.0, 1.5))), 0.0);

@@ -244,10 +244,10 @@ export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) 
 
                   {/* Launch indicator */}
                   <div className="mt-4 flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <span className="font-tech text-[9px] tracking-[0.2em] text-[#00d4ff] uppercase font-bold">
-                      LAUNCH MODULE
+                    <span className="font-tech text-[9px] tracking-[0.2em] text-[#cc66d0] uppercase font-bold">
+                      {product.id} module
                     </span>
-                    <ArrowRight className="w-3 h-3 text-[#00d4ff]" />
+                    <ArrowRight className="w-3 h-3 text-[#cc66d0]" />
                   </div>
                 </div>
               </motion.div>
@@ -319,7 +319,7 @@ export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) 
                   {loading && (
                     <div className="h-full flex items-center justify-center">
                       <div className="text-center">
-                        <Loader2 className="w-8 h-8 text-[#00d4ff] animate-spin mx-auto mb-4" />
+                        <Loader2 className="w-8 h-8 text-[#cc66d0] animate-spin mx-auto mb-4" />
                         <p className="font-tech text-[10px] uppercase tracking-[0.2em] text-white/40 font-bold">SYNTHESIZING OUTPUT...</p>
                       </div>
                     </div>

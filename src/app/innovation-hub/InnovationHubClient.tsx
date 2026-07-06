@@ -196,7 +196,7 @@ export default function InnovationHubClient() {
             <div
               className="absolute w-[500px] h-[500px] pointer-events-none"
               style={{
-                background: "radial-gradient(circle, rgba(40,120,220,0.12) 0%, rgba(20,80,180,0.05) 30%, transparent 60%)",
+                background: "radial-gradient(circle, rgba(170, 85, 232, 0.2) 0%, transparent 70%)",
                 filter: "blur(40px)",
               }}
             />
@@ -204,7 +204,7 @@ export default function InnovationHubClient() {
             <motion.div
               className="absolute w-[800px] h-[2px] pointer-events-none"
               style={{
-                background: "linear-gradient(90deg, transparent, rgba(80,160,255,0.1) 30%, rgba(100,200,255,0.15) 50%, rgba(80,160,255,0.1) 70%, transparent)",
+                background: "linear-gradient(90deg, transparent, rgba(204,102,208,0.1) 30%, rgba(170,85,232,0.15) 50%, rgba(204,102,208,0.1) 70%, transparent)",
               }}
               animate={{ opacity: [0.3, 0.8, 0.3] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
@@ -213,7 +213,7 @@ export default function InnovationHubClient() {
             <motion.div
               className="absolute w-[2px] h-[400px] pointer-events-none"
               style={{
-                background: "linear-gradient(180deg, transparent, rgba(80,160,255,0.08) 30%, rgba(100,200,255,0.12) 50%, rgba(80,160,255,0.08) 70%, transparent)",
+                background: "linear-gradient(180deg, transparent, rgba(80,160,255,0.08) 30%, rgba(204,102,208,0.12) 50%, rgba(80,160,255,0.08) 70%, transparent)",
               }}
               animate={{ opacity: [0.2, 0.6, 0.2] }}
               transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
@@ -247,7 +247,7 @@ export default function InnovationHubClient() {
               >
                 <div className="absolute inset-0 bg-white/0 group-hover:bg-white/5 transition-all duration-300" />
                 <span className="relative flex items-center gap-3 text-[9px] font-tech font-bold tracking-[0.25em] text-white/70 group-hover:text-white uppercase transition-colors">
-                  <div className="w-[4px] h-[4px] bg-[#00d4ff] rotate-45" />
+                  <div className="w-[4px] h-[4px] bg-[#cc66d0] rotate-45" />
                   Explore our platform
                 </span>
               </button>
@@ -297,7 +297,7 @@ export default function InnovationHubClient() {
               <span className="text-[9px] font-tech font-bold tracking-[0.25em] text-white/50 uppercase group-hover:text-white transition-colors">
                 Connect with us
               </span>
-              <div className="w-6 h-6 rounded-full border border-white/20 flex items-center justify-center group-hover:border-[#00d4ff] group-hover:text-[#00d4ff] transition-all">
+              <div className="w-6 h-6 rounded-full border border-white/20 flex items-center justify-center group-hover:border-[#cc66d0] group-hover:text-[#cc66d0] transition-all">
                 <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                 </svg>
@@ -367,10 +367,10 @@ export default function InnovationHubClient() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: idx * 0.1, duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                    className="group border-l border-white/10 pl-6 py-3 hover:border-[#9bb8e1]/40 transition-colors duration-500"
+                    className="group border-l border-white/10 pl-6 py-3 hover:border-[#cc66d0]/40 transition-colors duration-500"
                   >
                     <div className="flex items-baseline gap-3 mb-2">
-                      <span className="font-tech text-[10px] bg-gradient-to-r from-[#9bb8e1] to-[#2c4e73] bg-clip-text text-transparent tracking-widest font-bold">{tenet.num}</span>
+                      <span className="font-tech text-[10px] bg-gradient-to-r from-[#cc66d0] to-[#5588ff] bg-clip-text text-transparent tracking-widest font-bold">{tenet.num}</span>
                       <h3 className="font-tech text-sm font-bold text-white/80 uppercase tracking-wide group-hover:text-white transition-colors duration-500">{tenet.title}</h3>
                     </div>
                     <p className="text-white/30 text-xs font-light leading-relaxed group-hover:text-white/45 transition-colors duration-500">{tenet.desc}</p>
@@ -384,7 +384,7 @@ export default function InnovationHubClient() {
         {/* ─── SECTION 3: PRODUCTS ─── */}
         <section className="inno-snap-section flex flex-col justify-center px-6 lg:px-10 py-16 relative" style={{ minHeight: "auto", scrollSnapAlign: "start" }}>
           <div className="absolute top-8 left-6 lg:left-10 font-tech text-[9px] tracking-[0.2em] uppercase">
-            <span className="bg-gradient-to-r from-[#9bb8e1] to-[#2c4e73] bg-clip-text text-transparent font-bold">//02</span>
+            <span className="bg-gradient-to-r from-[#cc66d0] to-[#5588ff] bg-clip-text text-transparent font-bold">//02</span>
             <span className="text-white/30 ml-2">Platform</span>
           </div>
 
@@ -397,7 +397,7 @@ export default function InnovationHubClient() {
               className="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-6"
             >
               <div>
-                <div className="font-tech text-[10px] tracking-[0.25em] bg-gradient-to-r from-[#9bb8e1] to-[#2c4e73] bg-clip-text text-transparent uppercase mb-3 font-medium">
+                <div className="font-tech text-[10px] tracking-[0.25em] bg-gradient-to-r from-[#cc66d0] to-[#5588ff] bg-clip-text text-transparent uppercase mb-3 font-medium">
                   // LEGAL STRATEGIST SUITE
                 </div>
                 <h2 className="font-tech text-3xl sm:text-5xl font-extrabold text-white uppercase leading-tight tracking-tight">
@@ -441,14 +441,14 @@ export default function InnovationHubClient() {
             >
               <button
                 onClick={handleCopyEmail}
-                className="pointer-events-auto group relative px-10 py-4 overflow-hidden rounded-[2px] border border-[#5588ff]/30 bg-[#5588ff]/5 backdrop-blur-md transition-all duration-500 hover:border-[#5588ff]/70 hover:bg-[#5588ff]/10 hover:shadow-[0_0_30px_rgba(85,136,255,0.2)]"
+                className="pointer-events-auto group relative px-10 py-4 overflow-hidden rounded-[2px] border border-[#cc66d0]/30 bg-[#cc66d0]/5 backdrop-blur-md transition-all duration-500 hover:border-[#cc66d0]/70 hover:bg-[#cc66d0]/10 hover:shadow-[0_0_30px_rgba(204,102,208,0.2)]"
               >
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -translate-x-[100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
                 <span className="relative flex items-center gap-4 text-xs font-tech font-bold tracking-[0.3em] text-white/90 group-hover:text-white uppercase transition-colors">
-                  <div className={`w-[6px] h-[6px] rotate-45 transition-colors duration-300 ${isCopied ? 'bg-green-400' : 'bg-[#5588ff] group-hover:bg-[#cc66d0]'}`} />
+                  <div className={`w-[6px] h-[6px] rotate-45 transition-colors duration-300 ${isCopied ? 'bg-green-400' : 'bg-[#cc66d0] group-hover:bg-[#5588ff]'}`} />
                   {isCopied ? "Email Copied!" : "Book A Demo"}
                   {!isCopied && (
-                    <svg className="w-4 h-4 text-[#5588ff] group-hover:text-[#cc66d0] group-hover:translate-x-1 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-4 h-4 text-[#cc66d0] group-hover:text-[#5588ff] group-hover:translate-x-1 transition-all duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
                   )}
