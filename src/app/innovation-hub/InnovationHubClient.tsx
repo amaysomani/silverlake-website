@@ -23,6 +23,7 @@ export default function InnovationHubClient() {
     navigator.clipboard.writeText("contact@silverlakelaw.in");
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 3000);
+    window.location.href = "mailto:contact@silverlakelaw.in";
   };
 
   const handleScroll = useCallback(() => {
@@ -194,7 +195,7 @@ export default function InnovationHubClient() {
         {/* ─── SECTION 1: HERO ─── */}
         <section className="inno-snap-section flex flex-col justify-between px-6 lg:px-10 relative">
           {/* Crystal + lens flare overlay */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="absolute left-0 right-0 top-[38%] -translate-y-1/2 flex items-center justify-center pointer-events-none">
             {/* Radial glow behind crystal */}
             <div
               className="absolute w-[500px] h-[500px] pointer-events-none"
@@ -433,7 +434,7 @@ export default function InnovationHubClient() {
                 <div className="absolute inset-0 bg-gradient-to-r from-[#2c4e73]/0 via-white/20 to-[#2c4e73]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </button>
               <p className="text-white/40 text-sm font-light tracking-wide text-center">
-                Click to copy email, then mail us at <span className="text-white/70 font-medium select-all">contact@silverlakelaw.in</span>
+                Click to copy email, then mail us at <button onClick={handleCopyEmail} className="text-white/70 font-medium hover:text-white transition-colors cursor-pointer focus:outline-none">contact@silverlakelaw.in</button>
               </p>
             </motion.div>
           </div>
