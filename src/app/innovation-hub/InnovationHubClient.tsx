@@ -16,7 +16,14 @@ export default function InnovationHubClient() {
   const [soundEnabled, setSoundEnabled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
   const [currentSection, setCurrentSection] = useState(0);
+  const [isCopied, setIsCopied] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const handleCopyEmail = () => {
+    navigator.clipboard.writeText("contact@silverlakelaw.in");
+    setIsCopied(true);
+    setTimeout(() => setIsCopied(false), 3000);
+  };
 
   const handleScroll = useCallback(() => {
     const container = containerRef.current;
@@ -369,13 +376,11 @@ export default function InnovationHubClient() {
                 </div>
                 <h2 className="font-tech text-3xl sm:text-5xl font-extrabold text-white uppercase leading-tight tracking-tight">
                   The Legal Studio.<br />
-                  <span className="bg-gradient-to-r from-white/50 to-white/25 bg-clip-text text-transparent">Autonomous VC Workflows.</span>
+                  <span className="block mt-2 text-base sm:text-xl md:text-2xl font-semibold tracking-normal bg-gradient-to-r from-white/60 to-white/30 bg-clip-text text-transparent normal-case leading-relaxed">
+                    An Intelligent Synthesis of Market Strategy, Predictive Financial Modeling, and Automated Legal Architecture.
+                  </span>
                 </h2>
               </div>
-              <p className="text-white/30 text-xs sm:text-sm font-light leading-relaxed max-w-md">
-                15 strategic modules mapping capital structures, diligence anomalies,
-                and exit waterfalls in real-time.
-              </p>
             </motion.div>
 
             <InnoProductGrid soundEnabled={soundEnabled} />
@@ -398,6 +403,38 @@ export default function InnovationHubClient() {
                   className="w-auto h-auto max-w-full max-h-[80vh] object-contain rounded-2xl"
                 />
               </div>
+            </motion.div>
+
+            {/* BOOK A DEMO */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
+              className="mt-20 w-full flex flex-col items-center gap-5"
+            >
+              <button
+                onClick={handleCopyEmail}
+                className="group relative inline-flex items-center justify-center px-12 py-5 font-tech text-base tracking-[0.2em] uppercase text-white font-extrabold bg-gradient-to-r from-[#1e50a0] to-[#123163] rounded-full hover:shadow-[0_0_40px_rgba(30,80,160,0.6)] transition-all duration-300 overflow-hidden transform hover:scale-105"
+              >
+                <span className="relative z-10 flex items-center gap-3">
+                  {isCopied ? "Email Copied!" : "Book A Demo"}
+                  {!isCopied && (
+                    <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  )}
+                  {isCopied && (
+                    <svg className="w-5 h-5 text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                    </svg>
+                  )}
+                </span>
+                <div className="absolute inset-0 bg-gradient-to-r from-[#2c4e73]/0 via-white/20 to-[#2c4e73]/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              </button>
+              <p className="text-white/40 text-sm font-light tracking-wide text-center">
+                Click to copy email, then mail us at <span className="text-white/70 font-medium select-all">contact@silverlakelaw.in</span>
+              </p>
             </motion.div>
           </div>
         </section>

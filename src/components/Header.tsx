@@ -15,7 +15,7 @@ const allNavLinks = [
   { name: "Insights", href: "/insights" },
   { name: "Join us", href: "/careers" },
   { name: "News", href: "/news" },
-  // { name: "Innovation Hub", href: "/innovation-hub" },
+  { name: "Innovation Hub", href: "/innovation-hub" },
   { name: "Get in touch", href: "/contact" },
 ];
 
@@ -24,6 +24,7 @@ const desktopLinks = [
   { name: "WHO WE ARE", href: "/about" },
   { name: "INSIGHTS", href: "/insights" },
   { name: "JOIN US", href: "/careers" },
+  { name: "INNOVATION HUB", href: "/innovation-hub" },
 ];
 
 export default function Header() {
