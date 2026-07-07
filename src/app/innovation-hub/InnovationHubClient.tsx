@@ -18,6 +18,7 @@ export default function InnovationHubClient() {
   const [currentSection, setCurrentSection] = useState(0);
   const [isCopied, setIsCopied] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText("contact@silverlakelaw.in");
@@ -44,6 +45,27 @@ export default function InnovationHubClient() {
     container.addEventListener("scroll", handleScroll, { passive: true });
     return () => container.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
+
+  // Background Audio Effect
+  useEffect(() => {
+    if (!audioRef.current) {
+      audioRef.current = new Audio("/audio/background.m4a");
+      audioRef.current.loop = true;
+      audioRef.current.volume = 0.05; // Subtle default volume
+    }
+
+    if (soundEnabled && introComplete) {
+      audioRef.current.play().catch(err => console.log("Audio playback prevented:", err));
+    } else {
+      audioRef.current.pause();
+    }
+
+    return () => {
+      if (audioRef.current) {
+        audioRef.current.pause();
+      }
+    };
+  }, [soundEnabled, introComplete]);
 
   const handleEnter = () => {
     resumeAudioContext();
@@ -332,7 +354,7 @@ export default function InnovationHubClient() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                  className="mt-10 text-white/45 text-sm sm:text-base font-light leading-relaxed max-w-lg"
+                  className="mt-10 text-white/70 text-sm sm:text-base font-light leading-relaxed max-w-lg"
                 >
                   ARNO is Silverlake&apos;s AI-native legal intelligence engine, purpose-built for the
                   venture capital ecosystem. We deploy autonomous strategist modules that map capital
@@ -345,7 +367,7 @@ export default function InnovationHubClient() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.4, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                  className="mt-6 text-white/35 text-sm font-light leading-relaxed max-w-lg"
+                  className="mt-6 text-white/60 text-sm font-light leading-relaxed max-w-lg"
                 >
                   We don&apos;t wait for consensus. We move with speed and clarity. Infrastructure first.
                   Returns follow.
@@ -371,9 +393,9 @@ export default function InnovationHubClient() {
                   >
                     <div className="flex items-baseline gap-3 mb-2">
                       <span className="font-tech text-[10px] bg-gradient-to-r from-[#cc66d0] to-[#5588ff] bg-clip-text text-transparent tracking-widest font-bold">{tenet.num}</span>
-                      <h3 className="font-tech text-sm font-bold text-white/80 tracking-wide group-hover:text-white transition-colors duration-500">{tenet.title}</h3>
+                      <h3 className="font-tech text-sm font-bold text-white tracking-wide group-hover:text-white transition-colors duration-500">{tenet.title}</h3>
                     </div>
-                    <p className="text-white/30 text-xs font-light leading-relaxed group-hover:text-white/45 transition-colors duration-500">{tenet.desc}</p>
+                    <p className="text-white/60 text-xs font-light leading-relaxed group-hover:text-white transition-colors duration-500">{tenet.desc}</p>
                   </motion.div>
                 ))}
               </div>
@@ -459,7 +481,7 @@ export default function InnovationHubClient() {
                   )}
                 </span>
               </button>
-              <p className="text-white/40 text-sm font-light tracking-wide text-center">
+              <p className="text-white/60 text-sm font-light tracking-wide text-center">
                 Click to copy email, then mail us at <button onClick={handleCopyEmail} className="text-white/70 font-medium hover:text-white transition-colors cursor-pointer focus:outline-none">contact@silverlakelaw.in</button>
               </p>
             </motion.div>
@@ -542,7 +564,7 @@ export default function InnovationHubClient() {
               className="font-tech text-3xl sm:text-5xl lg:text-6xl font-bold text-white uppercase leading-tight tracking-tight mb-6"
             >
               We prioritize warm<br />
-              <span className="text-white/50">introductions</span>
+              <span className="text-white/70">introductions</span>
             </motion.h2>
 
             <motion.p
@@ -550,7 +572,7 @@ export default function InnovationHubClient() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-white/35 text-sm font-light leading-relaxed max-w-md mx-auto mb-14"
+              className="text-white/60 text-sm font-light leading-relaxed max-w-md mx-auto mb-14"
             >
               The best collaborations begin with a trusted introduction.
               Reach out through your network or connect with us directly.
@@ -575,7 +597,7 @@ export default function InnovationHubClient() {
                   rel={link.href.startsWith("http") ? "noreferrer" : undefined}
                   className={`group relative font-tech text-[10px] tracking-[0.25em] uppercase transition-all duration-300 px-8 py-3 border rounded-[2px] ${link.primary
                     ? "border-[#00d4ff]/40 text-[#00d4ff]/80 hover:border-[#00d4ff] hover:text-[#00d4ff] hover:shadow-[0_0_20px_rgba(0,212,255,0.15)]"
-                    : "border-white/10 text-white/40 hover:border-white/25 hover:text-white/70"
+                    : "border-white/20 text-white/60 hover:border-white/40 hover:text-white/90"
                     }`}
                 >
                   {link.label}
