@@ -565,7 +565,7 @@ export default function InnovationHubClient() {
             >
               {[
                 { label: "Email us", href: "mailto:contact@silverlakelaw.in", primary: true },
-                { label: "LinkedIn", href: "https://linkedin.com", primary: false },
+                { label: "LinkedIn", href: "https://www.linkedin.com/company/arnoinnovation/", primary: false },
                 { label: "X / Twitter", href: "https://twitter.com", primary: false },
               ].map((link) => (
                 <a
