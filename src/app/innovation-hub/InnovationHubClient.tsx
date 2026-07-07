@@ -354,12 +354,12 @@ export default function InnovationHubClient() {
 
               <div className="space-y-6">
                 {[
-                  { num: "01", title: "Uncompromising Compliance", desc: "Treat the law like orbital mechanics, you can't negotiate with gravity." },
-                  { num: "02", title: "Transparency by Default", desc: "No black boxes on this ship, show your math or get out of the engine room." },
-                  { num: "03", title: "Unshakable Foundation", desc: "Build the bunker deep before you ignite the rockets." },
-                  { num: "04", title: "Fiercely Fiduciary", desc: "Their skin in the game is our blood on the line." },
-                  { num: "05", title: "Completely Confidential", desc: "We are a black hole for secrets; absolutely nothing escapes the event horizon." },
-                  { num: "06", title: "Integrity by Design", desc: "Ethics aren't a late-stage software patch, they are the base hardware architecture." },
+                  { num: "01", title: "Uncompromising Compliance", desc: "The law is not a negotiating position. Every statute, every filing, every obligation — held to the letter, every time." },
+                  { num: "02", title: "Transparency by Default", desc: "Every conclusion comes with a source. Every recommendation comes with a reason. You will never receive advice you can't trace back to first principles." },
+                  { num: "03", title: "Unshakable Foundation", desc: "The hard work happens before the deadline, not at it. Every deposition, filing, and hearing is built on preparation done long before the room fills." },
+                  { num: "04", title: "Fiercely Fiduciary", desc: "Your matter is our mandate. When you retain us, your interests become our full responsibility — there is no version of this where we separate the two." },
+                  { num: "05", title: "Completely Confidential", desc: "Privilege is a covenant, not a setting. What you share with us stays with us — permanently, unconditionally, by design." },
+                  { num: "06", title: "Integrity by Design", desc: "Ethics are not a revision at the end of the engagement. They are the first line of it. We don't start anywhere else." },
                 ].map((tenet, idx) => (
                   <motion.div
                     key={tenet.num}
@@ -371,7 +371,7 @@ export default function InnovationHubClient() {
                   >
                     <div className="flex items-baseline gap-3 mb-2">
                       <span className="font-tech text-[10px] bg-gradient-to-r from-[#cc66d0] to-[#5588ff] bg-clip-text text-transparent tracking-widest font-bold">{tenet.num}</span>
-                      <h3 className="font-tech text-sm font-bold text-white/80 uppercase tracking-wide group-hover:text-white transition-colors duration-500">{tenet.title}</h3>
+                      <h3 className="font-tech text-sm font-bold text-white/80 tracking-wide group-hover:text-white transition-colors duration-500">{tenet.title}</h3>
                     </div>
                     <p className="text-white/30 text-xs font-light leading-relaxed group-hover:text-white/45 transition-colors duration-500">{tenet.desc}</p>
                   </motion.div>
@@ -422,7 +422,7 @@ export default function InnovationHubClient() {
               <h3 className="font-tech text-2xl font-bold text-white uppercase mb-8 tracking-widest text-center">Dashboard</h3>
               <div className="w-full flex justify-center rounded-2xl overflow-hidden shadow-2xl">
                 <Image
-                  src="/images/dashboard-mockup-v9.png"
+                  src="/images/dashboard-mockup-v10.png"
                   alt="ARNO Dashboard Interface"
                   width={3840}
                   height={2160}
@@ -565,7 +565,7 @@ export default function InnovationHubClient() {
             >
               {[
                 { label: "Email us", href: "mailto:contact@silverlakelaw.in", primary: true },
-                { label: "LinkedIn", href: "https://www.linkedin.com/company/arnoinnovation/", primary: false },
+                { label: "LinkedIn", href: "https://www.linkedin.com/company/arnoai/", primary: false },
                 { label: "X / Twitter", href: "https://twitter.com", primary: false },
               ].map((link) => (
                 <a
@@ -574,8 +574,8 @@ export default function InnovationHubClient() {
                   target={link.href.startsWith("http") ? "_blank" : undefined}
                   rel={link.href.startsWith("http") ? "noreferrer" : undefined}
                   className={`group relative font-tech text-[10px] tracking-[0.25em] uppercase transition-all duration-300 px-8 py-3 border rounded-[2px] ${link.primary
-                      ? "border-[#00d4ff]/40 text-[#00d4ff]/80 hover:border-[#00d4ff] hover:text-[#00d4ff] hover:shadow-[0_0_20px_rgba(0,212,255,0.15)]"
-                      : "border-white/10 text-white/40 hover:border-white/25 hover:text-white/70"
+                    ? "border-[#00d4ff]/40 text-[#00d4ff]/80 hover:border-[#00d4ff] hover:text-[#00d4ff] hover:shadow-[0_0_20px_rgba(0,212,255,0.15)]"
+                    : "border-white/10 text-white/40 hover:border-white/25 hover:text-white/70"
                     }`}
                 >
                   {link.label}

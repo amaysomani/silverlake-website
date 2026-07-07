@@ -10,37 +10,37 @@ const culturalTenets = [
     num: "01",
     kanji: "遵守",
     title: "Uncompromising Compliance",
-    desc: "Treat the law like orbital mechanics, you can't negotiate with gravity."
+    desc: "The law is not a negotiating position. Every statute, every filing, every obligation — held to the letter, every time."
   },
   {
     num: "02",
     kanji: "透明",
     title: "Transparency by Default",
-    desc: "No black boxes on this ship, show your math or get out of the engine room."
+    desc: "Every conclusion comes with a source. Every recommendation comes with a reason. You will never receive advice you can't trace back to first principles."
   },
   {
     num: "03",
     kanji: "基礎",
     title: "Unshakable Foundation",
-    desc: "Build the bunker deep before you ignite the rockets."
+    desc: "The hard work happens before the deadline, not at it. Every deposition, filing, and hearing is built on preparation done long before the room fills."
   },
   {
     num: "04",
     kanji: "信認",
     title: "Fiercely Fiduciary",
-    desc: "Their skin in the game is our blood on the line."
+    desc: "Your matter is our mandate. When you retain us, your interests become our full responsibility — there is no version of this where we separate the two."
   },
   {
     num: "05",
     kanji: "機密",
     title: "Completely Confidential",
-    desc: "We are a black hole for secrets; absolutely nothing escapes the event horizon."
+    desc: "Privilege is a covenant, not a setting. What you share with us stays with us — permanently, unconditionally, by design."
   },
   {
     num: "06",
     kanji: "誠実",
     title: "Integrity by Design",
-    desc: "Ethics aren't a late-stage software patch, they are the base hardware architecture."
+    desc: "Ethics are not a revision at the end of the engagement. They are the first line of it. We don't start anywhere else."
   }
 ];
 
@@ -163,7 +163,7 @@ export default function ArnoPhilosophy({ soundEnabled }: ArnoPhilosophyProps) {
                         {tenet.kanji}
                       </span>
                     </div>
-                    <h4 className="text-sm font-mono tracking-wider text-white uppercase mb-2">
+                    <h4 className="text-sm font-mono tracking-wider text-white mb-2">
                       {tenet.title}
                     </h4>
                     <p className="text-white/40 text-xs leading-relaxed font-sans font-light">
