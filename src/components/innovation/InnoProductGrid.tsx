@@ -215,9 +215,8 @@ export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) 
                   delay: idx * 0.05,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                onClick={() => handleCardClick(product)}
                 onMouseEnter={() => soundEnabled && playHoverSound()}
-                className="group relative cursor-pointer inno-glass-card rounded-xl p-6 lg:p-7 overflow-hidden"
+                className="group relative inno-glass-card rounded-xl p-6 lg:p-7 overflow-hidden"
               >
                 <CardMeshGradient colors={product.themeColors} />
 
@@ -242,13 +241,15 @@ export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) 
                     {product.description}
                   </p>
 
-                  {/* Launch indicator */}
+                  {/* Launch indicator (Disabled for now) */}
+                  {/*
                   <div className="mt-4 flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     <span className="font-tech text-[9px] tracking-[0.2em] text-[#cc66d0] uppercase font-bold">
                       {product.id} module
                     </span>
                     <ArrowRight className="w-3 h-3 text-[#cc66d0]" />
                   </div>
+                  */}
                 </div>
               </motion.div>
             );
