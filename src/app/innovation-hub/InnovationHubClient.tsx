@@ -358,8 +358,7 @@ export default function InnovationHubClient() {
                 >
                   ARNO is Silverlake&apos;s AI-native legal intelligence engine, purpose-built for the
                   venture capital ecosystem. We deploy autonomous strategist modules that map capital
-                  structures, assess diligence anomalies, and model exit waterfalls — with the precision
-                  of elite legal counsel and the speed of autonomous systems.
+                  structures, assess diligence anomalies, and model exit waterfalls.
                 </motion.p>
 
                 <motion.p
