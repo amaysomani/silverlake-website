@@ -376,7 +376,7 @@ export default function InnovationHubClient() {
 
               <div className="space-y-6">
                 {[
-                  { num: "01", title: "Uncompromising Compliance", desc: "The law is not a negotiating position. Every statute, every filing, every obligation — held to the letter, every time." },
+                  { num: "01", title: "Uncompromising Compliance", desc: "The law is not a negotiating position. Every statute, every filing, every obligation held to the letter, every time." },
                   { num: "02", title: "Transparency by Default", desc: "Every conclusion comes with a source. Every recommendation comes with a reason. You will never receive advice you can't trace back to first principles." },
                   { num: "03", title: "Unshakable Foundation", desc: "The hard work happens before the deadline, not at it. Every deposition, filing, and hearing is built on preparation done long before the room fills." },
                   { num: "04", title: "Fiercely Fiduciary", desc: "Your matter is our mandate. When you retain us, your interests become our full responsibility — there is no version of this where we separate the two." },

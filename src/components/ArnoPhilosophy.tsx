@@ -10,7 +10,7 @@ const culturalTenets = [
     num: "01",
     kanji: "遵守",
     title: "Uncompromising Compliance",
-    desc: "The law is not a negotiating position. Every statute, every filing, every obligation — held to the letter, every time."
+    desc: "The law is not a negotiating position. Every statute, every filing, every obligation held to the letter, every time."
   },
   {
     num: "02",
