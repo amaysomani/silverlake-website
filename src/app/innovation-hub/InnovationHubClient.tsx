@@ -379,7 +379,7 @@ export default function InnovationHubClient() {
                   { num: "01", title: "Uncompromising Compliance", desc: "The law is not a negotiating position. Every statute, every filing, every obligation held to the letter, every time." },
                   { num: "02", title: "Transparency by Default", desc: "Every conclusion comes with a source. Every recommendation comes with a reason. You will never receive advice you can't trace back to first principles." },
                   { num: "03", title: "Unshakable Foundation", desc: "The hard work happens before the deadline, not at it. Every deposition, filing, and hearing is built on preparation done long before the room fills." },
-                  { num: "04", title: "Fiercely Fiduciary", desc: "Your matter is our mandate. When you retain us, your interests become our full responsibility — there is no version of this where we separate the two." },
+                  { num: "04", title: "Fiercely Fiduciary", desc: "Your matter is our mandate. When you retain us, your interests become our full responsibility. There is no version of this where we separate the two." },
                   { num: "05", title: "Completely Confidential", desc: "Privilege is a covenant, not a setting. What you share with us stays with us — permanently, unconditionally, by design." },
                   { num: "06", title: "Integrity by Design", desc: "Ethics are not a revision at the end of the engagement. They are the first line of it. We don't start anywhere else." },
                 ].map((tenet, idx) => (

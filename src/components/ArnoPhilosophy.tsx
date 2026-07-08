@@ -28,7 +28,7 @@ const culturalTenets = [
     num: "04",
     kanji: "信認",
     title: "Fiercely Fiduciary",
-    desc: "Your matter is our mandate. When you retain us, your interests become our full responsibility — there is no version of this where we separate the two."
+    desc: "Your matter is our mandate. When you retain us, your interests become our full responsibility. There is no version of this where we separate the two."
   },
   {
     num: "05",
