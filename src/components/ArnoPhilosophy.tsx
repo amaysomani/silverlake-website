@@ -34,7 +34,7 @@ const culturalTenets = [
     num: "05",
     kanji: "機密",
     title: "Completely Confidential",
-    desc: "Privilege is a covenant, not a setting. What you share with us stays with us — permanently, unconditionally, by design."
+    desc: "Privilege is a covenant, not a setting. What you share with us stays with us permanently, unconditionally, by design."
   },
   {
     num: "06",
