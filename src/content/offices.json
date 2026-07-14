@@ -62,13 +62,5 @@
     "description": "Our Dubai office serves as a hub for our Middle East practice, advising clients on cross-border transactions and private capital investments.",
     "email": "contact@silverlakelaw.in",
     "phone": "(+91) 8989 599 225, (+91) 8435 375 402"
-  },
-  {
-    "slug": "dublin",
-    "name": "Dublin",
-    "heroImage": "/images/office-dublin.png",
-    "description": "Our Dublin office serves as a hub for our European private capital clients, advising on international investment frameworks and bridging connectivity with Indian growth markets.",
-    "email": "contact@silverlakelaw.in",
-    "phone": "(+91) 8989 599 225, (+91) 8435 375 402"
   }
 ]

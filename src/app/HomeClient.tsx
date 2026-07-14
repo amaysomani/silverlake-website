@@ -442,36 +442,6 @@ export default function HomeClient({
             </div>
           </motion.div>
 
-          {/* Dublin */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            variants={fadeInUp}
-            className="relative group overflow-hidden"
-          >
-            <img
-              src="/images/office-dublin.png"
-              alt="Dublin Office"
-              className="w-full h-full object-cover min-h-[300px] md:min-h-[360px] group-hover:scale-105 transition-transform duration-[1.5s]"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#0A1128]/90 via-[#0A1128]/40 to-transparent pointer-events-none" />
-            <div className="absolute bottom-0 left-0 p-8 sm:p-12 z-10 w-full">
-              <h3 className="font-serif text-3xl font-light mb-4 text-white">Dublin</h3>
-              <p className="text-white/70 font-light leading-relaxed mb-6 max-w-sm">
-                Our Dublin office serves as a hub for our European private capital clients, advising on international investment frameworks and bridging connectivity with Indian growth markets.
-              </p>
-              <MagneticButton strength={0.2}>
-                <Link
-                  href="/offices/dublin"
-                  className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.15em] text-white hover:text-[#C5A059] transition-colors group/link"
-                >
-                  Go to office
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover/link:translate-x-1" />
-                </Link>
-              </MagneticButton>
-            </div>
-          </motion.div>
         </div>
       </section>
 

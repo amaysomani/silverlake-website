@@ -234,8 +234,7 @@ export default function Header() {
                           New Delhi<br />
                           Mumbai<br />
                           GIFT City<br />
-                          Dubai<br />
-                          Dublin
+                          Dubai
                         </p>
                       </div>
                       <div>

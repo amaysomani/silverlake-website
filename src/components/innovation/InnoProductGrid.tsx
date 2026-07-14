@@ -9,6 +9,7 @@ import {
   ArrowLeft, ArrowRight, Loader2, Play
 } from "lucide-react";
 import { playClickSound, playHoverSound } from "@/lib/ArnoAudio";
+import ModuleDashboard from "./ModuleDashboard";
 
 const iconMap: Record<string, React.ComponentType<any>> = {
   Briefcase, FileText, PenTool, ShieldAlert, SearchCheck: Search,
@@ -216,7 +217,8 @@ export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) 
                   ease: [0.16, 1, 0.3, 1],
                 }}
                 onMouseEnter={() => soundEnabled && playHoverSound()}
-                className="group relative inno-glass-card rounded-xl p-6 lg:p-7 overflow-hidden"
+                onClick={() => handleCardClick(product)}
+                className="group relative inno-glass-card rounded-xl p-6 lg:p-7 overflow-hidden cursor-pointer"
               >
                 <CardMeshGradient colors={product.themeColors} />
 
@@ -305,20 +307,14 @@ export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) 
                 </div>
 
                 {/* Right: Output */}
-                <div className="flex-1 p-8 sm:p-10 overflow-y-auto no-scrollbar relative">
-                  {!result && !loading && !error && (
-                    <div className="h-full flex items-center justify-center">
-                      <div className="text-center">
-                        <div className="w-16 h-16 rounded-full border border-white/10 bg-white/5 flex items-center justify-center mx-auto mb-6">
-                          <Play className="w-6 h-6 text-white/20" />
-                        </div>
-                        <p className="font-tech text-[11px] uppercase tracking-[0.2em] text-white/20 font-bold">AWAITING DIRECTIVE</p>
-                        <p className="text-white/10 text-xs mt-2 font-light">Configure inputs and initiate to generate analysis</p>
-                      </div>
-                    </div>
-                  )}
+                <div className="flex-1 p-8 sm:p-10 overflow-y-auto no-scrollbar relative flex flex-col gap-6">
+                  {/* Dynamic Interactive Dashboard */}
+                  <div className={`transition-all duration-700 ease-in-out shrink-0 w-full ${(!result && !loading && !error) ? 'flex-1 min-h-[600px]' : 'h-[400px] mb-4'}`}>
+                    <ModuleDashboard moduleId={activeProduct.id} themeColors={activeProduct.themeColors} />
+                  </div>
+
                   {loading && (
-                    <div className="h-full flex items-center justify-center">
+                    <div className="py-12 flex items-center justify-center border border-white/10 rounded-2xl bg-white/5">
                       <div className="text-center">
                         <Loader2 className="w-8 h-8 text-[#cc66d0] animate-spin mx-auto mb-4" />
                         <p className="font-tech text-[10px] uppercase tracking-[0.2em] text-white/40 font-bold">SYNTHESIZING OUTPUT...</p>

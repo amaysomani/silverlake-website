@@ -204,7 +204,6 @@ export default function Footer() {
                   <li>Mumbai</li>
                   <li>GIFT City</li>
                   <li>Dubai</li>
-                  <li>Dublin</li>
                 </ul>
               </div>
             </div>
