@@ -377,64 +377,16 @@ interface InnoProductGridProps {
 
 export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) {
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
-  const [result, setResult] = useState<string | null>(null);
-  const [interactionId, setInteractionId] = useState<string | null>(null);
-  const [feedbackSubmitted, setFeedbackSubmitted] = useState<boolean>(false);
-
   const activeProduct = products.find((p) => p.id === selectedProductId);
-
-  const initiateDirective = useCallback(async () => {
-    const prod = products.find((p) => p.id === selectedProductId);
-    if (!prod) return;
-    setLoading(true);
-    setError(null);
-    setResult(null);
-    setInteractionId(null);
-    setFeedbackSubmitted(false);
-    try {
-      const res = await fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          moduleId: prod.id,
-          inputs: {},
-          prompt: prod.getPrompt({}),
-          systemInstruction: prod.getSystemInstruction(),
-        }),
-      });
-      if (!res.ok) throw new Error("Failed to generate strategist synthesis.");
-      const data = await res.json();
-      setResult(data.text);
-      if (data.interactionId) setInteractionId(data.interactionId);
-    } catch (err: any) {
-      setError(err.message || "An error occurred during directive run.");
-    } finally {
-      setLoading(false);
-    }
-  }, [selectedProductId]);
-
-  useEffect(() => {
-    if (selectedProductId) {
-      initiateDirective();
-    }
-  }, [selectedProductId, initiateDirective]);
 
   const handleCardClick = (product: Product) => {
     if (soundEnabled) playClickSound();
     setSelectedProductId(product.id);
-    setError(null);
-    setResult(null);
   };
 
   const handleCloseModal = () => {
     if (soundEnabled) playClickSound();
     setSelectedProductId(null);
-    setError(null);
-    setResult(null);
-    setInteractionId(null);
-    setFeedbackSubmitted(false);
   };
 
   return (
@@ -543,65 +495,10 @@ export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) 
                 </div>
 
                 {/* Right: Output */}
-                <div className="flex-1 p-8 sm:p-10 overflow-y-auto no-scrollbar relative flex flex-col gap-6">
-                  {/* Dynamic Interactive Dashboard */}
-                  <div className={`transition-all duration-700 ease-in-out shrink-0 w-full ${(!result && !loading && !error) ? 'flex-1 min-h-[600px]' : 'h-[400px] mb-4'}`}>
+                <div className="flex-1 p-8 sm:p-10 overflow-y-auto no-scrollbar relative flex flex-col">
+                  <div className="flex-1 min-h-[500px] w-full">
                     <ModuleDashboard moduleId={activeProduct.id} themeColors={activeProduct.themeColors} />
                   </div>
-
-                  {loading && (
-                    <div className="py-12 flex items-center justify-center border border-white/10 rounded-2xl bg-white/5">
-                      <div className="text-center">
-                        <Loader2 className="w-8 h-8 text-[#cc66d0] animate-spin mx-auto mb-4" />
-                        <p className="font-tech text-[10px] uppercase tracking-[0.2em] text-white/40 font-bold">SYNTHESIZING OUTPUT...</p>
-                      </div>
-                    </div>
-                  )}
-                  {error && (
-                    <div className="border border-red-500/30 bg-red-500/5 p-6 rounded-xl">
-                      <p className="font-tech text-[10px] uppercase tracking-widest text-red-400 font-bold mb-2">ERROR</p>
-                      <p className="text-red-300/80 text-sm font-light">{error}</p>
-                    </div>
-                  )}
-                  {result && (
-                    <div className="prose prose-invert max-w-none">
-                      {renderMarkdown(result)}
-                      
-                      {/* Feedback UI for Continuous Learning */}
-                      {interactionId && (
-                        <div className="mt-12 p-5 border border-white/10 rounded-xl bg-white/5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 not-prose">
-                          <div>
-                            <div className="text-[13px] font-bold text-white/80 mb-1">Help Train The Model</div>
-                            <div className="text-[11px] text-white/40">Was this analysis accurate and helpful?</div>
-                          </div>
-                          <div className="flex gap-2">
-                              <button 
-                                onClick={async () => {
-                                  if (feedbackSubmitted) return;
-                                  setFeedbackSubmitted(true);
-                                  await fetch("/api/feedback", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ interactionId, feedbackScore: 1 }) });
-                                }} 
-                                disabled={feedbackSubmitted}
-                                className="px-4 py-2 bg-white/5 hover:bg-green-500/20 text-white/70 hover:text-green-400 border border-white/10 hover:border-green-500/30 rounded font-tech text-[10px] uppercase tracking-widest transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-                              >
-                                {feedbackSubmitted ? "Submitted" : "Accurate"}
-                              </button>
-                              <button 
-                                onClick={async () => {
-                                  if (feedbackSubmitted) return;
-                                  setFeedbackSubmitted(true);
-                                  await fetch("/api/feedback", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ interactionId, feedbackScore: -1 }) });
-                                }} 
-                                disabled={feedbackSubmitted}
-                                className="px-4 py-2 bg-white/5 hover:bg-red-500/20 text-white/70 hover:text-red-400 border border-white/10 hover:border-red-500/30 rounded font-tech text-[10px] uppercase tracking-widest transition-colors cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
-                              >
-                                {feedbackSubmitted ? "Submitted" : "Inaccurate"}
-                              </button>
-                          </div>
-                        </div>
-                      )}
-                    </div>
-                  )}
                 </div>
               </div>
             </motion.div>
