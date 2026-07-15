@@ -9,6 +9,7 @@ import InnoHeader from "@/components/innovation/InnoHeader";
 import InnoScrollIndicator from "@/components/innovation/InnoScrollIndicator";
 import InnoProductGrid from "@/components/innovation/InnoProductGrid";
 import InteractiveCrystal from "@/components/innovation/InteractiveCrystal";
+import MainDashboard from "@/components/innovation/MainDashboard";
 import { resumeAudioContext } from "@/lib/ArnoAudio";
 
 export default function InnovationHubClient() {
@@ -441,14 +442,8 @@ export default function InnovationHubClient() {
               className="mt-24 w-full flex flex-col items-center"
             >
               <h3 className="font-tech text-2xl font-bold text-white uppercase mb-8 tracking-widest text-center">Dashboard</h3>
-              <div className="w-full flex justify-center rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/dashboard-mockup-v10.png"
-                  alt="ARNO Dashboard Interface"
-                  width={3840}
-                  height={2160}
-                  className="w-auto h-auto max-w-full max-h-[80vh] object-contain rounded-2xl"
-                />
+              <div className="w-full flex justify-center">
+                <MainDashboard />
               </div>
             </motion.div>
 
