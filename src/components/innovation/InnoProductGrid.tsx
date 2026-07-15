@@ -385,7 +385,7 @@ export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) 
       // Small timeout to allow the DOM to update and render the modal
       setTimeout(() => {
         containerRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
-      }, 100);
+      }, 400);
     }
   }, [selectedProductId]);
 
@@ -401,67 +401,64 @@ export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) 
 
   return (
     <div ref={containerRef} className="relative z-10">
-      {/* Product Grid */}
-      {!selectedProductId ? (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
-          {products.map((product, idx) => {
-            const IconComponent = iconMap[product.icon] || Briefcase;
-            return (
-              <motion.div
-                key={product.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.6,
-                  delay: idx * 0.05,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                onMouseEnter={() => soundEnabled && playHoverSound()}
-                onClick={() => handleCardClick(product)}
-                className="group relative inno-glass-card rounded-xl p-6 lg:p-7 overflow-hidden cursor-pointer"
-              >
-                <CardMeshGradient colors={product.themeColors} />
+      {/* Product Grid & Modal Transition */}
+      <AnimatePresence mode="wait">
+        {!selectedProductId ? (
+          <motion.div
+            key="grid"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.4 }}
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5"
+          >
+            {products.map((product, idx) => {
+              const IconComponent = iconMap[product.icon] || Briefcase;
+              return (
+                <motion.div
+                  key={product.id}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    duration: 0.6,
+                    delay: idx * 0.05,
+                    ease: [0.16, 1, 0.3, 1],
+                  }}
+                  onMouseEnter={() => soundEnabled && playHoverSound()}
+                  onClick={() => handleCardClick(product)}
+                  className="group relative inno-glass-card rounded-xl p-6 lg:p-7 overflow-hidden cursor-pointer"
+                >
+                  <CardMeshGradient colors={product.themeColors} />
 
-                <div className="relative z-10">
-                  {/* Number */}
-                  <div className="font-tech text-[9px] text-white/25 tracking-widest font-bold mb-4">
-                    {String(idx + 1).padStart(2, "0")}
+                  <div className="relative z-10">
+                    {/* Number */}
+                    <div className="font-tech text-[9px] text-white/25 tracking-widest font-bold mb-4">
+                      {String(idx + 1).padStart(2, "0")}
+                    </div>
+
+                    {/* Icon */}
+                    <div className="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center mb-4 group-hover:border-white/20 group-hover:bg-white/10 transition-all duration-500">
+                      <IconComponent className="w-5 h-5 text-white/60 group-hover:text-white transition-colors" strokeWidth={1.5} />
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="font-tech text-[15px] lg:text-[16px] font-bold text-white/90 uppercase tracking-wide mb-2 leading-tight">
+                      {product.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-[12px] text-white/40 font-light leading-relaxed line-clamp-2">
+                      {product.description}
+                    </p>
                   </div>
-
-                  {/* Icon */}
-                  <div className="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center mb-4 group-hover:border-white/20 group-hover:bg-white/10 transition-all duration-500">
-                    <IconComponent className="w-5 h-5 text-white/60 group-hover:text-white transition-colors" strokeWidth={1.5} />
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="font-tech text-[15px] lg:text-[16px] font-bold text-white/90 uppercase tracking-wide mb-2 leading-tight">
-                    {product.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-[12px] text-white/40 font-light leading-relaxed line-clamp-2">
-                    {product.description}
-                  </p>
-
-                  {/* Launch indicator (Disabled for now) */}
-                  {/*
-                  <div className="mt-4 flex items-center gap-1.5 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-                    <span className="font-tech text-[9px] tracking-[0.2em] text-[#cc66d0] uppercase font-bold">
-                      {product.id} module
-                    </span>
-                    <ArrowRight className="w-3 h-3 text-[#cc66d0]" />
-                  </div>
-                  */}
-                </div>
-              </motion.div>
-            );
-          })}
-        </div>
-      ) : (
-        /* Execution Modal */
-        <AnimatePresence>
-          {activeProduct && (
+                </motion.div>
+              );
+            })}
+          </motion.div>
+        ) : (
+          /* Execution Modal */
+          activeProduct && (
             <motion.div
               key="modal"
               initial={{ opacity: 0, y: 30 }}
@@ -512,9 +509,9 @@ export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) 
                 </div>
               </div>
             </motion.div>
-          )}
-        </AnimatePresence>
-      )}
+          )
+        )}
+      </AnimatePresence>
     </div>
   );
 }
