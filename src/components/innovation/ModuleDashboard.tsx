@@ -19,7 +19,7 @@ interface ModuleDashboardProps {
 const formatModuleName = (id: string) => {
   return id.split('-').map(word => {
     const upper = word.toUpperCase();
-    if (upper === "LP" || upper === "SPV" || upper === "IP") return upper;
+    if (upper === "LP" || upper === "SPV" || upper === "IP" || upper === "DD") return upper;
     return word.charAt(0).toUpperCase() + word.slice(1);
   }).join(' ');
 };
