@@ -517,20 +517,23 @@ export default function ModuleDashboard({ moduleId, themeColors }: ModuleDashboa
   };
 
   return (
-    <div className="w-full h-full flex bg-[#0B0F19] text-white font-sans overflow-hidden rounded-xl border border-[#1f2937]">
-      {/* LEFT SIDEBAR (REMOVED ARNO LOGO/NAME) */}
-      <div className="w-[220px] shrink-0 border-r border-[#1f2937] flex flex-col p-4 h-full">
-         <div className="flex flex-col gap-1 mt-4 overflow-y-auto no-scrollbar flex-1 pr-1">
+    <div className="w-full h-full flex bg-[#0B0F19] text-white font-sans overflow-hidden">
+      {/* LEFT SIDEBAR */}
+      <div className="w-[220px] shrink-0 border-r border-[#1f2937] flex flex-col p-3.5 bg-[#080c14] relative justify-between h-full">
+        {/* Glow decoration */}
+        <div className="absolute bottom-0 left-0 w-full h-[120px] bg-gradient-to-t from-blue-900/10 to-transparent pointer-events-none blur-xl" />
+        
+        <div className="flex flex-col gap-1 mt-2 overflow-y-auto no-scrollbar flex-1 pr-1 relative z-10">
             <div 
               onClick={() => setActiveSubtab(null)}
-              className={`px-3 py-2.5 rounded-lg flex items-center gap-3 cursor-pointer transition-all ${
+              className={`px-3 py-2 rounded-lg flex items-center gap-3 cursor-pointer transition-all ${
                 activeSubtab === null 
                   ? "bg-[#1f2937]/50 border border-white/5 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]" 
                   : "text-white/40 hover:text-white/80"
               }`}
             >
-               <Grid className="w-4 h-4 text-blue-400" />
-               <span className="text-[13px] font-medium truncate">{formatModuleName(moduleId)}</span>
+               <Grid className="w-3.5 h-3.5 text-blue-400" />
+               <span className="text-[12px] font-medium truncate">{formatModuleName(moduleId)}</span>
             </div>
 
             {moduleId === "sector-intel" ? (
@@ -1009,33 +1012,38 @@ export default function ModuleDashboard({ moduleId, themeColors }: ModuleDashboa
                     <Users className="w-4 h-4" />
                     <span className="text-[13px]">Team</span>
                  </div>
-              </>
+               </>
             )}
          </div>
+
+         {/* Small glowing dot decoration */}
+         <div className="w-2 h-2 rounded-full bg-blue-500/80 shadow-[0_0_10px_rgba(59,130,246,0.8)] ml-3 mb-2 animate-pulse relative z-10 shrink-0 mt-4" />
       </div>
 
       {/* RIGHT MAIN PANEL */}
-      <div className="flex-1 flex flex-col min-w-0">
+      <div className="flex-1 flex flex-col min-w-0 bg-[#060a13] h-full">
          {/* TOP HEADER */}
-         <div className="h-16 border-b border-[#1f2937] flex items-center justify-between px-8 shrink-0">
-            <h2 className="text-[15px] font-serif text-white/80 tracking-wide">Elysian Azure Resorts Private Limited</h2>
-            <button className="flex items-center gap-2 px-3 py-1.5 rounded text-[12px] font-medium text-blue-300 bg-blue-900/20 border border-blue-500/20 hover:bg-blue-900/40 transition-colors">
-               <Plus className="w-3.5 h-3.5" />
+         <div className="h-14 border-b border-[#1f2937] flex items-center justify-between px-6 shrink-0">
+            <h2 className="text-[13px] md:text-[14px] font-serif text-white/80 tracking-wide">Elysian Azure Resorts Private Limited</h2>
+            <button className="flex items-center gap-2 px-2.5 py-1 rounded text-[10px] font-medium text-blue-300 bg-blue-900/20 border border-blue-500/20 hover:bg-blue-900/40 transition-colors cursor-pointer">
+               <Plus className="w-3 h-3" />
                Initiate Legal Workflow
             </button>
          </div>
 
          {/* CONTENT */}
-         <div className="flex-1 overflow-y-auto no-scrollbar p-6 lg:p-8 bg-gradient-to-b from-[#0B0F19] to-[#0a0d14]">
+         <div className="flex-1 p-5 bg-gradient-to-b from-[#0B0F19] to-[#0a0d14] flex flex-col gap-4 overflow-hidden">
             {/* Top Stats & Charts Row */}
-            <div className="bg-[#111827]/40 border border-[#1f2937]/80 rounded-xl p-6">
-               <div className="flex justify-end items-center mb-8">
-                  <button className="text-[11px] text-blue-400 hover:text-blue-300 flex items-center gap-1 font-medium tracking-wide">
-                     View all <ChevronRight className="w-3 h-3" />
+            <div className="bg-[#111827]/40 border border-[#1f2937]/80 rounded-xl p-4 flex flex-col flex-[1.3] min-h-0">
+               <div className="flex justify-end items-center mb-1 shrink-0">
+                  <button className="text-[9px] text-blue-400 hover:text-blue-300 flex items-center gap-0.5 font-medium tracking-wide">
+                     View all <ChevronRight className="w-2.5 h-2.5" />
                   </button>
                </div>
                
-               {renderChart()}
+               <div className="flex-1 min-h-0 overflow-y-auto no-scrollbar">
+                 {renderChart()}
+               </div>
             </div>
          </div>
       </div>
