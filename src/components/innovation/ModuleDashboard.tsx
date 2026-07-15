@@ -3,7 +3,8 @@
 import React, { useState, useEffect } from "react";
 import {
   Grid, BarChart2, Star, FileText, Share2, Users, Plus, ChevronRight,
-  TrendingUp, Zap, Scroll, Globe, PenTool, Scale, Coins, LayoutDashboard, Database, ShieldCheck, AlertCircle
+  TrendingUp, Zap, Scroll, Globe, PenTool, Scale, Coins, LayoutDashboard, Database, ShieldCheck, AlertCircle,
+  PieChart as LucidePieChart, Shield, Calendar, Activity
 } from "lucide-react";
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
@@ -581,6 +582,90 @@ export default function ModuleDashboard({ moduleId, themeColors }: ModuleDashboa
                        }`}
                      >
                        <Icon className="w-3.5 h-3.5 opacity-80 text-purple-400" />
+                       <span className="text-[12px] truncate">{item.name}</span>
+                     </div>
+                   );
+                 })}
+              </>
+            ) : moduleId === "investment-memo" ? (
+              <>
+                 <div className="text-[9px] font-bold text-white/20 uppercase tracking-widest mt-3 mb-1 px-3">// Capabilities</div>
+                 {[
+                   { name: "Economics Extractor", icon: Coins },
+                   { name: "Governance Map", icon: Grid },
+                   { name: "Liquidity Rights Assessor", icon: TrendingUp },
+                   { name: "Market Comparables Model", icon: BarChart2 },
+                   { name: "Executive Summary Builder", icon: FileText }
+                 ].map((item) => {
+                   const Icon = item.icon;
+                   const isActive = activeSubtab === item.name;
+                   return (
+                     <div
+                       key={item.name}
+                       onClick={() => setActiveSubtab(item.name)}
+                       className={`px-3 py-1.5 rounded-lg flex items-center gap-3 cursor-pointer transition-all ${
+                         isActive 
+                           ? "bg-[#1f2937]/30 border border-white/5 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]" 
+                           : "text-white/40 hover:text-white/80"
+                       }`}
+                     >
+                       <Icon className="w-3.5 h-3.5 opacity-80 text-blue-400" />
+                       <span className="text-[12px] truncate">{item.name}</span>
+                     </div>
+                   );
+                 })}
+              </>
+            ) : moduleId === "founder-vesting" ? (
+              <>
+                 <div className="text-[9px] font-bold text-white/20 uppercase tracking-widest mt-3 mb-1 px-3">// Capabilities</div>
+                 {[
+                   { name: "Vesting Schedule Architect", icon: TrendingUp },
+                   { name: "83(b) Strategy Analyzer", icon: Scale },
+                   { name: "Acceleration Decoder", icon: Zap },
+                   { name: "Clawback & Repurchase Assessor", icon: Coins },
+                   { name: "Dynamic Equity Framework", icon: LucidePieChart }
+                 ].map((item) => {
+                   const Icon = item.icon;
+                   const isActive = activeSubtab === item.name;
+                   return (
+                     <div
+                       key={item.name}
+                       onClick={() => setActiveSubtab(item.name)}
+                       className={`px-3 py-1.5 rounded-lg flex items-center gap-3 cursor-pointer transition-all ${
+                         isActive 
+                           ? "bg-[#1f2937]/30 border border-white/5 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]" 
+                           : "text-white/40 hover:text-white/80"
+                       }`}
+                     >
+                       <Icon className="w-3.5 h-3.5 opacity-80 text-purple-400" />
+                       <span className="text-[12px] truncate">{item.name}</span>
+                     </div>
+                   );
+                 })}
+              </>
+            ) : moduleId === "lp-compliance" ? (
+              <>
+                 <div className="text-[9px] font-bold text-white/20 uppercase tracking-widest mt-3 mb-1 px-3">// Capabilities</div>
+                 {[
+                   { name: "Document Audit Engine", icon: FileText },
+                   { name: "Investor Rights Tracker", icon: Users },
+                   { name: "Compliance Scheduler", icon: Calendar },
+                   { name: "Constraint Radar", icon: Activity },
+                   { name: "GP Defense Matrix", icon: Shield }
+                 ].map((item) => {
+                   const Icon = item.icon;
+                   const isActive = activeSubtab === item.name;
+                   return (
+                     <div
+                       key={item.name}
+                       onClick={() => setActiveSubtab(item.name)}
+                       className={`px-3 py-1.5 rounded-lg flex items-center gap-3 cursor-pointer transition-all ${
+                         isActive 
+                           ? "bg-[#1f2937]/30 border border-white/5 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]" 
+                           : "text-white/40 hover:text-white/80"
+                       }`}
+                     >
+                       <Icon className="w-3.5 h-3.5 opacity-80 text-yellow-400" />
                        <span className="text-[12px] truncate">{item.name}</span>
                      </div>
                    );
