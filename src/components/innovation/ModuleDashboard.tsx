@@ -2,7 +2,7 @@
 
 import React from "react";
 import {
-  Grid, BarChart2, Star, FileText, Share2, Users, Plus, ChevronRight, UserCircle2, FileBadge
+  Grid, BarChart2, Star, FileText, Share2, Users, Plus, ChevronRight
 } from "lucide-react";
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
@@ -554,7 +554,7 @@ export default function ModuleDashboard({ moduleId, themeColors }: ModuleDashboa
          {/* CONTENT */}
          <div className="flex-1 overflow-y-auto no-scrollbar p-6 lg:p-8 bg-gradient-to-b from-[#0B0F19] to-[#0a0d14]">
             {/* Top Stats & Charts Row */}
-            <div className="bg-[#111827]/40 border border-[#1f2937]/80 rounded-xl p-6 mb-6">
+            <div className="bg-[#111827]/40 border border-[#1f2937]/80 rounded-xl p-6">
                <div className="flex justify-end items-center mb-8">
                   <button className="text-[11px] text-blue-400 hover:text-blue-300 flex items-center gap-1 font-medium tracking-wide">
                      View all <ChevronRight className="w-3 h-3" />
@@ -562,65 +562,6 @@ export default function ModuleDashboard({ moduleId, themeColors }: ModuleDashboa
                </div>
                
                {renderChart()}
-            </div>
-
-            {/* Bottom Widgets Row */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-               {/* Recent Workflows */}
-               <div className="bg-[#111827]/40 border border-[#1f2937]/80 rounded-xl p-6 flex flex-col h-[220px]">
-                  <div className="flex justify-between items-center mb-5">
-                     <h3 className="text-[14px] font-serif text-white/90">Recent {formatModuleName(moduleId)}</h3>
-                     <button className="text-[11px] text-blue-400 hover:text-blue-300 flex items-center gap-1 font-medium tracking-wide">
-                        View all <ChevronRight className="w-3 h-3" />
-                     </button>
-                  </div>
-                  <div className="flex flex-col gap-3 flex-1 overflow-y-auto pr-2 custom-scrollbar">
-                     <div className="bg-[#1f2937]/30 border border-white/5 rounded-lg p-3 flex items-center justify-between group hover:bg-[#1f2937]/50 transition-colors cursor-pointer">
-                        <div className="flex items-center gap-3">
-                           <div className="p-2 bg-white/5 rounded">
-                              <FileBadge className="w-4 h-4 text-white/40" />
-                           </div>
-                           <span className="text-[13px] text-white/70 group-hover:text-white/90 transition-colors truncate max-w-[180px]">Project Alpha Analysis</span>
-                        </div>
-                        <span className="text-[10px] font-medium text-blue-400 bg-blue-900/20 px-2 py-1 rounded border border-blue-500/10 shrink-0">In Progress</span>
-                     </div>
-                     <div className="bg-[#1f2937]/30 border border-white/5 rounded-lg p-3 flex items-center justify-between group hover:bg-[#1f2937]/50 transition-colors cursor-pointer">
-                        <div className="flex items-center gap-3">
-                           <div className="p-2 bg-white/5 rounded">
-                              <FileBadge className="w-4 h-4 text-white/40" />
-                           </div>
-                           <span className="text-[13px] text-white/70 group-hover:text-white/90 transition-colors truncate max-w-[180px]">Series B Review</span>
-                        </div>
-                        <span className="text-[10px] font-medium text-white/40 bg-white/5 px-2 py-1 rounded border border-white/5 shrink-0">Pending Review</span>
-                     </div>
-                  </div>
-               </div>
-
-               {/* New Team Members */}
-               <div className="bg-[#111827]/40 border border-[#1f2937]/80 rounded-xl p-6 flex flex-col h-[220px]">
-                  <div className="flex justify-between items-center mb-5">
-                     <h3 className="text-[14px] font-serif text-white/90">Collaborators</h3>
-                     <button className="text-[11px] text-blue-400 hover:text-blue-300 flex items-center gap-1 font-medium tracking-wide">
-                        View all <ChevronRight className="w-3 h-3" />
-                     </button>
-                  </div>
-                  <div className="flex flex-col gap-4 flex-1 overflow-y-auto pr-2 custom-scrollbar">
-                     {[1,2,3].map((i) => (
-                        <div key={i} className="flex items-center justify-between">
-                           <div className="flex items-center gap-3">
-                              <div className="w-9 h-9 rounded-full bg-[#1f2937]/50 border border-white/5 flex items-center justify-center">
-                                 <UserCircle2 className="w-5 h-5 text-white/30" />
-                              </div>
-                              <div className="flex flex-col gap-1.5">
-                                 <div className="w-20 h-2 rounded bg-white/10"></div>
-                                 <div className="w-12 h-1.5 rounded bg-white/5"></div>
-                              </div>
-                           </div>
-                           <span className="text-[10px] font-medium text-purple-400 bg-purple-900/20 px-2.5 py-1 rounded border border-purple-500/10 shrink-0">Active</span>
-                        </div>
-                     ))}
-                  </div>
-               </div>
             </div>
          </div>
       </div>
