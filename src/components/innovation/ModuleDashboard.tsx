@@ -671,6 +671,147 @@ export default function ModuleDashboard({ moduleId, themeColors }: ModuleDashboa
                    );
                  })}
               </>
+            ) : moduleId === "dd-checklist" ? (
+              <>
+                 <div className="text-[9px] font-bold text-white/20 uppercase tracking-widest mt-3 mb-1 px-3">// Capabilities</div>
+                 {[
+                   { name: "VDR Audit Engine", icon: Database },
+                   { name: "Discrepancy Scanner", icon: AlertCircle },
+                   { name: "Cap Ledger Analyzer", icon: Grid },
+                   { name: "Liability Screener", icon: ShieldCheck },
+                   { name: "Screen Material Agreements", icon: FileText },
+                   { name: "Remediation Roadmap", icon: TrendingUp }
+                 ].map((item) => {
+                   const Icon = item.icon;
+                   const isActive = activeSubtab === item.name;
+                   return (
+                     <div
+                       key={item.name}
+                       onClick={() => setActiveSubtab(item.name)}
+                       className={`px-3 py-1.5 rounded-lg flex items-center gap-3 cursor-pointer transition-all ${
+                         isActive 
+                           ? "bg-[#1f2937]/30 border border-white/5 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]" 
+                           : "text-white/40 hover:text-white/80"
+                       }`}
+                     >
+                       <Icon className="w-3.5 h-3.5 opacity-80 text-red-400" />
+                       <span className="text-[12px] truncate">{item.name}</span>
+                     </div>
+                   );
+                 })}
+              </>
+            ) : moduleId === "cap-table" ? (
+              <>
+                 <div className="text-[9px] font-bold text-white/20 uppercase tracking-widest mt-3 mb-1 px-3">// Capabilities</div>
+                 {[
+                   { name: "Simulate Dilution", icon: LucidePieChart },
+                   { name: "Compute Option Pools", icon: Coins },
+                   { name: "Conversion Engine", icon: Zap },
+                   { name: "Voting Distribution Matrix", icon: Grid },
+                   { name: "Project Founder Equity", icon: Users }
+                 ].map((item) => {
+                   const Icon = item.icon;
+                   const isActive = activeSubtab === item.name;
+                   return (
+                     <div
+                       key={item.name}
+                       onClick={() => setActiveSubtab(item.name)}
+                       className={`px-3 py-1.5 rounded-lg flex items-center gap-3 cursor-pointer transition-all ${
+                         isActive 
+                           ? "bg-[#1f2937]/30 border border-white/5 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]" 
+                           : "text-white/40 hover:text-white/80"
+                       }`}
+                     >
+                       <Icon className="w-3.5 h-3.5 opacity-80 text-green-400" />
+                       <span className="text-[12px] truncate">{item.name}</span>
+                     </div>
+                   );
+                 })}
+              </>
+            ) : moduleId === "pitch-deck" ? (
+              <>
+                 <div className="text-[9px] font-bold text-white/20 uppercase tracking-widest mt-3 mb-1 px-3">// Capabilities</div>
+                 {[
+                   { name: "Critique Narrative", icon: PenTool },
+                   { name: "Validate Market Sizing", icon: Scale },
+                   { name: "Evaluate Competitors", icon: Users },
+                   { name: "Assess Team Fit", icon: Users },
+                   { name: "Optimize Structure", icon: Grid }
+                 ].map((item) => {
+                   const Icon = item.icon;
+                   const isActive = activeSubtab === item.name;
+                   return (
+                     <div
+                       key={item.name}
+                       onClick={() => setActiveSubtab(item.name)}
+                       className={`px-3 py-1.5 rounded-lg flex items-center gap-3 cursor-pointer transition-all ${
+                         isActive 
+                           ? "bg-[#1f2937]/30 border border-white/5 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]" 
+                           : "text-white/40 hover:text-white/80"
+                       }`}
+                     >
+                       <Icon className="w-3.5 h-3.5 opacity-80 text-orange-400" />
+                       <span className="text-[12px] truncate">{item.name}</span>
+                     </div>
+                   );
+                 })}
+              </>
+            ) : moduleId === "competitor" ? (
+              <>
+                 <div className="text-[9px] font-bold text-white/20 uppercase tracking-widest mt-3 mb-1 px-3">// Capabilities</div>
+                 {[
+                   { name: "Compare Product Velocity", icon: Zap },
+                   { name: "Map Pricing Structures", icon: Coins },
+                   { name: "Identify Market Positioning", icon: Globe },
+                   { name: "Highlight Defense Moats", icon: Shield },
+                   { name: "Evaluate Strategic Pivots", icon: TrendingUp }
+                 ].map((item) => {
+                   const Icon = item.icon;
+                   const isActive = activeSubtab === item.name;
+                   return (
+                     <div
+                       key={item.name}
+                       onClick={() => setActiveSubtab(item.name)}
+                       className={`px-3 py-1.5 rounded-lg flex items-center gap-3 cursor-pointer transition-all ${
+                         isActive 
+                           ? "bg-[#1f2937]/30 border border-white/5 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]" 
+                           : "text-white/40 hover:text-white/80"
+                       }`}
+                     >
+                       <Icon className="w-3.5 h-3.5 opacity-80 text-indigo-400" />
+                       <span className="text-[12px] truncate">{item.name}</span>
+                     </div>
+                   );
+                 })}
+              </>
+            ) : moduleId === "spv" ? (
+              <>
+                 <div className="text-[9px] font-bold text-white/20 uppercase tracking-widest mt-3 mb-1 px-3">// Capabilities</div>
+                 {[
+                   { name: "Jurisdiction Analyzer", icon: Globe },
+                   { name: "Fee & Carry Modeler", icon: Coins },
+                   { name: "Compliance Orchestrator", icon: Scale },
+                   { name: "Syndicate Rulebook", icon: Scroll },
+                   { name: "Lifecycle Blueprint Engine", icon: Zap }
+                 ].map((item) => {
+                   const Icon = item.icon;
+                   const isActive = activeSubtab === item.name;
+                   return (
+                     <div
+                       key={item.name}
+                       onClick={() => setActiveSubtab(item.name)}
+                       className={`px-3 py-1.5 rounded-lg flex items-center gap-3 cursor-pointer transition-all ${
+                         isActive 
+                           ? "bg-[#1f2937]/30 border border-white/5 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]" 
+                           : "text-white/40 hover:text-white/80"
+                       }`}
+                     >
+                       <Icon className="w-3.5 h-3.5 opacity-80 text-pink-400" />
+                       <span className="text-[12px] truncate">{item.name}</span>
+                     </div>
+                   );
+                 })}
+              </>
             ) : (
               <>
                  <div
