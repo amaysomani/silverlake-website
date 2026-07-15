@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Briefcase, FileText, PenTool, ShieldAlert, Search,
@@ -377,7 +377,6 @@ interface InnoProductGridProps {
 
 export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) {
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
-  const [inputValues, setInputValues] = useState<Record<string, string>>({});
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [result, setResult] = useState<string | null>(null);
@@ -386,32 +385,9 @@ export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) 
 
   const activeProduct = products.find((p) => p.id === selectedProductId);
 
-  const handleCardClick = (product: Product) => {
-    if (soundEnabled) playClickSound();
-    setSelectedProductId(product.id);
-    setInputValues({});
-    setError(null);
-    setResult(null);
-  };
-
-  const handleCloseModal = () => {
-    if (soundEnabled) playClickSound();
-    setSelectedProductId(null);
-    setInputValues({});
-    setError(null);
-    setResult(null);
-    setInteractionId(null);
-    setFeedbackSubmitted(false);
-  };
-
-  const handleInputChange = (id: string, value: string) => {
-    setInputValues((prev) => ({ ...prev, [id]: value }));
-  };
-
-  const initiateDirective = async () => {
+  const initiateDirective = useCallback(async () => {
     const prod = products.find((p) => p.id === selectedProductId);
     if (!prod) return;
-    if (soundEnabled) playClickSound();
     setLoading(true);
     setError(null);
     setResult(null);
@@ -423,8 +399,8 @@ export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) 
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           moduleId: prod.id,
-          inputs: inputValues,
-          prompt: prod.getPrompt(inputValues),
+          inputs: {},
+          prompt: prod.getPrompt({}),
           systemInstruction: prod.getSystemInstruction(),
         }),
       });
@@ -437,6 +413,28 @@ export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) 
     } finally {
       setLoading(false);
     }
+  }, [selectedProductId]);
+
+  useEffect(() => {
+    if (selectedProductId) {
+      initiateDirective();
+    }
+  }, [selectedProductId, initiateDirective]);
+
+  const handleCardClick = (product: Product) => {
+    if (soundEnabled) playClickSound();
+    setSelectedProductId(product.id);
+    setError(null);
+    setResult(null);
+  };
+
+  const handleCloseModal = () => {
+    if (soundEnabled) playClickSound();
+    setSelectedProductId(null);
+    setError(null);
+    setResult(null);
+    setInteractionId(null);
+    setFeedbackSubmitted(false);
   };
 
   return (
@@ -523,7 +521,7 @@ export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) 
 
               <div className="flex flex-col lg:flex-row flex-1 overflow-hidden h-full">
                 {/* Left: Input Form */}
-                <div className="w-full lg:w-[500px] p-8 sm:p-10 lg:border-r border-b lg:border-b-0 border-white/10 overflow-y-auto no-scrollbar flex flex-col justify-between">
+                <div className="w-full lg:w-[500px] p-8 sm:p-10 lg:border-r border-b lg:border-b-0 border-white/10 overflow-y-auto no-scrollbar flex flex-col">
                   <div>
                     <h2 className="text-2xl font-bold text-white font-tech uppercase tracking-tight mb-3">{activeProduct.title}</h2>
                     <p className="text-xs text-white/30 uppercase tracking-[0.2em] font-mono mb-4 font-bold">// CAPABILITIES</p>
@@ -541,23 +539,6 @@ export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) 
                     ) : (
                       <p className="text-sm text-white/50 font-light mb-8">{activeProduct.description}</p>
                     )}
-                    <div className="space-y-6">
-                      {activeProduct.inputs.map((input) => (
-                        <div key={input.id} className="space-y-2">
-                          <label className="block font-tech text-[10px] uppercase tracking-[0.2em] font-bold text-white/40">{input.label}</label>
-                          {input.type === "textarea" ? (
-                            <textarea value={inputValues[input.id] || ""} onChange={(e) => handleInputChange(input.id, e.target.value)} placeholder={input.placeholder} rows={5} className="w-full border border-white/10 bg-black/20 p-4 text-sm text-white placeholder:text-white/15 focus:outline-none focus:border-white/30 transition-colors resize-none font-light rounded-lg" />
-                          ) : (
-                            <input type="text" value={inputValues[input.id] || ""} onChange={(e) => handleInputChange(input.id, e.target.value)} placeholder={input.placeholder} className="w-full border border-white/10 bg-black/20 p-4 text-sm text-white placeholder:text-white/15 focus:outline-none focus:border-white/30 transition-colors font-light rounded-lg" />
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="pt-8">
-                    <button onClick={initiateDirective} disabled={loading} className="w-full bg-white hover:bg-white/90 text-[#020a19] py-4 px-6 font-bold text-[11px] uppercase tracking-[0.16em] transition-colors flex items-center justify-center gap-3 disabled:opacity-50 cursor-pointer rounded-lg font-tech">
-                      {loading ? (<><Loader2 className="w-4 h-4 animate-spin" /><span>SYNTHESIZING...</span></>) : (<><Play className="w-3.5 h-3.5 fill-current" /><span>INITIATE DIRECTIVE</span></>)}
-                    </button>
                   </div>
                 </div>
 
