@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
   Briefcase, FileText, PenTool, ShieldAlert, Search,
@@ -378,6 +378,16 @@ interface InnoProductGridProps {
 export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) {
   const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
   const activeProduct = products.find((p) => p.id === selectedProductId);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (selectedProductId && containerRef.current) {
+      // Small timeout to allow the DOM to update and render the modal
+      setTimeout(() => {
+        containerRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 100);
+    }
+  }, [selectedProductId]);
 
   const handleCardClick = (product: Product) => {
     if (soundEnabled) playClickSound();
@@ -390,7 +400,7 @@ export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) 
   };
 
   return (
-    <div className="relative z-10">
+    <div ref={containerRef} className="relative z-10">
       {/* Product Grid */}
       {!selectedProductId ? (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
