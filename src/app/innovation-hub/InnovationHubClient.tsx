@@ -442,7 +442,7 @@ export default function InnovationHubClient() {
               className="mt-24 w-full flex flex-col items-center"
             >
               <h3 className="font-tech text-2xl font-bold text-white uppercase mb-8 tracking-widest text-center">Dashboard</h3>
-              <div className="w-full flex justify-center">
+              <div className="w-full max-w-[1000px] aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-[#0B0F19]">
                 <MainDashboard />
               </div>
             </motion.div>
