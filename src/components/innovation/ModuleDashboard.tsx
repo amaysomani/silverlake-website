@@ -1,8 +1,9 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import {
-  Grid, BarChart2, Star, FileText, Share2, Users, Plus, ChevronRight
+  Grid, BarChart2, Star, FileText, Share2, Users, Plus, ChevronRight,
+  TrendingUp, Zap, Scroll, Globe, PenTool, Scale, Coins, LayoutDashboard, Database, ShieldCheck, AlertCircle
 } from "lucide-react";
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
@@ -25,6 +26,12 @@ const formatModuleName = (id: string) => {
 };
 
 export default function ModuleDashboard({ moduleId, themeColors }: ModuleDashboardProps) {
+  const [activeSubtab, setActiveSubtab] = useState<string | null>(null);
+
+  useEffect(() => {
+    setActiveSubtab(null);
+  }, [moduleId]);
+
   const primaryColor = themeColors[0] || "#3b82f6";
   const secondaryColor = themeColors[1] || "#8b5cf6";
   const tertiaryColor = themeColors[2] || "#ec4899";
@@ -511,32 +518,133 @@ export default function ModuleDashboard({ moduleId, themeColors }: ModuleDashboa
   return (
     <div className="w-full h-full flex bg-[#0B0F19] text-white font-sans overflow-hidden rounded-xl border border-[#1f2937]">
       {/* LEFT SIDEBAR (REMOVED ARNO LOGO/NAME) */}
-      <div className="w-[220px] shrink-0 border-r border-[#1f2937] flex flex-col p-4">
-         <div className="flex flex-col gap-1 mt-4">
-            <div className="px-3 py-2.5 rounded-lg bg-[#1f2937]/50 border border-white/5 flex items-center gap-3 text-white cursor-pointer shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]">
+      <div className="w-[220px] shrink-0 border-r border-[#1f2937] flex flex-col p-4 h-full">
+         <div className="flex flex-col gap-1 mt-4 overflow-y-auto no-scrollbar flex-1 pr-1">
+            <div 
+              onClick={() => setActiveSubtab(null)}
+              className={`px-3 py-2.5 rounded-lg flex items-center gap-3 cursor-pointer transition-all ${
+                activeSubtab === null 
+                  ? "bg-[#1f2937]/50 border border-white/5 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]" 
+                  : "text-white/40 hover:text-white/80"
+              }`}
+            >
                <Grid className="w-4 h-4 text-blue-400" />
                <span className="text-[13px] font-medium truncate">{formatModuleName(moduleId)}</span>
             </div>
-            <div className="px-3 py-2.5 rounded-lg flex items-center gap-3 text-white/40 hover:text-white/80 transition-colors cursor-pointer">
-               <BarChart2 className="w-4 h-4" />
-               <span className="text-[13px]">Insights</span>
-            </div>
-            <div className="px-3 py-2.5 rounded-lg flex items-center gap-3 text-white/40 hover:text-white/80 transition-colors cursor-pointer">
-               <Star className="w-4 h-4" />
-               <span className="text-[13px]">Engagements</span>
-            </div>
-            <div className="px-3 py-2.5 rounded-lg flex items-center gap-3 text-white/40 hover:text-white/80 transition-colors cursor-pointer">
-               <FileText className="w-4 h-4" />
-               <span className="text-[13px]">Invoices</span>
-            </div>
-            <div className="px-3 py-2.5 rounded-lg flex items-center gap-3 text-white/40 hover:text-white/80 transition-colors cursor-pointer">
-               <Share2 className="w-4 h-4" />
-               <span className="text-[13px]">Workflows</span>
-            </div>
-            <div className="px-3 py-2.5 rounded-lg flex items-center gap-3 text-white/40 hover:text-white/80 transition-colors cursor-pointer">
-               <Users className="w-4 h-4" />
-               <span className="text-[13px]">Team</span>
-            </div>
+
+            {moduleId === "sector-intel" ? (
+              <>
+                 <div className="text-[9px] font-bold text-white/20 uppercase tracking-widest mt-3 mb-1 px-3">// Operations</div>
+                 {[
+                   { name: "Forecast Sector CAGR", icon: TrendingUp },
+                   { name: "Track Capital Velocity", icon: Zap },
+                   { name: "Retrieve Market Policy", icon: Scroll },
+                   { name: "Assess Macro Trends", icon: Globe },
+                   { name: "Generate Investment Thesis", icon: PenTool }
+                 ].map((item) => {
+                   const Icon = item.icon;
+                   const isActive = activeSubtab === item.name;
+                   return (
+                     <div
+                       key={item.name}
+                       onClick={() => setActiveSubtab(item.name)}
+                       className={`px-3 py-1.5 rounded-lg flex items-center gap-3 cursor-pointer transition-all ${
+                         isActive 
+                           ? "bg-[#1f2937]/30 border border-white/5 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]" 
+                           : "text-white/40 hover:text-white/80"
+                       }`}
+                     >
+                       <Icon className="w-3.5 h-3.5 opacity-80 text-blue-400" />
+                       <span className="text-[12px] truncate">{item.name}</span>
+                     </div>
+                   );
+                 })}
+
+                 <div className="text-[9px] font-bold text-white/20 uppercase tracking-widest mt-3 mb-1 px-3">// Intelligence</div>
+                 {[
+                   { name: "Growth Projections", icon: BarChart2 },
+                   { name: "Velocity Insights", icon: Star },
+                   { name: "Regulatory Intelligence", icon: Scale },
+                   { name: "Macroeconomic Indicators", icon: Coins },
+                   { name: "Investment Theses", icon: FileText }
+                 ].map((item) => {
+                   const Icon = item.icon;
+                   const isActive = activeSubtab === item.name;
+                   return (
+                     <div
+                       key={item.name}
+                       onClick={() => setActiveSubtab(item.name)}
+                       className={`px-3 py-1.5 rounded-lg flex items-center gap-3 cursor-pointer transition-all ${
+                         isActive 
+                           ? "bg-[#1f2937]/30 border border-white/5 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]" 
+                           : "text-white/40 hover:text-white/80"
+                       }`}
+                     >
+                       <Icon className="w-3.5 h-3.5 opacity-80 text-purple-400" />
+                       <span className="text-[12px] truncate">{item.name}</span>
+                     </div>
+                   );
+                 })}
+              </>
+            ) : (
+              <>
+                 <div
+                   onClick={() => setActiveSubtab("Insights")}
+                   className={`px-3 py-2.5 rounded-lg flex items-center gap-3 cursor-pointer transition-all ${
+                     activeSubtab === "Insights" 
+                       ? "bg-[#1f2937]/30 border border-white/5 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]" 
+                       : "text-white/40 hover:text-white/80"
+                   }`}
+                 >
+                    <BarChart2 className="w-4 h-4" />
+                    <span className="text-[13px]">Insights</span>
+                 </div>
+                 <div
+                   onClick={() => setActiveSubtab("Engagements")}
+                   className={`px-3 py-2.5 rounded-lg flex items-center gap-3 cursor-pointer transition-all ${
+                     activeSubtab === "Engagements" 
+                       ? "bg-[#1f2937]/30 border border-white/5 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]" 
+                       : "text-white/40 hover:text-white/80"
+                   }`}
+                 >
+                    <Star className="w-4 h-4" />
+                    <span className="text-[13px]">Engagements</span>
+                 </div>
+                 <div
+                   onClick={() => setActiveSubtab("Invoices")}
+                   className={`px-3 py-2.5 rounded-lg flex items-center gap-3 cursor-pointer transition-all ${
+                     activeSubtab === "Invoices" 
+                       ? "bg-[#1f2937]/30 border border-white/5 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]" 
+                       : "text-white/40 hover:text-white/80"
+                   }`}
+                 >
+                    <FileText className="w-4 h-4" />
+                    <span className="text-[13px]">Invoices</span>
+                 </div>
+                 <div
+                   onClick={() => setActiveSubtab("Workflows")}
+                   className={`px-3 py-2.5 rounded-lg flex items-center gap-3 cursor-pointer transition-all ${
+                     activeSubtab === "Workflows" 
+                       ? "bg-[#1f2937]/30 border border-white/5 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]" 
+                       : "text-white/40 hover:text-white/80"
+                   }`}
+                 >
+                    <Share2 className="w-4 h-4" />
+                    <span className="text-[13px]">Workflows</span>
+                 </div>
+                 <div
+                   onClick={() => setActiveSubtab("Team")}
+                   className={`px-3 py-2.5 rounded-lg flex items-center gap-3 cursor-pointer transition-all ${
+                     activeSubtab === "Team" 
+                       ? "bg-[#1f2937]/30 border border-white/5 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]" 
+                       : "text-white/40 hover:text-white/80"
+                   }`}
+                 >
+                    <Users className="w-4 h-4" />
+                    <span className="text-[13px]">Team</span>
+                 </div>
+              </>
+            )}
          </div>
       </div>
 
