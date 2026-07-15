@@ -812,6 +812,146 @@ export default function ModuleDashboard({ moduleId, themeColors }: ModuleDashboa
                    );
                  })}
               </>
+            ) : moduleId === "exit-model" ? (
+              <>
+                 <div className="text-[9px] font-bold text-white/20 uppercase tracking-widest mt-3 mb-1 px-3">// Capabilities</div>
+                 {[
+                   { name: "Waterfall Distribution Engine", icon: TrendingUp },
+                   { name: "Share Class Impact Analyzer", icon: LucidePieChart },
+                   { name: "Simulate Exit Valuations", icon: BarChart2 },
+                   { name: "Compute Investment Metrics", icon: Coins },
+                   { name: "Identify LP/Founder Alignment", icon: Users }
+                 ].map((item) => {
+                   const Icon = item.icon;
+                   const isActive = activeSubtab === item.name;
+                   return (
+                     <div
+                       key={item.name}
+                       onClick={() => setActiveSubtab(item.name)}
+                       className={`px-3 py-1.5 rounded-lg flex items-center gap-3 cursor-pointer transition-all ${
+                         isActive 
+                           ? "bg-[#1f2937]/30 border border-white/5 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]" 
+                           : "text-white/40 hover:text-white/80"
+                       }`}
+                     >
+                       <Icon className="w-3.5 h-3.5 opacity-80 text-rose-400" />
+                       <span className="text-[12px] truncate">{item.name}</span>
+                     </div>
+                   );
+                 })}
+              </>
+            ) : moduleId === "term-sheet" ? (
+              <>
+                 <div className="text-[9px] font-bold text-white/20 uppercase tracking-widest mt-3 mb-1 px-3">// Capabilities</div>
+                 {[
+                   { name: "Draft NVCA Terms", icon: PenTool },
+                   { name: "Formulate Transfer Rights", icon: Shield },
+                   { name: "Outline Board Governance", icon: Grid },
+                   { name: "Configure Economic Rules", icon: Coins },
+                   { name: "Streamline Negotiations", icon: TrendingUp }
+                 ].map((item) => {
+                   const Icon = item.icon;
+                   const isActive = activeSubtab === item.name;
+                   return (
+                     <div
+                       key={item.name}
+                       onClick={() => setActiveSubtab(item.name)}
+                       className={`px-3 py-1.5 rounded-lg flex items-center gap-3 cursor-pointer transition-all ${
+                         isActive 
+                           ? "bg-[#1f2937]/30 border border-white/5 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]" 
+                           : "text-white/40 hover:text-white/80"
+                       }`}
+                     >
+                       <Icon className="w-3.5 h-3.5 opacity-80 text-teal-400" />
+                       <span className="text-[12px] truncate">{item.name}</span>
+                     </div>
+                   );
+                 })}
+              </>
+            ) : moduleId === "ip-check" ? (
+              <>
+                 <div className="text-[9px] font-bold text-white/20 uppercase tracking-widest mt-3 mb-1 px-3">// Capabilities</div>
+                 {[
+                   { name: "Review IP Assignments", icon: FileText },
+                   { name: "Audit OSS Compliance", icon: Code },
+                   { name: "Search Patent Risks", icon: Search },
+                   { name: "Map IP Lineage", icon: Grid },
+                   { name: "Specify Remedial Actions", icon: ShieldCheck }
+                 ].map((item) => {
+                   const Icon = item.icon;
+                   const isActive = activeSubtab === item.name;
+                   return (
+                     <div
+                       key={item.name}
+                       onClick={() => setActiveSubtab(item.name)}
+                       className={`px-3 py-1.5 rounded-lg flex items-center gap-3 cursor-pointer transition-all ${
+                         isActive 
+                           ? "bg-[#1f2937]/30 border border-white/5 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]" 
+                           : "text-white/40 hover:text-white/80"
+                       }`}
+                     >
+                       <Icon className="w-3.5 h-3.5 opacity-80 text-cyan-400" />
+                       <span className="text-[12px] truncate">{item.name}</span>
+                     </div>
+                   );
+                 })}
+              </>
+            ) : moduleId === "employment" ? (
+              <>
+                 <div className="text-[9px] font-bold text-white/20 uppercase tracking-widest mt-3 mb-1 px-3">// Capabilities</div>
+                 {[
+                   { name: "Review Severance Terms", icon: FileText },
+                   { name: "Flag Acceleration Scenarios", icon: Zap },
+                   { name: "Audit Restrictive Covenants", icon: Shield },
+                   { name: "Evaluate Termination Clauses", icon: Scale },
+                   { name: "Assess 280G Exposure", icon: AlertCircle }
+                 ].map((item) => {
+                   const Icon = item.icon;
+                   const isActive = activeSubtab === item.name;
+                   return (
+                     <div
+                       key={item.name}
+                       onClick={() => setActiveSubtab(item.name)}
+                       className={`px-3 py-1.5 rounded-lg flex items-center gap-3 cursor-pointer transition-all ${
+                         isActive 
+                           ? "bg-[#1f2937]/30 border border-white/5 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]" 
+                           : "text-white/40 hover:text-white/80"
+                       }`}
+                     >
+                       <Icon className="w-3.5 h-3.5 opacity-80 text-lime-400" />
+                       <span className="text-[12px] truncate">{item.name}</span>
+                     </div>
+                   );
+                 })}
+              </>
+            ) : moduleId === "compliance" ? (
+              <>
+                 <div className="text-[9px] font-bold text-white/20 uppercase tracking-widest mt-3 mb-1 px-3">// Capabilities</div>
+                 {[
+                   { name: "Identify Regulatory Standards", icon: Scale },
+                   { name: "Map Licensing Timelines", icon: Calendar },
+                   { name: "Screen Operational Flows", icon: Activity },
+                   { name: "Project Compliance Costs", icon: Coins },
+                   { name: "Outline Mitigation Measures", icon: ShieldCheck }
+                 ].map((item) => {
+                   const Icon = item.icon;
+                   const isActive = activeSubtab === item.name;
+                   return (
+                     <div
+                       key={item.name}
+                       onClick={() => setActiveSubtab(item.name)}
+                       className={`px-3 py-1.5 rounded-lg flex items-center gap-3 cursor-pointer transition-all ${
+                         isActive 
+                           ? "bg-[#1f2937]/30 border border-white/5 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]" 
+                           : "text-white/40 hover:text-white/80"
+                       }`}
+                     >
+                       <Icon className="w-3.5 h-3.5 opacity-80 text-fuchsia-400" />
+                       <span className="text-[12px] truncate">{item.name}</span>
+                     </div>
+                   );
+                 })}
+              </>
             ) : (
               <>
                  <div
