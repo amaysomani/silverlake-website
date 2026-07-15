@@ -546,7 +546,7 @@ export default function InnovationHubClient() {
               className="mb-8 flex items-center justify-center gap-4"
             >
               <div className="h-[1px] w-16 bg-gradient-to-r from-transparent to-[#00d4ff]/40" />
-              <span className="font-tech text-[9px] tracking-[0.35em] text-[#00d4ff]/60 uppercase">Get in touch</span>
+              <span className="font-tech text-[9px] tracking-[0.15em] text-[#00d4ff]/60 uppercase">Curious? Jump in and explore this interactive demo.</span>
               <div className="h-[1px] w-16 bg-gradient-to-l from-transparent to-[#00d4ff]/40" />
             </motion.div>
 
