@@ -17,7 +17,11 @@ interface ModuleDashboardProps {
 }
 
 const formatModuleName = (id: string) => {
-  return id.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+  return id.split('-').map(word => {
+    const upper = word.toUpperCase();
+    if (upper === "LP" || upper === "SPV" || upper === "IP") return upper;
+    return word.charAt(0).toUpperCase() + word.slice(1);
+  }).join(' ');
 };
 
 export default function ModuleDashboard({ moduleId, themeColors }: ModuleDashboardProps) {
