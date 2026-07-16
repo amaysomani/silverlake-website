@@ -15,8 +15,8 @@ const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 const TwitterIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" {...props}>
-    <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" />
+  <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
   </svg>
 );
 
@@ -234,10 +234,10 @@ export default function Footer() {
             <span className="h-3 w-[1px] bg-white/10" />
 
             <div className="flex gap-x-3">
-              <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="text-[#f9f3f1]/20 hover:text-[#f9f3f1]/60 transition-colors" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/namandevpura" target="_blank" rel="noreferrer" className="text-[#f9f3f1]/20 hover:text-[#f9f3f1]/60 transition-colors" aria-label="LinkedIn">
                 <LinkedinIcon className="h-4 w-4" />
               </a>
-              <a href="https://twitter.com" target="_blank" rel="noreferrer" className="text-[#f9f3f1]/20 hover:text-[#f9f3f1]/60 transition-colors" aria-label="Twitter">
+              <a href="https://x.com/devpura_naman" target="_blank" rel="noreferrer" className="text-[#f9f3f1]/20 hover:text-[#f9f3f1]/60 transition-colors" aria-label="Twitter">
                 <TwitterIcon className="h-4 w-4" />
               </a>
             </div>
