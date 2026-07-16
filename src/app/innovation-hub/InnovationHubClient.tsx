@@ -221,47 +221,23 @@ export default function InnovationHubClient() {
       >
         {/* ─── SECTION 1: HERO ─── */}
         <section className="inno-snap-section flex flex-col justify-between px-6 lg:px-10 relative">
-          {/* Crystal + lens flare overlay */}
-          <div className="absolute left-0 right-0 top-[38%] -translate-y-1/2 flex items-center justify-center pointer-events-none">
-            {/* Radial glow behind crystal */}
-            <div
-              className="absolute w-[500px] h-[500px] pointer-events-none"
-              style={{
-                background: "radial-gradient(circle, rgba(170, 85, 232, 0.2) 0%, transparent 70%)",
-                filter: "blur(40px)",
-              }}
-            />
-            {/* Light rays from crystal — horizontal */}
-            <motion.div
-              className="absolute w-[800px] h-[2px] pointer-events-none"
-              style={{
-                background: "linear-gradient(90deg, transparent, rgba(204,102,208,0.1) 30%, rgba(170,85,232,0.15) 50%, rgba(204,102,208,0.1) 70%, transparent)",
-              }}
-              animate={{ opacity: [0.3, 0.8, 0.3] }}
-              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-            />
-            {/* Light rays from crystal — vertical */}
-            <motion.div
-              className="absolute w-[2px] h-[400px] pointer-events-none"
-              style={{
-                background: "linear-gradient(180deg, transparent, rgba(80,160,255,0.08) 30%, rgba(204,102,208,0.12) 50%, rgba(80,160,255,0.08) 70%, transparent)",
-              }}
-              animate={{ opacity: [0.2, 0.6, 0.2] }}
-              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-            />
-            {/* The Crystal — smooth entry, no sudden pop */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.85 }}
-              animate={introComplete ? { opacity: 1, scale: 1 } : {}}
-              transition={{ delay: 0.3, duration: 2.2, ease: [0.16, 1, 0.3, 1] }}
-              className="pointer-events-auto relative"
-            >
-              <InteractiveCrystal />
-            </motion.div>
-          </div>
+          {/* ── Full-section crystal background ── */}
+          <motion.div
+            className="absolute inset-0 z-0"
+            initial={{ opacity: 0 }}
+            animate={introComplete ? { opacity: 1 } : {}}
+            transition={{ delay: 0.3, duration: 2.0, ease: [0.16, 1, 0.3, 1] }}
+          >
+            {/* Atmospheric glow rings behind the crystal */}
+            <div className="absolute inset-0 pointer-events-none" style={{
+              background: "radial-gradient(ellipse 65% 65% at 50% 48%, rgba(120,40,220,0.18) 0%, rgba(60,20,180,0.08) 40%, transparent 70%)",
+              filter: "blur(30px)",
+            }} />
+            <InteractiveCrystal />
+          </motion.div>
 
-          {/* Section 1 Content Overlay — Left side, vertically centered, Hashgraph style */}
-          <div className="absolute left-6 lg:left-20 top-1/2 -translate-y-1/2 flex flex-col items-start pointer-events-none z-20" style={{ maxWidth: "clamp(260px, 35vw, 480px)" }}>
+          {/* Section 1 Content Overlay — left side, above the crystal */}
+          <div className="absolute left-6 lg:left-20 top-1/2 -translate-y-1/2 flex flex-col items-start z-20 pointer-events-none" style={{ maxWidth: "clamp(260px, 32vw, 460px)" }}>
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={introComplete ? { opacity: 1, y: 0 } : {}}

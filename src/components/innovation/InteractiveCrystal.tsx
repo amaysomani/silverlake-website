@@ -3,211 +3,181 @@
 import React, { useRef, useEffect, useCallback } from "react";
 import * as THREE from "three";
 
-// ── Main Crystal Vertex Shader ──
-const vertexShader = `
-  uniform float uTime;
-  uniform float uHover;
-  varying vec3 vNormal;
-  varying vec3 vWorldPosition;
-  varying float vFresnel;
-  varying vec3 vViewDir;
-
-  void main() {
-    vec3 pos = position;
-    // Slow organic breathing
-    float breathe = sin(uTime * 0.35) * 0.007 + cos(uTime * 0.22) * 0.004;
-    pos += normal * breathe;
-
-    vec4 worldPosition = modelMatrix * vec4(pos, 1.0);
-    vWorldPosition = worldPosition.xyz;
-    vNormal = normalize(normalMatrix * normal);
-    vec3 viewDir = normalize(cameraPosition - worldPosition.xyz);
-    vViewDir = viewDir;
-    vFresnel = pow(1.0 - max(dot(viewDir, vNormal), 0.0), 4.0);
-    gl_Position = projectionMatrix * viewMatrix * worldPosition;
-  }
-`;
-
-// ── Glass Fragment Shader ──
+// ─── Fragment Shader ──────────────────────────────────────────────────────────
 const fragmentShader = `
   uniform float uTime;
-  uniform float uHover;
-  varying vec3 vNormal;
-  varying vec3 vWorldPosition;
+  uniform float uActivation;
+  varying vec3  vNormal;
   varying float vFresnel;
-  varying vec3 vViewDir;
-
-  vec3 envReflect(vec3 dir) {
-    float y = dir.y * 0.5 + 0.5;
-    vec3 sky    = vec3(0.01, 0.04, 0.14);
-    vec3 horizon= vec3(0.2,  0.0, 0.3); // deep purple horizon
-    vec3 ground = vec3(0.0,  0.01, 0.04);
-    vec3 col = mix(ground, horizon, smoothstep(0.0, 0.4, y));
-    col = mix(col, sky, smoothstep(0.4, 1.0, y));
-    return col;
-  }
+  varying vec3  vViewDir;
 
   void main() {
     vec3 n = normalize(vNormal);
     vec3 v = normalize(vViewDir);
     vec3 r = reflect(-v, n);
-    vec3 envColor = envReflect(r);
 
-    vec3 light1 = normalize(vec3(1.2, 1.5, 2.0));
-    vec3 light2 = normalize(vec3(-1.5, 0.5, 0.8));
+    // Dark environment — readable text on top
+    float ry  = r.y * 0.5 + 0.5;
+    vec3 env  = mix(vec3(0.0, 0.0, 0.04), vec3(0.03, 0.02, 0.15), ry);
 
-    float spec1 = pow(max(dot(r, light1), 0.0), 300.0) * 2.0;
-    float spec2 = pow(max(dot(r, light2), 0.0), 90.0) * 0.6;
+    // Specular highlights — sharp "cut glass" sparkle
+    vec3  L1 = normalize(vec3( 1.0, 1.3, 2.0));
+    vec3  L2 = normalize(vec3(-1.2, 0.4, 0.8));
+    float s1 = pow(max(dot(r, L1), 0.0), 300.0) * 3.0;
+    float s2 = pow(max(dot(r, L2), 0.0), 65.0)  * 0.6;
 
-    // Iridescence
-    float iri = pow(1.0 - abs(dot(v, n)), 3.5);
-    float iriShift = iri * (0.4 + 0.3 * sin(uTime * 0.15));
-    vec3 iriColor = mix(vec3(0.3, 0.1, 0.5), vec3(0.8, 0.2, 0.6), sin(iriShift * 3.14159));
+    // Iridescence — time-animated blue/purple
+    float iri      = pow(1.0 - abs(dot(v, n)), 3.0);
+    float iriShift = iri * (0.3 + 0.2 * sin(uTime * 0.1));
+    vec3  iriCol   = mix(
+      vec3(0.1, 0.04, 0.45),
+      vec3(0.55, 0.1, 0.8),
+      sin(iriShift * 3.14159)
+    );
 
-    // Base: vivid blue glass with strong inner glow
-    vec3 col = vec3(0.03, 0.1, 0.28) + envColor * 0.5;
-    col += iriColor * iri * 0.55;
-    col += mix(vec3(0.3, 0.65, 1.0), vec3(0.9, 0.95, 1.0), spec1) * spec1;
-    col += vec3(0.15, 0.5, 1.0) * spec2;
+    // Base: semi-opaque dark blue glass
+    vec3 col = vec3(0.01, 0.01, 0.08) + env * 0.45;
+    col += iriCol * iri * 0.55;
+    col += mix(vec3(0.5, 0.7, 1.0), vec3(1.0, 0.95, 1.0), s1) * s1;
+    col += vec3(0.15, 0.3, 0.75) * s2;
 
-    // Inner glow — bright core light radiating through glass
-    float coreGlow = pow(1.0 - vFresnel, 2.5);   // brightest at face center
-    col += vec3(0.05, 0.25, 0.8) * coreGlow * 0.6;
+    // Faint inner glow (face centers)
+    col += vec3(0.04, 0.02, 0.22) * pow(1.0 - vFresnel, 2.0) * 0.5;
 
-    // Fresnel rim — vivid bright cyan to pink
-    float rimStr = 0.7 + uHover * 0.4;
-    col += mix(vec3(0.4, 0.2, 0.8), vec3(0.8, 0.4, 1.0), vFresnel) * vFresnel * rimStr;
+    // Fresnel rim — vivid purple/blue at edges
+    float rim = 0.6 + uActivation * 0.8;
+    col += mix(vec3(0.25, 0.06, 0.7), vec3(0.1, 0.55, 1.0), vFresnel)
+           * vFresnel * rim;
 
-    // Diffuse fill so all faces are visible
-    float diffuse = max(dot(n, normalize(vec3(0.5, 1.0, 1.5))), 0.0);
-    col += vec3(0.05, 0.2, 0.55) * (diffuse * 0.5 + 0.35);
+    // Exploding shards glow brighter
+    col += vec3(0.5, 0.2, 1.0) * uActivation * 0.5;
 
-    // Alpha: opaque with glassy edges
-    float alpha = 0.78 + vFresnel * 0.18 + spec1 * 0.08;
-    alpha = clamp(alpha, 0.0, 1.0);
-
-    gl_FragColor = vec4(col, alpha);
+    // Alpha: faces solid enough to look like glass, not invisible
+    float alpha = 0.52 + vFresnel * 0.4 + s1 * 0.18 + uActivation * 0.12;
+    gl_FragColor = vec4(clamp(col, 0.0, 1.0), clamp(alpha, 0.0, 1.0));
   }
 `;
 
-// ── Shard Vertex Shader — directional explode toward mouse ──
-const shardVertexShader = `
-  uniform float uTime;
-  uniform float uHover;
-  uniform float uShardHover;   // per-shard activation (0-1), based on dot with mouse dir
-  uniform vec3  uExplodeDir;   // face centroid direction
+// ─── Shard Vertex Shader ──────────────────────────────────────────────────────
+const shardVert = `
+  uniform float uActivation;
+  uniform vec3  uExplodeDir;
   uniform float uExplodeDist;
-  varying vec3 vNormal;
-  varying vec3 vWorldPosition;
+  varying vec3  vNormal;
   varying float vFresnel;
-  varying vec3 vViewDir;
+  varying vec3  vViewDir;
 
   void main() {
     vec3 pos = position;
 
-    // Each shard activates based on its alignment to the mouse direction
-    float activation = uHover * uShardHover;
+    if (uActivation > 0.001) {
+      pos += uExplodeDir * uActivation * uExplodeDist;
 
-    // Explode outward
-    pos += uExplodeDir * activation * uExplodeDist;
+      // Tumble only when exploding
+      float angle = uActivation * uExplodeDist * 2.0;
+      vec3 ax = normalize(cross(uExplodeDir, vec3(0.4472, 0.8944, 0.0)));
+      if (length(ax) < 0.001) ax = vec3(0.0, 1.0, 0.0);
+      float c = cos(angle), s = sin(angle), t = 1.0 - c;
+      mat3 R = mat3(
+        t*ax.x*ax.x+c,       t*ax.x*ax.y-s*ax.z,  t*ax.x*ax.z+s*ax.y,
+        t*ax.x*ax.y+s*ax.z,  t*ax.y*ax.y+c,        t*ax.y*ax.z-s*ax.x,
+        t*ax.x*ax.z-s*ax.y,  t*ax.y*ax.z+s*ax.x,   t*ax.z*ax.z+c
+      );
+      pos = R * pos;
+    }
 
-    // Tumble ONLY when exploding — angle is 0 at hover=0 so shards sit perfectly still
-    // activation drives both the explode distance AND the tumble
-    float angle = activation * uExplodeDist * 1.5;
-    vec3 axis = normalize(cross(uExplodeDir, vec3(0.447, 0.894, 0.0)));
-    // Guard: if axis is degenerate use fallback
-    if (length(axis) < 0.001) axis = vec3(0.0, 1.0, 0.0);
-    float c = cos(angle);
-    float s = sin(angle);
-    float tt = 1.0 - c;
-    mat3 rot = mat3(
-      tt*axis.x*axis.x + c,        tt*axis.x*axis.y - s*axis.z,  tt*axis.x*axis.z + s*axis.y,
-      tt*axis.x*axis.y + s*axis.z, tt*axis.y*axis.y + c,         tt*axis.y*axis.z - s*axis.x,
-      tt*axis.x*axis.z - s*axis.y, tt*axis.y*axis.z + s*axis.x,  tt*axis.z*axis.z + c
-    );
-    // Only rotate if actually exploding (avoids floating point identity issues at angle=0)
-    if (activation > 0.001) pos = rot * pos;
-
-    vec4 worldPosition = modelMatrix * vec4(pos, 1.0);
-    vWorldPosition = worldPosition.xyz;
-    vNormal = normalize(normalMatrix * normal);
-    vec3 viewDir = normalize(cameraPosition - worldPosition.xyz);
-    vViewDir = viewDir;
-    vFresnel = pow(1.0 - max(dot(viewDir, vNormal), 0.0), 4.0);
-    gl_Position = projectionMatrix * viewMatrix * worldPosition;
+    vec4 wp   = modelMatrix * vec4(pos, 1.0);
+    vNormal   = normalize(normalMatrix * normal);
+    vViewDir  = normalize(cameraPosition - wp.xyz);
+    vFresnel  = pow(1.0 - max(dot(vViewDir, vNormal), 0.0), 4.0);
+    gl_Position = projectionMatrix * viewMatrix * wp;
   }
 `;
+
+// Crystal sphere radius (must match geometry)
+const SPHERE_RADIUS = 2.5;
 
 export default function InteractiveCrystal() {
   const containerRef = useRef<HTMLDivElement>(null);
   const rendererRef = useRef<THREE.WebGLRenderer | null>(null);
   const sceneRef = useRef<THREE.Scene | null>(null);
   const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
-  const crystalGroupRef = useRef<THREE.Group | null>(null);
-  const shardsRef = useRef<THREE.Mesh[]>([]);
-  const shardDirsRef = useRef<THREE.Vector3[]>([]);
+  const groupRef = useRef<THREE.Group | null>(null);
   const frameRef = useRef<number>(0);
+
+  const rawMouseRef = useRef({ x: 0, y: 0 });
   const mouseRef = useRef({ x: 0, y: 0 });
-  const targetMouseRef = useRef({ x: 0, y: 0 });
-  const hoverRef = useRef(0);
-  const targetHoverRef = useRef(0);
-  const timeUniformRef = useRef<THREE.IUniform>({ value: 0 });
+
   const shardUniformsRef = useRef<Array<Record<string, THREE.IUniform>>>([]);
+  const shardDirsRef = useRef<THREE.Vector3[]>([]);
+  const timeUniformRef = useRef<THREE.IUniform>({ value: 0 });
+
+  const _camPos = useRef(new THREE.Vector3(0, 0, 7));
+  const _localCamPos = useRef(new THREE.Vector3());
+  const _rayView = useRef(new THREE.Vector3());
+  const _rayWorld = useRef(new THREE.Vector3());
+  const _hitNormal = useRef(new THREE.Vector3());
+  const _localNorm = useRef(new THREE.Vector3());
+  const _closestPt = useRef(new THREE.Vector3());
+  const _invQ = useRef(new THREE.Quaternion());
+  // Smoothed proximity factor (0 = far away, 1 = cursor on surface)
+  const smoothProxRef = useRef(0);
 
   const initScene = useCallback(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    const w = container.clientWidth;
-    const h = container.clientHeight;
+    const el = containerRef.current;
+    if (!el) return;
+    const W = el.clientWidth || window.innerWidth;
+    const H = el.clientHeight || window.innerHeight;
 
     const scene = new THREE.Scene();
     sceneRef.current = scene;
 
-    const camera = new THREE.PerspectiveCamera(40, w / h, 0.1, 100);
-    camera.position.set(0, 0, 5.5);
+    const camera = new THREE.PerspectiveCamera(42, W / H, 0.1, 200);
+    camera.position.set(0, 0, 7);
     cameraRef.current = camera;
 
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: "high-performance" });
-    renderer.setSize(w, h);
+    const renderer = new THREE.WebGLRenderer({
+      antialias: true, alpha: true,
+      powerPreference: "high-performance",
+    });
+    renderer.setSize(W, H);
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     renderer.setClearColor(0x000000, 0);
-    container.appendChild(renderer.domElement);
+    el.appendChild(renderer.domElement);
     rendererRef.current = renderer;
 
-    const crystalGroup = new THREE.Group();
-    crystalGroupRef.current = crystalGroup;
-    scene.add(crystalGroup);
+    const group = new THREE.Group();
+    groupRef.current = group;
+    scene.add(group);
 
-    // Shared time uniform for all shards
-    const timeUniform: THREE.IUniform = { value: 0 };
-    timeUniformRef.current = timeUniform;
+    const timeU: THREE.IUniform = { value: 0 };
+    timeUniformRef.current = timeU;
 
-    // IcosahedronGeometry detail=2 → 320 triangles = much smaller shards
-    const flatGeom = new THREE.IcosahedronGeometry(1.2, 2).toNonIndexed();
+    // detail=4 → 5120 fine triangles; very small shards
+    const flatGeom = new THREE.IcosahedronGeometry(SPHERE_RADIUS, 4).toNonIndexed();
     flatGeom.computeVertexNormals();
 
-    // Thin wireframe overlay to show facet edges (renders on top correctly)
+    // Faint wireframe for facet lines
     const wireMat = new THREE.MeshBasicMaterial({
-      color: new THREE.Color(0x004477), wireframe: true, transparent: true, opacity: 0.09,
-      depthWrite: false,  // wire doesn't block depth reads
+      color: 0x220055, wireframe: true,
+      transparent: true, opacity: 0.04, depthWrite: false,
     });
-    crystalGroup.add(new THREE.Mesh(new THREE.IcosahedronGeometry(1.22, 1), wireMat));
+    group.add(new THREE.Mesh(
+      new THREE.IcosahedronGeometry(SPHERE_RADIUS * 1.003, 4), wireMat
+    ));
 
-    // ── ALL SHARDS — always visible, assembled at hover=0, explode at hover=1 ──
-    const positions = flatGeom.getAttribute("position") as THREE.BufferAttribute;
-    const shards: THREE.Mesh[] = [];
-    const shardUniforms: Array<Record<string, THREE.IUniform>> = [];
-    const shardDirs: THREE.Vector3[] = [];
+    const posAttr = flatGeom.getAttribute("position") as THREE.BufferAttribute;
+    const shardUs: Array<Record<string, THREE.IUniform>> = [];
+    const shardDs: THREE.Vector3[] = [];
 
-    for (let i = 0; i < positions.count; i += 3) {
-      const v0 = new THREE.Vector3().fromBufferAttribute(positions, i);
-      const v1 = new THREE.Vector3().fromBufferAttribute(positions, i + 1);
-      const v2 = new THREE.Vector3().fromBufferAttribute(positions, i + 2);
+    for (let i = 0; i < posAttr.count; i += 3) {
+      const v0 = new THREE.Vector3().fromBufferAttribute(posAttr, i);
+      const v1 = new THREE.Vector3().fromBufferAttribute(posAttr, i + 1);
+      const v2 = new THREE.Vector3().fromBufferAttribute(posAttr, i + 2);
 
-      const center = v0.clone().add(v1).add(v2).divideScalar(3);
-      const explodeDir = center.clone().normalize();
-      const explodeDist = 0.35 + Math.random() * 0.3;   // Dramatic but controlled
+      const centroid = v0.clone().add(v1).add(v2).divideScalar(3);
+      const explodeDir = centroid.clone().normalize();
+      const explodeDist = 0.45 + Math.random() * 0.45;
 
       const geo = new THREE.BufferGeometry();
       geo.setAttribute("position", new THREE.BufferAttribute(
@@ -215,88 +185,135 @@ export default function InteractiveCrystal() {
       ));
       geo.computeVertexNormals();
 
-      const sUniforms: Record<string, THREE.IUniform> = {
-        uTime: timeUniform,            // shared — updated once per frame
-        uHover: { value: 0 },
-        uShardHover: { value: 1.0 },   // default: full directional weight until overridden
+      const su: Record<string, THREE.IUniform> = {
+        uTime: timeU,
+        uActivation: { value: 0 },
         uExplodeDir: { value: explodeDir.clone() },
         uExplodeDist: { value: explodeDist },
       };
 
-      const shardMesh = new THREE.Mesh(geo, new THREE.ShaderMaterial({
-        vertexShader: shardVertexShader, fragmentShader, uniforms: sUniforms,
+      const mesh = new THREE.Mesh(geo, new THREE.ShaderMaterial({
+        vertexShader: shardVert, fragmentShader,
+        uniforms: su,
         transparent: true,
-        side: THREE.FrontSide,   // FrontSide only — back faces were causing the "missing half"
-        depthWrite: true,         // MUST be true so shards occlude each other correctly
+        side: THREE.FrontSide,
+        depthWrite: true,
         depthTest: true,
       }));
-      // Always visible — at hover=0 they sit in their original positions = assembled crystal
-      shardMesh.visible = true;
-      crystalGroup.add(shardMesh);
-      shards.push(shardMesh);
-      shardUniforms.push(sUniforms);
-      shardDirs.push(explodeDir.clone());
+      mesh.visible = true;
+      group.add(mesh);
+      shardUs.push(su);
+      shardDs.push(explodeDir.clone());
     }
-    shardsRef.current = shards;
-    shardUniformsRef.current = shardUniforms;
-    shardDirsRef.current = shardDirs;
+
+    shardUniformsRef.current = shardUs;
+    shardDirsRef.current = shardDs;
   }, []);
 
   const animate = useCallback(() => {
     const renderer = rendererRef.current;
     const scene = sceneRef.current;
     const camera = cameraRef.current;
-    const crystalGroup = crystalGroupRef.current;
-
-    if (!renderer || !scene || !camera || !crystalGroup) {
+    const group = groupRef.current;
+    if (!renderer || !scene || !camera || !group) {
       frameRef.current = requestAnimationFrame(animate);
       return;
     }
 
     const time = performance.now() * 0.001;
-
-    // Update shared time uniform once
     timeUniformRef.current.value = time;
 
-    // Faster mouse tracking
-    mouseRef.current.x += (targetMouseRef.current.x - mouseRef.current.x) * 0.1;
-    mouseRef.current.y += (targetMouseRef.current.y - mouseRef.current.y) * 0.1;
+    // Smooth mouse
+    mouseRef.current.x += (rawMouseRef.current.x - mouseRef.current.x) * 0.14;
+    mouseRef.current.y += (rawMouseRef.current.y - mouseRef.current.y) * 0.14;
 
-    // Faster hover response — feels snappy
-    hoverRef.current += (targetHoverRef.current - hoverRef.current) * 0.08;
-    const hover = hoverRef.current;
+    const mx = mouseRef.current.x;
+    const my = mouseRef.current.y;
 
+    // Slow idle rotation (minimal so mouse ray stays meaningful)
+    group.rotation.y = time * 0.06 + mx * 0.08;
+    group.rotation.x = Math.sin(time * 0.05) * 0.03 + my * 0.06;
+    group.rotation.z = Math.cos(time * 0.04) * 0.015;
+    group.position.y = Math.sin(time * 0.25) * 0.05;
 
-    // Crystal group rotation
-    crystalGroup.rotation.y = time * 0.1 + mouseRef.current.x * 0.7;
-    crystalGroup.rotation.x = Math.sin(time * 0.08) * 0.07 + mouseRef.current.y * 0.45;
-    crystalGroup.rotation.z = Math.cos(time * 0.06) * 0.03;
-    crystalGroup.position.y = Math.sin(time * 0.3) * 0.06;
+    // ── Ray-sphere intersection ──────────────────────────────────────────────
+    // 1. Build camera-space ray from NDC mouse coords
+    const fovRad = camera.fov * (Math.PI / 180);
+    const tanHalf = Math.tan(fovRad / 2);
+    const aspect = camera.aspect;
 
-    // Mouse direction in crystal's local space for directional shatter
-    const mouseDir3D = new THREE.Vector3(
-      mouseRef.current.x, mouseRef.current.y, 1.0
+    // Ray direction in view/camera space (camera looks down -Z in OpenGL)
+    _rayView.current.set(
+      mx * tanHalf * aspect,
+      my * tanHalf,
+      -1.0                    // into the scene
     ).normalize();
-    const localMouseDir = mouseDir3D.clone().applyQuaternion(
-      crystalGroup.quaternion.clone().invert()
-    );
 
-    // Shards are ALWAYS visible — at hover=0 they sit assembled
-    const shards = shardsRef.current;
-    const shardUniforms = shardUniformsRef.current;
-    const shardDirs = shardDirsRef.current;
+    // 2. Rotate into world space via camera quaternion
+    _rayWorld.current.copy(_rayView.current)
+      .applyQuaternion(camera.quaternion)
+      .normalize();
 
-    for (let i = 0; i < shards.length; i++) {
-      const su = shardUniforms[i];
+    // 3. Ray–sphere intersection
+    //    Ray: P(t) = localCamPos + t * rd
+    //    Sphere at origin radius R: t² + 2(localCam·rd)t + (|localCam|²-R²) = 0
+    const camPos = _camPos.current;   // (0,0,7) — camera world position
+    _localCamPos.current.subVectors(camPos, group.position);
+    const localCamPos = _localCamPos.current;
+
+    const rd = _rayWorld.current;
+    const b = 2.0 * localCamPos.dot(rd);
+    const cCoeff = localCamPos.lengthSq() - SPHERE_RADIUS * SPHERE_RADIUS;
+    const disc = b * b - 4.0 * cCoeff;
+
+    // 4. Proximity factor — how close the ray gets to the sphere center
+    //    t_c: parameter of closest approach on the ray
+    const t_c = Math.max(0, -b * 0.5);   // = -localCamPos·rd (simplified, a=1)
+    _closestPt.current.copy(localCamPos).addScaledVector(rd, t_c);
+    const minDist = _closestPt.current.length();
+
+    // Proximity zone: feel the crystal from 1.2× its radius away (decreased distance)
+    const PROX_OUTER = SPHERE_RADIUS * 1.2;
+    const rawProx = 1.0 - Math.min(1.0, Math.max(0.0,
+      (minDist - SPHERE_RADIUS) / (PROX_OUTER - SPHERE_RADIUS)
+    ));
+    // Smooth it — fade in slowly (0.05), fade out quickly (0.1)
+    const proxTarget = rawProx;
+    const proxSpeed = proxTarget > smoothProxRef.current ? 0.05 : 0.09;
+    smoothProxRef.current += (proxTarget - smoothProxRef.current) * proxSpeed;
+    const prox = smoothProxRef.current;
+
+    const sus = shardUniformsRef.current;
+    const sds = shardDirsRef.current;
+
+    // 5. Choose the opening direction:
+    //    • ray hits sphere → exact surface normal at hit point (most precise)
+    //    • ray misses but nearby → closest-approach direction (feel the glow)
+    _invQ.current.copy(group.quaternion).invert();
+
+    if (disc >= 0) {
+      const t = (-b - Math.sqrt(disc)) * 0.5;
+      _hitNormal.current.copy(localCamPos)
+        .addScaledVector(rd, t)
+        .divideScalar(SPHERE_RADIUS);
+    } else {
+      // Near-miss: use direction from origin to closest point on ray
+      _hitNormal.current.copy(_closestPt.current).normalize();
+    }
+
+    _localNorm.current.copy(_hitNormal.current)
+      .applyQuaternion(_invQ.current)
+      .normalize();
+
+    const localNorm = _localNorm.current;
+
+    for (let i = 0; i < sus.length; i++) {
+      const su = sus[i];
       if (!su) continue;
-
-      // Wider cone than pow(4): pow(2.5) opens up ~70deg spread so more shards respond
-      const rawDot = shardDirs[i].dot(localMouseDir);
-      const shardWeight = Math.pow(Math.max(0.0, rawDot), 2.5);
-
-      su.uHover.value = hover;
-      su.uShardHover.value = shardWeight;
-      shards[i].visible = true;
+      const dot = sds[i].dot(localNorm);
+      // pow(4) = tight ~50° cone; multiply by proximity so shards fade in as cursor approaches
+      const weight = Math.pow(Math.max(0, dot), 4.0) * prox;
+      su.uActivation.value = weight;
     }
 
     renderer.render(scene, camera);
@@ -305,32 +322,32 @@ export default function InteractiveCrystal() {
 
   useEffect(() => {
     initScene();
-
-    const handleMouseMove = (e: MouseEvent) => {
-      targetMouseRef.current = {
-        x: (e.clientX / window.innerWidth - 0.5) * 2,
-        y: -(e.clientY / window.innerHeight - 0.5) * 2,
-      };
-    };
-
-    window.addEventListener("mousemove", handleMouseMove);
     frameRef.current = requestAnimationFrame(animate);
 
-    const handleResize = () => {
-      const container = containerRef.current;
-      const renderer = rendererRef.current;
-      const camera = cameraRef.current;
-      if (!container || !renderer || !camera) return;
-      renderer.setSize(container.clientWidth, container.clientHeight);
-      camera.aspect = container.clientWidth / container.clientHeight;
-      camera.updateProjectionMatrix();
+    const onMove = (e: MouseEvent) => {
+      const el = containerRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      rawMouseRef.current = {
+        x: ((e.clientX - rect.left) / rect.width) * 2 - 1,
+        y: -((e.clientY - rect.top) / rect.height) * 2 + 1,
+      };
+    };
+    const onResize = () => {
+      const el = containerRef.current;
+      const rnd = rendererRef.current;
+      const cam = cameraRef.current;
+      if (!el || !rnd || !cam) return;
+      rnd.setSize(el.clientWidth, el.clientHeight);
+      cam.aspect = el.clientWidth / el.clientHeight;
+      cam.updateProjectionMatrix();
     };
 
-    window.addEventListener("resize", handleResize);
-
+    window.addEventListener("mousemove", onMove);
+    window.addEventListener("resize", onResize);
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("mousemove", onMove);
+      window.removeEventListener("resize", onResize);
       cancelAnimationFrame(frameRef.current);
       const dom = rendererRef.current?.domElement;
       if (dom?.parentNode) dom.parentNode.removeChild(dom);
@@ -341,20 +358,7 @@ export default function InteractiveCrystal() {
   return (
     <div
       ref={containerRef}
-      className="relative"
-      style={{ width: "380px", height: "380px", cursor: "crosshair" }}
-      onMouseEnter={() => { targetHoverRef.current = 1; }}
-      onMouseLeave={() => { targetHoverRef.current = 0; }}
-    >
-      {/* Ambient glow layer */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            "radial-gradient(ellipse 55% 55% at 50% 52%, rgba(0,80,180,0.16) 0%, rgba(0,30,100,0.05) 45%, transparent 70%)",
-          filter: "blur(18px)",
-        }}
-      />
-    </div>
+      className="absolute inset-0 w-full h-full pointer-events-none"
+    />
   );
 }
