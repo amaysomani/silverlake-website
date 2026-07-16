@@ -28,23 +28,31 @@ export default function InnovationHubClient() {
     window.location.href = "mailto:contact@silverlakelaw.in";
   };
 
+  const rafScrollRef = useRef<number>(0);
+
   const handleScroll = useCallback(() => {
-    const container = containerRef.current;
-    if (!container) return;
-    const scrollTop = container.scrollTop;
-    const scrollHeight = container.scrollHeight - container.clientHeight;
-    const progress = scrollHeight > 0 ? scrollTop / scrollHeight : 0;
-    setScrollProgress(Math.min(1, Math.max(0, progress)));
-    const sectionHeight = container.clientHeight;
-    const section = Math.round(scrollTop / sectionHeight);
-    setCurrentSection(Math.min(3, Math.max(0, section)));
+    // Cancel any pending RAF update so we only run once per frame
+    cancelAnimationFrame(rafScrollRef.current);
+    rafScrollRef.current = requestAnimationFrame(() => {
+      const container = containerRef.current;
+      if (!container) return;
+      const scrollTop = container.scrollTop;
+      const scrollHeight = container.scrollHeight - container.clientHeight;
+      const progress = scrollHeight > 0 ? scrollTop / scrollHeight : 0;
+      setScrollProgress(Math.min(1, Math.max(0, progress)));
+      const section = Math.round(scrollTop / container.clientHeight);
+      setCurrentSection(Math.min(3, Math.max(0, section)));
+    });
   }, []);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
     container.addEventListener("scroll", handleScroll, { passive: true });
-    return () => container.removeEventListener("scroll", handleScroll);
+    return () => {
+      container.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(rafScrollRef.current);
+    };
   }, [handleScroll]);
 
   // Background Audio Effect
@@ -333,7 +341,7 @@ export default function InnovationHubClient() {
         <section className="inno-snap-section flex flex-col justify-center px-6 lg:px-10 relative">
           <div className="absolute bottom-8 left-6 lg:left-10 font-tech text-[9px] tracking-[0.2em] uppercase">
             <span className="bg-gradient-to-r from-[#9bb8e1] to-[#2c4e73] bg-clip-text text-transparent font-bold">//01</span>
-            <span className="text-white/30 ml-2">Manifesto</span>
+            <span className="text-white/60 ml-2">Manifesto</span>
           </div>
 
           <div className="max-w-[1600px] mx-auto w-full">
@@ -347,7 +355,7 @@ export default function InnovationHubClient() {
                   className="font-tech text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white uppercase leading-[1.05] tracking-tight"
                 >
                   <span className="block">Legal Engineering with</span>
-                  <span className="block bg-gradient-to-r from-white/60 to-white/30 bg-clip-text text-transparent">conviction</span>
+                  <span className="block bg-gradient-to-r from-white/80 to-white/50 bg-clip-text text-transparent">conviction</span>
                 </motion.h2>
 
                 <motion.p
@@ -355,7 +363,7 @@ export default function InnovationHubClient() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.2, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                  className="mt-10 text-white/70 text-sm sm:text-base font-light leading-relaxed max-w-lg"
+                  className="mt-10 text-white/85 text-sm sm:text-base font-light leading-relaxed max-w-lg"
                 >
                   ARNO is Silverlake&apos;s AI-native legal intelligence engine, purpose-built for the
                   venture capital ecosystem. We deploy autonomous strategist modules that map capital
@@ -367,7 +375,7 @@ export default function InnovationHubClient() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.4, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                  className="mt-6 text-white/60 text-sm font-light leading-relaxed max-w-lg"
+                  className="mt-6 text-white/75 text-sm font-light leading-relaxed max-w-lg"
                 >
                   We don&apos;t wait for consensus. We move with speed and clarity. Infrastructure first.
                   Returns follow.
@@ -395,7 +403,7 @@ export default function InnovationHubClient() {
                       <span className="font-tech text-[10px] bg-gradient-to-r from-[#cc66d0] to-[#5588ff] bg-clip-text text-transparent tracking-widest font-bold">{tenet.num}</span>
                       <h3 className="font-tech text-sm font-bold text-white tracking-wide group-hover:text-white transition-colors duration-500">{tenet.title}</h3>
                     </div>
-                    <p className="text-white/60 text-xs font-light leading-relaxed group-hover:text-white transition-colors duration-500">{tenet.desc}</p>
+                    <p className="text-white/70 text-xs font-light leading-relaxed group-hover:text-white transition-colors duration-500">{tenet.desc}</p>
                   </motion.div>
                 ))}
               </div>
@@ -407,7 +415,7 @@ export default function InnovationHubClient() {
         <section className="inno-snap-section flex flex-col justify-center px-6 lg:px-10 py-16 relative" style={{ minHeight: "auto", scrollSnapAlign: "start" }}>
           <div className="absolute top-8 left-6 lg:left-10 font-tech text-[9px] tracking-[0.2em] uppercase">
             <span className="bg-gradient-to-r from-[#cc66d0] to-[#5588ff] bg-clip-text text-transparent font-bold">//02</span>
-            <span className="text-white/30 ml-2">Platform</span>
+            <span className="text-white/60 ml-2">Platform</span>
           </div>
 
           <div className="max-w-[1600px] mx-auto w-full">
@@ -424,7 +432,7 @@ export default function InnovationHubClient() {
                 </div>
                 <h2 className="font-tech text-3xl sm:text-5xl font-extrabold text-white uppercase leading-tight tracking-tight">
                   The Legal Studio.<br />
-                  <span className="block mt-2 text-base sm:text-xl md:text-2xl font-semibold tracking-normal bg-gradient-to-r from-white/60 to-white/30 bg-clip-text text-transparent normal-case leading-relaxed">
+                  <span className="block mt-2 text-base sm:text-xl md:text-2xl font-semibold tracking-normal bg-gradient-to-r from-white/80 to-white/50 bg-clip-text text-transparent normal-case leading-relaxed">
                     An Intelligent Synthesis of Market Strategy, Predictive Financial Modeling, and Automated Legal Architecture.
                   </span>
                 </h2>
@@ -532,8 +540,8 @@ export default function InnovationHubClient() {
           />
 
           <div className="absolute bottom-20 left-6 lg:left-12 font-tech text-[9px] tracking-[0.2em] uppercase">
-            <span className="text-[#00d4ff]/50 font-bold">//03</span>
-            <span className="text-white/20 ml-2">Contact</span>
+            <span className="text-[#00d4ff]/70 font-bold">//03</span>
+            <span className="text-white/50 ml-2">Contact</span>
           </div>
 
           <div className="max-w-[900px] mx-auto text-center relative z-10">
@@ -546,7 +554,7 @@ export default function InnovationHubClient() {
               className="mb-8 flex items-center justify-center gap-4"
             >
               <div className="h-[1px] w-16 bg-gradient-to-r from-transparent to-[#00d4ff]/40" />
-              <span className="font-tech text-[9px] tracking-[0.15em] text-[#00d4ff]/60 uppercase">Curious? Jump in and explore this interactive demo.</span>
+              <span className="font-tech text-[9px] tracking-[0.15em] text-[#00d4ff]/80 uppercase">Curious? Jump in and explore this interactive demo.</span>
               <div className="h-[1px] w-16 bg-gradient-to-l from-transparent to-[#00d4ff]/40" />
             </motion.div>
 
@@ -558,7 +566,7 @@ export default function InnovationHubClient() {
               className="font-tech text-3xl sm:text-5xl lg:text-6xl font-bold text-white uppercase leading-tight tracking-tight mb-6"
             >
               We prioritize warm<br />
-              <span className="text-white/70">introductions</span>
+              <span className="text-white/85">introductions</span>
             </motion.h2>
 
             <motion.p
@@ -566,7 +574,7 @@ export default function InnovationHubClient() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2, duration: 0.8 }}
-              className="text-white/60 text-sm font-light leading-relaxed max-w-md mx-auto mb-14"
+              className="text-white/75 text-sm font-light leading-relaxed max-w-md mx-auto mb-14"
             >
               The best collaborations begin with a trusted introduction.
               Reach out through your network or connect with us directly.
@@ -602,19 +610,19 @@ export default function InnovationHubClient() {
 
           <div className="absolute bottom-0 left-0 right-0 px-6 lg:px-12 py-6 border-t border-white/[0.04]">
             <div className="max-w-[1600px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-              <span className="font-tech text-[9px] tracking-[0.2em] text-white/15 uppercase">
+              <span className="font-tech text-[9px] tracking-[0.2em] text-white/40 uppercase">
                 &copy; Silverlake Legal Advisors LLP {new Date().getFullYear()}
               </span>
               <div className="flex items-center gap-6">
                 <Link
                   href="/privacy-policy"
-                  className="font-tech text-[9px] tracking-[0.15em] text-white/15 uppercase hover:text-white/40 transition-colors"
+                  className="font-tech text-[9px] tracking-[0.15em] text-white/40 uppercase hover:text-white/70 transition-colors"
                 >
                   Privacy Policy
                 </Link>
                 <Link
                   href="/"
-                  className="font-tech text-[9px] tracking-[0.15em] text-white/15 uppercase hover:text-white/40 transition-colors"
+                  className="font-tech text-[9px] tracking-[0.15em] text-white/40 uppercase hover:text-white/70 transition-colors"
                 >
                   Return to Silverlake
                 </Link>

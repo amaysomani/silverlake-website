@@ -742,14 +742,20 @@ body {
 .inno-snap-container {
   height: 100vh;
   overflow-y: auto;
-  scroll-snap-type: y mandatory;
+  scroll-snap-type: y proximity;
   scroll-behavior: smooth;
+  overscroll-behavior-y: none;
+  will-change: scroll-position;
+  -webkit-overflow-scrolling: touch;
 }
 
 .inno-snap-section {
   scroll-snap-align: start;
+  scroll-snap-stop: normal;
   min-height: 100vh;
   position: relative;
+  will-change: transform;
+  transform: translateZ(0);
 }
 
 /* ─── Glass Card ─── */
