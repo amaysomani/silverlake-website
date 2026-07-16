@@ -480,7 +480,7 @@ export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) 
 
               <div className="flex flex-col lg:flex-row flex-1 overflow-hidden h-full">
                 {/* Left: Input Form */}
-                <div className="w-full lg:w-[500px] p-8 sm:p-10 lg:border-r border-b lg:border-b-0 border-white/10 overflow-y-auto no-scrollbar flex flex-col">
+                <div className="w-full lg:w-[350px] p-8 sm:p-10 lg:border-r border-b lg:border-b-0 border-white/10 overflow-y-auto no-scrollbar flex flex-col">
                   <div>
                     <h2 className="text-2xl font-bold text-white font-tech uppercase tracking-tight mb-3">{activeProduct.title}</h2>
                     <p className="text-xs text-white/30 uppercase tracking-[0.2em] font-mono mb-4 font-bold">// CAPABILITIES</p>

@@ -519,7 +519,7 @@ export default function ModuleDashboard({ moduleId, themeColors }: ModuleDashboa
   return (
     <div className="w-full h-full flex bg-[#0B0F19] text-white font-sans overflow-hidden">
       {/* LEFT SIDEBAR (REMOVED ARNO LOGO/NAME) */}
-      <div className="w-[160px] md:w-[180px] shrink-0 border-r border-[#1f2937] flex flex-col p-3.5 bg-[#080c14] relative justify-between h-full">
+      <div className="w-[180px] md:w-[240px] shrink-0 border-r border-[#1f2937] flex flex-col p-3.5 bg-[#080c14] relative justify-between h-full">
          {/* Glow decoration */}
          <div className="absolute bottom-0 left-0 w-full h-[120px] bg-gradient-to-t from-blue-900/10 to-transparent pointer-events-none blur-xl" />
          
