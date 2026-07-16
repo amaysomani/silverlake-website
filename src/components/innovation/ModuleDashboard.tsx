@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import {
   Grid, BarChart2, Star, FileText, Share2, Users, Plus, ChevronRight,
   TrendingUp, Zap, Scroll, Globe, PenTool, Scale, Coins, LayoutDashboard, Database, ShieldCheck, AlertCircle,
-  PieChart as LucidePieChart, Shield, Calendar, Activity
+  PieChart as LucidePieChart, Shield, Calendar, Activity, ArrowLeft
 } from "lucide-react";
 import {
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
@@ -14,8 +14,15 @@ import {
 } from "recharts";
 
 interface ModuleDashboardProps {
-  moduleId: string;
-  themeColors: string[];
+  activeProduct?: {
+    id: string;
+    title: string;
+    themeColors: string[];
+    descriptionPoints?: string[];
+  };
+  moduleId?: string;
+  themeColors?: string[];
+  onClose?: () => void;
 }
 
 const formatModuleName = (id: string) => {
@@ -26,8 +33,11 @@ const formatModuleName = (id: string) => {
   }).join(' ');
 };
 
-export default function ModuleDashboard({ moduleId, themeColors }: ModuleDashboardProps) {
+export default function ModuleDashboard({ activeProduct, moduleId: propModuleId, themeColors: propThemeColors, onClose }: ModuleDashboardProps) {
   const [activeSubtab, setActiveSubtab] = useState<string | null>(null);
+
+  const moduleId = activeProduct?.id || propModuleId || "";
+  const themeColors = activeProduct?.themeColors || propThemeColors || ["#3b82f6", "#8b5cf6", "#ec4899", "#14b8a6"];
 
   useEffect(() => {
     setActiveSubtab(null);
@@ -517,10 +527,16 @@ export default function ModuleDashboard({ moduleId, themeColors }: ModuleDashboa
   };
 
   return (
-    <div className="w-full h-full flex bg-[#0B0F19] text-white font-sans overflow-hidden rounded-xl border border-[#1f2937]">
+    <div className="w-full h-full flex bg-transparent text-white font-sans overflow-hidden">
       {/* LEFT SIDEBAR (REMOVED ARNO LOGO/NAME) */}
       <div className="w-[220px] shrink-0 border-r border-[#1f2937] flex flex-col p-4 h-full">
          <div className="flex flex-col gap-1 mt-4 overflow-y-auto no-scrollbar flex-1 pr-1">
+            {onClose && (
+              <button onClick={onClose} className="px-3 py-2 mb-1 flex items-center gap-2 text-white/40 hover:text-white/80 transition-colors group cursor-pointer w-full text-left">
+                <ArrowLeft className="w-3.5 h-3.5 group-hover:-translate-x-1 transition-transform" />
+                <span className="text-[10px] uppercase tracking-widest font-bold">Back</span>
+              </button>
+            )}
             <div 
               onClick={() => setActiveSubtab(null)}
               className={`px-3 py-2.5 rounded-lg flex items-center gap-3 cursor-pointer transition-all ${
@@ -952,6 +968,29 @@ export default function ModuleDashboard({ moduleId, themeColors }: ModuleDashboa
                    );
                  })}
               </>
+            ) : activeProduct?.descriptionPoints ? (
+              <>
+                 <div className="text-[9px] font-bold text-white/20 uppercase tracking-widest mt-3 mb-1 px-3">// Capabilities</div>
+                 {activeProduct.descriptionPoints.map((point, index) => {
+                   const icons = [FileText, Zap, Shield, Scale, AlertCircle, TrendingUp, BarChart2, Star, Users, Coins];
+                   const Icon = icons[index % icons.length];
+                   const isActive = activeSubtab === point;
+                   return (
+                     <div
+                       key={index}
+                       onClick={() => setActiveSubtab(point)}
+                       className={`px-3 py-1.5 rounded-lg flex items-center gap-3 cursor-pointer transition-all ${
+                         isActive 
+                           ? "bg-[#1f2937]/30 border border-white/5 text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]" 
+                           : "text-white/40 hover:text-white/80"
+                       }`}
+                     >
+                       <Icon className="w-3.5 h-3.5 opacity-80 text-blue-400 shrink-0" />
+                       <span className="text-[11px] leading-tight line-clamp-2">{point}</span>
+                     </div>
+                   );
+                 })}
+              </>
             ) : (
               <>
                  <div
@@ -1026,7 +1065,7 @@ export default function ModuleDashboard({ moduleId, themeColors }: ModuleDashboa
          </div>
 
          {/* CONTENT */}
-         <div className="flex-1 overflow-y-auto no-scrollbar p-6 lg:p-8 bg-gradient-to-b from-[#0B0F19] to-[#0a0d14]">
+         <div className="flex-1 overflow-y-auto no-scrollbar p-6 lg:p-10 bg-gradient-to-b from-[#0B0F19] to-[#0a0d14] relative">
             {/* Top Stats & Charts Row */}
             <div className="bg-[#111827]/40 border border-[#1f2937]/80 rounded-xl p-6">
                <div className="flex justify-end items-center mb-8">

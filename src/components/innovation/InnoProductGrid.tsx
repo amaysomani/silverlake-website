@@ -465,49 +465,9 @@ export default function InnoProductGrid({ soundEnabled }: InnoProductGridProps) 
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 30 }}
               transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-              className="w-full bg-[#020a19]/80 backdrop-blur-2xl border border-white/10 rounded-2xl overflow-hidden flex flex-col min-h-[600px] lg:h-[700px] shadow-[0_50px_100px_rgba(0,0,0,0.9)]"
+              className="w-full bg-[#0B0F19] border border-white/10 rounded-2xl overflow-hidden flex flex-col min-h-[600px] lg:h-[700px] shadow-[0_50px_100px_rgba(0,0,0,0.9)]"
             >
-              {/* Modal Header */}
-              <header className="flex justify-between items-center p-6 sm:px-10 border-b border-white/10 bg-[#020a19]/50">
-                <button onClick={handleCloseModal} className="flex items-center gap-3 text-white/50 hover:text-white transition-colors group cursor-pointer">
-                  <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-                  <span className="font-tech text-[10px] uppercase tracking-[0.2em] font-bold">RETURN TO PLATFORM</span>
-                </button>
-                <div className="font-tech text-[9px] uppercase tracking-widest text-white/30 hidden md:block">
-                  EXECUTION MODULE // {activeProduct.id.toUpperCase()}
-                </div>
-              </header>
-
-              <div className="flex flex-col lg:flex-row flex-1 overflow-hidden h-full">
-                {/* Left: Input Form */}
-                <div className="w-full lg:w-[500px] p-8 sm:p-10 lg:border-r border-b lg:border-b-0 border-white/10 overflow-y-auto no-scrollbar flex flex-col">
-                  <div>
-                    <h2 className="text-2xl font-bold text-white font-tech uppercase tracking-tight mb-3">{activeProduct.title}</h2>
-                    <p className="text-xs text-white/30 uppercase tracking-[0.2em] font-mono mb-4 font-bold">// CAPABILITIES</p>
-                    {activeProduct.descriptionPoints ? (
-                      <ul className="space-y-3 mb-8 list-none pl-0">
-                        {activeProduct.descriptionPoints.map((point, index) => (
-                          <li key={index} className="flex items-start gap-2.5 text-[11px] sm:text-xs text-white/50 font-light leading-relaxed">
-                            <span className="font-tech text-[9px] text-[#cc66d0]/75 mt-1 select-none font-bold whitespace-nowrap">
-                              0{index + 1}.
-                            </span>
-                            <span>{point}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    ) : (
-                      <p className="text-sm text-white/50 font-light mb-8">{activeProduct.description}</p>
-                    )}
-                  </div>
-                </div>
-
-                {/* Right: Output */}
-                <div className="flex-1 p-8 sm:p-10 overflow-y-auto no-scrollbar relative flex flex-col">
-                  <div className="flex-1 min-h-[500px] w-full">
-                    <ModuleDashboard moduleId={activeProduct.id} themeColors={activeProduct.themeColors} />
-                  </div>
-                </div>
-              </div>
+              <ModuleDashboard activeProduct={activeProduct} onClose={handleCloseModal} />
             </motion.div>
           )
         )}
