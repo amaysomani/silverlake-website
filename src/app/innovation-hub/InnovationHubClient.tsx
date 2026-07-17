@@ -113,14 +113,45 @@ export default function InnovationHubClient() {
                   }}
                 />
                 {/* 'arno' Logo SVG */}
-                <img
-                  src="/arnologo.svg"
-                  alt="ARNO Logo"
-                  className="relative w-[50vw] max-w-[500px] h-auto mx-auto"
-                  style={{
-                    filter: "drop-shadow(0 0 40px rgba(130,90,255,0.5)) drop-shadow(0 0 80px rgba(170,70,210,0.3))",
-                  }}
-                />
+                <div className="relative flex justify-center w-[50vw] max-w-[500px] mx-auto py-2">
+                  <style>{`
+                    @keyframes smooth-sweep {
+                      0% { transform: translateX(-150%) skewX(-25deg); }
+                      100% { transform: translateX(150%) skewX(-25deg); }
+                    }
+                    .animate-smooth-sheen {
+                      animation: smooth-sweep 3.5s ease-in-out infinite alternate;
+                    }
+                  `}</style>
+                  
+                  {/* Base Logo */}
+                  <img
+                    src="/arnologo.svg"
+                    alt="ARNO Logo"
+                    className="relative w-full h-auto block z-10"
+                    style={{
+                      filter: "drop-shadow(0 0 40px rgba(130,90,255,0.5)) drop-shadow(0 0 80px rgba(170,70,210,0.3))",
+                    }}
+                  />
+                  
+                  {/* Premium Glass Sheen (Masked strictly to the logo shape) */}
+                  <div 
+                    className="absolute inset-0 pointer-events-none z-20"
+                    style={{
+                      WebkitMaskImage: 'url(/arnologo.svg)',
+                      WebkitMaskSize: 'contain',
+                      WebkitMaskRepeat: 'no-repeat',
+                      WebkitMaskPosition: 'center',
+                      maskImage: 'url(/arnologo.svg)',
+                      maskSize: 'contain',
+                      maskRepeat: 'no-repeat',
+                      maskPosition: 'center',
+                    }}
+                  >
+                    {/* Symmetrical soft wide beam that looks natural going both directions */}
+                    <div className="absolute top-0 left-0 w-[40%] h-[150%] animate-smooth-sheen bg-gradient-to-r from-transparent via-white/60 to-transparent mix-blend-overlay blur-[2px]" />
+                  </div>
+                </div>
               </motion.div>
 
               <motion.p
