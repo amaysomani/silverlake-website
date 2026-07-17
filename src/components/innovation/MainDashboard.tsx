@@ -103,7 +103,7 @@ export default function MainDashboard() {
               <div className="flex flex-col h-full min-h-0">
                 <div className="mb-1 shrink-0">
                   <div className="text-[10px] text-white/50">Total Billed</div>
-                  <div className="text-lg md:text-xl font-serif text-white tracking-wide mt-0.5">$31,316.40</div>
+                  <div className="text-lg md:text-xl font-serif text-white tracking-wide mt-0.5">₹313,160.40</div>
                 </div>
                 <div className="flex-1 min-h-0 relative -ml-6">
                   <ResponsiveContainer width="100%" height="100%">
@@ -176,7 +176,7 @@ export default function MainDashboard() {
                     <div className="p-1.5 bg-white/5 rounded">
                       <FileBadge className="w-3.5 h-3.5 text-white/40" />
                     </div>
-                    <span className="text-[11px] text-white/70 group-hover:text-white/90 transition-colors truncate max-w-[130px] md:max-w-[180px]">Lease Agreement – Elysian Azure Bali</span>
+                    <span className="text-[11px] text-white/70 group-hover:text-white/90 transition-colors truncate max-w-[130px] md:max-w-[180px]">Retainership Agreement - Blackstone Asia Pte. Ltd.</span>
                   </div>
                   <span className="text-[8px] font-medium text-white/40 bg-white/5 px-2 py-0.5 rounded border border-white/5 shrink-0">Pending Review</span>
                 </div>
