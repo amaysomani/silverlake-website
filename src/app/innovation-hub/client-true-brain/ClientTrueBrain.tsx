@@ -7,9 +7,9 @@ import Image from "next/image";
 import ParticleCanvas from "@/components/innovation/ParticleCanvas";
 import InnoHeader from "@/components/innovation/InnoHeader";
 import InnoScrollIndicator from "@/components/innovation/InnoScrollIndicator";
-import InnoProductGrid from "@/components/innovation/InnoProductGrid";
+import TrueBrainProductGrid from "@/components/innovation/TrueBrainProductGrid";
 import InteractiveCrystal from "@/components/innovation/InteractiveCrystal";
-import MainDashboard from "@/components/innovation/MainDashboard";
+import TrueBrainDashboard from "@/components/innovation/TrueBrainDashboard";
 import { resumeAudioContext } from "@/lib/ArnoAudio";
 
 export default function ClientTrueBrain() {
@@ -365,13 +365,12 @@ export default function ClientTrueBrain() {
               transition={{ duration: 1, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
               className="mt-12 mb-24 w-full flex flex-col items-center"
             >
-              <h3 className="font-tech text-2xl font-bold text-white uppercase mb-8 tracking-widest text-center">Dashboard</h3>
               <div className="w-full max-w-[1000px] aspect-[16/9] rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-[#0B0F19]">
-                <MainDashboard />
+                <TrueBrainDashboard />
               </div>
             </motion.div>
 
-            <InnoProductGrid soundEnabled={soundEnabled} />
+            <TrueBrainProductGrid soundEnabled={soundEnabled} />
 
             {/* BOOK A DEMO */}
             <motion.div
