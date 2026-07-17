@@ -38,49 +38,15 @@ interface Product {
 
 const products: Product[] = [
   {
-    id: "growth-strategy",
-    title: "Growth and Strategy",
-    description: "Strategic planning and growth roadmaps for enterprise expansion.",
-    descriptionPoints: [
-      "Develop actionable growth roadmaps for scalable expansion.",
-      "Identify key market opportunities and penetration strategies.",
-      "Analyze competitive landscape and business positioning.",
-      "Optimize resource allocation for maximum ROI.",
-      "Align operational goals with long-term vision."
-    ],
-    icon: "TrendingUp",
-    themeColors: ["#0d5e65", "#248694", "#157582", "#084851"],
-    inputs: [{ id: "market", label: "Target Market", type: "text", placeholder: "e.g., Enterprise Software" }],
-    getSystemInstruction: () => "You are an elite Growth Strategist.",
-    getPrompt: (i) => `Outline a growth strategy for ${i.market || "your industry"}.`
-  },
-  {
-    id: "public-relations",
-    title: "Public Relations",
-    description: "Brand management, media outreach, and strategic communications.",
-    descriptionPoints: [
-      "Craft compelling narratives to elevate brand presence.",
-      "Manage media relations and press distributions.",
-      "Develop crisis communication protocols and responses.",
-      "Enhance public image through strategic storytelling.",
-      "Monitor brand sentiment and engagement metrics."
-    ],
-    icon: "Globe",
-    themeColors: ["#a64b28", "#c96f43", "#853a1a", "#612a14"],
-    inputs: [{ id: "topic", label: "PR Topic", type: "text", placeholder: "e.g., Product Launch" }],
-    getSystemInstruction: () => "You are an expert PR Manager.",
-    getPrompt: (i) => `Draft a PR strategy for ${i.topic || "a new announcement"}.`
-  },
-  {
     id: "recruitment",
-    title: "Recruitment",
-    description: "Talent acquisition, team building, and organizational scaling.",
+    title: "Recruitment Intelligence",
+    description: "Employer Brand, Talent Attraction and Employee Communications",
     descriptionPoints: [
-      "Design comprehensive talent acquisition frameworks.",
-      "Streamline interview processes and candidate evaluations.",
-      "Build employer branding to attract top-tier professionals.",
-      "Implement effective onboarding and retention strategies.",
-      "Align hiring plans with strategic business objectives."
+      "Evaluate how the organisation presents itself to employees and prospective talent.",
+      "Create a consistent employer narrative explaining why people should join, contribute, and remain.",
+      "Map the communication journey from awareness to onboarding.",
+      "Plan and manage communications that inform employees, support change, and strengthen trust.",
+      "Plan employer brand and talent attraction campaigns."
     ],
     icon: "Users",
     themeColors: ["#134e5e", "#71b280", "#0f9b0f", "#1d976c"],
@@ -89,21 +55,55 @@ const products: Product[] = [
     getPrompt: (i) => `Outline a recruitment plan for ${i.role || "a key position"}.`
   },
   {
+    id: "growth-strategy",
+    title: "Growth & Strategy",
+    description: "Brand Positioning, Market Intelligence and Communications Strategy",
+    descriptionPoints: [
+      "Consolidate interviews, workshops, perception research, and existing materials to establish current brand position.",
+      "Compare competitors across positioning, narrative, communication activity, audience, and differentiation.",
+      "Convert approved insights into a unified narrative and messaging framework.",
+      "Identify communication-led opportunities from market context, stakeholder needs, and competitor activity.",
+      "Convert an approved strategy into a phased communications programme."
+    ],
+    icon: "TrendingUp",
+    themeColors: ["#0d5e65", "#248694", "#157582", "#084851"],
+    inputs: [{ id: "market", label: "Target Market", type: "text", placeholder: "e.g., Enterprise Software" }],
+    getSystemInstruction: () => "You are an elite Growth Strategist.",
+    getPrompt: (i) => `Outline a growth strategy for ${i.market || "your industry"}.`
+  },
+  {
     id: "corporate-communications",
     title: "Corporate Communications",
-    description: "Internal and external corporate messaging and alignment.",
+    description: "Stakeholder Alignment, Executive Communications and Reputation Management",
     descriptionPoints: [
-      "Ensure consistent messaging across all corporate channels.",
-      "Develop internal communications to foster company culture.",
-      "Draft executive communications and stakeholder updates.",
-      "Manage investor relations messaging and reports.",
-      "Align external communications with strategic goals."
+      "Map stakeholder groups, information needs, current concerns, and required communication actions.",
+      "Maintain the approved corporate story, messages, positioning, and proof points.",
+      "Plan leadership messaging, executive visibility, and thought leadership.",
+      "Coordinate employee communication, announcements, leadership messaging, and feedback.",
+      "Identify potential issues, prepare response material, and coordinate communication during reputational events."
     ],
     icon: "MessageSquare",
     themeColors: ["#2980b9", "#6dd5ed", "#2193b0", "#2c3e50"],
     inputs: [{ id: "audience", label: "Target Audience", type: "text", placeholder: "e.g., Investors" }],
     getSystemInstruction: () => "You are a Corporate Communications Executive.",
     getPrompt: (i) => `Draft a communication brief for ${i.audience || "key stakeholders"}.`
+  },
+  {
+    id: "public-relations",
+    title: "Public Relations Intelligence",
+    description: "Media Relations, Storytelling and Thought Leadership",
+    descriptionPoints: [
+      "Develop an evidence-based PR programme aligned with business objectives, competition, and news context.",
+      "Organise journalist relationships, media lists, pitches, responses, and follow-ups.",
+      "Create and manage press releases, launch materials, press events, tours, and media assets.",
+      "Manage bylines, op-eds, speaking opportunities, media commentary, and awards.",
+      "Record verified coverage and analyse themes, message inclusion, sentiment, and competitive visibility."
+    ],
+    icon: "Globe",
+    themeColors: ["#a64b28", "#c96f43", "#853a1a", "#612a14"],
+    inputs: [{ id: "topic", label: "PR Topic", type: "text", placeholder: "e.g., Product Launch" }],
+    getSystemInstruction: () => "You are an expert PR Manager.",
+    getPrompt: (i) => `Draft a PR strategy for ${i.topic || "a new announcement"}.`
   }
 ];
 
