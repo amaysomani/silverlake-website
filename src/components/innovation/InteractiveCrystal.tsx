@@ -133,7 +133,7 @@ export default function InteractiveCrystal() {
     sceneRef.current = scene;
 
     const camera = new THREE.PerspectiveCamera(42, W / H, 0.1, 200);
-    camera.position.set(0, 0, 7);
+    camera.position.set(0, 0, 4.5);
     cameraRef.current = camera;
 
     const renderer = new THREE.WebGLRenderer({
@@ -358,7 +358,20 @@ export default function InteractiveCrystal() {
   return (
     <div
       ref={containerRef}
-      className="absolute inset-0 w-full h-full pointer-events-none"
-    />
+      className="relative w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] lg:w-[500px] lg:h-[500px]"
+      style={{ cursor: "crosshair" }}
+      onMouseEnter={() => { targetHoverRef.current = 1; }}
+      onMouseLeave={() => { targetHoverRef.current = 0; }}
+    >
+      {/* Ambient glow layer */}
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          background:
+            "radial-gradient(ellipse 55% 55% at 50% 52%, rgba(0,80,180,0.16) 0%, rgba(0,30,100,0.05) 45%, transparent 70%)",
+          filter: "blur(18px)",
+        }}
+      />
+    </div>
   );
 }
