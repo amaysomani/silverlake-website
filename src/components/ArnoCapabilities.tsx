@@ -586,7 +586,7 @@ export default function ArnoCapabilities({ soundEnabled }: ArnoCapabilitiesProps
                 // LEGAL STRATEGIST SUITE
               </div>
               <h2 className="text-3xl sm:text-5xl font-bold uppercase tracking-tight text-white leading-tight font-sans">
-                URVASHI'S TECH SUITE<br />AUTONOMOUS VC WORKFLOWS.
+                THE LEGAL STUDIO.<br />AUTONOMOUS VC WORKFLOWS.
               </h2>
             </div>
             <div className="max-w-md">

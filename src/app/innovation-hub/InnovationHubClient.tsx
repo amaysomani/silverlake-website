@@ -407,9 +407,9 @@ export default function InnovationHubClient() {
                   // LEGAL STRATEGIST SUITE
                 </div>
                 <h2 className="font-tech text-3xl sm:text-5xl font-extrabold text-white uppercase leading-tight tracking-tight">
-                  Urvashi's Tech Suite<br />
+                  The Legal Studio.<br />
                   <span className="block mt-2 text-base sm:text-xl md:text-2xl font-semibold tracking-normal bg-gradient-to-r from-white/80 to-white/50 bg-clip-text text-transparent normal-case leading-relaxed">
-                    An Intelligent Synthesis of Market Strategy, Predictive Financial Modeling, and Automated Legal Architecture
+                    An Intelligent Synthesis of Market Strategy, Predictive Financial Modeling, and Automated Legal Architecture.
                   </span>
                 </h2>
               </div>
