@@ -10,21 +10,21 @@ export default function ContactPage() {
           <h1 className="font-serif text-[48px] sm:text-[64px] font-normal text-[#111] mb-16">
             Contact Us
           </h1>
-          
+
           <div className="space-y-12">
             <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#111]/40 mb-4">
                 Email
               </p>
-              <a 
-                href="mailto:contact@silverlakelaw.in" 
+              <a
+                href="mailto:contact@silverlakelaw.in"
                 className="text-[24px] sm:text-[28px] text-[#111] hover:text-[#C5A059] transition-colors font-light"
               >
                 contact@silverlakelaw.in
               </a>
             </div>
 
-            <div>
+            {/* <div>
               <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#111]/40 mb-4">
                 Phone
               </p>
@@ -42,7 +42,7 @@ export default function ContactPage() {
                   (+91) 7024 082 617
                 </a>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </main>

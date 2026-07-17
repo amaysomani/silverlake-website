@@ -56,11 +56,10 @@ export default function Header() {
     <>
       {/* ─── Transparent → Solid Header ─── */}
       <motion.header
-        className={`fixed top-0 z-40 w-full transition-all duration-700 ${
-          scrolled
+        className={`fixed top-0 z-40 w-full transition-all duration-700 ${scrolled
             ? "bg-[#0A1128]/95 backdrop-blur-xl shadow-lg shadow-black/10"
             : "bg-gradient-to-b from-black/70 via-black/30 to-transparent"
-        }`}
+          }`}
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="flex h-20 items-center justify-between">
@@ -86,16 +85,14 @@ export default function Header() {
                     <Link
                       key={link.name}
                       href={link.href}
-                      className={`text-[11px] font-medium tracking-[0.2em] uppercase transition-colors duration-300 py-2 relative group/nav ${
-                        isActive
+                      className={`text-[11px] font-medium tracking-[0.2em] uppercase transition-colors duration-300 py-2 relative group/nav ${isActive
                           ? "text-[#C5A059]"
                           : "text-[#fcfbf9]/70 hover:text-[#fcfbf9]"
-                      }`}
+                        }`}
                     >
                       {link.name}
-                      <span className={`absolute bottom-0 left-0 w-full h-[1px] bg-[#C5A059] transition-transform duration-500 origin-left ${
-                        isActive ? "scale-x-100" : "scale-x-0 group-hover/nav:scale-x-100"
-                      }`} />
+                      <span className={`absolute bottom-0 left-0 w-full h-[1px] bg-[#C5A059] transition-transform duration-500 origin-left ${isActive ? "scale-x-100" : "scale-x-0 group-hover/nav:scale-x-100"
+                        }`} />
                     </Link>
                   );
                 })}
@@ -198,11 +195,10 @@ export default function Header() {
                               <Link
                                 href={link.href}
                                 onClick={() => setDrawerOpen(false)}
-                                className={`block font-serif text-2xl sm:text-3xl lg:text-4xl font-light tracking-tight transition-all duration-500 py-1.5 lg:py-2 group ${
-                                  isActive
+                                className={`block font-serif text-2xl sm:text-3xl lg:text-4xl font-light tracking-tight transition-all duration-500 py-1.5 lg:py-2 group ${isActive
                                     ? "text-[#cdcab2]"
                                     : "text-[#f9f3f1]/40 hover:text-[#f9f3f1] hover:pl-4"
-                                }`}
+                                  }`}
                               >
                                 <span className="inline-flex items-center gap-4">
                                   <span className="text-xs font-sans font-medium tracking-widest text-[#cdcab2]/50 uppercase w-6">
@@ -241,8 +237,8 @@ export default function Header() {
                         <p className="text-[10px] uppercase tracking-[0.3em] text-[#cdcab2]/60 font-medium mb-3">Contact</p>
                         <div className="text-sm text-[#f9f3f1]/70 font-light space-y-1">
                           <a href="mailto:contact@silverlakelaw.in" className="hover:text-white transition-colors block">contact@silverlakelaw.in</a>
-                          <a href="tel:+918989599225" className="hover:text-white transition-colors block">(+91) 8989 599 225</a>
-                          <a href="tel:+917024082617" className="hover:text-white transition-colors block">(+91) 7024 082 617</a>
+                          {/* <a href="tel:+918989599225" className="hover:text-white transition-colors block">(+91) 8989 599 225</a>
+                          <a href="tel:+917024082617" className="hover:text-white transition-colors block">(+91) 7024 082 617</a> */}
                         </div>
                       </div>
                       <div className="pt-4 border-t border-white/5">

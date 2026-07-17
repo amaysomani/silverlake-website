@@ -16,7 +16,7 @@ const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
 
 const TwitterIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg viewBox="0 0 24 24" fill="currentColor" {...props}>
-    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 22.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
   </svg>
 );
 
@@ -27,7 +27,7 @@ export default function Footer() {
   const handleSubscribe = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
+
     const formData = new FormData(e.currentTarget);
     const email = formData.get('email');
 
@@ -185,14 +185,14 @@ export default function Footer() {
                 <a href="mailto:contact@silverlakelaw.in" className="text-xs text-[#f9f3f1] hover:text-[#cdcab2] transition-colors block mb-1">
                   contact@silverlakelaw.in
                 </a>
-                <a href="tel:+918989599225" className="text-xs text-[#f9f3f1]/60 hover:text-[#f9f3f1] transition-colors block mb-1">
+                {/* <a href="tel:+918989599225" className="text-xs text-[#f9f3f1]/60 hover:text-[#f9f3f1] transition-colors block mb-1">
                   (+91) 8989 599 225
                 </a>
                 <a href="tel:+917024082617" className="text-xs text-[#f9f3f1]/60 hover:text-[#f9f3f1] transition-colors block">
                   (+91) 7024 082 617
-                </a>
+                </a> */}
               </div>
-              
+
               <div>
                 <h4 className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#cdcab2]/40 mb-3">Our Offices</h4>
                 <ul className="space-y-2 text-xs font-light text-[#f9f3f1]/40">
