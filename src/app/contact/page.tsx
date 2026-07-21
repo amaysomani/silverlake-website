@@ -23,26 +23,6 @@ export default function ContactPage() {
                 contact@silverlakelaw.in
               </a>
             </div>
-
-            {/* <div>
-              <p className="text-[11px] font-semibold uppercase tracking-[0.3em] text-[#111]/40 mb-4">
-                Phone
-              </p>
-              <div className="flex flex-col gap-4">
-                <a 
-                  href="tel:+918989599225" 
-                  className="text-[24px] sm:text-[28px] text-[#111] hover:text-[#C5A059] transition-colors font-light"
-                >
-                  (+91) 8989 599 225
-                </a>
-                <a 
-                  href="tel:+917024082617" 
-                  className="text-[24px] sm:text-[28px] text-[#111] hover:text-[#C5A059] transition-colors font-light"
-                >
-                  (+91) 7024 082 617
-                </a>
-              </div>
-            </div> */}
           </div>
         </div>
       </main>

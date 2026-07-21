@@ -185,12 +185,6 @@ export default function Footer() {
                 <a href="mailto:contact@silverlakelaw.in" className="text-xs text-[#f9f3f1] hover:text-[#cdcab2] transition-colors block mb-1">
                   contact@silverlakelaw.in
                 </a>
-                {/* <a href="tel:+918989599225" className="text-xs text-[#f9f3f1]/60 hover:text-[#f9f3f1] transition-colors block mb-1">
-                  (+91) 8989 599 225
-                </a>
-                <a href="tel:+917024082617" className="text-xs text-[#f9f3f1]/60 hover:text-[#f9f3f1] transition-colors block">
-                  (+91) 7024 082 617
-                </a> */}
               </div>
 
               <div>

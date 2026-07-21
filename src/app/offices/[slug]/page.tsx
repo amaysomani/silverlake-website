@@ -71,16 +71,7 @@ export default async function OfficePage({ params }: { params: Promise<{ slug: s
               </h3>
               
               <div className="space-y-8">
-                <div>
-                  {office.phone.split(', ').map((p, idx) => (
-                    <div key={idx} className="flex items-center gap-3 mb-2">
-                      <Phone className="w-4 h-4 text-[#C5A059] shrink-0" />
-                      <a href={`tel:${p.replace(/\s/g, '').replace(/[()]/g, '')}`} className="text-[14px] text-[#444] hover:text-[#C5A059] transition-colors">
-                        {p}
-                      </a>
-                    </div>
-                  ))}
-                </div>
+
 
                 <div>
                   <div className="flex items-center gap-3">
