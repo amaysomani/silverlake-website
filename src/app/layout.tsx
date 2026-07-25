@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import SmoothScroll from "@/components/SmoothScroll";
@@ -53,7 +54,21 @@ export default function RootLayout({
           </SmoothScroll>
         </ThemeProvider>
         <Analytics />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-SWHMG6CYGM"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-SWHMG6CYGM');
+          `}
+        </Script>
       </body>
     </html>
   );
 }
+
